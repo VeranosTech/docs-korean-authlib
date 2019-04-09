@@ -1,0 +1,34 @@
+
+::selection {
+  color: white;
+  background-color: #3E7FCB;
+}
+a:hover,
+.yue a:hover,
+.site-head a:hover,
+.sidebar a:hover {
+  color: #3E7FCB;
+  border-color: #3E7FCB;
+}
+
+.button:hover {
+  background-color: #3E7FCB;
+}
+
+.highlighted {
+  background-color: #3E7FCB;
+}
+
+.sponsor_text a {
+  border-color: #3E7FCB;
+}
+
+.globaltoc a.current {
+  color: #3E7FCB;
+}
+
+.injected .rst-versions small a,
+.injected .rst-versions .rst-current-version,
+.injected .rst-versions .rst-other-versions dd a:hover {
+  color: #3E7FCB;
+}

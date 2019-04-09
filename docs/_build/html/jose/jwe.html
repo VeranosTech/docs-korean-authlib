@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Web Encryption (JWE) &mdash; Authlib 0.12.dev documentation</title>
+  <link rel="shortcut icon" href="../_static/favicon.ico"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono"><link rel="stylesheet" href="../_static/typlog.css?v=0.7.2" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme.css?v=0.7.2" type="text/css" />
+      <link rel="index" title="색인" href="../genindex.html"/>
+      <link rel="search" title="검색" href="../search.html"/>
+    <link rel="top" title="Authlib 0.12.dev documentation" href="../index.html"/>
+      <link rel="up" title="JOSE Guide" href="index.html"/>
+      <link rel="next" title="JSON Web Key (JWK)" href="jwk.html"/>
+      <link rel="prev" title="JSON Web Signature (JWS)" href="jws.html"/>
+  <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-34098939-7');ga('send', 'pageview');</script>
+  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script><link rel="apple-touch-icon" sizes="180x180" href="https://authlib.org/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Authlib">
+  <meta property="og:title" content="JSON Web Encryption (JWE)">
+    <meta property="og:description" content="The ultimate Python library in building OAuth and OpenID Connect servers. JWS, JWE, JWK, JWA, JWT are included.">
+    <meta property="og:image" content="https://authlib.org/logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@authlib">
+</head>
+<body role="document" data-page="jose/jwe">
+  <header class="t-head">
+    <div class="t-head_menu"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z"/></svg></div>
+    <a class="t-head_logo" href="../index.html"><img src="../_static/authlib.svg" alt="Logo"/>Authlib
+    </a>
+  </header>
+  <aside class="t-sidebar">
+    <div class="t-sidebar_close">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M405 136.798L375.202 107 256 226.202 136.798 107 107 136.798 226.202 256 107 375.202 136.798 405 256 285.798 375.202 405 405 375.202 285.798 256z"/></svg>
+    </div>
+    <div class="inner">
+<a class="logo" href="../index.html"><img src="../_static/authlib.svg" alt="Logo"/>
+    Authlib
+</a><div class="logo_desc">The ultimate Python library in building OAuth and OpenID Connect servers. JWS, JWE, JWK, JWA, JWT are included.</div>
+<div class="github_wrap">
+  <a class="github" href="https://github.com/lepture/authlib" target="_blank">
+    <span class="github_icon"></span>
+    <span class="github_stars">
+      <strong>-</strong>stars
+    </span>
+    <span class="github_forks">
+      <strong>-</strong>forks
+    </span>
+  </a>
+</div><div class="sponsors">
+  <div class="sponsor">
+    <a class="image" href="https://auth0.com/overview?utm_source=authlib&utm_medium=devsponsor&utm_campaign=authlib"><img src="https://user-images.githubusercontent.com/290496/39297078-89d00928-497d-11e8-8119-0c53afe14cd0.png" alt="Sponsor"></a>
+    <div class="text">The new way to solve Identity. Sponsored by <a href="https://auth0.com/overview?utm_source=authlib&utm_medium=devsponsor&utm_campaign=authlib">auth0.com</a></div>
+  </div>
+  <div class="patron">
+    <a class="patron-button" style="border: 1px solid #3E7FCB;display: inline-block;padding: 4px 18px;border-radius: 20px;color: #3E7FCB;" href="https://www.patreon.com/bePatron?u=8179754">Become a Patron!</a>
+  </div>
+</div><div class="globaltoc">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../basic/index.html">Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../client/index.html">Client Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">JOSE Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="jws.html">JSON Web Signature (JWS)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">JSON Web Encryption (JWE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jwk.html">JSON Web Key (JWK)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jwt.html">JSON Web Token (JWT)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../flask/1/index.html">Flask OAuth 1.0 Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flask/2/index.html">Flask OAuth 2.0 Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../django/1/index.html">Django OAuth 1.0 Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../specs/index.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../community/index.html">Community</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+
+</div><div class="useful-links">
+  <h3>Useful Links</h3>
+  <ul>
+    <li><a href="https://authlib.org/">Homepage</a></li>
+    <li><a href="https://blog.authlib.org/">Read Blog</a></li>
+    <li><a href="https://authlib.org/plans">Commercial License</a></li>
+    <li><a href="https://github.com/lepture/authlib">Star on GitHub</a></li>
+    <li><a href="https://twitter.com/authlib">Follow on Twitter</a></li>
+    <li><a href="https://stackoverflow.com/questions/tagged/authlib">Help on StackOverflow</a></li>
+    <li><a href="https://github.com/authlib/loginpass">Loginpass</a></li>
+  </ul>
+</div>
+<div id="searchbox">
+  <form class="search" action="../search.html" method="get">
+    <div class="input-group">
+      <input type="text" name="q" placeholder="검색" />
+      <button type="submit">바로 가기</button>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+    </div>
+  </aside>
+  <div class="t-content">
+    <div class="t-body yue">
+  <div class="section" id="module-authlib.jose.rfc7516">
+<span id="json-web-encryption-jwe"></span><span id="jwe-guide"></span><h1>JSON Web Encryption (JWE)<a class="headerlink" href="#module-authlib.jose.rfc7516" title="제목 주소">¶</a></h1>
+<p>JSON Web Encryption (JWE) represents encrypted content using
+JSON-based data structures.</p>
+<p>There are two types of JWE Serializations:</p>
+<ol class="arabic simple">
+<li>JWE Compact Serialization</li>
+<li>JWE JSON Serialization</li>
+</ol>
+<p>Authlib has only implemented the <strong>Compact Serialization</strong>. This feature
+is not mature yet, use at your own risk.</p>
+<p>The JWE Compact Serialization represents encrypted content as a compact,
+URL-safe string. This string is:</p>
+<blockquote>
+<div>BASE64URL(UTF8(JWE Protected Header)) || '.' ||
+BASE64URL(JWE Encrypted Key) || '.' ||
+BASE64URL(JWE Initialization Vector) || '.' ||
+BASE64URL(JWE Ciphertext) || '.' ||
+BASE64URL(JWE Authentication Tag)</div></blockquote>
+<p>An example (with line breaks for display purposes only):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkEyNTZHQ00ifQ</span>
+<span class="o">.</span>
+<span class="n">OKOawDo13gRp2ojaHV7LFpZcgV7T6DVZKTyKOMTYUmKoTCVJRgckCL9kiMT03JGe</span>
+<span class="n">ipsEdY3mx_etLbbWSrFr05kLzcSr4qKAq7YN7e9jwQRb23nfa6c9d</span><span class="o">-</span><span class="n">StnImGyFDb</span>
+<span class="n">Sv04uVuxIp5Zms1gNxKKK2Da14B8S4rzVRltdYwam_lDp5XnZAYpQdb76FdIKLaV</span>
+<span class="n">mqgfwX7XWRxv2322i</span><span class="o">-</span><span class="n">vDxRfqNzo_tETKzpVLzfiwQyeyPGLBIO56YJ7eObdv0je8</span>
+<span class="mi">1860</span><span class="n">ppamavo35UgoRdbYaBcoh9QcfylQr66oc6vFWXRcZ_ZT2LawVCWTIy3brGPi</span>
+<span class="mi">6</span><span class="n">UklfCpIMfIjf7iGdXKHzg</span>
+<span class="o">.</span>
+<span class="mi">48</span><span class="n">V1_ALb6US04U3b</span>
+<span class="o">.</span>
+<span class="mi">5</span><span class="n">eym8TW_c8SuK0ltJ3rpYIzOeDQz7TALvtu6UG9oMo4vpzs9tX_EFShS8iB7j6ji</span>
+<span class="n">SdiwkIr3ajwQzaBtQD_A</span>
+<span class="o">.</span>
+<span class="n">XFBoMYUZodetZdvTiFvSkQ</span>
+</pre></div>
+</div>
+<p>A JWE requires JWA to work properly. The algorithms for JWE are provided
+in <a class="reference internal" href="../specs/rfc7518.html#specs-rfc7518"><span class="std std-ref">RFC7518: JSON Web Algorithms</span></a>.</p>
+<div class="section" id="compact-serialize-and-deserialize">
+<h2>Compact Serialize and Deserialize<a class="headerlink" href="#compact-serialize-and-deserialize" title="제목 주소">¶</a></h2>
+<p>Generate a JWE compact serialization would be easy with
+<a class="reference internal" href="../specs/rfc7516.html#authlib.jose.rfc7516.JWE.serialize_compact" title="authlib.jose.rfc7516.JWE.serialize_compact"><code class="xref py py-meth docutils literal notranslate"><span class="pre">JWE.serialize_compact()</span></code></a>, build a JWE instance with JWA:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">authlib.jose</span> <span class="k">import</span> <span class="n">JWE</span>
+<span class="kn">from</span> <span class="nn">authlib.jose</span> <span class="k">import</span> <span class="n">JWE_ALGORITHMS</span>
+
+<span class="n">jws</span> <span class="o">=</span> <span class="n">JWS</span><span class="p">(</span><span class="n">algorithms</span><span class="o">=</span><span class="n">JWS_ALGORITHMS</span><span class="p">)</span>
+<span class="n">protected</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;alg&#39;</span><span class="p">:</span> <span class="s1">&#39;RSA-OAEP&#39;</span><span class="p">,</span> <span class="s1">&#39;enc&#39;</span><span class="p">:</span> <span class="s1">&#39;A256GCM&#39;</span><span class="p">}</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;hello&#39;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;rsa_public.pem&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">jws</span><span class="o">.</span><span class="n">serialize_compact</span><span class="p">(</span><span class="n">protected</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>There are two required algorithms in protected header: <code class="docutils literal notranslate"><span class="pre">alg</span></code> and <code class="docutils literal notranslate"><span class="pre">enc</span></code>.</p>
+<p>The available <code class="docutils literal notranslate"><span class="pre">alg</span></code> list:</p>
+<ol class="arabic simple">
+<li>RSA1_5, RSA-OAEP, RSA-OAEP-256</li>
+<li>A128KW, A192KW, A256KW</li>
+<li>A128GCMKW, A192GCMKW, A256GCMKW</li>
+</ol>
+<p>The available <code class="docutils literal notranslate"><span class="pre">enc</span></code> list:</p>
+<ol class="arabic simple">
+<li>A128CBC-HS256, A192CBC-HS384, A256CBC-HS512</li>
+<li>A128GCM, A192GCM, A256GCM</li>
+</ol>
+<p>More <code class="docutils literal notranslate"><span class="pre">alg</span></code> and <code class="docutils literal notranslate"><span class="pre">enc</span></code> will be added in the future.</p>
+<p>It is also available to compress the payload with <code class="docutils literal notranslate"><span class="pre">zip</span></code> header:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">protected</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;alg&#39;</span><span class="p">:</span> <span class="s1">&#39;RSA-OAEP&#39;</span><span class="p">,</span> <span class="s1">&#39;enc&#39;</span><span class="p">:</span> <span class="s1">&#39;A256GCM&#39;</span><span class="p">,</span> <span class="s1">&#39;zip&#39;</span><span class="p">:</span> <span class="s1">&#39;DEF&#39;</span><span class="p">}</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">jws</span><span class="o">.</span><span class="n">serialize_compact</span><span class="p">(</span><span class="n">protected</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To deserialize a JWE Compact Serialization, use
+<a class="reference internal" href="../specs/rfc7516.html#authlib.jose.rfc7516.JWE.deserialize_compact" title="authlib.jose.rfc7516.JWE.deserialize_compact"><code class="xref py py-meth docutils literal notranslate"><span class="pre">JWE.deserialize_compact()</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;rsa_private.pem&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">jwe</span><span class="o">.</span><span class="n">deserialize_compact</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+<span class="n">jwe_header</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;header&#39;</span><span class="p">]</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;payload&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The result of the <code class="docutils literal notranslate"><span class="pre">deserialize_compact</span></code> is a dict, which contains <code class="docutils literal notranslate"><span class="pre">header</span></code>
+and <code class="docutils literal notranslate"><span class="pre">payload</span></code>.</p>
+<p>Using <strong>JWK</strong> for keys? Find how to use JWK with <a class="reference internal" href="jwk.html#jwk-guide"><span class="std std-ref">JSON Web Key (JWK)</span></a>.</p>
+</div>
+</div>
+
+  <div class="t-pagination clearfix">
+    <span>
+      ← <a href="jws.html" title="JSON Web Signature (JWS)">JSON Web Signature (JWS)</a>
+    </span>
+    <span style="float:right">
+      <a href="jwk.html" title="JSON Web Key (JWK)">JSON Web Key (JWK)</a> →
+    </span>
+  </div>
+</div><footer class="t-foot">
+    &copy; Copyright 2018, Hsiaoming Ltd.
+    <br>
+    A <a href="https://typlog.com/">typlog</a> <a href="https://github.com/typlog/sphinx-typlog-theme">sphinx theme</a>,
+    designed by <a href="https://lepture.com/">Hsiaoming Yang</a>.
+</footer>
+  </div>
+  <script>$(function(){$(".t-head_menu").on("click",function(){$("body").addClass("_expand")});$(".t-body").on("click",function(){$("body").removeClass("_expand")});$(".t-sidebar_close").on("click",function(){$("body").removeClass("_expand")});$("a.footnote-reference").on("click",function(e){e.preventDefault();var id=$(this).attr("href");var html=$(id).find("td.label + td").html();var w=Math.max(document.documentElement.clientWidth,window.innerWidth||0);var style="top:"+e.pageY+"px;";if(w>560){style+="width:480px;";if(e.pageX>240&&e.pageX+240<w){style+="left:"+(e.pageX-240)+"px;"}else if(e.pageX<=240){style+="left:20px;"}else{style+="right:20px;"}}showFootnote(html,style)});function showFootnote(html,style){var CONTENT_ID="typlog-footnote-content";var content=document.getElementById(CONTENT_ID);if(!content){content=document.createElement("div");content.id=CONTENT_ID;$(".t-body").append(content)}var MASK_ID="typlog-footnote-mask";var mask=document.getElementById(MASK_ID);if(!mask){mask=document.createElement("div");mask.id=MASK_ID;document.body.appendChild(mask);mask.addEventListener("click",function(){content.className="";mask.className=""})}content.innerHTML=html;content.setAttribute("style",style);content.className="_active";mask.className="_active"}function fetchGitHubRepo(repo){var url="https://api.github.com/repos/"+repo;$.getJSON(url,function(data){var counts=[+new Date,data.stargazers_count,data.forks_count];localStorage.setItem("gh:"+repo,JSON.stringify(counts));updateGitHubStats(counts[1],counts[2])})}function updateGitHubStats(stars,forks){$(".github_stars strong").text(stars);$(".github_forks strong").text(forks)}function initGitHub(url){if(!url){return}var repo=url.replace("https://github.com/","");var cache=localStorage.getItem("gh:"+repo);if(cache){try{var counts=JSON.parse(cache);updateGitHubStats(counts[1],counts[2]);var delta=new Date-counts[0];if(delta<0||delta>9e5){fetchGitHubRepo(repo)}}catch(error){fetchGitHubRepo(repo)}}else{fetchGitHubRepo(repo)}}initGitHub($(".github").attr("href"))});</script>
+</body>
+</html>

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="An OAuth 2 implementation for requests Session, powered by Authlib." name="description" />
+<title>OAuth 2 Session &mdash; Authlib 0.12.dev documentation</title>
+  <link rel="shortcut icon" href="../_static/favicon.ico"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono"><link rel="stylesheet" href="../_static/typlog.css?v=0.7.2" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme.css?v=0.7.2" type="text/css" />
+      <link rel="index" title="색인" href="../genindex.html"/>
+      <link rel="search" title="검색" href="../search.html"/>
+    <link rel="top" title="Authlib 0.12.dev documentation" href="../index.html"/>
+      <link rel="up" title="Client Guide" href="index.html"/>
+      <link rel="next" title="Flask OAuth Client" href="flask.html"/>
+      <link rel="prev" title="OAuth 1 Client" href="oauth1.html"/>
+  <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-34098939-7');ga('send', 'pageview');</script>
+  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script><link rel="apple-touch-icon" sizes="180x180" href="https://authlib.org/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Authlib">
+  <meta property="og:title" content="OAuth 2 Session">
+    <meta property="og:description" content="An OAuth 2 implementation for requests Session, powered by Authlib.">
+    <meta property="og:image" content="https://authlib.org/logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@authlib">
+</head>
+<body role="document" data-page="client/oauth2">
+  <header class="t-head">
+    <div class="t-head_menu"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z"/></svg></div>
+    <a class="t-head_logo" href="../index.html"><img src="../_static/authlib.svg" alt="Logo"/>Authlib
+    </a>
+  </header>
+  <aside class="t-sidebar">
+    <div class="t-sidebar_close">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M405 136.798L375.202 107 256 226.202 136.798 107 107 136.798 226.202 256 107 375.202 136.798 405 256 285.798 375.202 405 405 375.202 285.798 256z"/></svg>
+    </div>
+    <div class="inner">
+<a class="logo" href="../index.html"><img src="../_static/authlib.svg" alt="Logo"/>
+    Authlib
+</a><div class="logo_desc">The ultimate Python library in building OAuth and OpenID Connect servers. JWS, JWE, JWK, JWA, JWT are included.</div>
+<div class="github_wrap">
+  <a class="github" href="https://github.com/lepture/authlib" target="_blank">
+    <span class="github_icon"></span>
+    <span class="github_stars">
+      <strong>-</strong>stars
+    </span>
+    <span class="github_forks">
+      <strong>-</strong>forks
+    </span>
+  </a>
+</div><div class="sponsors">
+  <div class="sponsor">
+    <a class="image" href="https://auth0.com/overview?utm_source=authlib&utm_medium=devsponsor&utm_campaign=authlib"><img src="https://user-images.githubusercontent.com/290496/39297078-89d00928-497d-11e8-8119-0c53afe14cd0.png" alt="Sponsor"></a>
+    <div class="text">The new way to solve Identity. Sponsored by <a href="https://auth0.com/overview?utm_source=authlib&utm_medium=devsponsor&utm_campaign=authlib">auth0.com</a></div>
+  </div>
+  <div class="patron">
+    <a class="patron-button" style="border: 1px solid #3E7FCB;display: inline-block;padding: 4px 18px;border-radius: 20px;color: #3E7FCB;" href="https://www.patreon.com/bePatron?u=8179754">Become a Patron!</a>
+  </div>
+</div><div class="globaltoc">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../basic/index.html">Get Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Client Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="oauth1.html">OAuth 1 Client</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">OAuth 2 Session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flask.html">Flask OAuth Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.html">Django OAuth Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mixed.html">OAuthClient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">Client API References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../jose/index.html">JOSE Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flask/1/index.html">Flask OAuth 1.0 Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flask/2/index.html">Flask OAuth 2.0 Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../django/1/index.html">Django OAuth 1.0 Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../specs/index.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../community/index.html">Community</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+
+</div><div class="useful-links">
+  <h3>Useful Links</h3>
+  <ul>
+    <li><a href="https://authlib.org/">Homepage</a></li>
+    <li><a href="https://blog.authlib.org/">Read Blog</a></li>
+    <li><a href="https://authlib.org/plans">Commercial License</a></li>
+    <li><a href="https://github.com/lepture/authlib">Star on GitHub</a></li>
+    <li><a href="https://twitter.com/authlib">Follow on Twitter</a></li>
+    <li><a href="https://stackoverflow.com/questions/tagged/authlib">Help on StackOverflow</a></li>
+    <li><a href="https://github.com/authlib/loginpass">Loginpass</a></li>
+  </ul>
+</div>
+<div id="searchbox">
+  <form class="search" action="../search.html" method="get">
+    <div class="input-group">
+      <input type="text" name="q" placeholder="검색" />
+      <button type="submit">바로 가기</button>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+    </div>
+  </aside>
+  <div class="t-content">
+    <div class="t-body yue">
+  <div class="section" id="oauth-2-session">
+<span id="id1"></span><h1>OAuth 2 Session<a class="headerlink" href="#oauth-2-session" title="제목 주소">¶</a></h1>
+<span class="target" id="module-authlib.client"></span><p>The <a class="reference internal" href="api.html#authlib.client.OAuth2Session" title="authlib.client.OAuth2Session"><code class="xref py py-class docutils literal notranslate"><span class="pre">OAuth2Session</span></code></a> in Authlib was designed to be compatible with
+the one in <strong>requests-oauthlib</strong>. But now, there are some differences.
+This section is a guide on how to obtain an access token in OAuth 2 flow.</p>
+<div class="admonition note">
+<p class="first admonition-title">주석</p>
+<p class="last">This <code class="docutils literal notranslate"><span class="pre">OAuth2Session</span></code> is a customized <code class="docutils literal notranslate"><span class="pre">requests.Session</span></code>. It shares
+the same API with requests. If you are using Flask, you may have interests
+in <a class="reference internal" href="flask.html#flask-client"><span class="std std-ref">Flask OAuth Client</span></a>. If you are using Django, please read
+<a class="reference internal" href="django.html#django-client"><span class="std std-ref">Django OAuth Client</span></a>.</p>
+</div>
+<p>If you are not familiar with OAuth 2.0, it is better to
+<a class="reference internal" href="../basic/oauth2.html#understand-oauth2"><span class="std std-ref">Understand OAuth 2.0</span></a> now.</p>
+<div class="section" id="oauth2session-for-authorization-code">
+<h2>OAuth2Session for Authorization Code<a class="headerlink" href="#oauth2session-for-authorization-code" title="제목 주소">¶</a></h2>
+<p>There are two steps in OAuth 2 to obtain an access token with authorization
+code grant type. Initialize the session for reuse:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">authlib.client</span> <span class="k">import</span> <span class="n">OAuth2Session</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client_id</span> <span class="o">=</span> <span class="s1">&#39;Your GitHub client ID&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client_secret</span> <span class="o">=</span> <span class="s1">&#39;Your GitHub client secret&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">scope</span> <span class="o">=</span> <span class="s1">&#39;user:email&#39;</span>  <span class="c1"># we want to fetch user&#39;s email</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">session</span> <span class="o">=</span> <span class="n">OAuth2Session</span><span class="p">(</span><span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">,</span> <span class="n">scope</span><span class="o">=</span><span class="n">scope</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can assign a <code class="docutils literal notranslate"><span class="pre">redirect_uri</span></code> in case you want to specify the callback
+url.</p>
+<div class="section" id="redirect-to-authorization-endpoint">
+<h3>Redirect to Authorization Endpoint<a class="headerlink" href="#redirect-to-authorization-endpoint" title="제목 주소">¶</a></h3>
+<p>Unlike OAuth 1, there is no request token. The first step is to jump to
+the remote authorization server:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">authorize_url</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/login/oauth/authorize&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">uri</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">create_authorization_url</span><span class="p">(</span><span class="n">authorize_url</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>
+<span class="go">https://github.com/login/oauth/authorize?response_type=code&amp;client_id=c..id&amp;scope=user%3Aemail&amp;state=d..t</span>
+</pre></div>
+</div>
+<p>The <a class="reference internal" href="api.html#authlib.client.OAuth2Session.create_authorization_url" title="authlib.client.OAuth2Session.create_authorization_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">OAuth2Session.create_authorization_url()</span></code></a> returns a tuple of
+<code class="docutils literal notranslate"><span class="pre">(uri,</span> <span class="pre">state)</span></code>, in real project, you should save the state for later use.</p>
+<p>Now head over to the generated authorization url, and grant the authorization.</p>
+</div>
+<div class="section" id="fetch-access-token">
+<span id="fetch-oauth2-access-token"></span><h3>Fetch Access Token<a class="headerlink" href="#fetch-access-token" title="제목 주소">¶</a></h3>
+<p>The authorization server will redirect you back to your site with a code and
+state arguments:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://example.com/github?code=42..e9&amp;state=d..t
+</pre></div>
+</div>
+<p>Use <a class="reference internal" href="api.html#authlib.client.OAuth2Session.fetch_access_token" title="authlib.client.OAuth2Session.fetch_access_token"><code class="xref py py-meth docutils literal notranslate"><span class="pre">OAuth2Session.fetch_access_token()</span></code></a> to obtain access token. This
+method will also verify the state in case of CSRF attack:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">authorization_response</span> <span class="o">=</span> <span class="s1">&#39;https://example.com/github?code=42..e9&amp;state=d..t&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">access_token_url</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/login/oauth/access_token&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">token</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">fetch_access_token</span><span class="p">(</span><span class="n">access_token_url</span><span class="p">,</span> <span class="n">authorization_response</span><span class="o">=</span><span class="n">authorization_response</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+<span class="go">{</span>
+<span class="go">    &#39;access_token&#39;: &#39;e..ad&#39;,</span>
+<span class="go">    &#39;token_type&#39;: &#39;bearer&#39;,</span>
+<span class="go">    &#39;scope&#39;: &#39;user:email&#39;</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<p>Save this token to access users' protected resources.</p>
+<p>In real project, this session can not be re-used since you are redirected to
+another website. You need to create another session yourself:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">state</span> <span class="o">=</span> <span class="n">restore_previous_state</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">session</span> <span class="o">=</span> <span class="n">OAuth2Session</span><span class="p">(</span><span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="n">state</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">session</span><span class="o">.</span><span class="n">fetch_access_token</span><span class="p">(</span><span class="n">access_token_url</span><span class="p">,</span> <span class="n">authorization_response</span><span class="o">=</span><span class="n">authorization_response</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Authlib has a built-in Flask/Django integration. Learn from them.</p>
+</div>
+</div>
+<div class="section" id="oauth2session-for-implicit">
+<h2>OAuth2Session for Implicit<a class="headerlink" href="#oauth2session-for-implicit" title="제목 주소">¶</a></h2>
+<p>OAuth2Session supports implicit grant type. It can fetch the access token with
+the <code class="docutils literal notranslate"><span class="pre">response_type</span></code> of <code class="docutils literal notranslate"><span class="pre">token</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">uri</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">create_authorization_url</span><span class="p">(</span><span class="n">authorize_url</span><span class="p">,</span> <span class="n">response_type</span><span class="o">=</span><span class="s1">&#39;token&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>
+<span class="go">https://some-service.com/oauth/authorize?response_type=token&amp;client_id=be..4d&amp;...</span>
+</pre></div>
+</div>
+<p>Visit this link, and grant the authorization, the OAuth authoirzation server will
+redirect back to your redirect_uri, the response url would be something like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">cb</span><span class="c1">#access_token=2..WpA&amp;state=xyz&amp;token_type=bearer&amp;expires_in=3600</span>
+</pre></div>
+</div>
+<p>Fetch access token from the fragment with <a class="reference internal" href="api.html#authlib.client.OAuth2Session.fetch_access_token" title="authlib.client.OAuth2Session.fetch_access_token"><code class="xref py py-meth docutils literal notranslate"><span class="pre">OAuth2Session.fetch_access_token()</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">token</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">fetch_access_token</span><span class="p">(</span><span class="n">authorization_response</span><span class="o">=</span><span class="n">authorization_response</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># if you don&#39;t specify access token endpoint, it will fetch from fragment.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+<span class="go">{&#39;access_token&#39;: &#39;2..WpA&#39;, &#39;token_type&#39;: &#39;bearer&#39;, &#39;expires_in&#39;: 3600}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">주석</p>
+<p class="last">GitHub doesn't support <code class="docutils literal notranslate"><span class="pre">token</span></code> response type, try with other services.</p>
+</div>
+</div>
+<div class="section" id="oauth2session-for-password">
+<h2>OAuth2Session for Password<a class="headerlink" href="#oauth2session-for-password" title="제목 주소">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">password</span></code> grant type is supported since Version 0.5. Use <code class="docutils literal notranslate"><span class="pre">username</span></code>
+and <code class="docutils literal notranslate"><span class="pre">password</span></code> to fetch the access token:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">token</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">fetch_access_token</span><span class="p">(</span><span class="n">token_url</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="s1">&#39;a-name&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">&#39;a-password&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="oauth2session-for-client-credentials">
+<h2>OAuth2Session for Client Credentials<a class="headerlink" href="#oauth2session-for-client-credentials" title="제목 주소">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">client_credentials</span></code> grant type is supported since Version 0.5. If no
+<code class="docutils literal notranslate"><span class="pre">code</span></code> or no user info provided, it would be a <code class="docutils literal notranslate"><span class="pre">client_credentials</span></code>
+request. But it is suggested that you specify a <code class="docutils literal notranslate"><span class="pre">grant_type</span></code> for it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">token</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">fetch_access_token</span><span class="p">(</span><span class="n">token_url</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># or with grant_type</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">token</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">fetch_access_token</span><span class="p">(</span><span class="n">token_url</span><span class="p">,</span> <span class="n">grant_type</span><span class="o">=</span><span class="s1">&#39;client_credentials&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="client-authentication">
+<h2>Client Authentication<a class="headerlink" href="#client-authentication" title="제목 주소">¶</a></h2>
+<p>When fetching access token, the authorization server will require a client
+authentication, Authlib has provided a <code class="xref py py-class docutils literal notranslate"><span class="pre">OAuth2ClientAuth</span></code> which
+supports 3 methods defined by RFC7591:</p>
+<ul class="simple">
+<li>client_secret_basic</li>
+<li>client_secret_post</li>
+<li>none</li>
+</ul>
+<p>The default value is <code class="docutils literal notranslate"><span class="pre">client_secret_basic</span></code>. You can change the auth method
+with <code class="docutils literal notranslate"><span class="pre">token_endpoint_auth_method</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">session</span> <span class="o">=</span> <span class="n">OAuth2Session</span><span class="p">(</span><span class="n">token_endpoint_auth_method</span><span class="o">=</span><span class="s1">&#39;client_secret_post&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If the authorization server requires other means of authentication, you can
+construct an <code class="docutils literal notranslate"><span class="pre">auth</span></code> of requests, and pass it to <code class="docutils literal notranslate"><span class="pre">fetch_access_token</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">auth</span> <span class="o">=</span> <span class="n">YourAuth</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">token</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">fetch_access_token</span><span class="p">(</span><span class="n">token_url</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It is also possible to extend the client authentication method with
+<a class="reference internal" href="api.html#authlib.client.OAuth2Session.register_client_auth_method" title="authlib.client.OAuth2Session.register_client_auth_method"><code class="xref py py-meth docutils literal notranslate"><span class="pre">register_client_auth_method()</span></code></a>. Besides the default
+three authentication methods, there are more provided by Authlib. e.g.</p>
+<ul class="simple">
+<li>client_secret_jwt</li>
+<li>private_key_jwt</li>
+</ul>
+<p>These two methods are defined by RFC7523 and OpenID Connect. Find more in
+<a class="reference internal" href="../specs/rfc7523.html#jwt-client-authentication"><span class="std std-ref">Using JWTs for Client Authentication</span></a>.</p>
+</div>
+<div class="section" id="access-protected-resources">
+<h2>Access Protected Resources<a class="headerlink" href="#access-protected-resources" title="제목 주소">¶</a></h2>
+<p>Now you can access the protected resources. If you re-use the session, you
+don't need to do anything:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">account_url</span> <span class="o">=</span> <span class="s1">&#39;https://api.github.com/user&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">account_url</span><span class="p">)</span>
+<span class="go">&lt;Response [200]&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="go">{...}</span>
+</pre></div>
+</div>
+<p>The above is not the real flow, just like what we did in
+<a class="reference internal" href="#fetch-oauth2-access-token"><span class="std std-ref">Fetch Access Token</span></a>, we need to create another session
+ourselves:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">token</span> <span class="o">=</span> <span class="n">restore_access_token_from_database</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># token is a dict which must contain ``access_token``, ``token_type``</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">session</span> <span class="o">=</span> <span class="n">OAuth2Session</span><span class="p">(</span><span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">,</span> <span class="n">token</span><span class="o">=</span><span class="n">token</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">account_url</span> <span class="o">=</span> <span class="s1">&#39;https://api.github.com/user&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">account_url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="compliance-fix-for-non-standard">
+<span id="compliance-fix-oauth2"></span><h2>Compliance Fix for non Standard<a class="headerlink" href="#compliance-fix-for-non-standard" title="제목 주소">¶</a></h2>
+<p>There are services that claimed they are providing OAuth API, but with a little
+differences. Some services even return with the wrong Content Type. Compliance
+hooks are provided to solve those problems:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">access_token_response</span></code>: invoked before token parsing.</li>
+<li><code class="docutils literal notranslate"><span class="pre">refresh_token_response</span></code>: invoked before refresh token parsing.</li>
+<li><code class="docutils literal notranslate"><span class="pre">protected_request</span></code>: invoked before making a request.</li>
+</ul>
+<p>For instance, linkedin is using a <code class="docutils literal notranslate"><span class="pre">oauth2_access_token</span></code> parameter in query
+string to protect users' resources, let's fix it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">authlib.common.urls</span> <span class="k">import</span> <span class="n">add_params_to_uri</span>
+
+<span class="k">def</span> <span class="nf">_non_compliant_param_name</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="n">access_token</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">token</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;access_token&#39;</span><span class="p">)</span>
+    <span class="n">token</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;oauth2_access_token&#39;</span><span class="p">,</span> <span class="n">access_token</span><span class="p">)]</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">add_params_to_uri</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">token</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">data</span>
+
+<span class="n">session</span><span class="o">.</span><span class="n">register_compliance_hook</span><span class="p">(</span>
+    <span class="s1">&#39;protected_request&#39;</span><span class="p">,</span> <span class="n">_non_compliant_param_name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you find a non standard OAuth 2 services, and you can't fix it. Please
+report it in GitHub issues.</p>
+</div>
+<div class="section" id="oauth-2-openid-connect">
+<h2>OAuth 2 OpenID Connect<a class="headerlink" href="#oauth-2-openid-connect" title="제목 주소">¶</a></h2>
+<p>For services that support OpenID Connect, if a scope of <code class="docutils literal notranslate"><span class="pre">openid</span></code> is provided,
+the authorization server will return a value of <code class="docutils literal notranslate"><span class="pre">id_token</span></code> in response:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">authlib.client</span> <span class="k">import</span> <span class="n">OAuth2Session</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client_id</span> <span class="o">=</span> <span class="s1">&#39;Your Google client ID&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client_secret</span> <span class="o">=</span> <span class="s1">&#39;Your Google client secret&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">scope</span> <span class="o">=</span> <span class="s1">&#39;openid email profile&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">session</span> <span class="o">=</span> <span class="n">OAuth2Session</span><span class="p">(</span><span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">,</span> <span class="n">scope</span><span class="o">=</span><span class="n">scope</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The remote server may require other parameters for OpenID Connect requests, for
+instance, it may require a <code class="docutils literal notranslate"><span class="pre">nonce</span></code> parameter, in thise case, you need to
+generate it yourself, and pass it to <code class="docutils literal notranslate"><span class="pre">create_authorization_url</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">authlib.common.security</span> <span class="k">import</span> <span class="n">generate_token</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># remember to save this nonce for verification</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nonce</span> <span class="o">=</span> <span class="n">generate_token</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">session</span><span class="o">.</span><span class="n">create_authorization_url</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">redirect_uri</span><span class="o">=</span><span class="s1">&#39;xxx&#39;</span><span class="p">,</span> <span class="n">nonce</span><span class="o">=</span><span class="n">nonce</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>At the last step of <code class="docutils literal notranslate"><span class="pre">session.fetch_access_token</span></code>, the return value contains
+a <code class="docutils literal notranslate"><span class="pre">id_token</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">fetch_access_token</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s1">&#39;id_token&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>This <code class="docutils literal notranslate"><span class="pre">id_token</span></code> is a JWT text, it can not be used unless it is parsed.
+Authlib has provided tools for parsing and validating OpenID Connect id_token:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">authlib.oidc.core</span> <span class="k">import</span> <span class="n">CodeIDToken</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">authlib.jose</span> <span class="k">import</span> <span class="n">jwt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># GET keys from https://www.googleapis.com/oauth2/v3/certs</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">claims</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s1">&#39;id_token&#39;</span><span class="p">],</span> <span class="n">keys</span><span class="p">,</span> <span class="n">claims_cls</span><span class="o">=</span><span class="n">CodeIDToken</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">claims</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Get deep inside with <a class="reference internal" href="../specs/rfc7519.html#authlib.jose.rfc7519.JWT" title="authlib.jose.rfc7519.JWT"><code class="xref py py-class docutils literal notranslate"><span class="pre">JWT</span></code></a> and
+<a class="reference internal" href="../specs/oidc.html#authlib.oidc.core.CodeIDToken" title="authlib.oidc.core.CodeIDToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">CodeIDToken</span></code></a>. Learn how to validate JWT claims
+at <a class="reference internal" href="../jose/jwt.html#jwt-guide"><span class="std std-ref">JSON Web Token (JWT)</span></a>.</p>
+</div>
+<div class="section" id="assertionsession">
+<h2>AssertionSession<a class="headerlink" href="#assertionsession" title="제목 주소">¶</a></h2>
+<p><a class="reference internal" href="api.html#authlib.client.AssertionSession" title="authlib.client.AssertionSession"><code class="xref py py-class docutils literal notranslate"><span class="pre">AssertionSession</span></code></a> is a Requests Session for Assertion Framework of
+OAuth 2.0 Authorization Grants. It is also know as service account. A
+configured <code class="docutils literal notranslate"><span class="pre">AssertionSession</span></code> with handle token authorization automatically,
+which means you can just use it.</p>
+<p>Take <a class="reference external" href="https://developers.google.com/identity/protocols/OAuth2ServiceAccount">Google Service Account</a> as an example, with the information in your
+service account JSON configure file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">authlib.client</span> <span class="k">import</span> <span class="n">AssertionSession</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;MyProject-1234.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">conf</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="n">token_url</span> <span class="o">=</span> <span class="n">conf</span><span class="p">[</span><span class="s1">&#39;token_uri&#39;</span><span class="p">]</span>
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;alg&#39;</span><span class="p">:</span> <span class="s1">&#39;RS256&#39;</span><span class="p">}</span>
+<span class="n">key_id</span> <span class="o">=</span> <span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;private_key_id&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">key_id</span><span class="p">:</span>
+    <span class="n">header</span><span class="p">[</span><span class="s1">&#39;kid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">key_id</span>
+
+<span class="c1"># Google puts scope in payload</span>
+<span class="n">claims</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;scope&#39;</span><span class="p">:</span> <span class="n">scope</span><span class="p">}</span>
+
+<span class="n">session</span> <span class="o">=</span> <span class="n">AssertionSession</span><span class="p">(</span>
+    <span class="n">grant_type</span><span class="o">=</span><span class="bp">cls</span><span class="o">.</span><span class="n">JWT_BEARER_GRANT_TYPE</span><span class="p">,</span>
+    <span class="n">token_url</span><span class="o">=</span><span class="n">token_url</span><span class="p">,</span>
+    <span class="n">issuer</span><span class="o">=</span><span class="n">conf</span><span class="p">[</span><span class="s1">&#39;client_email&#39;</span><span class="p">],</span>
+    <span class="n">audience</span><span class="o">=</span><span class="n">token_url</span><span class="p">,</span>
+    <span class="n">claims</span><span class="o">=</span><span class="n">claims</span><span class="p">,</span>
+    <span class="n">subject</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">key</span><span class="o">=</span><span class="n">conf</span><span class="p">[</span><span class="s1">&#39;private_key&#39;</span><span class="p">],</span>
+    <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>There is a ready to use <code class="docutils literal notranslate"><span class="pre">GoogleServiceAccount</span></code> in <a class="reference external" href="https://github.com/authlib/loginpass">loginpass</a>. You can
+also read these posts:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://blog.authlib.org/2018/access-google-analytics-api">Access Google Analytics API</a>.</li>
+<li><a class="reference external" href="https://blog.authlib.org/2018/authlib-for-gspread">Using Authlib with gspread</a>.</li>
+</ul>
+</div>
+</div>
+
+  <div class="t-pagination clearfix">
+    <span>
+      ← <a href="oauth1.html" title="OAuth 1 Client">OAuth 1 Client</a>
+    </span>
+    <span style="float:right">
+      <a href="flask.html" title="Flask OAuth Client">Flask OAuth Client</a> →
+    </span>
+  </div>
+</div><footer class="t-foot">
+    &copy; Copyright 2018, Hsiaoming Ltd.
+    <br>
+    A <a href="https://typlog.com/">typlog</a> <a href="https://github.com/typlog/sphinx-typlog-theme">sphinx theme</a>,
+    designed by <a href="https://lepture.com/">Hsiaoming Yang</a>.
+</footer>
+  </div>
+  <script>$(function(){$(".t-head_menu").on("click",function(){$("body").addClass("_expand")});$(".t-body").on("click",function(){$("body").removeClass("_expand")});$(".t-sidebar_close").on("click",function(){$("body").removeClass("_expand")});$("a.footnote-reference").on("click",function(e){e.preventDefault();var id=$(this).attr("href");var html=$(id).find("td.label + td").html();var w=Math.max(document.documentElement.clientWidth,window.innerWidth||0);var style="top:"+e.pageY+"px;";if(w>560){style+="width:480px;";if(e.pageX>240&&e.pageX+240<w){style+="left:"+(e.pageX-240)+"px;"}else if(e.pageX<=240){style+="left:20px;"}else{style+="right:20px;"}}showFootnote(html,style)});function showFootnote(html,style){var CONTENT_ID="typlog-footnote-content";var content=document.getElementById(CONTENT_ID);if(!content){content=document.createElement("div");content.id=CONTENT_ID;$(".t-body").append(content)}var MASK_ID="typlog-footnote-mask";var mask=document.getElementById(MASK_ID);if(!mask){mask=document.createElement("div");mask.id=MASK_ID;document.body.appendChild(mask);mask.addEventListener("click",function(){content.className="";mask.className=""})}content.innerHTML=html;content.setAttribute("style",style);content.className="_active";mask.className="_active"}function fetchGitHubRepo(repo){var url="https://api.github.com/repos/"+repo;$.getJSON(url,function(data){var counts=[+new Date,data.stargazers_count,data.forks_count];localStorage.setItem("gh:"+repo,JSON.stringify(counts));updateGitHubStats(counts[1],counts[2])})}function updateGitHubStats(stars,forks){$(".github_stars strong").text(stars);$(".github_forks strong").text(forks)}function initGitHub(url){if(!url){return}var repo=url.replace("https://github.com/","");var cache=localStorage.getItem("gh:"+repo);if(cache){try{var counts=JSON.parse(cache);updateGitHubStats(counts[1],counts[2]);var delta=new Date-counts[0];if(delta<0||delta>9e5){fetchGitHubRepo(repo)}}catch(error){fetchGitHubRepo(repo)}}else{fetchGitHubRepo(repo)}}initGitHub($(".github").attr("href"))});</script>
+</body>
+</html>

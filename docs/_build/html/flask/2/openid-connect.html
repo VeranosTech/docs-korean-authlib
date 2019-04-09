@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="How to create an OpenID Connect server in Flask with Authlib. And understand how OpenID Connect works." name="description" />
+<title>Flask OpenID Connect 1.0 &mdash; Authlib 0.12.dev documentation</title>
+  <link rel="shortcut icon" href="../../_static/favicon.ico"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono"><link rel="stylesheet" href="../../_static/typlog.css?v=0.7.2" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme.css?v=0.7.2" type="text/css" />
+      <link rel="index" title="색인" href="../../genindex.html"/>
+      <link rel="search" title="검색" href="../../search.html"/>
+    <link rel="top" title="Authlib 0.12.dev documentation" href="../../index.html"/>
+      <link rel="up" title="Flask OAuth 2.0 Server" href="index.html"/>
+      <link rel="next" title="API References of Flask OAuth 2.0 Server" href="api.html"/>
+      <link rel="prev" title="Resource Server" href="resource-server.html"/>
+  <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-34098939-7');ga('send', 'pageview');</script>
+  <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script><link rel="apple-touch-icon" sizes="180x180" href="https://authlib.org/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Authlib">
+  <meta property="og:title" content="Flask OpenID Connect 1.0">
+    <meta property="og:description" content="How to create an OpenID Connect server in Flask with Authlib. And understand how OpenID Connect works.">
+    <meta property="og:image" content="https://authlib.org/logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@authlib">
+</head>
+<body role="document" data-page="flask/2/openid-connect">
+  <header class="t-head">
+    <div class="t-head_menu"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z"/></svg></div>
+    <a class="t-head_logo" href="../../index.html"><img src="../../_static/authlib.svg" alt="Logo"/>Authlib
+    </a>
+  </header>
+  <aside class="t-sidebar">
+    <div class="t-sidebar_close">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M405 136.798L375.202 107 256 226.202 136.798 107 107 136.798 226.202 256 107 375.202 136.798 405 256 285.798 375.202 405 405 375.202 285.798 256z"/></svg>
+    </div>
+    <div class="inner">
+<a class="logo" href="../../index.html"><img src="../../_static/authlib.svg" alt="Logo"/>
+    Authlib
+</a><div class="logo_desc">The ultimate Python library in building OAuth and OpenID Connect servers. JWS, JWE, JWK, JWA, JWT are included.</div>
+<div class="github_wrap">
+  <a class="github" href="https://github.com/lepture/authlib" target="_blank">
+    <span class="github_icon"></span>
+    <span class="github_stars">
+      <strong>-</strong>stars
+    </span>
+    <span class="github_forks">
+      <strong>-</strong>forks
+    </span>
+  </a>
+</div><div class="sponsors">
+  <div class="sponsor">
+    <a class="image" href="https://auth0.com/overview?utm_source=authlib&utm_medium=devsponsor&utm_campaign=authlib"><img src="https://user-images.githubusercontent.com/290496/39297078-89d00928-497d-11e8-8119-0c53afe14cd0.png" alt="Sponsor"></a>
+    <div class="text">The new way to solve Identity. Sponsored by <a href="https://auth0.com/overview?utm_source=authlib&utm_medium=devsponsor&utm_campaign=authlib">auth0.com</a></div>
+  </div>
+  <div class="patron">
+    <a class="patron-button" style="border: 1px solid #3E7FCB;display: inline-block;padding: 4px 18px;border-radius: 20px;color: #3E7FCB;" href="https://www.patreon.com/bePatron?u=8179754">Become a Patron!</a>
+  </div>
+</div><div class="globaltoc">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../basic/index.html">Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client/index.html">Client Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jose/index.html">JOSE Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/index.html">Flask OAuth 1.0 Server</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Flask OAuth 2.0 Server</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="authorization-server.html">Authorization Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grants.html">Register Grants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="endpoints.html">Token Endpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resource-server.html">Resource Server</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Flask OpenID Connect 1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API References of Flask OAuth 2.0 Server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../django/1/index.html">Django OAuth 1.0 Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../specs/index.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../community/index.html">Community</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+</ul>
+
+</div><div class="useful-links">
+  <h3>Useful Links</h3>
+  <ul>
+    <li><a href="https://authlib.org/">Homepage</a></li>
+    <li><a href="https://blog.authlib.org/">Read Blog</a></li>
+    <li><a href="https://authlib.org/plans">Commercial License</a></li>
+    <li><a href="https://github.com/lepture/authlib">Star on GitHub</a></li>
+    <li><a href="https://twitter.com/authlib">Follow on Twitter</a></li>
+    <li><a href="https://stackoverflow.com/questions/tagged/authlib">Help on StackOverflow</a></li>
+    <li><a href="https://github.com/authlib/loginpass">Loginpass</a></li>
+  </ul>
+</div>
+<div id="searchbox">
+  <form class="search" action="../../search.html" method="get">
+    <div class="input-group">
+      <input type="text" name="q" placeholder="검색" />
+      <button type="submit">바로 가기</button>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+    </div>
+  </aside>
+  <div class="t-content">
+    <div class="t-body yue">
+  <div class="section" id="flask-openid-connect-1-0">
+<span id="flask-odic-server"></span><h1>Flask OpenID Connect 1.0<a class="headerlink" href="#flask-openid-connect-1-0" title="제목 주소">¶</a></h1>
+<p>OpenID Connect 1.0 is supported from version 0.6. The integrations are built
+with <a class="reference internal" href="grants.html#flask-oauth2-custom-grant-types"><span class="std std-ref">Custom Grant Types</span></a>. Since OpenID Connect is built on
+OAuth 2.0 frameworks, you need to read <a class="reference internal" href="index.html#flask-oauth2-server"><span class="std std-ref">Flask OAuth 2.0 Server</span></a> at first.</p>
+<span class="target" id="module-authlib.oauth2.rfc6749.grants"></span><div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="제목 주소">¶</a></h2>
+<p>OpenID Connect 1.0 requires JWT. It can be enabled by setting:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OAUTH2_JWT_ENABLED</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>When JWT is enabled, these configurations are available:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="38%" />
+<col width="62%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>OAUTH2_JWT_ALG</td>
+<td>Algorithm for JWT</td>
+</tr>
+<tr class="row-even"><td>OAUTH2_JWT_KEY</td>
+<td>Private key (in text) for JWT</td>
+</tr>
+<tr class="row-odd"><td>OAUTH2_JWT_KEY_PATH</td>
+<td>Private key path for JWT</td>
+</tr>
+<tr class="row-even"><td>OAUTH2_JWT_ISS</td>
+<td>Issuer value for JWT</td>
+</tr>
+<tr class="row-odd"><td>OAUTH2_JWT_EXP</td>
+<td>JWT expires time, default is 3600</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="oauth2-jwt-alg">
+<h3>OAUTH2_JWT_ALG<a class="headerlink" href="#oauth2-jwt-alg" title="제목 주소">¶</a></h3>
+<p>The algorithm to sign a JWT. This is the <code class="docutils literal notranslate"><span class="pre">alg</span></code> value defined in header
+part of a JWS:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;alg&quot;</span><span class="p">:</span> <span class="s2">&quot;RS256&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>The available algorithms are defined in <a class="reference internal" href="../../specs/rfc7518.html#specs-rfc7518"><span class="std std-ref">RFC7518: JSON Web Algorithms</span></a>, which are:</p>
+<ul class="simple">
+<li>HS256: HMAC using SHA-256</li>
+<li>HS384: HMAC using SHA-384</li>
+<li>HS512: HMAC using SHA-512</li>
+<li>RS256: RSASSA-PKCS1-v1_5 using SHA-256</li>
+<li>RS384: RSASSA-PKCS1-v1_5 using SHA-384</li>
+<li>RS512: RSASSA-PKCS1-v1_5 using SHA-512</li>
+<li>ES256: ECDSA using P-256 and SHA-256</li>
+<li>ES384: ECDSA using P-384 and SHA-384</li>
+<li>ES512: ECDSA using P-521 and SHA-512</li>
+<li>PS256: RSASSA-PSS using SHA-256 and MGF1 with SHA-256</li>
+<li>PS384: RSASSA-PSS using SHA-384 and MGF1 with SHA-384</li>
+<li>PS512: RSASSA-PSS using SHA-512 and MGF1 with SHA-512</li>
+</ul>
+<p>The HMAC using SHA algorithms are not suggested since you need to share
+secrets between server and client. Most OpenID Connect services are using
+<code class="docutils literal notranslate"><span class="pre">RS256</span></code>.</p>
+</div>
+<div class="section" id="oauth2-jwt-key-oauth2-jwt-key-path">
+<h3>OAUTH2_JWT_KEY / OAUTH2_JWT_KEY_PATH<a class="headerlink" href="#oauth2-jwt-key-oauth2-jwt-key-path" title="제목 주소">¶</a></h3>
+<p>A private key is required to generate JWT. The value can be configured with
+either <code class="docutils literal notranslate"><span class="pre">OAUTH2_JWT_KEY</span></code> or <code class="docutils literal notranslate"><span class="pre">OAUTH2_JWT_KEY_PATH</span></code>. The key that you are
+going to use dependents on the <code class="docutils literal notranslate"><span class="pre">alg</span></code> you are using. For instance, the alg
+is <code class="docutils literal notranslate"><span class="pre">RS256</span></code>, you need to use a RSA private key. It can be set with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OAUTH2_JWT_KEY</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;-----BEGIN RSA PRIVATE KEY-----</span><span class="se">\n</span><span class="s1">MIIEog...&#39;&#39;&#39;</span>
+
+<span class="c1"># or in JWK format</span>
+<span class="n">OAUTH2_JWT_KEY</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;kty&quot;</span><span class="p">:</span> <span class="s2">&quot;RSA&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="o">...</span><span class="p">}</span>
+
+<span class="c1"># or in JWK set format</span>
+<span class="n">OAUTH2_JWT_KEY</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;kty&quot;</span><span class="p">:</span> <span class="s2">&quot;RSA&quot;</span><span class="p">,</span> <span class="s2">&quot;kid&quot;</span><span class="p">:</span> <span class="s2">&quot;uu-id&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">},</span> <span class="o">...</span><span class="p">]}</span>
+</pre></div>
+</div>
+<p>If you are using JWK set format, that would be better. Authlib will randomly
+choose a key among them to sign the JWT. To make it easier for maintenance,
+<code class="docutils literal notranslate"><span class="pre">OAUTH2_JWT_KEY_PATH</span></code> is a good choice:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OAUTH2_JWT_KEY_PATH</span> <span class="o">=</span> <span class="s1">&#39;/path/to/rsa_private.pem&#39;</span>
+<span class="n">OAUTH2_JWT_KEY_PATH</span> <span class="o">=</span> <span class="s1">&#39;/path/to/jwk_set_private.json&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="oauth2-jwt-iss">
+<h3>OAUTH2_JWT_ISS<a class="headerlink" href="#oauth2-jwt-iss" title="제목 주소">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">iss</span></code> value in JWT payload. The value can be your website name or URL.
+For example, Google is using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;iss&quot;</span><span class="p">:</span> <span class="s2">&quot;https://accounts.google.com&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="code-flow">
+<span id="flask-odic-code"></span><h2>Code Flow<a class="headerlink" href="#code-flow" title="제목 주소">¶</a></h2>
+<p>OpenID Connect Code flow looks like the standard Authorization Code flow, and
+the implementation for <code class="xref py py-class docutils literal notranslate"><span class="pre">OpenIDCodeGrant</span></code> is actually a subclass of
+<a class="reference internal" href="grants.html#flask-oauth2-code-grant"><span class="std std-ref">Authorization Code Grant</span></a>. And the implementation is the same:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">authlib.oidc.core</span> <span class="k">import</span> <span class="n">grants</span>
+<span class="kn">from</span> <span class="nn">authlib.common.security</span> <span class="k">import</span> <span class="n">generate_token</span>
+
+<span class="k">class</span> <span class="nc">OpenIDCodeGrant</span><span class="p">(</span><span class="n">grants</span><span class="o">.</span><span class="n">OpenIDCodeGrant</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">create_authorization_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">grant_user</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="c1"># you can use other method to generate this code</span>
+        <span class="n">code</span> <span class="o">=</span> <span class="n">generate_token</span><span class="p">(</span><span class="mi">48</span><span class="p">)</span>
+        <span class="c1"># openid request MAY have &quot;nonce&quot; parameter</span>
+        <span class="n">nonce</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;nonce&#39;</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">AuthorizationCode</span><span class="p">(</span>
+            <span class="n">code</span><span class="o">=</span><span class="n">code</span><span class="p">,</span>
+            <span class="n">client_id</span><span class="o">=</span><span class="n">client</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span>
+            <span class="n">redirect_uri</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">redirect_uri</span><span class="p">,</span>
+            <span class="n">scope</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">scope</span><span class="p">,</span>
+            <span class="n">nonce</span><span class="o">=</span><span class="n">nonce</span><span class="p">,</span>
+            <span class="n">user_id</span><span class="o">=</span><span class="n">grant_user</span><span class="o">.</span><span class="n">get_user_id</span><span class="p">(),</span>
+        <span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">code</span>
+
+    <span class="k">def</span> <span class="nf">parse_authorization_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">client</span><span class="p">):</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">AuthorizationCode</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span>
+            <span class="n">code</span><span class="o">=</span><span class="n">code</span><span class="p">,</span> <span class="n">client_id</span><span class="o">=</span><span class="n">client</span><span class="o">.</span><span class="n">client_id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">item</span><span class="o">.</span><span class="n">is_expired</span><span class="p">():</span>
+            <span class="k">return</span> <span class="n">item</span>
+
+    <span class="k">def</span> <span class="nf">delete_authorization_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">authorization_code</span><span class="p">):</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">authorization_code</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">authenticate_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">authorization_code</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">authorization_code</span><span class="o">.</span><span class="n">user_id</span><span class="p">)</span>
+
+<span class="c1"># register it to grant endpoint</span>
+<span class="n">server</span><span class="o">.</span><span class="n">register_grant</span><span class="p">(</span><span class="n">OpenIDCodeGrant</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The difference between OpenID Code flow and the standard code flow is that
+OpenID Connect request has a scope of &quot;openid&quot;:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/authorize?</span>
+<span class="nn">response_type=code</span>
+<span class="nn">&amp;scope=openid%20profile%20email</span>
+<span class="nn">&amp;client_id=s6BhdRkqt3</span>
+<span class="nn">&amp;state=af0ifjsldkj</span>
+<span class="nn">&amp;redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">server.example.com</span>
+</pre></div>
+</div>
+<p><code class="xref py py-class docutils literal notranslate"><span class="pre">OpenIDCodeGrant</span></code> can handle the standard code flow too. You <strong>MUST NOT</strong>
+use them together.</p>
+<div class="admonition important">
+<p class="first admonition-title">중요</p>
+<p class="last">If the server can handle OpenID requests, use <code class="xref py py-class docutils literal notranslate"><span class="pre">OpenIDCodeGrant</span></code>.
+DON'T <code class="docutils literal notranslate"><span class="pre">register_grant(AuthorizationCodeGrant)</span></code>.</p>
+</div>
+</div>
+<div class="section" id="implicit-flow">
+<span id="flask-odic-implicit"></span><h2>Implicit Flow<a class="headerlink" href="#implicit-flow" title="제목 주소">¶</a></h2>
+<p>Implicit flow is simple, there is no missing methods should be implemented,
+we can simply import it and register it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">authlib.oidc.core</span> <span class="k">import</span> <span class="n">grants</span>
+<span class="n">server</span><span class="o">.</span><span class="n">register_grant</span><span class="p">(</span><span class="n">grants</span><span class="o">.</span><span class="n">OpenIDImplicitGrant</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hybrid-flow">
+<span id="flask-odic-hybrid"></span><h2>Hybrid Flow<a class="headerlink" href="#hybrid-flow" title="제목 주소">¶</a></h2>
+<p>Hybrid flow is a mix of the code flow and implicit flow. The missing methods
+are the same with code flow:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">authlib.oidc.core</span> <span class="k">import</span> <span class="n">grants</span>
+<span class="kn">from</span> <span class="nn">authlib.common.security</span> <span class="k">import</span> <span class="n">generate_token</span>
+
+<span class="k">class</span> <span class="nc">OpenIDHybridGrant</span><span class="p">(</span><span class="n">grants</span><span class="o">.</span><span class="n">OpenIDHybridGrant</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">create_authorization_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">grant_user</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="c1"># you can use other method to generate this code</span>
+        <span class="n">code</span> <span class="o">=</span> <span class="n">generate_token</span><span class="p">(</span><span class="mi">48</span><span class="p">)</span>
+        <span class="c1"># openid request MAY have &quot;nonce&quot; parameter</span>
+        <span class="n">nonce</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;nonce&#39;</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">AuthorizationCode</span><span class="p">(</span>
+            <span class="n">code</span><span class="o">=</span><span class="n">code</span><span class="p">,</span>
+            <span class="n">client_id</span><span class="o">=</span><span class="n">client</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span>
+            <span class="n">redirect_uri</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">redirect_uri</span><span class="p">,</span>
+            <span class="n">scope</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">scope</span><span class="p">,</span>
+            <span class="n">nonce</span><span class="o">=</span><span class="n">nonce</span><span class="p">,</span>
+            <span class="n">user_id</span><span class="o">=</span><span class="n">grant_user</span><span class="o">.</span><span class="n">get_user_id</span><span class="p">(),</span>
+        <span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">code</span>
+
+    <span class="k">def</span> <span class="nf">parse_authorization_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">client</span><span class="p">):</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">AuthorizationCode</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span>
+            <span class="n">code</span><span class="o">=</span><span class="n">code</span><span class="p">,</span> <span class="n">client_id</span><span class="o">=</span><span class="n">client</span><span class="o">.</span><span class="n">client_id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">item</span><span class="o">.</span><span class="n">is_expired</span><span class="p">():</span>
+            <span class="k">return</span> <span class="n">item</span>
+
+    <span class="k">def</span> <span class="nf">delete_authorization_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">authorization_code</span><span class="p">):</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">authorization_code</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">authenticate_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">authorization_code</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">authorization_code</span><span class="o">.</span><span class="n">user_id</span><span class="p">)</span>
+
+<span class="c1"># register it to grant endpoint</span>
+<span class="n">server</span><span class="o">.</span><span class="n">register_grant</span><span class="p">(</span><span class="n">OpenIDHybridGrant</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+  <div class="t-pagination clearfix">
+    <span>
+      ← <a href="resource-server.html" title="Resource Server">Resource Server</a>
+    </span>
+    <span style="float:right">
+      <a href="api.html" title="API References of Flask OAuth 2.0 Server">API References of Flask...</a> →
+    </span>
+  </div>
+</div><footer class="t-foot">
+    &copy; Copyright 2018, Hsiaoming Ltd.
+    <br>
+    A <a href="https://typlog.com/">typlog</a> <a href="https://github.com/typlog/sphinx-typlog-theme">sphinx theme</a>,
+    designed by <a href="https://lepture.com/">Hsiaoming Yang</a>.
+</footer>
+  </div>
+  <script>$(function(){$(".t-head_menu").on("click",function(){$("body").addClass("_expand")});$(".t-body").on("click",function(){$("body").removeClass("_expand")});$(".t-sidebar_close").on("click",function(){$("body").removeClass("_expand")});$("a.footnote-reference").on("click",function(e){e.preventDefault();var id=$(this).attr("href");var html=$(id).find("td.label + td").html();var w=Math.max(document.documentElement.clientWidth,window.innerWidth||0);var style="top:"+e.pageY+"px;";if(w>560){style+="width:480px;";if(e.pageX>240&&e.pageX+240<w){style+="left:"+(e.pageX-240)+"px;"}else if(e.pageX<=240){style+="left:20px;"}else{style+="right:20px;"}}showFootnote(html,style)});function showFootnote(html,style){var CONTENT_ID="typlog-footnote-content";var content=document.getElementById(CONTENT_ID);if(!content){content=document.createElement("div");content.id=CONTENT_ID;$(".t-body").append(content)}var MASK_ID="typlog-footnote-mask";var mask=document.getElementById(MASK_ID);if(!mask){mask=document.createElement("div");mask.id=MASK_ID;document.body.appendChild(mask);mask.addEventListener("click",function(){content.className="";mask.className=""})}content.innerHTML=html;content.setAttribute("style",style);content.className="_active";mask.className="_active"}function fetchGitHubRepo(repo){var url="https://api.github.com/repos/"+repo;$.getJSON(url,function(data){var counts=[+new Date,data.stargazers_count,data.forks_count];localStorage.setItem("gh:"+repo,JSON.stringify(counts));updateGitHubStats(counts[1],counts[2])})}function updateGitHubStats(stars,forks){$(".github_stars strong").text(stars);$(".github_forks strong").text(forks)}function initGitHub(url){if(!url){return}var repo=url.replace("https://github.com/","");var cache=localStorage.getItem("gh:"+repo);if(cache){try{var counts=JSON.parse(cache);updateGitHubStats(counts[1],counts[2]);var delta=new Date-counts[0];if(delta<0||delta>9e5){fetchGitHubRepo(repo)}}catch(error){fetchGitHubRepo(repo)}}else{fetchGitHubRepo(repo)}}initGitHub($(".github").attr("href"))});</script>
+</body>
+</html>

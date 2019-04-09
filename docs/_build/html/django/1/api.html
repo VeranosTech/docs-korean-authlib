@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Django OAuth 1.0 Server &mdash; Authlib 0.12.dev documentation</title>
+  <link rel="shortcut icon" href="../../_static/favicon.ico"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono"><link rel="stylesheet" href="../../_static/typlog.css?v=0.7.2" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme.css?v=0.7.2" type="text/css" />
+      <link rel="index" title="색인" href="../../genindex.html"/>
+      <link rel="search" title="검색" href="../../search.html"/>
+    <link rel="top" title="Authlib 0.12.dev documentation" href="../../index.html"/>
+      <link rel="up" title="Django OAuth 1.0 Server" href="index.html"/>
+      <link rel="next" title="Specifications" href="../../specs/index.html"/>
+      <link rel="prev" title="Protect Resources" href="resource-server.html"/>
+  <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-34098939-7');ga('send', 'pageview');</script>
+  <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script><link rel="apple-touch-icon" sizes="180x180" href="https://authlib.org/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Authlib">
+  <meta property="og:title" content="Django OAuth 1.0 Server">
+    <meta property="og:description" content="The ultimate Python library in building OAuth and OpenID Connect servers. JWS, JWE, JWK, JWA, JWT are included.">
+    <meta property="og:image" content="https://authlib.org/logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@authlib">
+</head>
+<body role="document" data-page="django/1/api">
+  <header class="t-head">
+    <div class="t-head_menu"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z"/></svg></div>
+    <a class="t-head_logo" href="../../index.html"><img src="../../_static/authlib.svg" alt="Logo"/>Authlib
+    </a>
+  </header>
+  <aside class="t-sidebar">
+    <div class="t-sidebar_close">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M405 136.798L375.202 107 256 226.202 136.798 107 107 136.798 226.202 256 107 375.202 136.798 405 256 285.798 375.202 405 405 375.202 285.798 256z"/></svg>
+    </div>
+    <div class="inner">
+<a class="logo" href="../../index.html"><img src="../../_static/authlib.svg" alt="Logo"/>
+    Authlib
+</a><div class="logo_desc">The ultimate Python library in building OAuth and OpenID Connect servers. JWS, JWE, JWK, JWA, JWT are included.</div>
+<div class="github_wrap">
+  <a class="github" href="https://github.com/lepture/authlib" target="_blank">
+    <span class="github_icon"></span>
+    <span class="github_stars">
+      <strong>-</strong>stars
+    </span>
+    <span class="github_forks">
+      <strong>-</strong>forks
+    </span>
+  </a>
+</div><div class="sponsors">
+  <div class="sponsor">
+    <a class="image" href="https://auth0.com/overview?utm_source=authlib&utm_medium=devsponsor&utm_campaign=authlib"><img src="https://user-images.githubusercontent.com/290496/39297078-89d00928-497d-11e8-8119-0c53afe14cd0.png" alt="Sponsor"></a>
+    <div class="text">The new way to solve Identity. Sponsored by <a href="https://auth0.com/overview?utm_source=authlib&utm_medium=devsponsor&utm_campaign=authlib">auth0.com</a></div>
+  </div>
+  <div class="patron">
+    <a class="patron-button" style="border: 1px solid #3E7FCB;display: inline-block;padding: 4px 18px;border-radius: 20px;color: #3E7FCB;" href="https://www.patreon.com/bePatron?u=8179754">Become a Patron!</a>
+  </div>
+</div><div class="globaltoc">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../basic/index.html">Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client/index.html">Client Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jose/index.html">JOSE Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../flask/1/index.html">Flask OAuth 1.0 Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../flask/2/index.html">Flask OAuth 2.0 Server</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Django OAuth 1.0 Server</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="authorization-server.html">Authorization Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resource-server.html">Protect Resources</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Django OAuth 1.0 Server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../specs/index.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../community/index.html">Community</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+</ul>
+
+</div><div class="useful-links">
+  <h3>Useful Links</h3>
+  <ul>
+    <li><a href="https://authlib.org/">Homepage</a></li>
+    <li><a href="https://blog.authlib.org/">Read Blog</a></li>
+    <li><a href="https://authlib.org/plans">Commercial License</a></li>
+    <li><a href="https://github.com/lepture/authlib">Star on GitHub</a></li>
+    <li><a href="https://twitter.com/authlib">Follow on Twitter</a></li>
+    <li><a href="https://stackoverflow.com/questions/tagged/authlib">Help on StackOverflow</a></li>
+    <li><a href="https://github.com/authlib/loginpass">Loginpass</a></li>
+  </ul>
+</div>
+<div id="searchbox">
+  <form class="search" action="../../search.html" method="get">
+    <div class="input-group">
+      <input type="text" name="q" placeholder="검색" />
+      <button type="submit">바로 가기</button>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+    </div>
+  </aside>
+  <div class="t-content">
+    <div class="t-body yue">
+  <div class="section" id="django-oauth-1-0-server">
+<h1>Django OAuth 1.0 Server<a class="headerlink" href="#django-oauth-1-0-server" title="제목 주소">¶</a></h1>
+<p>This part of the documentation covers the interface of Django OAuth 1.0
+Server.</p>
+<span class="target" id="module-authlib.django.oauth1"></span><dl class="class">
+<dt id="authlib.django.oauth1.CacheAuthorizationServer">
+<em class="property">class </em><code class="descclassname">authlib.django.oauth1.</code><code class="descname">CacheAuthorizationServer</code><span class="sig-paren">(</span><em>client_model</em>, <em>token_model</em>, <em>token_generator=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.django.oauth1.CacheAuthorizationServer" title="정의 주소">¶</a></dt>
+<dd><dl class="method">
+<dt id="authlib.django.oauth1.CacheAuthorizationServer.create_authorization_response">
+<code class="descname">create_authorization_response</code><span class="sig-paren">(</span><em>request</em>, <em>grant_user=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.django.oauth1.CacheAuthorizationServer.create_authorization_response" title="정의 주소">¶</a></dt>
+<dd><p>Validate authorization request and create authorization response.
+Assume the endpoint for authorization request is
+<code class="docutils literal notranslate"><span class="pre">https://photos.example.net/authorize</span></code>, the client redirects Jane's
+user-agent to the server's Resource Owner Authorization endpoint to
+obtain Jane's approval for accessing her private photos:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://photos.example.net/authorize?oauth_token=hh5s93j4hdidpola
+</pre></div>
+</div>
+<p>The server requests Jane to sign in using her username and password
+and if successful, asks her to approve granting 'printer.example.com'
+access to her private photos.  Jane approves the request and her
+user-agent is redirected to the callback URI provided by the client
+in the previous request (line breaks are for display purposes only):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>http://printer.example.com/ready?
+oauth_token=hh5s93j4hdidpola&amp;oauth_verifier=hfdp7dh39dks9884
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first simple">
+<li><strong>request</strong> -- OAuth1Request instance.</li>
+<li><strong>grant_user</strong> -- if granted, pass the grant user, otherwise None.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body"><p class="first last">(status_code, body, headers)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.django.oauth1.CacheAuthorizationServer.create_authorization_verifier">
+<code class="descname">create_authorization_verifier</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.django.oauth1.CacheAuthorizationServer.create_authorization_verifier" title="정의 주소">¶</a></dt>
+<dd><p>Create and bind <code class="docutils literal notranslate"><span class="pre">oauth_verifier</span></code> to temporary credential. It
+could be re-implemented in this way:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_authorization_verifier</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+    <span class="n">verifier</span> <span class="o">=</span> <span class="n">generate_token</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span>
+
+    <span class="n">temporary_credential</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">credential</span>
+    <span class="n">user_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">get_user_id</span><span class="p">()</span>
+
+    <span class="n">temporary_credential</span><span class="o">.</span><span class="n">user_id</span> <span class="o">=</span> <span class="n">user_id</span>
+    <span class="n">temporary_credential</span><span class="o">.</span><span class="n">oauth_verifier</span> <span class="o">=</span> <span class="n">verifier</span>
+    <span class="c1"># if the credential has a save method</span>
+    <span class="n">temporary_credential</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+    <span class="c1"># remember to return the verifier</span>
+    <span class="k">return</span> <span class="n">verifier</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>request</strong> -- OAuth1Request instance</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">A string of <code class="docutils literal notranslate"><span class="pre">oauth_verifier</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.django.oauth1.CacheAuthorizationServer.create_temporary_credential">
+<code class="descname">create_temporary_credential</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.django.oauth1.CacheAuthorizationServer.create_temporary_credential" title="정의 주소">¶</a></dt>
+<dd><p>Generate and save a temporary credential into database or cache.
+A temporary credential is used for exchanging token credential. This
+method should be re-implemented:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_temporary_credential</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+    <span class="n">oauth_token</span> <span class="o">=</span> <span class="n">generate_token</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span>
+    <span class="n">oauth_token_secret</span> <span class="o">=</span> <span class="n">generate_token</span><span class="p">(</span><span class="mi">48</span><span class="p">)</span>
+    <span class="n">temporary_credential</span> <span class="o">=</span> <span class="n">TemporaryCredential</span><span class="p">(</span>
+        <span class="n">oauth_token</span><span class="o">=</span><span class="n">oauth_token</span><span class="p">,</span>
+        <span class="n">oauth_token_secret</span><span class="o">=</span><span class="n">oauth_token_secret</span><span class="p">,</span>
+        <span class="n">client_id</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="n">redirect_uri</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">redirect_uri</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="c1"># if the credential has a save method</span>
+    <span class="n">temporary_credential</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">temporary_credential</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>request</strong> -- OAuth1Request instance</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">TemporaryCredential instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.django.oauth1.CacheAuthorizationServer.create_temporary_credentials_response">
+<code class="descname">create_temporary_credentials_response</code><span class="sig-paren">(</span><em>request=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.django.oauth1.CacheAuthorizationServer.create_temporary_credentials_response" title="정의 주소">¶</a></dt>
+<dd><p>Validate temporary credentials token request and create response
+for temporary credentials token. Assume the endpoint of temporary
+credentials request is <code class="docutils literal notranslate"><span class="pre">https://photos.example.net/initiate</span></code>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/initiate</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">photos.example.net</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">OAuth realm=&quot;Photos&quot;,</span>
+    <span class="l">oauth_consumer_key=&quot;dpf43f3p2l4k3l03&quot;,</span>
+    <span class="l">oauth_signature_method=&quot;HMAC-SHA1&quot;,</span>
+    <span class="l">oauth_timestamp=&quot;137131200&quot;,</span>
+    <span class="l">oauth_nonce=&quot;wIjqoS&quot;,</span>
+    <span class="l">oauth_callback=&quot;http%3A%2F%2Fprinter.example.com%2Fready&quot;,</span>
+    <span class="l">oauth_signature=&quot;74KNZJeDHnMBp0EMJ9ZHt%2FXKycU%3D&quot;</span>
+</pre></div>
+</div>
+<p>The server validates the request and replies with a set of temporary
+credentials in the body of the HTTP response:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/x-www-form-urlencoded</span>
+
+oauth_token=hh5s93j4hdidpola&amp;oauth_token_secret=hdhd0244k9j7ao03&amp;
+oauth_callback_confirmed=true
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>request</strong> -- OAuth1Request instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">(status_code, body, headers)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.django.oauth1.CacheAuthorizationServer.create_token_credential">
+<code class="descname">create_token_credential</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.django.oauth1.CacheAuthorizationServer.create_token_credential" title="정의 주소">¶</a></dt>
+<dd><p>Create and save token credential into database. This method would
+be re-implemented like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_token_credential</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+    <span class="n">oauth_token</span> <span class="o">=</span> <span class="n">generate_token</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span>
+    <span class="n">oauth_token_secret</span> <span class="o">=</span> <span class="n">generate_token</span><span class="p">(</span><span class="mi">48</span><span class="p">)</span>
+    <span class="n">temporary_credential</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">credential</span>
+
+    <span class="n">token_credential</span> <span class="o">=</span> <span class="n">TokenCredential</span><span class="p">(</span>
+        <span class="n">oauth_token</span><span class="o">=</span><span class="n">oauth_token</span><span class="p">,</span>
+        <span class="n">oauth_token_secret</span><span class="o">=</span><span class="n">oauth_token_secret</span><span class="p">,</span>
+        <span class="n">client_id</span><span class="o">=</span><span class="n">temporary_credential</span><span class="o">.</span><span class="n">get_client_id</span><span class="p">(),</span>
+        <span class="n">user_id</span><span class="o">=</span><span class="n">temporary_credential</span><span class="o">.</span><span class="n">get_user_id</span><span class="p">()</span>
+    <span class="p">)</span>
+    <span class="c1"># if the credential has a save method</span>
+    <span class="n">token_credential</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">token_credential</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>request</strong> -- OAuth1Request instance</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">TokenCredential instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.django.oauth1.CacheAuthorizationServer.create_token_response">
+<code class="descname">create_token_response</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.django.oauth1.CacheAuthorizationServer.create_token_response" title="정의 주소">¶</a></dt>
+<dd><p>Validate token request and create token response. Assuming the
+endpoint of token request is <code class="docutils literal notranslate"><span class="pre">https://photos.example.net/token</span></code>,
+the callback request informs the client that Jane completed the
+authorization process.  The client then requests a set of token
+credentials using its temporary credentials (over a secure Transport
+Layer Security (TLS) channel):</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/token</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">photos.example.net</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">OAuth realm=&quot;Photos&quot;,</span>
+    <span class="l">oauth_consumer_key=&quot;dpf43f3p2l4k3l03&quot;,</span>
+    <span class="l">oauth_token=&quot;hh5s93j4hdidpola&quot;,</span>
+    <span class="l">oauth_signature_method=&quot;HMAC-SHA1&quot;,</span>
+    <span class="l">oauth_timestamp=&quot;137131201&quot;,</span>
+    <span class="l">oauth_nonce=&quot;walatlh&quot;,</span>
+    <span class="l">oauth_verifier=&quot;hfdp7dh39dks9884&quot;,</span>
+    <span class="l">oauth_signature=&quot;gKgrFCywp7rO0OXSjdot%2FIHF7IU%3D&quot;</span>
+</pre></div>
+</div>
+<p>The server validates the request and replies with a set of token
+credentials in the body of the HTTP response:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/x-www-form-urlencoded</span>
+
+oauth_token=nnch734d00sl2jdk&amp;oauth_token_secret=pfkkdhi9sl3r4s00
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>request</strong> -- OAuth1Request instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">(status_code, body, headers)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.django.oauth1.CacheAuthorizationServer.delete_temporary_credential">
+<code class="descname">delete_temporary_credential</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.django.oauth1.CacheAuthorizationServer.delete_temporary_credential" title="정의 주소">¶</a></dt>
+<dd><p>Delete temporary credential from database or cache. For instance,
+if temporary credential is saved in cache:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">delete_temporary_credential</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;a-key-prefix:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">token</span><span class="p">)</span>
+    <span class="n">cache</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>request</strong> -- OAuth1Request instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.django.oauth1.CacheAuthorizationServer.exists_nonce">
+<code class="descname">exists_nonce</code><span class="sig-paren">(</span><em>nonce</em>, <em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.django.oauth1.CacheAuthorizationServer.exists_nonce" title="정의 주소">¶</a></dt>
+<dd><p>The nonce value MUST be unique across all requests with the same
+timestamp, client credentials, and token combinations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first simple">
+<li><strong>nonce</strong> -- A string value of <code class="docutils literal notranslate"><span class="pre">oauth_nonce</span></code></li>
+<li><strong>request</strong> -- OAuth1Request instance</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body"><p class="first last">Boolean</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.django.oauth1.CacheAuthorizationServer.get_client_by_id">
+<code class="descname">get_client_by_id</code><span class="sig-paren">(</span><em>client_id</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.django.oauth1.CacheAuthorizationServer.get_client_by_id" title="정의 주소">¶</a></dt>
+<dd><p>Get client instance with the given <code class="docutils literal notranslate"><span class="pre">client_id</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>client_id</strong> -- A string of client_id</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">Client instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.django.oauth1.CacheAuthorizationServer.get_temporary_credential">
+<code class="descname">get_temporary_credential</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.django.oauth1.CacheAuthorizationServer.get_temporary_credential" title="정의 주소">¶</a></dt>
+<dd><p>Get the temporary credential from database or cache. A temporary
+credential should share the same methods as described in models of
+<code class="docutils literal notranslate"><span class="pre">TemporaryCredentialMixin</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_temporary_credential</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;a-key-prefix:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">token</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+    <span class="c1"># TemporaryCredential shares methods from TemporaryCredentialMixin</span>
+    <span class="k">return</span> <span class="n">TemporaryCredential</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>request</strong> -- OAuth1Request instance</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">TemporaryCredential instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="authlib.django.oauth1.CacheAuthorizationServer.register_signature_method">
+<em class="property">classmethod </em><code class="descname">register_signature_method</code><span class="sig-paren">(</span><em>name</em>, <em>verify</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.django.oauth1.CacheAuthorizationServer.register_signature_method" title="정의 주소">¶</a></dt>
+<dd><p>Extend signature method verification.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> -- A string to represent signature method.</li>
+<li><strong>verify</strong> -- A function to verify signature.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The <code class="docutils literal notranslate"><span class="pre">verify</span></code> method accept <code class="docutils literal notranslate"><span class="pre">OAuth1Request</span></code> as parameter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">verify_custom_method</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="c1"># verify this request, return True or False</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="n">Server</span><span class="o">.</span><span class="n">register_signature_method</span><span class="p">(</span><span class="s1">&#39;custom-name&#39;</span><span class="p">,</span> <span class="n">verify_custom_method</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.django.oauth1.CacheAuthorizationServer.validate_authorization_request">
+<code class="descname">validate_authorization_request</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.django.oauth1.CacheAuthorizationServer.validate_authorization_request" title="정의 주소">¶</a></dt>
+<dd><p>Validate the request for resource owner authorization.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.django.oauth1.CacheAuthorizationServer.validate_oauth_signature">
+<code class="descname">validate_oauth_signature</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.django.oauth1.CacheAuthorizationServer.validate_oauth_signature" title="정의 주소">¶</a></dt>
+<dd><p>Validate <code class="docutils literal notranslate"><span class="pre">oauth_signature</span></code> from HTTP request.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>request</strong> -- OAuth1Request instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.django.oauth1.CacheAuthorizationServer.validate_temporary_credentials_request">
+<code class="descname">validate_temporary_credentials_request</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.django.oauth1.CacheAuthorizationServer.validate_temporary_credentials_request" title="정의 주소">¶</a></dt>
+<dd><p>Validate HTTP request for temporary credentials.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.django.oauth1.CacheAuthorizationServer.validate_timestamp_and_nonce">
+<code class="descname">validate_timestamp_and_nonce</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.django.oauth1.CacheAuthorizationServer.validate_timestamp_and_nonce" title="정의 주소">¶</a></dt>
+<dd><p>Validate <code class="docutils literal notranslate"><span class="pre">oauth_timestamp</span></code> and <code class="docutils literal notranslate"><span class="pre">oauth_nonce</span></code> in HTTP request.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>request</strong> -- OAuth1Request instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.django.oauth1.CacheAuthorizationServer.validate_token_request">
+<code class="descname">validate_token_request</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.django.oauth1.CacheAuthorizationServer.validate_token_request" title="정의 주소">¶</a></dt>
+<dd><p>Validate request for issuing token.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.django.oauth1.ResourceProtector">
+<em class="property">class </em><code class="descclassname">authlib.django.oauth1.</code><code class="descname">ResourceProtector</code><span class="sig-paren">(</span><em>client_model</em>, <em>token_model</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.django.oauth1.ResourceProtector" title="정의 주소">¶</a></dt>
+<dd><dl class="method">
+<dt id="authlib.django.oauth1.ResourceProtector.get_client_by_id">
+<code class="descname">get_client_by_id</code><span class="sig-paren">(</span><em>client_id</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.django.oauth1.ResourceProtector.get_client_by_id" title="정의 주소">¶</a></dt>
+<dd><p>Get client instance with the given <code class="docutils literal notranslate"><span class="pre">client_id</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>client_id</strong> -- A string of client_id</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">Client instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.django.oauth1.ResourceProtector.get_token_credential">
+<code class="descname">get_token_credential</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.django.oauth1.ResourceProtector.get_token_credential" title="정의 주소">¶</a></dt>
+<dd><p>Fetch the token credential from data store like a database,
+framework should implement this function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>request</strong> -- OAuth1Request instance</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">Token model instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.django.oauth1.ResourceProtector.exists_nonce">
+<code class="descname">exists_nonce</code><span class="sig-paren">(</span><em>nonce</em>, <em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.django.oauth1.ResourceProtector.exists_nonce" title="정의 주소">¶</a></dt>
+<dd><p>The nonce value MUST be unique across all requests with the same
+timestamp, client credentials, and token combinations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first simple">
+<li><strong>nonce</strong> -- A string value of <code class="docutils literal notranslate"><span class="pre">oauth_nonce</span></code></li>
+<li><strong>request</strong> -- OAuth1Request instance</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body"><p class="first last">Boolean</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+  <div class="t-pagination clearfix">
+    <span>
+      ← <a href="resource-server.html" title="Protect Resources">Protect Resources</a>
+    </span>
+    <span style="float:right">
+      <a href="../../specs/index.html" title="Specifications">Specifications</a> →
+    </span>
+  </div>
+</div><footer class="t-foot">
+    &copy; Copyright 2018, Hsiaoming Ltd.
+    <br>
+    A <a href="https://typlog.com/">typlog</a> <a href="https://github.com/typlog/sphinx-typlog-theme">sphinx theme</a>,
+    designed by <a href="https://lepture.com/">Hsiaoming Yang</a>.
+</footer>
+  </div>
+  <script>$(function(){$(".t-head_menu").on("click",function(){$("body").addClass("_expand")});$(".t-body").on("click",function(){$("body").removeClass("_expand")});$(".t-sidebar_close").on("click",function(){$("body").removeClass("_expand")});$("a.footnote-reference").on("click",function(e){e.preventDefault();var id=$(this).attr("href");var html=$(id).find("td.label + td").html();var w=Math.max(document.documentElement.clientWidth,window.innerWidth||0);var style="top:"+e.pageY+"px;";if(w>560){style+="width:480px;";if(e.pageX>240&&e.pageX+240<w){style+="left:"+(e.pageX-240)+"px;"}else if(e.pageX<=240){style+="left:20px;"}else{style+="right:20px;"}}showFootnote(html,style)});function showFootnote(html,style){var CONTENT_ID="typlog-footnote-content";var content=document.getElementById(CONTENT_ID);if(!content){content=document.createElement("div");content.id=CONTENT_ID;$(".t-body").append(content)}var MASK_ID="typlog-footnote-mask";var mask=document.getElementById(MASK_ID);if(!mask){mask=document.createElement("div");mask.id=MASK_ID;document.body.appendChild(mask);mask.addEventListener("click",function(){content.className="";mask.className=""})}content.innerHTML=html;content.setAttribute("style",style);content.className="_active";mask.className="_active"}function fetchGitHubRepo(repo){var url="https://api.github.com/repos/"+repo;$.getJSON(url,function(data){var counts=[+new Date,data.stargazers_count,data.forks_count];localStorage.setItem("gh:"+repo,JSON.stringify(counts));updateGitHubStats(counts[1],counts[2])})}function updateGitHubStats(stars,forks){$(".github_stars strong").text(stars);$(".github_forks strong").text(forks)}function initGitHub(url){if(!url){return}var repo=url.replace("https://github.com/","");var cache=localStorage.getItem("gh:"+repo);if(cache){try{var counts=JSON.parse(cache);updateGitHubStats(counts[1],counts[2]);var delta=new Date-counts[0];if(delta<0||delta>9e5){fetchGitHubRepo(repo)}}catch(error){fetchGitHubRepo(repo)}}else{fetchGitHubRepo(repo)}}initGitHub($(".github").attr("href"))});</script>
+</body>
+</html>

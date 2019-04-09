@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="API references on RFC7516 JSON Web Encryption (JWE) Python implementation. Guide on JWE serialization and deserialization." name="description" />
+<title>RFC7516: JSON Web Encryption &mdash; Authlib 0.12.dev documentation</title>
+  <link rel="shortcut icon" href="../_static/favicon.ico"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono"><link rel="stylesheet" href="../_static/typlog.css?v=0.7.2" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme.css?v=0.7.2" type="text/css" />
+      <link rel="index" title="색인" href="../genindex.html"/>
+      <link rel="search" title="검색" href="../search.html"/>
+    <link rel="top" title="Authlib 0.12.dev documentation" href="../index.html"/>
+      <link rel="up" title="Specifications" href="index.html"/>
+      <link rel="next" title="RFC7517: JSON Web Key" href="rfc7517.html"/>
+      <link rel="prev" title="RFC7515: JSON Web Signature" href="rfc7515.html"/>
+  <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-34098939-7');ga('send', 'pageview');</script>
+  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script><link rel="apple-touch-icon" sizes="180x180" href="https://authlib.org/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Authlib">
+  <meta property="og:title" content="RFC7516: JSON Web Encryption">
+    <meta property="og:description" content="API references on RFC7516 JSON Web Encryption (JWE) Python implementation. Guide on JWE serialization and deserialization.">
+    <meta property="og:image" content="https://authlib.org/logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@authlib">
+</head>
+<body role="document" data-page="specs/rfc7516">
+  <header class="t-head">
+    <div class="t-head_menu"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z"/></svg></div>
+    <a class="t-head_logo" href="../index.html"><img src="../_static/authlib.svg" alt="Logo"/>Authlib
+    </a>
+  </header>
+  <aside class="t-sidebar">
+    <div class="t-sidebar_close">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M405 136.798L375.202 107 256 226.202 136.798 107 107 136.798 226.202 256 107 375.202 136.798 405 256 285.798 375.202 405 405 375.202 285.798 256z"/></svg>
+    </div>
+    <div class="inner">
+<a class="logo" href="../index.html"><img src="../_static/authlib.svg" alt="Logo"/>
+    Authlib
+</a><div class="logo_desc">The ultimate Python library in building OAuth and OpenID Connect servers. JWS, JWE, JWK, JWA, JWT are included.</div>
+<div class="github_wrap">
+  <a class="github" href="https://github.com/lepture/authlib" target="_blank">
+    <span class="github_icon"></span>
+    <span class="github_stars">
+      <strong>-</strong>stars
+    </span>
+    <span class="github_forks">
+      <strong>-</strong>forks
+    </span>
+  </a>
+</div><div class="sponsors">
+  <div class="sponsor">
+    <a class="image" href="https://auth0.com/overview?utm_source=authlib&utm_medium=devsponsor&utm_campaign=authlib"><img src="https://user-images.githubusercontent.com/290496/39297078-89d00928-497d-11e8-8119-0c53afe14cd0.png" alt="Sponsor"></a>
+    <div class="text">The new way to solve Identity. Sponsored by <a href="https://auth0.com/overview?utm_source=authlib&utm_medium=devsponsor&utm_campaign=authlib">auth0.com</a></div>
+  </div>
+  <div class="patron">
+    <a class="patron-button" style="border: 1px solid #3E7FCB;display: inline-block;padding: 4px 18px;border-radius: 20px;color: #3E7FCB;" href="https://www.patreon.com/bePatron?u=8179754">Become a Patron!</a>
+  </div>
+</div><div class="globaltoc">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../basic/index.html">Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../client/index.html">Client Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jose/index.html">JOSE Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flask/1/index.html">Flask OAuth 1.0 Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flask/2/index.html">Flask OAuth 2.0 Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../django/1/index.html">Django OAuth 1.0 Server</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Specifications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rfc5849.html">RFC5849: The OAuth 1.0 Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc6749.html">RFC6749: The OAuth 2.0 Authorization Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc6750.html">RFC6750: The OAuth 2.0 Authorization Framework: Bearer Token Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7009.html">RFC7009: OAuth 2.0 Token Revocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7515.html">RFC7515: JSON Web Signature</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">RFC7516: JSON Web Encryption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7517.html">RFC7517: JSON Web Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7518.html">RFC7518: JSON Web Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7519.html">RFC7519: JSON Web Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7523.html">RFC7523: JWT Profile for OAuth 2.0 Client Authentication and Authorization Grants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7636.html">RFC7636: Proof Key for Code Exchange by OAuth Public Clients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7662.html">RFC7662: OAuth 2.0 Token Introspection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oidc.html">OpenID Connect 1.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../community/index.html">Community</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+
+</div><div class="useful-links">
+  <h3>Useful Links</h3>
+  <ul>
+    <li><a href="https://authlib.org/">Homepage</a></li>
+    <li><a href="https://blog.authlib.org/">Read Blog</a></li>
+    <li><a href="https://authlib.org/plans">Commercial License</a></li>
+    <li><a href="https://github.com/lepture/authlib">Star on GitHub</a></li>
+    <li><a href="https://twitter.com/authlib">Follow on Twitter</a></li>
+    <li><a href="https://stackoverflow.com/questions/tagged/authlib">Help on StackOverflow</a></li>
+    <li><a href="https://github.com/authlib/loginpass">Loginpass</a></li>
+  </ul>
+</div>
+<div id="searchbox">
+  <form class="search" action="../search.html" method="get">
+    <div class="input-group">
+      <input type="text" name="q" placeholder="검색" />
+      <button type="submit">바로 가기</button>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+    </div>
+  </aside>
+  <div class="t-content">
+    <div class="t-body yue">
+  <div class="section" id="rfc7516-json-web-encryption">
+<span id="specs-rfc7516"></span><h1>RFC7516: JSON Web Encryption<a class="headerlink" href="#rfc7516-json-web-encryption" title="제목 주소">¶</a></h1>
+<p>This section contains the generic implementation of <a class="reference external" href="https://tools.ietf.org/html/rfc7516">RFC7516</a>. Find how to use
+it in <a class="reference internal" href="../jose/jwe.html#jwe-guide"><span class="std std-ref">JWE Guide</span></a>.</p>
+<span class="target" id="module-authlib.jose.rfc7516"></span><div class="section" id="api-reference">
+<h2>API Reference<a class="headerlink" href="#api-reference" title="제목 주소">¶</a></h2>
+<dl class="class">
+<dt id="authlib.jose.rfc7516.JWE">
+<em class="property">class </em><code class="descclassname">authlib.jose.rfc7516.</code><code class="descname">JWE</code><span class="sig-paren">(</span><em>algorithms</em>, <em>private_headers=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.jose.rfc7516.JWE" title="정의 주소">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="authlib.jose.rfc7516.JWE.REGISTERED_HEADER_PARAMETER_NAMES">
+<code class="descname">REGISTERED_HEADER_PARAMETER_NAMES</code><em class="property"> = frozenset({'x5t', 'crit', 'enc', 'typ', 'jku', 'kid', 'cty', 'x5u', 'alg', 'zip', 'x5t#S256', 'x5c', 'jwk'})</em><a class="headerlink" href="#authlib.jose.rfc7516.JWE.REGISTERED_HEADER_PARAMETER_NAMES" title="정의 주소">¶</a></dt>
+<dd><p>Registered Header Parameter Names defined by Section 4.1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.jose.rfc7516.JWE.register_algorithm">
+<code class="descname">register_algorithm</code><span class="sig-paren">(</span><em>algorithm</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.jose.rfc7516.JWE.register_algorithm" title="정의 주소">¶</a></dt>
+<dd><p>Register an algorithm for <code class="docutils literal notranslate"><span class="pre">alg</span></code> or <code class="docutils literal notranslate"><span class="pre">enc</span></code> or <code class="docutils literal notranslate"><span class="pre">zip</span></code> of JWE.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.jose.rfc7516.JWE.serialize_compact">
+<code class="descname">serialize_compact</code><span class="sig-paren">(</span><em>protected</em>, <em>payload</em>, <em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.jose.rfc7516.JWE.serialize_compact" title="정의 주소">¶</a></dt>
+<dd><p>Generate a JWE Compact Serialization. The JWE Compact Serialization
+represents encrypted content as a compact, URL-safe string.  This
+string is:</p>
+<blockquote>
+<div>BASE64URL(UTF8(JWE Protected Header)) || '.' ||
+BASE64URL(JWE Encrypted Key) || '.' ||
+BASE64URL(JWE Initialization Vector) || '.' ||
+BASE64URL(JWE Ciphertext) || '.' ||
+BASE64URL(JWE Authentication Tag)</div></blockquote>
+<p>Only one recipient is supported by the JWE Compact Serialization and
+it provides no syntax to represent JWE Shared Unprotected Header, JWE
+Per-Recipient Unprotected Header, or JWE AAD values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first simple">
+<li><strong>protected</strong> -- A dict of protected header</li>
+<li><strong>payload</strong> -- A string/dict of payload</li>
+<li><strong>key</strong> -- Private key used to generate signature</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body"><p class="first last">byte</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.jose.rfc7516.JWE.deserialize_compact">
+<code class="descname">deserialize_compact</code><span class="sig-paren">(</span><em>s</em>, <em>key</em>, <em>decode=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.jose.rfc7516.JWE.deserialize_compact" title="정의 주소">¶</a></dt>
+<dd><p>Exact JWS Compact Serialization, and validate with the given key.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first simple">
+<li><strong>s</strong> -- text of JWS Compact Serialization</li>
+<li><strong>key</strong> -- key used to verify the signature</li>
+<li><strong>decode</strong> -- a function to decode plaintext data</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body"><p class="first last">dict</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.jose.rfc7516.JWEAlgorithm">
+<em class="property">class </em><code class="descclassname">authlib.jose.rfc7516.</code><code class="descname">JWEAlgorithm</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.jose.rfc7516.JWEAlgorithm" title="정의 주소">¶</a></dt>
+<dd><p>Interface for JWE algorithm. JWA specification (RFC7518) SHOULD
+implement the algorithms for JWE with this base implementation.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.jose.rfc7516.JWEEncAlgorithm">
+<em class="property">class </em><code class="descclassname">authlib.jose.rfc7516.</code><code class="descname">JWEEncAlgorithm</code><a class="headerlink" href="#authlib.jose.rfc7516.JWEEncAlgorithm" title="정의 주소">¶</a></dt>
+<dd><dl class="method">
+<dt id="authlib.jose.rfc7516.JWEEncAlgorithm.encrypt">
+<code class="descname">encrypt</code><span class="sig-paren">(</span><em>msg</em>, <em>aad</em>, <em>iv</em>, <em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.jose.rfc7516.JWEEncAlgorithm.encrypt" title="정의 주소">¶</a></dt>
+<dd><p>Encrypt the given &quot;msg&quot; text.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first simple">
+<li><strong>msg</strong> -- text to be encrypt in bytes</li>
+<li><strong>aad</strong> -- additional authenticated data in bytes</li>
+<li><strong>iv</strong> -- initialization vector in bytes</li>
+<li><strong>key</strong> -- encrypted key in bytes</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body"><p class="first last">(ciphertext, iv, tag)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.jose.rfc7516.JWEEncAlgorithm.decrypt">
+<code class="descname">decrypt</code><span class="sig-paren">(</span><em>ciphertext</em>, <em>aad</em>, <em>iv</em>, <em>tag</em>, <em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.jose.rfc7516.JWEEncAlgorithm.decrypt" title="정의 주소">¶</a></dt>
+<dd><p>Decrypt the given cipher text.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first simple">
+<li><strong>ciphertext</strong> -- ciphertext in bytes</li>
+<li><strong>aad</strong> -- additional authenticated data in bytes</li>
+<li><strong>iv</strong> -- initialization vector in bytes</li>
+<li><strong>tag</strong> -- authentication tag in bytes</li>
+<li><strong>key</strong> -- encrypted key in bytes</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body"><p class="first last">message</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.jose.rfc7516.JWEZipAlgorithm">
+<em class="property">class </em><code class="descclassname">authlib.jose.rfc7516.</code><code class="descname">JWEZipAlgorithm</code><a class="headerlink" href="#authlib.jose.rfc7516.JWEZipAlgorithm" title="정의 주소">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+  <div class="t-pagination clearfix">
+    <span>
+      ← <a href="rfc7515.html" title="RFC7515: JSON Web Signature">RFC7515: JSON Web Signature</a>
+    </span>
+    <span style="float:right">
+      <a href="rfc7517.html" title="RFC7517: JSON Web Key">RFC7517: JSON Web Key</a> →
+    </span>
+  </div>
+</div><footer class="t-foot">
+    &copy; Copyright 2018, Hsiaoming Ltd.
+    <br>
+    A <a href="https://typlog.com/">typlog</a> <a href="https://github.com/typlog/sphinx-typlog-theme">sphinx theme</a>,
+    designed by <a href="https://lepture.com/">Hsiaoming Yang</a>.
+</footer>
+  </div>
+  <script>$(function(){$(".t-head_menu").on("click",function(){$("body").addClass("_expand")});$(".t-body").on("click",function(){$("body").removeClass("_expand")});$(".t-sidebar_close").on("click",function(){$("body").removeClass("_expand")});$("a.footnote-reference").on("click",function(e){e.preventDefault();var id=$(this).attr("href");var html=$(id).find("td.label + td").html();var w=Math.max(document.documentElement.clientWidth,window.innerWidth||0);var style="top:"+e.pageY+"px;";if(w>560){style+="width:480px;";if(e.pageX>240&&e.pageX+240<w){style+="left:"+(e.pageX-240)+"px;"}else if(e.pageX<=240){style+="left:20px;"}else{style+="right:20px;"}}showFootnote(html,style)});function showFootnote(html,style){var CONTENT_ID="typlog-footnote-content";var content=document.getElementById(CONTENT_ID);if(!content){content=document.createElement("div");content.id=CONTENT_ID;$(".t-body").append(content)}var MASK_ID="typlog-footnote-mask";var mask=document.getElementById(MASK_ID);if(!mask){mask=document.createElement("div");mask.id=MASK_ID;document.body.appendChild(mask);mask.addEventListener("click",function(){content.className="";mask.className=""})}content.innerHTML=html;content.setAttribute("style",style);content.className="_active";mask.className="_active"}function fetchGitHubRepo(repo){var url="https://api.github.com/repos/"+repo;$.getJSON(url,function(data){var counts=[+new Date,data.stargazers_count,data.forks_count];localStorage.setItem("gh:"+repo,JSON.stringify(counts));updateGitHubStats(counts[1],counts[2])})}function updateGitHubStats(stars,forks){$(".github_stars strong").text(stars);$(".github_forks strong").text(forks)}function initGitHub(url){if(!url){return}var repo=url.replace("https://github.com/","");var cache=localStorage.getItem("gh:"+repo);if(cache){try{var counts=JSON.parse(cache);updateGitHubStats(counts[1],counts[2]);var delta=new Date-counts[0];if(delta<0||delta>9e5){fetchGitHubRepo(repo)}}catch(error){fetchGitHubRepo(repo)}}else{fetchGitHubRepo(repo)}}initGitHub($(".github").attr("href"))});</script>
+</body>
+</html>

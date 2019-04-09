@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="API references of RFC5849 in Python implementation. Learn how to create an OAuth 1.0 provider in Python." name="description" />
+<title>RFC5849: The OAuth 1.0 Protocol &mdash; Authlib 0.12.dev documentation</title>
+  <link rel="shortcut icon" href="../_static/favicon.ico"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono"><link rel="stylesheet" href="../_static/typlog.css?v=0.7.2" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme.css?v=0.7.2" type="text/css" />
+      <link rel="index" title="색인" href="../genindex.html"/>
+      <link rel="search" title="검색" href="../search.html"/>
+    <link rel="top" title="Authlib 0.12.dev documentation" href="../index.html"/>
+      <link rel="up" title="Specifications" href="index.html"/>
+      <link rel="next" title="RFC6749: The OAuth 2.0 Authorization Framework" href="rfc6749.html"/>
+      <link rel="prev" title="Specifications" href="index.html"/>
+  <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-34098939-7');ga('send', 'pageview');</script>
+  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script><link rel="apple-touch-icon" sizes="180x180" href="https://authlib.org/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Authlib">
+  <meta property="og:title" content="RFC5849: The OAuth 1.0 Protocol">
+    <meta property="og:description" content="API references of RFC5849 in Python implementation. Learn how to create an OAuth 1.0 provider in Python.">
+    <meta property="og:image" content="https://authlib.org/logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@authlib">
+</head>
+<body role="document" data-page="specs/rfc5849">
+  <header class="t-head">
+    <div class="t-head_menu"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z"/></svg></div>
+    <a class="t-head_logo" href="../index.html"><img src="../_static/authlib.svg" alt="Logo"/>Authlib
+    </a>
+  </header>
+  <aside class="t-sidebar">
+    <div class="t-sidebar_close">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M405 136.798L375.202 107 256 226.202 136.798 107 107 136.798 226.202 256 107 375.202 136.798 405 256 285.798 375.202 405 405 375.202 285.798 256z"/></svg>
+    </div>
+    <div class="inner">
+<a class="logo" href="../index.html"><img src="../_static/authlib.svg" alt="Logo"/>
+    Authlib
+</a><div class="logo_desc">The ultimate Python library in building OAuth and OpenID Connect servers. JWS, JWE, JWK, JWA, JWT are included.</div>
+<div class="github_wrap">
+  <a class="github" href="https://github.com/lepture/authlib" target="_blank">
+    <span class="github_icon"></span>
+    <span class="github_stars">
+      <strong>-</strong>stars
+    </span>
+    <span class="github_forks">
+      <strong>-</strong>forks
+    </span>
+  </a>
+</div><div class="sponsors">
+  <div class="sponsor">
+    <a class="image" href="https://auth0.com/overview?utm_source=authlib&utm_medium=devsponsor&utm_campaign=authlib"><img src="https://user-images.githubusercontent.com/290496/39297078-89d00928-497d-11e8-8119-0c53afe14cd0.png" alt="Sponsor"></a>
+    <div class="text">The new way to solve Identity. Sponsored by <a href="https://auth0.com/overview?utm_source=authlib&utm_medium=devsponsor&utm_campaign=authlib">auth0.com</a></div>
+  </div>
+  <div class="patron">
+    <a class="patron-button" style="border: 1px solid #3E7FCB;display: inline-block;padding: 4px 18px;border-radius: 20px;color: #3E7FCB;" href="https://www.patreon.com/bePatron?u=8179754">Become a Patron!</a>
+  </div>
+</div><div class="globaltoc">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../basic/index.html">Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../client/index.html">Client Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jose/index.html">JOSE Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flask/1/index.html">Flask OAuth 1.0 Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flask/2/index.html">Flask OAuth 2.0 Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../django/1/index.html">Django OAuth 1.0 Server</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Specifications</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">RFC5849: The OAuth 1.0 Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc6749.html">RFC6749: The OAuth 2.0 Authorization Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc6750.html">RFC6750: The OAuth 2.0 Authorization Framework: Bearer Token Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7009.html">RFC7009: OAuth 2.0 Token Revocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7515.html">RFC7515: JSON Web Signature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7516.html">RFC7516: JSON Web Encryption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7517.html">RFC7517: JSON Web Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7518.html">RFC7518: JSON Web Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7519.html">RFC7519: JSON Web Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7523.html">RFC7523: JWT Profile for OAuth 2.0 Client Authentication and Authorization Grants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7636.html">RFC7636: Proof Key for Code Exchange by OAuth Public Clients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7662.html">RFC7662: OAuth 2.0 Token Introspection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oidc.html">OpenID Connect 1.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../community/index.html">Community</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+
+</div><div class="useful-links">
+  <h3>Useful Links</h3>
+  <ul>
+    <li><a href="https://authlib.org/">Homepage</a></li>
+    <li><a href="https://blog.authlib.org/">Read Blog</a></li>
+    <li><a href="https://authlib.org/plans">Commercial License</a></li>
+    <li><a href="https://github.com/lepture/authlib">Star on GitHub</a></li>
+    <li><a href="https://twitter.com/authlib">Follow on Twitter</a></li>
+    <li><a href="https://stackoverflow.com/questions/tagged/authlib">Help on StackOverflow</a></li>
+    <li><a href="https://github.com/authlib/loginpass">Loginpass</a></li>
+  </ul>
+</div>
+<div id="searchbox">
+  <form class="search" action="../search.html" method="get">
+    <div class="input-group">
+      <input type="text" name="q" placeholder="검색" />
+      <button type="submit">바로 가기</button>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+    </div>
+  </aside>
+  <div class="t-content">
+    <div class="t-body yue">
+  <div class="section" id="rfc5849-the-oauth-1-0-protocol">
+<span id="specs-rfc5849"></span><h1>RFC5849: The OAuth 1.0 Protocol<a class="headerlink" href="#rfc5849-the-oauth-1-0-protocol" title="제목 주소">¶</a></h1>
+<p>This section contains the generic implementation of <a class="reference external" href="https://tools.ietf.org/html/rfc5849">RFC5849</a>. Learn how to
+create an OAuth 1.0 provider in these frameworks:</p>
+<ol class="arabic simple">
+<li>Flask: <a class="reference internal" href="../flask/1/index.html#flask-oauth1-server"><span class="std std-ref">Flask OAuth 1.0 Server</span></a>.</li>
+<li>Django: not ready yet.</li>
+</ol>
+<span class="target" id="module-authlib.oauth1.rfc5849"></span><div class="section" id="servers">
+<h2>Servers<a class="headerlink" href="#servers" title="제목 주소">¶</a></h2>
+<dl class="class">
+<dt id="authlib.oauth1.rfc5849.AuthorizationServer">
+<em class="property">class </em><code class="descclassname">authlib.oauth1.rfc5849.</code><code class="descname">AuthorizationServer</code><a class="headerlink" href="#authlib.oauth1.rfc5849.AuthorizationServer" title="정의 주소">¶</a></dt>
+<dd><dl class="method">
+<dt id="authlib.oauth1.rfc5849.AuthorizationServer.create_authorization_response">
+<code class="descname">create_authorization_response</code><span class="sig-paren">(</span><em>request</em>, <em>grant_user=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.AuthorizationServer.create_authorization_response" title="정의 주소">¶</a></dt>
+<dd><p>Validate authorization request and create authorization response.
+Assume the endpoint for authorization request is
+<code class="docutils literal notranslate"><span class="pre">https://photos.example.net/authorize</span></code>, the client redirects Jane's
+user-agent to the server's Resource Owner Authorization endpoint to
+obtain Jane's approval for accessing her private photos:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://photos.example.net/authorize?oauth_token=hh5s93j4hdidpola
+</pre></div>
+</div>
+<p>The server requests Jane to sign in using her username and password
+and if successful, asks her to approve granting 'printer.example.com'
+access to her private photos.  Jane approves the request and her
+user-agent is redirected to the callback URI provided by the client
+in the previous request (line breaks are for display purposes only):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>http://printer.example.com/ready?
+oauth_token=hh5s93j4hdidpola&amp;oauth_verifier=hfdp7dh39dks9884
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first simple">
+<li><strong>request</strong> -- OAuth1Request instance.</li>
+<li><strong>grant_user</strong> -- if granted, pass the grant user, otherwise None.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body"><p class="first last">(status_code, body, headers)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth1.rfc5849.AuthorizationServer.create_authorization_verifier">
+<code class="descname">create_authorization_verifier</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.AuthorizationServer.create_authorization_verifier" title="정의 주소">¶</a></dt>
+<dd><p>Create and bind <code class="docutils literal notranslate"><span class="pre">oauth_verifier</span></code> to temporary credential. It
+could be re-implemented in this way:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_authorization_verifier</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+    <span class="n">verifier</span> <span class="o">=</span> <span class="n">generate_token</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span>
+
+    <span class="n">temporary_credential</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">credential</span>
+    <span class="n">user_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">get_user_id</span><span class="p">()</span>
+
+    <span class="n">temporary_credential</span><span class="o">.</span><span class="n">user_id</span> <span class="o">=</span> <span class="n">user_id</span>
+    <span class="n">temporary_credential</span><span class="o">.</span><span class="n">oauth_verifier</span> <span class="o">=</span> <span class="n">verifier</span>
+    <span class="c1"># if the credential has a save method</span>
+    <span class="n">temporary_credential</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+    <span class="c1"># remember to return the verifier</span>
+    <span class="k">return</span> <span class="n">verifier</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>request</strong> -- OAuth1Request instance</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">A string of <code class="docutils literal notranslate"><span class="pre">oauth_verifier</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth1.rfc5849.AuthorizationServer.create_temporary_credential">
+<code class="descname">create_temporary_credential</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.AuthorizationServer.create_temporary_credential" title="정의 주소">¶</a></dt>
+<dd><p>Generate and save a temporary credential into database or cache.
+A temporary credential is used for exchanging token credential. This
+method should be re-implemented:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_temporary_credential</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+    <span class="n">oauth_token</span> <span class="o">=</span> <span class="n">generate_token</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span>
+    <span class="n">oauth_token_secret</span> <span class="o">=</span> <span class="n">generate_token</span><span class="p">(</span><span class="mi">48</span><span class="p">)</span>
+    <span class="n">temporary_credential</span> <span class="o">=</span> <span class="n">TemporaryCredential</span><span class="p">(</span>
+        <span class="n">oauth_token</span><span class="o">=</span><span class="n">oauth_token</span><span class="p">,</span>
+        <span class="n">oauth_token_secret</span><span class="o">=</span><span class="n">oauth_token_secret</span><span class="p">,</span>
+        <span class="n">client_id</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="n">redirect_uri</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">redirect_uri</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="c1"># if the credential has a save method</span>
+    <span class="n">temporary_credential</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">temporary_credential</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>request</strong> -- OAuth1Request instance</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">TemporaryCredential instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth1.rfc5849.AuthorizationServer.create_temporary_credentials_response">
+<code class="descname">create_temporary_credentials_response</code><span class="sig-paren">(</span><em>request=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.AuthorizationServer.create_temporary_credentials_response" title="정의 주소">¶</a></dt>
+<dd><p>Validate temporary credentials token request and create response
+for temporary credentials token. Assume the endpoint of temporary
+credentials request is <code class="docutils literal notranslate"><span class="pre">https://photos.example.net/initiate</span></code>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/initiate</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">photos.example.net</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">OAuth realm=&quot;Photos&quot;,</span>
+    <span class="l">oauth_consumer_key=&quot;dpf43f3p2l4k3l03&quot;,</span>
+    <span class="l">oauth_signature_method=&quot;HMAC-SHA1&quot;,</span>
+    <span class="l">oauth_timestamp=&quot;137131200&quot;,</span>
+    <span class="l">oauth_nonce=&quot;wIjqoS&quot;,</span>
+    <span class="l">oauth_callback=&quot;http%3A%2F%2Fprinter.example.com%2Fready&quot;,</span>
+    <span class="l">oauth_signature=&quot;74KNZJeDHnMBp0EMJ9ZHt%2FXKycU%3D&quot;</span>
+</pre></div>
+</div>
+<p>The server validates the request and replies with a set of temporary
+credentials in the body of the HTTP response:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/x-www-form-urlencoded</span>
+
+oauth_token=hh5s93j4hdidpola&amp;oauth_token_secret=hdhd0244k9j7ao03&amp;
+oauth_callback_confirmed=true
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>request</strong> -- OAuth1Request instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">(status_code, body, headers)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth1.rfc5849.AuthorizationServer.create_token_credential">
+<code class="descname">create_token_credential</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.AuthorizationServer.create_token_credential" title="정의 주소">¶</a></dt>
+<dd><p>Create and save token credential into database. This method would
+be re-implemented like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_token_credential</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+    <span class="n">oauth_token</span> <span class="o">=</span> <span class="n">generate_token</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span>
+    <span class="n">oauth_token_secret</span> <span class="o">=</span> <span class="n">generate_token</span><span class="p">(</span><span class="mi">48</span><span class="p">)</span>
+    <span class="n">temporary_credential</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">credential</span>
+
+    <span class="n">token_credential</span> <span class="o">=</span> <span class="n">TokenCredential</span><span class="p">(</span>
+        <span class="n">oauth_token</span><span class="o">=</span><span class="n">oauth_token</span><span class="p">,</span>
+        <span class="n">oauth_token_secret</span><span class="o">=</span><span class="n">oauth_token_secret</span><span class="p">,</span>
+        <span class="n">client_id</span><span class="o">=</span><span class="n">temporary_credential</span><span class="o">.</span><span class="n">get_client_id</span><span class="p">(),</span>
+        <span class="n">user_id</span><span class="o">=</span><span class="n">temporary_credential</span><span class="o">.</span><span class="n">get_user_id</span><span class="p">()</span>
+    <span class="p">)</span>
+    <span class="c1"># if the credential has a save method</span>
+    <span class="n">token_credential</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">token_credential</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>request</strong> -- OAuth1Request instance</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">TokenCredential instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth1.rfc5849.AuthorizationServer.create_token_response">
+<code class="descname">create_token_response</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.AuthorizationServer.create_token_response" title="정의 주소">¶</a></dt>
+<dd><p>Validate token request and create token response. Assuming the
+endpoint of token request is <code class="docutils literal notranslate"><span class="pre">https://photos.example.net/token</span></code>,
+the callback request informs the client that Jane completed the
+authorization process.  The client then requests a set of token
+credentials using its temporary credentials (over a secure Transport
+Layer Security (TLS) channel):</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/token</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">photos.example.net</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">OAuth realm=&quot;Photos&quot;,</span>
+    <span class="l">oauth_consumer_key=&quot;dpf43f3p2l4k3l03&quot;,</span>
+    <span class="l">oauth_token=&quot;hh5s93j4hdidpola&quot;,</span>
+    <span class="l">oauth_signature_method=&quot;HMAC-SHA1&quot;,</span>
+    <span class="l">oauth_timestamp=&quot;137131201&quot;,</span>
+    <span class="l">oauth_nonce=&quot;walatlh&quot;,</span>
+    <span class="l">oauth_verifier=&quot;hfdp7dh39dks9884&quot;,</span>
+    <span class="l">oauth_signature=&quot;gKgrFCywp7rO0OXSjdot%2FIHF7IU%3D&quot;</span>
+</pre></div>
+</div>
+<p>The server validates the request and replies with a set of token
+credentials in the body of the HTTP response:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/x-www-form-urlencoded</span>
+
+oauth_token=nnch734d00sl2jdk&amp;oauth_token_secret=pfkkdhi9sl3r4s00
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>request</strong> -- OAuth1Request instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">(status_code, body, headers)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth1.rfc5849.AuthorizationServer.delete_temporary_credential">
+<code class="descname">delete_temporary_credential</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.AuthorizationServer.delete_temporary_credential" title="정의 주소">¶</a></dt>
+<dd><p>Delete temporary credential from database or cache. For instance,
+if temporary credential is saved in cache:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">delete_temporary_credential</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;a-key-prefix:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">token</span><span class="p">)</span>
+    <span class="n">cache</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>request</strong> -- OAuth1Request instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth1.rfc5849.AuthorizationServer.exists_nonce">
+<code class="descname">exists_nonce</code><span class="sig-paren">(</span><em>nonce</em>, <em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.AuthorizationServer.exists_nonce" title="정의 주소">¶</a></dt>
+<dd><p>The nonce value MUST be unique across all requests with the same
+timestamp, client credentials, and token combinations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first simple">
+<li><strong>nonce</strong> -- A string value of <code class="docutils literal notranslate"><span class="pre">oauth_nonce</span></code></li>
+<li><strong>request</strong> -- OAuth1Request instance</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body"><p class="first last">Boolean</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth1.rfc5849.AuthorizationServer.get_client_by_id">
+<code class="descname">get_client_by_id</code><span class="sig-paren">(</span><em>client_id</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.AuthorizationServer.get_client_by_id" title="정의 주소">¶</a></dt>
+<dd><p>Get client instance with the given <code class="docutils literal notranslate"><span class="pre">client_id</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>client_id</strong> -- A string of client_id</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">Client instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth1.rfc5849.AuthorizationServer.get_temporary_credential">
+<code class="descname">get_temporary_credential</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.AuthorizationServer.get_temporary_credential" title="정의 주소">¶</a></dt>
+<dd><p>Get the temporary credential from database or cache. A temporary
+credential should share the same methods as described in models of
+<code class="docutils literal notranslate"><span class="pre">TemporaryCredentialMixin</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_temporary_credential</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;a-key-prefix:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">token</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+    <span class="c1"># TemporaryCredential shares methods from TemporaryCredentialMixin</span>
+    <span class="k">return</span> <span class="n">TemporaryCredential</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>request</strong> -- OAuth1Request instance</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">TemporaryCredential instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="authlib.oauth1.rfc5849.AuthorizationServer.register_signature_method">
+<em class="property">classmethod </em><code class="descname">register_signature_method</code><span class="sig-paren">(</span><em>name</em>, <em>verify</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.AuthorizationServer.register_signature_method" title="정의 주소">¶</a></dt>
+<dd><p>Extend signature method verification.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> -- A string to represent signature method.</li>
+<li><strong>verify</strong> -- A function to verify signature.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The <code class="docutils literal notranslate"><span class="pre">verify</span></code> method accept <code class="docutils literal notranslate"><span class="pre">OAuth1Request</span></code> as parameter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">verify_custom_method</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="c1"># verify this request, return True or False</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="n">Server</span><span class="o">.</span><span class="n">register_signature_method</span><span class="p">(</span><span class="s1">&#39;custom-name&#39;</span><span class="p">,</span> <span class="n">verify_custom_method</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth1.rfc5849.AuthorizationServer.validate_authorization_request">
+<code class="descname">validate_authorization_request</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.AuthorizationServer.validate_authorization_request" title="정의 주소">¶</a></dt>
+<dd><p>Validate the request for resource owner authorization.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth1.rfc5849.AuthorizationServer.validate_oauth_signature">
+<code class="descname">validate_oauth_signature</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.AuthorizationServer.validate_oauth_signature" title="정의 주소">¶</a></dt>
+<dd><p>Validate <code class="docutils literal notranslate"><span class="pre">oauth_signature</span></code> from HTTP request.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>request</strong> -- OAuth1Request instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth1.rfc5849.AuthorizationServer.validate_temporary_credentials_request">
+<code class="descname">validate_temporary_credentials_request</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.AuthorizationServer.validate_temporary_credentials_request" title="정의 주소">¶</a></dt>
+<dd><p>Validate HTTP request for temporary credentials.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth1.rfc5849.AuthorizationServer.validate_timestamp_and_nonce">
+<code class="descname">validate_timestamp_and_nonce</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.AuthorizationServer.validate_timestamp_and_nonce" title="정의 주소">¶</a></dt>
+<dd><p>Validate <code class="docutils literal notranslate"><span class="pre">oauth_timestamp</span></code> and <code class="docutils literal notranslate"><span class="pre">oauth_nonce</span></code> in HTTP request.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>request</strong> -- OAuth1Request instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth1.rfc5849.AuthorizationServer.validate_token_request">
+<code class="descname">validate_token_request</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.AuthorizationServer.validate_token_request" title="정의 주소">¶</a></dt>
+<dd><p>Validate request for issuing token.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.oauth1.rfc5849.ResourceProtector">
+<em class="property">class </em><code class="descclassname">authlib.oauth1.rfc5849.</code><code class="descname">ResourceProtector</code><a class="headerlink" href="#authlib.oauth1.rfc5849.ResourceProtector" title="정의 주소">¶</a></dt>
+<dd><dl class="method">
+<dt id="authlib.oauth1.rfc5849.ResourceProtector.exists_nonce">
+<code class="descname">exists_nonce</code><span class="sig-paren">(</span><em>nonce</em>, <em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.ResourceProtector.exists_nonce" title="정의 주소">¶</a></dt>
+<dd><p>The nonce value MUST be unique across all requests with the same
+timestamp, client credentials, and token combinations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first simple">
+<li><strong>nonce</strong> -- A string value of <code class="docutils literal notranslate"><span class="pre">oauth_nonce</span></code></li>
+<li><strong>request</strong> -- OAuth1Request instance</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body"><p class="first last">Boolean</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth1.rfc5849.ResourceProtector.get_client_by_id">
+<code class="descname">get_client_by_id</code><span class="sig-paren">(</span><em>client_id</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.ResourceProtector.get_client_by_id" title="정의 주소">¶</a></dt>
+<dd><p>Get client instance with the given <code class="docutils literal notranslate"><span class="pre">client_id</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>client_id</strong> -- A string of client_id</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">Client instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth1.rfc5849.ResourceProtector.get_token_credential">
+<code class="descname">get_token_credential</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.ResourceProtector.get_token_credential" title="정의 주소">¶</a></dt>
+<dd><p>Fetch the token credential from data store like a database,
+framework should implement this function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>request</strong> -- OAuth1Request instance</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">Token model instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="authlib.oauth1.rfc5849.ResourceProtector.register_signature_method">
+<em class="property">classmethod </em><code class="descname">register_signature_method</code><span class="sig-paren">(</span><em>name</em>, <em>verify</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.ResourceProtector.register_signature_method" title="정의 주소">¶</a></dt>
+<dd><p>Extend signature method verification.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> -- A string to represent signature method.</li>
+<li><strong>verify</strong> -- A function to verify signature.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The <code class="docutils literal notranslate"><span class="pre">verify</span></code> method accept <code class="docutils literal notranslate"><span class="pre">OAuth1Request</span></code> as parameter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">verify_custom_method</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="c1"># verify this request, return True or False</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="n">Server</span><span class="o">.</span><span class="n">register_signature_method</span><span class="p">(</span><span class="s1">&#39;custom-name&#39;</span><span class="p">,</span> <span class="n">verify_custom_method</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth1.rfc5849.ResourceProtector.validate_oauth_signature">
+<code class="descname">validate_oauth_signature</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.ResourceProtector.validate_oauth_signature" title="정의 주소">¶</a></dt>
+<dd><p>Validate <code class="docutils literal notranslate"><span class="pre">oauth_signature</span></code> from HTTP request.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>request</strong> -- OAuth1Request instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth1.rfc5849.ResourceProtector.validate_timestamp_and_nonce">
+<code class="descname">validate_timestamp_and_nonce</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.ResourceProtector.validate_timestamp_and_nonce" title="정의 주소">¶</a></dt>
+<dd><p>Validate <code class="docutils literal notranslate"><span class="pre">oauth_timestamp</span></code> and <code class="docutils literal notranslate"><span class="pre">oauth_nonce</span></code> in HTTP request.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>request</strong> -- OAuth1Request instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="models-mixin">
+<h2>Models Mixin<a class="headerlink" href="#models-mixin" title="제목 주소">¶</a></h2>
+<dl class="class">
+<dt id="authlib.oauth1.rfc5849.ClientMixin">
+<em class="property">class </em><code class="descclassname">authlib.oauth1.rfc5849.</code><code class="descname">ClientMixin</code><a class="headerlink" href="#authlib.oauth1.rfc5849.ClientMixin" title="정의 주소">¶</a></dt>
+<dd><dl class="method">
+<dt id="authlib.oauth1.rfc5849.ClientMixin.get_client_secret">
+<code class="descname">get_client_secret</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.ClientMixin.get_client_secret" title="정의 주소">¶</a></dt>
+<dd><p>A method to return the client_secret of this client. For instance,
+the database table has a column called <code class="docutils literal notranslate"><span class="pre">client_secret</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_client_secret</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">client_secret</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth1.rfc5849.ClientMixin.get_default_redirect_uri">
+<code class="descname">get_default_redirect_uri</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.ClientMixin.get_default_redirect_uri" title="정의 주소">¶</a></dt>
+<dd><p>A method to get client default redirect_uri. For instance, the
+database table for client has a column called <code class="docutils literal notranslate"><span class="pre">default_redirect_uri</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_default_redirect_uri</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_redirect_uri</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">반환:</th><td class="field-body">A URL string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth1.rfc5849.ClientMixin.get_rsa_public_key">
+<code class="descname">get_rsa_public_key</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.ClientMixin.get_rsa_public_key" title="정의 주소">¶</a></dt>
+<dd><p>A method to get the RSA public key for RSA-SHA1 signature method.
+For instance, the value is saved on column <code class="docutils literal notranslate"><span class="pre">rsa_public_key</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_rsa_public_key</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rsa_public_key</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.oauth1.rfc5849.TemporaryCredentialMixin">
+<em class="property">class </em><code class="descclassname">authlib.oauth1.rfc5849.</code><code class="descname">TemporaryCredentialMixin</code><a class="headerlink" href="#authlib.oauth1.rfc5849.TemporaryCredentialMixin" title="정의 주소">¶</a></dt>
+<dd><dl class="method">
+<dt id="authlib.oauth1.rfc5849.TemporaryCredentialMixin.check_verifier">
+<code class="descname">check_verifier</code><span class="sig-paren">(</span><em>verifier</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.TemporaryCredentialMixin.check_verifier" title="정의 주소">¶</a></dt>
+<dd><p>A method to check if the given verifier matches this temporary
+credential. For instance that this temporary credential has recorded
+the value in database as column <code class="docutils literal notranslate"><span class="pre">oauth_verifier</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">check_verifier</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verifier</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">oauth_verifier</span> <span class="o">==</span> <span class="n">verifier</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">반환:</th><td class="field-body">Boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth1.rfc5849.TemporaryCredentialMixin.get_client_id">
+<code class="descname">get_client_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.TemporaryCredentialMixin.get_client_id" title="정의 주소">¶</a></dt>
+<dd><p>A method to get the client_id associated with this credential.
+For instance, the table in the database has a column <code class="docutils literal notranslate"><span class="pre">client_id</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_client_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">client_id</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth1.rfc5849.TemporaryCredentialMixin.get_oauth_token">
+<code class="descname">get_oauth_token</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.TemporaryCredentialMixin.get_oauth_token" title="정의 주소">¶</a></dt>
+<dd><p>A method to get the value of <code class="docutils literal notranslate"><span class="pre">oauth_token</span></code>. For instance, the
+database table has a column called <code class="docutils literal notranslate"><span class="pre">oauth_token</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_oauth_token</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">oauth_token</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">반환:</th><td class="field-body">A string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth1.rfc5849.TemporaryCredentialMixin.get_oauth_token_secret">
+<code class="descname">get_oauth_token_secret</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.TemporaryCredentialMixin.get_oauth_token_secret" title="정의 주소">¶</a></dt>
+<dd><p>A method to get the value of <code class="docutils literal notranslate"><span class="pre">oauth_token_secret</span></code>. For instance,
+the database table has a column called <code class="docutils literal notranslate"><span class="pre">oauth_token_secret</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_oauth_token_secret</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">oauth_token_secret</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">반환:</th><td class="field-body">A string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth1.rfc5849.TemporaryCredentialMixin.get_redirect_uri">
+<code class="descname">get_redirect_uri</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.TemporaryCredentialMixin.get_redirect_uri" title="정의 주소">¶</a></dt>
+<dd><p>A method to get temporary credential's <code class="docutils literal notranslate"><span class="pre">oauth_callback</span></code>.
+For instance, the database table for temporary credential has a
+column called <code class="docutils literal notranslate"><span class="pre">oauth_callback</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_redirect_uri</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">oauth_callback</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">반환:</th><td class="field-body">A URL string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.oauth1.rfc5849.TokenCredentialMixin">
+<em class="property">class </em><code class="descclassname">authlib.oauth1.rfc5849.</code><code class="descname">TokenCredentialMixin</code><a class="headerlink" href="#authlib.oauth1.rfc5849.TokenCredentialMixin" title="정의 주소">¶</a></dt>
+<dd><dl class="method">
+<dt id="authlib.oauth1.rfc5849.TokenCredentialMixin.get_oauth_token">
+<code class="descname">get_oauth_token</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.TokenCredentialMixin.get_oauth_token" title="정의 주소">¶</a></dt>
+<dd><p>A method to get the value of <code class="docutils literal notranslate"><span class="pre">oauth_token</span></code>. For instance, the
+database table has a column called <code class="docutils literal notranslate"><span class="pre">oauth_token</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_oauth_token</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">oauth_token</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">반환:</th><td class="field-body">A string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth1.rfc5849.TokenCredentialMixin.get_oauth_token_secret">
+<code class="descname">get_oauth_token_secret</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth1.rfc5849.TokenCredentialMixin.get_oauth_token_secret" title="정의 주소">¶</a></dt>
+<dd><p>A method to get the value of <code class="docutils literal notranslate"><span class="pre">oauth_token_secret</span></code>. For instance,
+the database table has a column called <code class="docutils literal notranslate"><span class="pre">oauth_token_secret</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_oauth_token_secret</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">oauth_token_secret</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">반환:</th><td class="field-body">A string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+  <div class="t-pagination clearfix">
+    <span>
+      ← <a href="index.html" title="Specifications">Specifications</a>
+    </span>
+    <span style="float:right">
+      <a href="rfc6749.html" title="RFC6749: The OAuth 2.0 Authorization Framework">RFC6749: The OAuth 2.0...</a> →
+    </span>
+  </div>
+</div><footer class="t-foot">
+    &copy; Copyright 2018, Hsiaoming Ltd.
+    <br>
+    A <a href="https://typlog.com/">typlog</a> <a href="https://github.com/typlog/sphinx-typlog-theme">sphinx theme</a>,
+    designed by <a href="https://lepture.com/">Hsiaoming Yang</a>.
+</footer>
+  </div>
+  <script>$(function(){$(".t-head_menu").on("click",function(){$("body").addClass("_expand")});$(".t-body").on("click",function(){$("body").removeClass("_expand")});$(".t-sidebar_close").on("click",function(){$("body").removeClass("_expand")});$("a.footnote-reference").on("click",function(e){e.preventDefault();var id=$(this).attr("href");var html=$(id).find("td.label + td").html();var w=Math.max(document.documentElement.clientWidth,window.innerWidth||0);var style="top:"+e.pageY+"px;";if(w>560){style+="width:480px;";if(e.pageX>240&&e.pageX+240<w){style+="left:"+(e.pageX-240)+"px;"}else if(e.pageX<=240){style+="left:20px;"}else{style+="right:20px;"}}showFootnote(html,style)});function showFootnote(html,style){var CONTENT_ID="typlog-footnote-content";var content=document.getElementById(CONTENT_ID);if(!content){content=document.createElement("div");content.id=CONTENT_ID;$(".t-body").append(content)}var MASK_ID="typlog-footnote-mask";var mask=document.getElementById(MASK_ID);if(!mask){mask=document.createElement("div");mask.id=MASK_ID;document.body.appendChild(mask);mask.addEventListener("click",function(){content.className="";mask.className=""})}content.innerHTML=html;content.setAttribute("style",style);content.className="_active";mask.className="_active"}function fetchGitHubRepo(repo){var url="https://api.github.com/repos/"+repo;$.getJSON(url,function(data){var counts=[+new Date,data.stargazers_count,data.forks_count];localStorage.setItem("gh:"+repo,JSON.stringify(counts));updateGitHubStats(counts[1],counts[2])})}function updateGitHubStats(stars,forks){$(".github_stars strong").text(stars);$(".github_forks strong").text(forks)}function initGitHub(url){if(!url){return}var repo=url.replace("https://github.com/","");var cache=localStorage.getItem("gh:"+repo);if(cache){try{var counts=JSON.parse(cache);updateGitHubStats(counts[1],counts[2]);var delta=new Date-counts[0];if(delta<0||delta>9e5){fetchGitHubRepo(repo)}}catch(error){fetchGitHubRepo(repo)}}else{fetchGitHubRepo(repo)}}initGitHub($(".github").attr("href"))});</script>
+</body>
+</html>

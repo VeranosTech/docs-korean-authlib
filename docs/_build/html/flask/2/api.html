@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API References of Flask OAuth 2.0 Server &mdash; Authlib 0.12.dev documentation</title>
+  <link rel="shortcut icon" href="../../_static/favicon.ico"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono"><link rel="stylesheet" href="../../_static/typlog.css?v=0.7.2" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme.css?v=0.7.2" type="text/css" />
+      <link rel="index" title="색인" href="../../genindex.html"/>
+      <link rel="search" title="검색" href="../../search.html"/>
+    <link rel="top" title="Authlib 0.12.dev documentation" href="../../index.html"/>
+      <link rel="up" title="Flask OAuth 2.0 Server" href="index.html"/>
+      <link rel="next" title="Django OAuth 1.0 Server" href="../../django/1/index.html"/>
+      <link rel="prev" title="Flask OpenID Connect 1.0" href="openid-connect.html"/>
+  <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-34098939-7');ga('send', 'pageview');</script>
+  <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script><link rel="apple-touch-icon" sizes="180x180" href="https://authlib.org/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Authlib">
+  <meta property="og:title" content="API References of Flask OAuth 2.0 Server">
+    <meta property="og:description" content="The ultimate Python library in building OAuth and OpenID Connect servers. JWS, JWE, JWK, JWA, JWT are included.">
+    <meta property="og:image" content="https://authlib.org/logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@authlib">
+</head>
+<body role="document" data-page="flask/2/api">
+  <header class="t-head">
+    <div class="t-head_menu"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z"/></svg></div>
+    <a class="t-head_logo" href="../../index.html"><img src="../../_static/authlib.svg" alt="Logo"/>Authlib
+    </a>
+  </header>
+  <aside class="t-sidebar">
+    <div class="t-sidebar_close">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M405 136.798L375.202 107 256 226.202 136.798 107 107 136.798 226.202 256 107 375.202 136.798 405 256 285.798 375.202 405 405 375.202 285.798 256z"/></svg>
+    </div>
+    <div class="inner">
+<a class="logo" href="../../index.html"><img src="../../_static/authlib.svg" alt="Logo"/>
+    Authlib
+</a><div class="logo_desc">The ultimate Python library in building OAuth and OpenID Connect servers. JWS, JWE, JWK, JWA, JWT are included.</div>
+<div class="github_wrap">
+  <a class="github" href="https://github.com/lepture/authlib" target="_blank">
+    <span class="github_icon"></span>
+    <span class="github_stars">
+      <strong>-</strong>stars
+    </span>
+    <span class="github_forks">
+      <strong>-</strong>forks
+    </span>
+  </a>
+</div><div class="sponsors">
+  <div class="sponsor">
+    <a class="image" href="https://auth0.com/overview?utm_source=authlib&utm_medium=devsponsor&utm_campaign=authlib"><img src="https://user-images.githubusercontent.com/290496/39297078-89d00928-497d-11e8-8119-0c53afe14cd0.png" alt="Sponsor"></a>
+    <div class="text">The new way to solve Identity. Sponsored by <a href="https://auth0.com/overview?utm_source=authlib&utm_medium=devsponsor&utm_campaign=authlib">auth0.com</a></div>
+  </div>
+  <div class="patron">
+    <a class="patron-button" style="border: 1px solid #3E7FCB;display: inline-block;padding: 4px 18px;border-radius: 20px;color: #3E7FCB;" href="https://www.patreon.com/bePatron?u=8179754">Become a Patron!</a>
+  </div>
+</div><div class="globaltoc">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../basic/index.html">Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client/index.html">Client Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jose/index.html">JOSE Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/index.html">Flask OAuth 1.0 Server</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Flask OAuth 2.0 Server</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="authorization-server.html">Authorization Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grants.html">Register Grants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="endpoints.html">Token Endpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resource-server.html">Resource Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openid-connect.html">Flask OpenID Connect 1.0</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">API References of Flask OAuth 2.0 Server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../django/1/index.html">Django OAuth 1.0 Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../specs/index.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../community/index.html">Community</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+</ul>
+
+</div><div class="useful-links">
+  <h3>Useful Links</h3>
+  <ul>
+    <li><a href="https://authlib.org/">Homepage</a></li>
+    <li><a href="https://blog.authlib.org/">Read Blog</a></li>
+    <li><a href="https://authlib.org/plans">Commercial License</a></li>
+    <li><a href="https://github.com/lepture/authlib">Star on GitHub</a></li>
+    <li><a href="https://twitter.com/authlib">Follow on Twitter</a></li>
+    <li><a href="https://stackoverflow.com/questions/tagged/authlib">Help on StackOverflow</a></li>
+    <li><a href="https://github.com/authlib/loginpass">Loginpass</a></li>
+  </ul>
+</div>
+<div id="searchbox">
+  <form class="search" action="../../search.html" method="get">
+    <div class="input-group">
+      <input type="text" name="q" placeholder="검색" />
+      <button type="submit">바로 가기</button>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+    </div>
+  </aside>
+  <div class="t-content">
+    <div class="t-body yue">
+  <div class="section" id="api-references-of-flask-oauth-2-0-server">
+<h1>API References of Flask OAuth 2.0 Server<a class="headerlink" href="#api-references-of-flask-oauth-2-0-server" title="제목 주소">¶</a></h1>
+<p>This part of the documentation covers the interface of Flask OAuth 2.0
+Server.</p>
+<span class="target" id="module-authlib.flask.oauth2"></span><dl class="class">
+<dt id="authlib.flask.oauth2.AuthorizationServer">
+<em class="property">class </em><code class="descclassname">authlib.flask.oauth2.</code><code class="descname">AuthorizationServer</code><span class="sig-paren">(</span><em>app=None</em>, <em>query_client=None</em>, <em>save_token=None</em>, <em>**config</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.flask.oauth2.AuthorizationServer" title="정의 주소">¶</a></dt>
+<dd><p>Flask implementation of <code class="xref py py-class docutils literal notranslate"><span class="pre">authlib.rfc6749.AuthorizationServer</span></code>.
+Initialize it with <code class="docutils literal notranslate"><span class="pre">query_client</span></code>, <code class="docutils literal notranslate"><span class="pre">save_token</span></code> methods and Flask
+app instance:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">query_client</span><span class="p">(</span><span class="n">client_id</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Client</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">client_id</span><span class="o">=</span><span class="n">client_id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">save_token</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">:</span>
+        <span class="n">user_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">get_user_id</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">user_id</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">client</span>
+    <span class="n">tok</span> <span class="o">=</span> <span class="n">Token</span><span class="p">(</span>
+        <span class="n">client_id</span><span class="o">=</span><span class="n">client</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="n">user_id</span><span class="o">=</span><span class="n">user</span><span class="o">.</span><span class="n">get_user_id</span><span class="p">(),</span>
+        <span class="o">**</span><span class="n">token</span>
+    <span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tok</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+<span class="n">server</span> <span class="o">=</span> <span class="n">AuthorizationServer</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">query_client</span><span class="p">,</span> <span class="n">save_token</span><span class="p">)</span>
+<span class="c1"># or initialize lazily</span>
+<span class="n">server</span> <span class="o">=</span> <span class="n">AuthorizationServer</span><span class="p">()</span>
+<span class="n">server</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">query_client</span><span class="p">,</span> <span class="n">save_token</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="authlib.flask.oauth2.AuthorizationServer.create_authorization_response">
+<code class="descname">create_authorization_response</code><span class="sig-paren">(</span><em>request=None</em>, <em>grant_user=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.flask.oauth2.AuthorizationServer.create_authorization_response" title="정의 주소">¶</a></dt>
+<dd><p>Validate authorization request and create authorization response.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first simple">
+<li><strong>request</strong> -- OAuth2Request instance.</li>
+<li><strong>grant_user</strong> -- if granted, it is resource owner. If denied,
+it is None.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body"><p class="first last">Response</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.flask.oauth2.AuthorizationServer.create_bearer_token_generator">
+<code class="descname">create_bearer_token_generator</code><span class="sig-paren">(</span><em>app</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.flask.oauth2.AuthorizationServer.create_bearer_token_generator" title="정의 주소">¶</a></dt>
+<dd><p>Create a generator function for generating <code class="docutils literal notranslate"><span class="pre">token</span></code> value. This
+method will create a Bearer Token generator with
+<a class="reference internal" href="../../specs/rfc6750.html#authlib.oauth2.rfc6750.BearerToken" title="authlib.oauth2.rfc6750.BearerToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">authlib.oauth2.rfc6750.BearerToken</span></code></a>. By default, it will not
+generate <code class="docutils literal notranslate"><span class="pre">refresh_token</span></code>, which can be turn on by configuration
+<code class="docutils literal notranslate"><span class="pre">OAUTH2_REFRESH_TOKEN_GENERATOR=True</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.flask.oauth2.AuthorizationServer.create_endpoint_response">
+<code class="descname">create_endpoint_response</code><span class="sig-paren">(</span><em>name</em>, <em>request=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.flask.oauth2.AuthorizationServer.create_endpoint_response" title="정의 주소">¶</a></dt>
+<dd><p>Validate endpoint request and create endpoint response.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> -- Endpoint name</li>
+<li><strong>request</strong> -- OAuth2Request instance.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body"><p class="first last">Response</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.flask.oauth2.AuthorizationServer.create_token_expires_in_generator">
+<code class="descname">create_token_expires_in_generator</code><span class="sig-paren">(</span><em>app</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.flask.oauth2.AuthorizationServer.create_token_expires_in_generator" title="정의 주소">¶</a></dt>
+<dd><p>Create a generator function for generating <code class="docutils literal notranslate"><span class="pre">expires_in</span></code> value.
+Developers can re-implement this method with a subclass if other means
+required. The default expires_in value is defined by <code class="docutils literal notranslate"><span class="pre">grant_type</span></code>,
+different <code class="docutils literal notranslate"><span class="pre">grant_type</span></code> has different value. It can be configured
+with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OAUTH2_TOKEN_EXPIRES_IN</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;authorization_code&#39;</span><span class="p">:</span> <span class="mi">864000</span><span class="p">,</span>
+    <span class="s1">&#39;urn:ietf:params:oauth:grant-type:jwt-bearer&#39;</span><span class="p">:</span> <span class="mi">3600</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.flask.oauth2.AuthorizationServer.create_token_response">
+<code class="descname">create_token_response</code><span class="sig-paren">(</span><em>request=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.flask.oauth2.AuthorizationServer.create_token_response" title="정의 주소">¶</a></dt>
+<dd><p>Validate token request and create token response.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>request</strong> -- OAuth2Request instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.flask.oauth2.AuthorizationServer.register_endpoint">
+<code class="descname">register_endpoint</code><span class="sig-paren">(</span><em>endpoint_cls</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.flask.oauth2.AuthorizationServer.register_endpoint" title="정의 주소">¶</a></dt>
+<dd><p>Add token endpoint to authorization server. e.g.
+RevocationEndpoint:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">authorization_server</span><span class="o">.</span><span class="n">register_endpoint</span><span class="p">(</span><span class="n">RevocationEndpoint</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>endpoint_cls</strong> -- A token endpoint class</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.flask.oauth2.AuthorizationServer.register_grant">
+<code class="descname">register_grant</code><span class="sig-paren">(</span><em>grant_cls</em>, <em>extensions=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.flask.oauth2.AuthorizationServer.register_grant" title="정의 주소">¶</a></dt>
+<dd><p>Register a grant class into the endpoint registry. Developers
+can implement the grants in <code class="docutils literal notranslate"><span class="pre">authlib.oauth2.rfc6749.grants</span></code> and
+register with this method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">AuthorizationCodeGrant</span><span class="p">(</span><span class="n">grants</span><span class="o">.</span><span class="n">AuthorizationCodeGrant</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">authenticate_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">credential</span><span class="p">):</span>
+        <span class="c1"># ...</span>
+
+<span class="n">authorization_server</span><span class="o">.</span><span class="n">register_grant</span><span class="p">(</span><span class="n">AuthorizationCodeGrant</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first last simple">
+<li><strong>grant_cls</strong> -- a grant class.</li>
+<li><strong>extensions</strong> -- extensions for the grant class.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.flask.oauth2.AuthorizationServer.validate_consent_request">
+<code class="descname">validate_consent_request</code><span class="sig-paren">(</span><em>request=None</em>, <em>end_user=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.flask.oauth2.AuthorizationServer.validate_consent_request" title="정의 주소">¶</a></dt>
+<dd><p>Validate current HTTP request for authorization page. This page
+is designed for resource owner to grant or deny the authorization:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/authorize&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">authorize</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">grant</span> <span class="o">=</span> <span class="n">server</span><span class="o">.</span><span class="n">validate_consent_request</span><span class="p">(</span><span class="n">end_user</span><span class="o">=</span><span class="n">current_user</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span>
+            <span class="s1">&#39;authorize.html&#39;</span><span class="p">,</span>
+            <span class="n">grant</span><span class="o">=</span><span class="n">grant</span><span class="p">,</span>
+            <span class="n">user</span><span class="o">=</span><span class="n">current_user</span>
+        <span class="p">)</span>
+    <span class="k">except</span> <span class="n">OAuth2Error</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span>
+            <span class="s1">&#39;error.html&#39;</span><span class="p">,</span>
+            <span class="n">error</span><span class="o">=</span><span class="n">error</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.flask.oauth2.ResourceProtector">
+<em class="property">class </em><code class="descclassname">authlib.flask.oauth2.</code><code class="descname">ResourceProtector</code><a class="headerlink" href="#authlib.flask.oauth2.ResourceProtector" title="정의 주소">¶</a></dt>
+<dd><p>A protecting method for resource servers. Creating a <code class="docutils literal notranslate"><span class="pre">require_oauth</span></code>
+decorator easily with ResourceProtector:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">authlib.flask.oauth2</span> <span class="k">import</span> <span class="n">ResourceProtector</span>
+
+<span class="n">require_oauth</span> <span class="o">=</span> <span class="n">ResourceProtector</span><span class="p">()</span>
+
+<span class="c1"># add bearer token validator</span>
+<span class="kn">from</span> <span class="nn">authlib.oauth2.rfc6750</span> <span class="k">import</span> <span class="n">BearerTokenValidator</span>
+<span class="kn">from</span> <span class="nn">project.models</span> <span class="k">import</span> <span class="n">Token</span>
+
+<span class="k">class</span> <span class="nc">MyBearerTokenValidator</span><span class="p">(</span><span class="n">BearerTokenValidator</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">authenticate_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">token_string</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Token</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">access_token</span><span class="o">=</span><span class="n">token_string</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">request_invalid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">token_revoked</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">token</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+<span class="n">require_oauth</span><span class="o">.</span><span class="n">register_token_validator</span><span class="p">(</span><span class="n">MyBearerTokenValidator</span><span class="p">())</span>
+
+<span class="c1"># protect resource with require_oauth</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/user&#39;</span><span class="p">)</span>
+<span class="nd">@require_oauth</span><span class="p">(</span><span class="s1">&#39;profile&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">user_profile</span><span class="p">():</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">current_token</span><span class="o">.</span><span class="n">user_id</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="authlib.flask.oauth2.ResourceProtector.raise_error_response">
+<code class="descname">raise_error_response</code><span class="sig-paren">(</span><em>error</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.flask.oauth2.ResourceProtector.raise_error_response" title="정의 주소">¶</a></dt>
+<dd><p>Raise HTTPException for OAuth2Error. Developers can re-implement
+this method to customize the error response.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>error</strong> -- OAuth2Error</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raise:</th><td class="field-body">HTTPException</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.flask.oauth2.ResourceProtector.acquire_token">
+<code class="descname">acquire_token</code><span class="sig-paren">(</span><em>scope=None</em>, <em>operator='AND'</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.flask.oauth2.ResourceProtector.acquire_token" title="정의 주소">¶</a></dt>
+<dd><p>A method to acquire current valid token with the given scope.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first simple">
+<li><strong>scope</strong> -- string or list of scope values</li>
+<li><strong>operator</strong> -- value of &quot;AND&quot; or &quot;OR&quot;</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body"><p class="first last">token object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.flask.oauth2.ResourceProtector.acquire">
+<code class="descname">acquire</code><span class="sig-paren">(</span><em>scope=None</em>, <em>operator='AND'</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.flask.oauth2.ResourceProtector.acquire" title="정의 주소">¶</a></dt>
+<dd><p>The with statement of <code class="docutils literal notranslate"><span class="pre">require_oauth</span></code>. Instead of using a
+decorator, you can use a with statement instead:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/user&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">user_api</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">require_oauth</span><span class="o">.</span><span class="n">acquire</span><span class="p">(</span><span class="s1">&#39;profile&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">token</span><span class="p">:</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">token</span><span class="o">.</span><span class="n">user_id</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="data">
+<dt id="authlib.flask.oauth2.current_token">
+<code class="descclassname">authlib.flask.oauth2.</code><code class="descname">current_token</code><a class="headerlink" href="#authlib.flask.oauth2.current_token" title="정의 주소">¶</a></dt>
+<dd><p>Routes protected by <a class="reference internal" href="#authlib.flask.oauth2.ResourceProtector" title="authlib.flask.oauth2.ResourceProtector"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceProtector</span></code></a> can access current token
+with this variable:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">authlib.flask.oauth2</span> <span class="k">import</span> <span class="n">current_token</span>
+
+<span class="nd">@require_oauth</span><span class="p">()</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/user_id&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">user_id</span><span class="p">():</span>
+    <span class="c1"># current token instance of the OAuth Token model</span>
+    <span class="k">return</span> <span class="n">current_token</span><span class="o">.</span><span class="n">user_id</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<div class="section" id="module-authlib.flask.oauth2.cache">
+<span id="cache-helper-functions"></span><h2>Cache Helper Functions<a class="headerlink" href="#module-authlib.flask.oauth2.cache" title="제목 주소">¶</a></h2>
+<dl class="function">
+<dt id="authlib.flask.oauth2.cache.register_cache_authorization_code">
+<code class="descclassname">authlib.flask.oauth2.cache.</code><code class="descname">register_cache_authorization_code</code><span class="sig-paren">(</span><em>cache</em>, <em>authorization_server</em>, <em>authenticate_user</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.flask.oauth2.cache.register_cache_authorization_code" title="정의 주소">¶</a></dt>
+<dd><p>Use cache for authorization code grant endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first last simple">
+<li><strong>cache</strong> -- Cache instance.</li>
+<li><strong>authorization_server</strong> -- AuthorizationServer instance.</li>
+<li><strong>authenticate_user</strong> -- A function to authenticate user.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-authlib.flask.oauth2.sqla">
+<span id="sqlalchemy-helper-functions"></span><h2>SQLAlchemy Helper Functions<a class="headerlink" href="#module-authlib.flask.oauth2.sqla" title="제목 주소">¶</a></h2>
+<dl class="function">
+<dt id="authlib.flask.oauth2.sqla.create_query_client_func">
+<code class="descclassname">authlib.flask.oauth2.sqla.</code><code class="descname">create_query_client_func</code><span class="sig-paren">(</span><em>session</em>, <em>client_model</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.flask.oauth2.sqla.create_query_client_func" title="정의 주소">¶</a></dt>
+<dd><p>Create an <code class="docutils literal notranslate"><span class="pre">query_client</span></code> function that can be used in authorization
+server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first last simple">
+<li><strong>session</strong> -- SQLAlchemy session</li>
+<li><strong>client_model</strong> -- Client model class</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="authlib.flask.oauth2.sqla.create_save_token_func">
+<code class="descclassname">authlib.flask.oauth2.sqla.</code><code class="descname">create_save_token_func</code><span class="sig-paren">(</span><em>session</em>, <em>token_model</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.flask.oauth2.sqla.create_save_token_func" title="정의 주소">¶</a></dt>
+<dd><p>Create an <code class="docutils literal notranslate"><span class="pre">save_token</span></code> function that can be used in authorization
+server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first last simple">
+<li><strong>session</strong> -- SQLAlchemy session</li>
+<li><strong>token_model</strong> -- Token model class</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="authlib.flask.oauth2.sqla.create_query_token_func">
+<code class="descclassname">authlib.flask.oauth2.sqla.</code><code class="descname">create_query_token_func</code><span class="sig-paren">(</span><em>session</em>, <em>token_model</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.flask.oauth2.sqla.create_query_token_func" title="정의 주소">¶</a></dt>
+<dd><p>Create an <code class="docutils literal notranslate"><span class="pre">query_token</span></code> function for revocation, introspection
+token endpoints.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first last simple">
+<li><strong>session</strong> -- SQLAlchemy session</li>
+<li><strong>token_model</strong> -- Token model class</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="authlib.flask.oauth2.sqla.create_revocation_endpoint">
+<code class="descclassname">authlib.flask.oauth2.sqla.</code><code class="descname">create_revocation_endpoint</code><span class="sig-paren">(</span><em>session</em>, <em>token_model</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.flask.oauth2.sqla.create_revocation_endpoint" title="정의 주소">¶</a></dt>
+<dd><p>Create a revocation endpoint class with SQLAlchemy session
+and token model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first last simple">
+<li><strong>session</strong> -- SQLAlchemy session</li>
+<li><strong>token_model</strong> -- Token model class</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="authlib.flask.oauth2.sqla.create_bearer_token_validator">
+<code class="descclassname">authlib.flask.oauth2.sqla.</code><code class="descname">create_bearer_token_validator</code><span class="sig-paren">(</span><em>session</em>, <em>token_model</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.flask.oauth2.sqla.create_bearer_token_validator" title="정의 주소">¶</a></dt>
+<dd><p>Create an bearer token validator class with SQLAlchemy session
+and token model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first last simple">
+<li><strong>session</strong> -- SQLAlchemy session</li>
+<li><strong>token_model</strong> -- Token model class</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+  <div class="t-pagination clearfix">
+    <span>
+      ← <a href="openid-connect.html" title="Flask OpenID Connect 1.0">Flask OpenID Connect 1.0</a>
+    </span>
+    <span style="float:right">
+      <a href="../../django/1/index.html" title="Django OAuth 1.0 Server">Django OAuth 1.0 Server</a> →
+    </span>
+  </div>
+</div><footer class="t-foot">
+    &copy; Copyright 2018, Hsiaoming Ltd.
+    <br>
+    A <a href="https://typlog.com/">typlog</a> <a href="https://github.com/typlog/sphinx-typlog-theme">sphinx theme</a>,
+    designed by <a href="https://lepture.com/">Hsiaoming Yang</a>.
+</footer>
+  </div>
+  <script>$(function(){$(".t-head_menu").on("click",function(){$("body").addClass("_expand")});$(".t-body").on("click",function(){$("body").removeClass("_expand")});$(".t-sidebar_close").on("click",function(){$("body").removeClass("_expand")});$("a.footnote-reference").on("click",function(e){e.preventDefault();var id=$(this).attr("href");var html=$(id).find("td.label + td").html();var w=Math.max(document.documentElement.clientWidth,window.innerWidth||0);var style="top:"+e.pageY+"px;";if(w>560){style+="width:480px;";if(e.pageX>240&&e.pageX+240<w){style+="left:"+(e.pageX-240)+"px;"}else if(e.pageX<=240){style+="left:20px;"}else{style+="right:20px;"}}showFootnote(html,style)});function showFootnote(html,style){var CONTENT_ID="typlog-footnote-content";var content=document.getElementById(CONTENT_ID);if(!content){content=document.createElement("div");content.id=CONTENT_ID;$(".t-body").append(content)}var MASK_ID="typlog-footnote-mask";var mask=document.getElementById(MASK_ID);if(!mask){mask=document.createElement("div");mask.id=MASK_ID;document.body.appendChild(mask);mask.addEventListener("click",function(){content.className="";mask.className=""})}content.innerHTML=html;content.setAttribute("style",style);content.className="_active";mask.className="_active"}function fetchGitHubRepo(repo){var url="https://api.github.com/repos/"+repo;$.getJSON(url,function(data){var counts=[+new Date,data.stargazers_count,data.forks_count];localStorage.setItem("gh:"+repo,JSON.stringify(counts));updateGitHubStats(counts[1],counts[2])})}function updateGitHubStats(stars,forks){$(".github_stars strong").text(stars);$(".github_forks strong").text(forks)}function initGitHub(url){if(!url){return}var repo=url.replace("https://github.com/","");var cache=localStorage.getItem("gh:"+repo);if(cache){try{var counts=JSON.parse(cache);updateGitHubStats(counts[1],counts[2]);var delta=new Date-counts[0];if(delta<0||delta>9e5){fetchGitHubRepo(repo)}}catch(error){fetchGitHubRepo(repo)}}else{fetchGitHubRepo(repo)}}initGitHub($(".github").attr("href"))});</script>
+</body>
+</html>

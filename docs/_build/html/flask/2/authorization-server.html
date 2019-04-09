@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Authorization Server &mdash; Authlib 0.12.dev documentation</title>
+  <link rel="shortcut icon" href="../../_static/favicon.ico"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono"><link rel="stylesheet" href="../../_static/typlog.css?v=0.7.2" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme.css?v=0.7.2" type="text/css" />
+      <link rel="index" title="색인" href="../../genindex.html"/>
+      <link rel="search" title="검색" href="../../search.html"/>
+    <link rel="top" title="Authlib 0.12.dev documentation" href="../../index.html"/>
+      <link rel="up" title="Flask OAuth 2.0 Server" href="index.html"/>
+      <link rel="next" title="Register Grants" href="grants.html"/>
+      <link rel="prev" title="Flask OAuth 2.0 Server" href="index.html"/>
+  <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-34098939-7');ga('send', 'pageview');</script>
+  <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script><link rel="apple-touch-icon" sizes="180x180" href="https://authlib.org/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Authlib">
+  <meta property="og:title" content="Authorization Server">
+    <meta property="og:description" content="The ultimate Python library in building OAuth and OpenID Connect servers. JWS, JWE, JWK, JWA, JWT are included.">
+    <meta property="og:image" content="https://authlib.org/logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@authlib">
+</head>
+<body role="document" data-page="flask/2/authorization-server">
+  <header class="t-head">
+    <div class="t-head_menu"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z"/></svg></div>
+    <a class="t-head_logo" href="../../index.html"><img src="../../_static/authlib.svg" alt="Logo"/>Authlib
+    </a>
+  </header>
+  <aside class="t-sidebar">
+    <div class="t-sidebar_close">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M405 136.798L375.202 107 256 226.202 136.798 107 107 136.798 226.202 256 107 375.202 136.798 405 256 285.798 375.202 405 405 375.202 285.798 256z"/></svg>
+    </div>
+    <div class="inner">
+<a class="logo" href="../../index.html"><img src="../../_static/authlib.svg" alt="Logo"/>
+    Authlib
+</a><div class="logo_desc">The ultimate Python library in building OAuth and OpenID Connect servers. JWS, JWE, JWK, JWA, JWT are included.</div>
+<div class="github_wrap">
+  <a class="github" href="https://github.com/lepture/authlib" target="_blank">
+    <span class="github_icon"></span>
+    <span class="github_stars">
+      <strong>-</strong>stars
+    </span>
+    <span class="github_forks">
+      <strong>-</strong>forks
+    </span>
+  </a>
+</div><div class="sponsors">
+  <div class="sponsor">
+    <a class="image" href="https://auth0.com/overview?utm_source=authlib&utm_medium=devsponsor&utm_campaign=authlib"><img src="https://user-images.githubusercontent.com/290496/39297078-89d00928-497d-11e8-8119-0c53afe14cd0.png" alt="Sponsor"></a>
+    <div class="text">The new way to solve Identity. Sponsored by <a href="https://auth0.com/overview?utm_source=authlib&utm_medium=devsponsor&utm_campaign=authlib">auth0.com</a></div>
+  </div>
+  <div class="patron">
+    <a class="patron-button" style="border: 1px solid #3E7FCB;display: inline-block;padding: 4px 18px;border-radius: 20px;color: #3E7FCB;" href="https://www.patreon.com/bePatron?u=8179754">Become a Patron!</a>
+  </div>
+</div><div class="globaltoc">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../basic/index.html">Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client/index.html">Client Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jose/index.html">JOSE Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/index.html">Flask OAuth 1.0 Server</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Flask OAuth 2.0 Server</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Authorization Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grants.html">Register Grants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="endpoints.html">Token Endpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resource-server.html">Resource Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openid-connect.html">Flask OpenID Connect 1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API References of Flask OAuth 2.0 Server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../django/1/index.html">Django OAuth 1.0 Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../specs/index.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../community/index.html">Community</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+</ul>
+
+</div><div class="useful-links">
+  <h3>Useful Links</h3>
+  <ul>
+    <li><a href="https://authlib.org/">Homepage</a></li>
+    <li><a href="https://blog.authlib.org/">Read Blog</a></li>
+    <li><a href="https://authlib.org/plans">Commercial License</a></li>
+    <li><a href="https://github.com/lepture/authlib">Star on GitHub</a></li>
+    <li><a href="https://twitter.com/authlib">Follow on Twitter</a></li>
+    <li><a href="https://stackoverflow.com/questions/tagged/authlib">Help on StackOverflow</a></li>
+    <li><a href="https://github.com/authlib/loginpass">Loginpass</a></li>
+  </ul>
+</div>
+<div id="searchbox">
+  <form class="search" action="../../search.html" method="get">
+    <div class="input-group">
+      <input type="text" name="q" placeholder="검색" />
+      <button type="submit">바로 가기</button>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+    </div>
+  </aside>
+  <div class="t-content">
+    <div class="t-body yue">
+  <div class="section" id="authorization-server">
+<h1>Authorization Server<a class="headerlink" href="#authorization-server" title="제목 주소">¶</a></h1>
+<p>The Authorization Server provides several endpoints for authorization, issuing
+tokens, refreshing tokens and revoking tokens. When the resource owner (user)
+grants the authorization, this server will issue an access token to the client.</p>
+<p>Before creating the authorization server, we need to understand several
+concepts:</p>
+<div class="section" id="resource-owner">
+<h2>Resource Owner<a class="headerlink" href="#resource-owner" title="제목 주소">¶</a></h2>
+<p>Resource Owner is the user who is using your service. A resource owner can
+log in your website with username/email and password, or other methods.</p>
+<p>A resource owner SHOULD implement <code class="docutils literal notranslate"><span class="pre">get_user_id()</span></code> method, lets take
+SQLAlchemy models for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># other columns</span>
+
+    <span class="k">def</span> <span class="nf">get_user_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="client">
+<h2>Client<a class="headerlink" href="#client" title="제목 주소">¶</a></h2>
+<p>A client is an application making protected resource requests on behalf of the
+resource owner and with its authorization. It contains at least three
+information:</p>
+<ul class="simple">
+<li>Client Identifier, usually called <strong>client_id</strong></li>
+<li>Client Password, usually called <strong>client_secret</strong></li>
+<li>Client Token Endpoint Authentication Method</li>
+</ul>
+<p>Authlib has provided a mixin for SQLAlchemy, define the client with this mixin:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">authlib.flask.oauth2.sqla</span> <span class="k">import</span> <span class="n">OAuth2ClientMixin</span>
+
+<span class="k">class</span> <span class="nc">Client</span><span class="p">(</span><span class="n">Model</span><span class="p">,</span> <span class="n">OAuth2ClientMixin</span><span class="p">):</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">user_id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span>
+        <span class="n">Integer</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;user.id&#39;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s1">&#39;CASCADE&#39;</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="s1">&#39;User&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A client is registered by a user (developer) on your website. If you decide to
+implement all the missing methods by yourself, get a deep inside with
+<a class="reference internal" href="../../specs/rfc6749.html#authlib.oauth2.rfc6749.ClientMixin" title="authlib.oauth2.rfc6749.ClientMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ClientMixin</span></code></a> API reference.</p>
+</div>
+<div class="section" id="token">
+<h2>Token<a class="headerlink" href="#token" title="제목 주소">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">주석</p>
+<p class="last">Only Bearer Token is supported by now. MAC Token is still under drafts,
+it will be available when it goes into RFC.</p>
+</div>
+<p>Tokens are used to access the users' resources. A token is issued with a
+valid duration, limited scopes and etc. It contains at least:</p>
+<ul class="simple">
+<li><strong>access_token</strong>: a token to authorize the http requests.</li>
+<li><strong>refresh_token</strong>: (optional) a token to exchange a new access token</li>
+<li><strong>client_id</strong>: this token is issued to which client</li>
+<li><strong>expires_at</strong>: when will this token expired</li>
+<li><strong>scope</strong>: a limited scope of resources that this token can access</li>
+</ul>
+<p>With the SQLAlchemy mixin provided by Authlib:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">authlib.flask.oauth2.sqla</span> <span class="k">import</span> <span class="n">OAuth2TokenMixin</span>
+
+<span class="k">class</span> <span class="nc">Token</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">,</span> <span class="n">OAuth2TokenMixin</span><span class="p">):</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">user_id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;user.id&#39;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s1">&#39;CASCADE&#39;</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">relationship</span><span class="p">(</span><span class="s1">&#39;User&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A token is associated with a resource owner. There is no certain name for
+it, here we call it <code class="docutils literal notranslate"><span class="pre">user</span></code>, but it can be anything else.</p>
+</div>
+<div class="section" id="server">
+<h2>Server<a class="headerlink" href="#server" title="제목 주소">¶</a></h2>
+<p>Authlib provides a ready to use <a class="reference internal" href="api.html#authlib.flask.oauth2.AuthorizationServer" title="authlib.flask.oauth2.AuthorizationServer"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuthorizationServer</span></code></a>
+which has built-in tools to handle requests and responses:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">authlib.flask.oauth2</span> <span class="k">import</span> <span class="n">AuthorizationServer</span>
+
+<span class="k">def</span> <span class="nf">query_client</span><span class="p">(</span><span class="n">client_id</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Client</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">client_id</span><span class="o">=</span><span class="n">client_id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">save_token</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">:</span>
+        <span class="n">user_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">get_user_id</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># client_credentials grant_type</span>
+        <span class="n">user_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">user_id</span>
+        <span class="c1"># or, depending on how you treat client_credentials</span>
+        <span class="n">user_id</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="n">Token</span><span class="p">(</span>
+        <span class="n">client_id</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">token</span>
+    <span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+<span class="c1"># or with the helper</span>
+<span class="kn">from</span> <span class="nn">authlib.flask.oauth2.sqla</span> <span class="k">import</span> <span class="p">(</span>
+    <span class="n">create_query_client_func</span><span class="p">,</span>
+    <span class="n">create_save_token_func</span>
+<span class="p">)</span>
+<span class="n">query_client</span> <span class="o">=</span> <span class="n">create_query_client_func</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">Client</span><span class="p">)</span>
+<span class="n">save_token</span> <span class="o">=</span> <span class="n">create_save_token_func</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">Token</span><span class="p">)</span>
+
+<span class="n">server</span> <span class="o">=</span> <span class="n">AuthorizationServer</span><span class="p">(</span>
+    <span class="n">app</span><span class="p">,</span> <span class="n">query_client</span><span class="o">=</span><span class="n">query_client</span><span class="p">,</span> <span class="n">save_token</span><span class="o">=</span><span class="n">save_token</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>It can also be initialized lazily with init_app:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">server</span> <span class="o">=</span> <span class="n">AuthorizationServer</span><span class="p">()</span>
+<span class="n">server</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">query_client</span><span class="o">=</span><span class="n">query_client</span><span class="p">,</span> <span class="n">save_token</span><span class="o">=</span><span class="n">save_token</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It works well without configuration. However, it can be configured with these
+settings:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>OAUTH2_TOKEN_EXPIRES_IN</td>
+<td>A dict to define <code class="docutils literal notranslate"><span class="pre">expires_in</span></code> for each grant</td>
+</tr>
+<tr class="row-even"><td>OAUTH2_ACCESS_TOKEN_GENERATOR</td>
+<td>A function or string of module path for importing
+a function to generate <code class="docutils literal notranslate"><span class="pre">access_token</span></code></td>
+</tr>
+<tr class="row-odd"><td>OAUTH2_REFRESH_TOKEN_GENERATOR</td>
+<td>A function or string of module path for importing
+a function to generate <code class="docutils literal notranslate"><span class="pre">refresh_token</span></code>. It can
+also be <code class="docutils literal notranslate"><span class="pre">True/False</span></code></td>
+</tr>
+<tr class="row-even"><td>OAUTH2_ERROR_URIS</td>
+<td>A list of tuple for (<code class="docutils literal notranslate"><span class="pre">error</span></code>, <code class="docutils literal notranslate"><span class="pre">error_uri</span></code>)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition hint">
+<p class="first admonition-title">힌트</p>
+<p>Here is an example of <code class="docutils literal notranslate"><span class="pre">OAUTH2_TOKEN_EXPIRES_IN</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OAUTH2_TOKEN_EXPIRES_IN</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;authorization_code&#39;</span><span class="p">:</span> <span class="mi">864000</span><span class="p">,</span>
+    <span class="s1">&#39;implicit&#39;</span><span class="p">:</span> <span class="mi">3600</span><span class="p">,</span>
+    <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="mi">864000</span><span class="p">,</span>
+    <span class="s1">&#39;client_credentials&#39;</span><span class="p">:</span> <span class="mi">864000</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Here is an example of <code class="docutils literal notranslate"><span class="pre">OAUTH2_ACCESS_TOKEN_GENERATOR</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gen_access_token</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">grant_type</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">scope</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">create_some_random_string</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">OAUTH2_REFRESH_TOKEN_GENERATOR</span></code> accepts the same parameters.</p>
+</div>
+<p>Now define an endpoint for authorization. This endpoint is used by
+<code class="docutils literal notranslate"><span class="pre">authorization_code</span></code> and <code class="docutils literal notranslate"><span class="pre">implicit</span></code> grants:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">request</span><span class="p">,</span> <span class="n">render_template</span>
+<span class="kn">from</span> <span class="nn">your_project.auth</span> <span class="k">import</span> <span class="n">current_user</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/oauth/authorize&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">authorize</span><span class="p">():</span>
+    <span class="c1"># Login is required since we need to know the current resource owner.</span>
+    <span class="c1"># It can be done with a redirection to the login page, or a login</span>
+    <span class="c1"># form on this authorization page.</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;GET&#39;</span><span class="p">:</span>
+        <span class="n">grant</span> <span class="o">=</span> <span class="n">server</span><span class="o">.</span><span class="n">validate_consent_request</span><span class="p">(</span><span class="n">end_user</span><span class="o">=</span><span class="n">current_user</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span>
+            <span class="s1">&#39;authorize.html&#39;</span><span class="p">,</span>
+            <span class="n">grant</span><span class="o">=</span><span class="n">grant</span><span class="p">,</span>
+            <span class="n">user</span><span class="o">=</span><span class="n">current_user</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="n">confirmed</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;confirm&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">confirmed</span><span class="p">:</span>
+        <span class="c1"># granted by resource owner</span>
+        <span class="k">return</span> <span class="n">server</span><span class="o">.</span><span class="n">create_authorization_response</span><span class="p">(</span><span class="n">current_user</span><span class="p">)</span>
+    <span class="c1"># denied by resource owner</span>
+    <span class="k">return</span> <span class="n">server</span><span class="o">.</span><span class="n">create_authorization_response</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is a simple demo, the real case should be more complex. There is a demo
+in <a class="reference external" href="https://github.com/authlib/playground">authlib/playground</a>, get a real taste with Authlib Playground.</p>
+<p>The token endpoint is much easier:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/oauth/token&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">issue_token</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">server</span><span class="o">.</span><span class="n">create_token_response</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>However, the routes will not work properly. We need to register supported
+grants for them.</p>
+</div>
+<div class="section" id="register-error-uris">
+<h2>Register Error URIs<a class="headerlink" href="#register-error-uris" title="제목 주소">¶</a></h2>
+<p>To create a better developer experience for debugging, it is suggested that
+you creating some documentation for errors. Here is a list of built-in
+<a class="reference internal" href="../../specs/rfc6749.html#specs-rfc6949-errors"><span class="std std-ref">Errors</span></a>.</p>
+<p>You can design a documentation page with a description of each error. For
+instance, there is a web page for <code class="docutils literal notranslate"><span class="pre">invalid_client</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">developer</span><span class="o">.</span><span class="n">your</span><span class="o">-</span><span class="n">company</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">errors</span><span class="c1">#invalid-client</span>
+</pre></div>
+</div>
+<p>In this case, you can register the error URI with <code class="docutils literal notranslate"><span class="pre">OAUTH2_ERROR_URIS</span></code>
+configuration:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OAUTH2_ERROR_URIS</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="p">(</span><span class="s1">&#39;invalid_client&#39;</span><span class="p">,</span> <span class="s1">&#39;https://developer.your-company.com/errors#invalid-client&#39;</span><span class="p">),</span>
+   <span class="c1"># other error URIs</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>If there is no <code class="docutils literal notranslate"><span class="pre">OAUTH2_ERROR_URIS</span></code>, the error response will not contain any
+<code class="docutils literal notranslate"><span class="pre">error_uri</span></code> data.</p>
+<div class="section" id="i18n-on-errors">
+<h3>I18N on Errors<a class="headerlink" href="#i18n-on-errors" title="제목 주소">¶</a></h3>
+<p>It is also possible to add i18n support to the <code class="docutils literal notranslate"><span class="pre">error_description</span></code>. The
+feature has been implemented in version 0.8, but there are still work to do.</p>
+</div>
+</div>
+</div>
+
+  <div class="t-pagination clearfix">
+    <span>
+      ← <a href="index.html" title="Flask OAuth 2.0 Server">Flask OAuth 2.0 Server</a>
+    </span>
+    <span style="float:right">
+      <a href="grants.html" title="Register Grants">Register Grants</a> →
+    </span>
+  </div>
+</div><footer class="t-foot">
+    &copy; Copyright 2018, Hsiaoming Ltd.
+    <br>
+    A <a href="https://typlog.com/">typlog</a> <a href="https://github.com/typlog/sphinx-typlog-theme">sphinx theme</a>,
+    designed by <a href="https://lepture.com/">Hsiaoming Yang</a>.
+</footer>
+  </div>
+  <script>$(function(){$(".t-head_menu").on("click",function(){$("body").addClass("_expand")});$(".t-body").on("click",function(){$("body").removeClass("_expand")});$(".t-sidebar_close").on("click",function(){$("body").removeClass("_expand")});$("a.footnote-reference").on("click",function(e){e.preventDefault();var id=$(this).attr("href");var html=$(id).find("td.label + td").html();var w=Math.max(document.documentElement.clientWidth,window.innerWidth||0);var style="top:"+e.pageY+"px;";if(w>560){style+="width:480px;";if(e.pageX>240&&e.pageX+240<w){style+="left:"+(e.pageX-240)+"px;"}else if(e.pageX<=240){style+="left:20px;"}else{style+="right:20px;"}}showFootnote(html,style)});function showFootnote(html,style){var CONTENT_ID="typlog-footnote-content";var content=document.getElementById(CONTENT_ID);if(!content){content=document.createElement("div");content.id=CONTENT_ID;$(".t-body").append(content)}var MASK_ID="typlog-footnote-mask";var mask=document.getElementById(MASK_ID);if(!mask){mask=document.createElement("div");mask.id=MASK_ID;document.body.appendChild(mask);mask.addEventListener("click",function(){content.className="";mask.className=""})}content.innerHTML=html;content.setAttribute("style",style);content.className="_active";mask.className="_active"}function fetchGitHubRepo(repo){var url="https://api.github.com/repos/"+repo;$.getJSON(url,function(data){var counts=[+new Date,data.stargazers_count,data.forks_count];localStorage.setItem("gh:"+repo,JSON.stringify(counts));updateGitHubStats(counts[1],counts[2])})}function updateGitHubStats(stars,forks){$(".github_stars strong").text(stars);$(".github_forks strong").text(forks)}function initGitHub(url){if(!url){return}var repo=url.replace("https://github.com/","");var cache=localStorage.getItem("gh:"+repo);if(cache){try{var counts=JSON.parse(cache);updateGitHubStats(counts[1],counts[2]);var delta=new Date-counts[0];if(delta<0||delta>9e5){fetchGitHubRepo(repo)}}catch(error){fetchGitHubRepo(repo)}}else{fetchGitHubRepo(repo)}}initGitHub($(".github").attr("href"))});</script>
+</body>
+</html>

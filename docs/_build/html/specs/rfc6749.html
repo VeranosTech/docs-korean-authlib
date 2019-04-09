@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="API references of RFC6749 in Python implementation. Learn how to create an OAuth 2.0 provider in Python." name="description" />
+<title>RFC6749: The OAuth 2.0 Authorization Framework &mdash; Authlib 0.12.dev documentation</title>
+  <link rel="shortcut icon" href="../_static/favicon.ico"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono"><link rel="stylesheet" href="../_static/typlog.css?v=0.7.2" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme.css?v=0.7.2" type="text/css" />
+      <link rel="index" title="색인" href="../genindex.html"/>
+      <link rel="search" title="검색" href="../search.html"/>
+    <link rel="top" title="Authlib 0.12.dev documentation" href="../index.html"/>
+      <link rel="up" title="Specifications" href="index.html"/>
+      <link rel="next" title="RFC6750: The OAuth 2.0 Authorization Framework: Bearer Token Usage" href="rfc6750.html"/>
+      <link rel="prev" title="RFC5849: The OAuth 1.0 Protocol" href="rfc5849.html"/>
+  <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-34098939-7');ga('send', 'pageview');</script>
+  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script><link rel="apple-touch-icon" sizes="180x180" href="https://authlib.org/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Authlib">
+  <meta property="og:title" content="RFC6749: The OAuth 2.0 Authorization Framework">
+    <meta property="og:description" content="API references of RFC6749 in Python implementation. Learn how to create an OAuth 2.0 provider in Python.">
+    <meta property="og:image" content="https://authlib.org/logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@authlib">
+</head>
+<body role="document" data-page="specs/rfc6749">
+  <header class="t-head">
+    <div class="t-head_menu"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z"/></svg></div>
+    <a class="t-head_logo" href="../index.html"><img src="../_static/authlib.svg" alt="Logo"/>Authlib
+    </a>
+  </header>
+  <aside class="t-sidebar">
+    <div class="t-sidebar_close">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M405 136.798L375.202 107 256 226.202 136.798 107 107 136.798 226.202 256 107 375.202 136.798 405 256 285.798 375.202 405 405 375.202 285.798 256z"/></svg>
+    </div>
+    <div class="inner">
+<a class="logo" href="../index.html"><img src="../_static/authlib.svg" alt="Logo"/>
+    Authlib
+</a><div class="logo_desc">The ultimate Python library in building OAuth and OpenID Connect servers. JWS, JWE, JWK, JWA, JWT are included.</div>
+<div class="github_wrap">
+  <a class="github" href="https://github.com/lepture/authlib" target="_blank">
+    <span class="github_icon"></span>
+    <span class="github_stars">
+      <strong>-</strong>stars
+    </span>
+    <span class="github_forks">
+      <strong>-</strong>forks
+    </span>
+  </a>
+</div><div class="sponsors">
+  <div class="sponsor">
+    <a class="image" href="https://auth0.com/overview?utm_source=authlib&utm_medium=devsponsor&utm_campaign=authlib"><img src="https://user-images.githubusercontent.com/290496/39297078-89d00928-497d-11e8-8119-0c53afe14cd0.png" alt="Sponsor"></a>
+    <div class="text">The new way to solve Identity. Sponsored by <a href="https://auth0.com/overview?utm_source=authlib&utm_medium=devsponsor&utm_campaign=authlib">auth0.com</a></div>
+  </div>
+  <div class="patron">
+    <a class="patron-button" style="border: 1px solid #3E7FCB;display: inline-block;padding: 4px 18px;border-radius: 20px;color: #3E7FCB;" href="https://www.patreon.com/bePatron?u=8179754">Become a Patron!</a>
+  </div>
+</div><div class="globaltoc">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../basic/index.html">Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../client/index.html">Client Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jose/index.html">JOSE Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flask/1/index.html">Flask OAuth 1.0 Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flask/2/index.html">Flask OAuth 2.0 Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../django/1/index.html">Django OAuth 1.0 Server</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Specifications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rfc5849.html">RFC5849: The OAuth 1.0 Protocol</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">RFC6749: The OAuth 2.0 Authorization Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc6750.html">RFC6750: The OAuth 2.0 Authorization Framework: Bearer Token Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7009.html">RFC7009: OAuth 2.0 Token Revocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7515.html">RFC7515: JSON Web Signature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7516.html">RFC7516: JSON Web Encryption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7517.html">RFC7517: JSON Web Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7518.html">RFC7518: JSON Web Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7519.html">RFC7519: JSON Web Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7523.html">RFC7523: JWT Profile for OAuth 2.0 Client Authentication and Authorization Grants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7636.html">RFC7636: Proof Key for Code Exchange by OAuth Public Clients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7662.html">RFC7662: OAuth 2.0 Token Introspection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oidc.html">OpenID Connect 1.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../community/index.html">Community</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+
+</div><div class="useful-links">
+  <h3>Useful Links</h3>
+  <ul>
+    <li><a href="https://authlib.org/">Homepage</a></li>
+    <li><a href="https://blog.authlib.org/">Read Blog</a></li>
+    <li><a href="https://authlib.org/plans">Commercial License</a></li>
+    <li><a href="https://github.com/lepture/authlib">Star on GitHub</a></li>
+    <li><a href="https://twitter.com/authlib">Follow on Twitter</a></li>
+    <li><a href="https://stackoverflow.com/questions/tagged/authlib">Help on StackOverflow</a></li>
+    <li><a href="https://github.com/authlib/loginpass">Loginpass</a></li>
+  </ul>
+</div>
+<div id="searchbox">
+  <form class="search" action="../search.html" method="get">
+    <div class="input-group">
+      <input type="text" name="q" placeholder="검색" />
+      <button type="submit">바로 가기</button>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+    </div>
+  </aside>
+  <div class="t-content">
+    <div class="t-body yue">
+  <div class="section" id="rfc6749-the-oauth-2-0-authorization-framework">
+<span id="specs-rfc6749"></span><h1>RFC6749: The OAuth 2.0 Authorization Framework<a class="headerlink" href="#rfc6749-the-oauth-2-0-authorization-framework" title="제목 주소">¶</a></h1>
+<p>This section contains the generic implementation of <a class="reference external" href="https://tools.ietf.org/html/rfc6749">RFC6749</a>. You should
+<a class="reference internal" href="../basic/oauth2.html#understand-oauth2"><span class="std std-ref">Understand OAuth 2.0</span></a> at first. Here are some tips:</p>
+<ol class="arabic simple">
+<li>Have a better <a class="reference internal" href="../basic/oauth2.html#understand-oauth2"><span class="std std-ref">Understand OAuth 2.0</span></a></li>
+<li>How to use <a class="reference internal" href="../client/oauth2.html#oauth-2-session"><span class="std std-ref">OAuth 2 Session</span></a> for Requests</li>
+<li>How to implement <a class="reference internal" href="../client/flask.html#flask-client"><span class="std std-ref">Flask OAuth Client</span></a></li>
+<li>How to implement <a class="reference internal" href="../flask/2/index.html#flask-oauth2-server"><span class="std std-ref">Flask OAuth 2.0 Server</span></a></li>
+</ol>
+<div class="section" id="api-references">
+<h2>API References<a class="headerlink" href="#api-references" title="제목 주소">¶</a></h2>
+<p>Here are the API references for developers. For framework level interfaces,
+check:</p>
+<div class="section" id="module-authlib.oauth2.rfc6749">
+<span id="servers"></span><h3>Servers<a class="headerlink" href="#module-authlib.oauth2.rfc6749" title="제목 주소">¶</a></h3>
+<dl class="class">
+<dt id="authlib.oauth2.rfc6749.AuthorizationServer">
+<em class="property">class </em><code class="descclassname">authlib.oauth2.rfc6749.</code><code class="descname">AuthorizationServer</code><span class="sig-paren">(</span><em>query_client</em>, <em>generate_token</em>, <em>save_token</em>, <em>**config</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.AuthorizationServer" title="정의 주소">¶</a></dt>
+<dd><p>Authorization server that handles Authorization Endpoint and Token
+Endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first last simple">
+<li><strong>query_client</strong> -- A function to get client by client_id. The client
+model class MUST implement the methods described by
+<a class="reference internal" href="#authlib.oauth2.rfc6749.ClientMixin" title="authlib.oauth2.rfc6749.ClientMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ClientMixin</span></code></a>.</li>
+<li><strong>token_generator</strong> -- A method to generate tokens.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.AuthorizationServer.create_authorization_response">
+<code class="descname">create_authorization_response</code><span class="sig-paren">(</span><em>request=None</em>, <em>grant_user=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.AuthorizationServer.create_authorization_response" title="정의 주소">¶</a></dt>
+<dd><p>Validate authorization request and create authorization response.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first simple">
+<li><strong>request</strong> -- OAuth2Request instance.</li>
+<li><strong>grant_user</strong> -- if granted, it is resource owner. If denied,
+it is None.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body"><p class="first last">Response</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.AuthorizationServer.create_endpoint_response">
+<code class="descname">create_endpoint_response</code><span class="sig-paren">(</span><em>name</em>, <em>request=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.AuthorizationServer.create_endpoint_response" title="정의 주소">¶</a></dt>
+<dd><p>Validate endpoint request and create endpoint response.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> -- Endpoint name</li>
+<li><strong>request</strong> -- OAuth2Request instance.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body"><p class="first last">Response</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.AuthorizationServer.create_oauth2_request">
+<code class="descname">create_oauth2_request</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.AuthorizationServer.create_oauth2_request" title="정의 주소">¶</a></dt>
+<dd><p>This method MUST be implemented in framework integrations. It is
+used to create an OAuth2Request instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>request</strong> -- the &quot;request&quot; instance in framework</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">OAuth2Request instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.AuthorizationServer.create_token_response">
+<code class="descname">create_token_response</code><span class="sig-paren">(</span><em>request=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.AuthorizationServer.create_token_response" title="정의 주소">¶</a></dt>
+<dd><p>Validate token request and create token response.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>request</strong> -- OAuth2Request instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.AuthorizationServer.get_authorization_grant">
+<code class="descname">get_authorization_grant</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.AuthorizationServer.get_authorization_grant" title="정의 주소">¶</a></dt>
+<dd><p>Find the authorization grant for current request.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>request</strong> -- OAuth2Request instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">grant instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.AuthorizationServer.get_token_grant">
+<code class="descname">get_token_grant</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.AuthorizationServer.get_token_grant" title="정의 주소">¶</a></dt>
+<dd><p>Find the token grant for current request.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>request</strong> -- OAuth2Request instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">grant instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.AuthorizationServer.get_translations">
+<code class="descname">get_translations</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.AuthorizationServer.get_translations" title="정의 주소">¶</a></dt>
+<dd><p>Return a translations instance used for i18n error messages.
+Framework SHOULD implement this function.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.AuthorizationServer.handle_response">
+<code class="descname">handle_response</code><span class="sig-paren">(</span><em>status</em>, <em>body</em>, <em>headers</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.AuthorizationServer.handle_response" title="정의 주소">¶</a></dt>
+<dd><p>Return HTTP response. Framework MUST implement this function.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.AuthorizationServer.register_client_auth_method">
+<code class="descname">register_client_auth_method</code><span class="sig-paren">(</span><em>method</em>, <em>func</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.AuthorizationServer.register_client_auth_method" title="정의 주소">¶</a></dt>
+<dd><p>Add more client auth method. The default methods are:</p>
+<ul class="simple">
+<li>none: The client is a public client and does not have a client secret</li>
+<li>client_secret_post: The client uses the HTTP POST parameters</li>
+<li>client_secret_basic: The client uses HTTP Basic</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first last simple">
+<li><strong>method</strong> -- Name of the Auth method</li>
+<li><strong>func</strong> -- Function to authenticate the client</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The auth method accept two parameters: <code class="docutils literal notranslate"><span class="pre">query_client</span></code> and <code class="docutils literal notranslate"><span class="pre">request</span></code>,
+an example for this method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">authenticate_client_via_custom</span><span class="p">(</span><span class="n">query_client</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+    <span class="n">client_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;X-Client-Id&#39;</span><span class="p">]</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">query_client</span><span class="p">(</span><span class="n">client_id</span><span class="p">)</span>
+    <span class="n">do_some_validation</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">client</span>
+
+<span class="n">authorization_server</span><span class="o">.</span><span class="n">register_client_auth_method</span><span class="p">(</span>
+    <span class="s1">&#39;custom&#39;</span><span class="p">,</span> <span class="n">authenticate_client_via_custom</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.AuthorizationServer.register_endpoint">
+<code class="descname">register_endpoint</code><span class="sig-paren">(</span><em>endpoint_cls</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.AuthorizationServer.register_endpoint" title="정의 주소">¶</a></dt>
+<dd><p>Add token endpoint to authorization server. e.g.
+RevocationEndpoint:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">authorization_server</span><span class="o">.</span><span class="n">register_endpoint</span><span class="p">(</span><span class="n">RevocationEndpoint</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>endpoint_cls</strong> -- A token endpoint class</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.AuthorizationServer.register_grant">
+<code class="descname">register_grant</code><span class="sig-paren">(</span><em>grant_cls</em>, <em>extensions=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.AuthorizationServer.register_grant" title="정의 주소">¶</a></dt>
+<dd><p>Register a grant class into the endpoint registry. Developers
+can implement the grants in <code class="docutils literal notranslate"><span class="pre">authlib.oauth2.rfc6749.grants</span></code> and
+register with this method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">AuthorizationCodeGrant</span><span class="p">(</span><span class="n">grants</span><span class="o">.</span><span class="n">AuthorizationCodeGrant</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">authenticate_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">credential</span><span class="p">):</span>
+        <span class="c1"># ...</span>
+
+<span class="n">authorization_server</span><span class="o">.</span><span class="n">register_grant</span><span class="p">(</span><span class="n">AuthorizationCodeGrant</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first last simple">
+<li><strong>grant_cls</strong> -- a grant class.</li>
+<li><strong>extensions</strong> -- extensions for the grant class.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.oauth2.rfc6749.ResourceProtector">
+<em class="property">class </em><code class="descclassname">authlib.oauth2.rfc6749.</code><code class="descname">ResourceProtector</code><a class="headerlink" href="#authlib.oauth2.rfc6749.ResourceProtector" title="정의 주소">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="client-model">
+<h3>Client Model<a class="headerlink" href="#client-model" title="제목 주소">¶</a></h3>
+<dl class="class">
+<dt id="authlib.oauth2.rfc6749.ClientMixin">
+<em class="property">class </em><code class="descclassname">authlib.oauth2.rfc6749.</code><code class="descname">ClientMixin</code><a class="headerlink" href="#authlib.oauth2.rfc6749.ClientMixin" title="정의 주소">¶</a></dt>
+<dd><p>Implementation of OAuth 2 Client described in <a class="reference external" href="https://tools.ietf.org/html/rfc6749#section-2">Section 2</a> with
+some methods to help validation. A client has at least these information:</p>
+<ul class="simple">
+<li>client_id: A string represents client identifier.</li>
+<li>client_secret: A string represents client password.</li>
+<li><dl class="first docutils">
+<dt>token_endpoint_auth_method: A way to authenticate client at token</dt>
+<dd>endpoint.</dd>
+</dl>
+</li>
+</ul>
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.ClientMixin.check_client_secret">
+<code class="descname">check_client_secret</code><span class="sig-paren">(</span><em>client_secret</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.ClientMixin.check_client_secret" title="정의 주소">¶</a></dt>
+<dd><p>Check client_secret matching with the client. For instance, in
+the client table, the column is called <code class="docutils literal notranslate"><span class="pre">client_secret</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">check_client_secret</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">client_secret</span> <span class="o">==</span> <span class="n">client_secret</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>client_secret</strong> -- A string of client secret</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.ClientMixin.check_client_type">
+<code class="descname">check_client_type</code><span class="sig-paren">(</span><em>client_type</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.ClientMixin.check_client_type" title="정의 주소">¶</a></dt>
+<dd><p>Validate if the client is the given <code class="docutils literal notranslate"><span class="pre">client_type</span></code>. The available
+choices are:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>public:</dt>
+<dd>Clients incapable of maintaining the confidentiality of their
+credentials (e.g., clients executing on the device used by the
+resource owner, such as an installed native application or a web
+browser-based application), and incapable of secure client
+authentication via any other means.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>confidential:</dt>
+<dd>Clients capable of maintaining the confidentiality of their
+credentials (e.g., client implemented on a secure server with
+restricted access to the client credentials), or capable of secure
+client authentication using other means.</dd>
+</dl>
+</li>
+</ul>
+<p>Developers can overwrite this method to implement a new logic.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>client_type</strong> -- string of &quot;public&quot; or &quot;confidential&quot;</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.ClientMixin.check_grant_type">
+<code class="descname">check_grant_type</code><span class="sig-paren">(</span><em>grant_type</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.ClientMixin.check_grant_type" title="정의 주소">¶</a></dt>
+<dd><p>Validate if the client can handle the given grant_type. There are
+four grant types defined by RFC6749:</p>
+<ul class="simple">
+<li>authorization_code</li>
+<li>implicit</li>
+<li>client_credentials</li>
+<li>password</li>
+</ul>
+<p>For instance, there is a <code class="docutils literal notranslate"><span class="pre">allowed_grant_types</span></code> column in your client:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">check_grant_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grant_type</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">grant_type</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">grant_types</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>grant_type</strong> -- the requested grant_type string.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.ClientMixin.check_redirect_uri">
+<code class="descname">check_redirect_uri</code><span class="sig-paren">(</span><em>redirect_uri</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.ClientMixin.check_redirect_uri" title="정의 주소">¶</a></dt>
+<dd><p>Validate redirect_uri parameter in Authorization Endpoints. For
+instance, in the client table, there is an <code class="docutils literal notranslate"><span class="pre">allowed_redirect_uris</span></code>
+column:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">check_redirect_uri</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">redirect_uri</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">redirect_uri</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">allowed_redirect_uris</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>redirect_uri</strong> -- A URL string for redirecting.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.ClientMixin.check_requested_scopes">
+<code class="descname">check_requested_scopes</code><span class="sig-paren">(</span><em>scopes</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.ClientMixin.check_requested_scopes" title="정의 주소">¶</a></dt>
+<dd><p>Validate if the request scopes are supported by this client. It can
+always be <code class="docutils literal notranslate"><span class="pre">True</span></code>. For instance, there is a <code class="docutils literal notranslate"><span class="pre">scope</span></code> column:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">check_requested_scopes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scopes</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scope</span><span class="o">.</span><span class="n">split</span><span class="p">())</span><span class="o">.</span><span class="n">issuperset</span><span class="p">(</span><span class="n">scopes</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>scopes</strong> -- the requested scopes set.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.ClientMixin.check_response_type">
+<code class="descname">check_response_type</code><span class="sig-paren">(</span><em>response_type</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.ClientMixin.check_response_type" title="정의 주소">¶</a></dt>
+<dd><p>Validate if the client can handle the given response_type. There
+are two response types defined by RFC6749: code and token. For
+instance, there is a <code class="docutils literal notranslate"><span class="pre">allowed_response_types</span></code> column in your client:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">check_response_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response_type</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">response_type</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">response_types</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>response_type</strong> -- the requested response_type string.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.ClientMixin.check_token_endpoint_auth_method">
+<code class="descname">check_token_endpoint_auth_method</code><span class="sig-paren">(</span><em>method</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.ClientMixin.check_token_endpoint_auth_method" title="정의 주소">¶</a></dt>
+<dd><p>Check client <code class="docutils literal notranslate"><span class="pre">token_endpoint_auth_method</span></code> defined via <a class="reference external" href="https://tools.ietf.org/html/rfc7591">RFC7591</a>.
+Values defined by this specification are:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>&quot;none&quot;: The client is a public client as defined in OAuth 2.0,</dt>
+<dd>and does not have a client secret.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>&quot;client_secret_post&quot;: The client uses the HTTP POST parameters</dt>
+<dd>as defined in OAuth 2.0</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>&quot;client_secret_basic&quot;: The client uses HTTP Basic as defined in</dt>
+<dd>OAuth 2.0</dd>
+</dl>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.ClientMixin.get_client_id">
+<code class="descname">get_client_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.ClientMixin.get_client_id" title="정의 주소">¶</a></dt>
+<dd><p>A method to return client_id of the client. For instance, the value
+in database is saved in a column called <code class="docutils literal notranslate"><span class="pre">client_id</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_client_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">client_id</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">반환:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.ClientMixin.get_default_redirect_uri">
+<code class="descname">get_default_redirect_uri</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.ClientMixin.get_default_redirect_uri" title="정의 주소">¶</a></dt>
+<dd><p>A method to get client default redirect_uri. For instance, the
+database table for client has a column called <code class="docutils literal notranslate"><span class="pre">default_redirect_uri</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_default_redirect_uri</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_redirect_uri</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">반환:</th><td class="field-body">A URL string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.ClientMixin.has_client_secret">
+<code class="descname">has_client_secret</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.ClientMixin.has_client_secret" title="정의 주소">¶</a></dt>
+<dd><p>A method returns that if the client has <code class="docutils literal notranslate"><span class="pre">client_secret</span></code> value.
+If the value is in <code class="docutils literal notranslate"><span class="pre">client_secret</span></code> column:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">has_client_secret</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">client_secret</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">반환:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="errors">
+<span id="specs-rfc6949-errors"></span><h3>Errors<a class="headerlink" href="#errors" title="제목 주소">¶</a></h3>
+<dl class="class">
+<dt id="authlib.oauth2.rfc6749.OAuth2Error">
+<em class="property">class </em><code class="descclassname">authlib.oauth2.rfc6749.</code><code class="descname">OAuth2Error</code><span class="sig-paren">(</span><em>description=None</em>, <em>uri=None</em>, <em>status_code=None</em>, <em>state=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.OAuth2Error" title="정의 주소">¶</a></dt>
+<dd><dl class="method">
+<dt id="authlib.oauth2.rfc6749.OAuth2Error.get_body">
+<code class="descname">get_body</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.OAuth2Error.get_body" title="정의 주소">¶</a></dt>
+<dd><p>Get a list of body.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.oauth2.rfc6749.InsecureTransportError">
+<em class="property">class </em><code class="descclassname">authlib.oauth2.rfc6749.</code><code class="descname">InsecureTransportError</code><span class="sig-paren">(</span><em>description=None</em>, <em>uri=None</em>, <em>status_code=None</em>, <em>state=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.InsecureTransportError" title="정의 주소">¶</a></dt>
+<dd><dl class="classmethod">
+<dt id="authlib.oauth2.rfc6749.InsecureTransportError.check">
+<em class="property">classmethod </em><code class="descname">check</code><span class="sig-paren">(</span><em>uri</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.InsecureTransportError.check" title="정의 주소">¶</a></dt>
+<dd><p>Check and raise InsecureTransportError with the given URI.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.oauth2.rfc6749.InvalidRequestError">
+<em class="property">class </em><code class="descclassname">authlib.oauth2.rfc6749.</code><code class="descname">InvalidRequestError</code><span class="sig-paren">(</span><em>description=None</em>, <em>uri=None</em>, <em>status_code=None</em>, <em>state=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.InvalidRequestError" title="정의 주소">¶</a></dt>
+<dd><p>The request is missing a required parameter, includes an
+unsupported parameter value (other than grant type),
+repeats a parameter, includes multiple credentials,
+utilizes more than one mechanism for authenticating the
+client, or is otherwise malformed.</p>
+<p><a class="reference external" href="https://tools.ietf.org/html/rfc6749#section-5.2">https://tools.ietf.org/html/rfc6749#section-5.2</a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.oauth2.rfc6749.InvalidClientError">
+<em class="property">class </em><code class="descclassname">authlib.oauth2.rfc6749.</code><code class="descname">InvalidClientError</code><span class="sig-paren">(</span><em>description=None</em>, <em>uri=None</em>, <em>status_code=None</em>, <em>state=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.InvalidClientError" title="정의 주소">¶</a></dt>
+<dd><p>Client authentication failed (e.g., unknown client, no
+client authentication included, or unsupported
+authentication method).  The authorization server MAY
+return an HTTP 401 (Unauthorized) status code to indicate
+which HTTP authentication schemes are supported.  If the
+client attempted to authenticate via the &quot;Authorization&quot;
+request header field, the authorization server MUST
+respond with an HTTP 401 (Unauthorized) status code and
+include the &quot;WWW-Authenticate&quot; response header field
+matching the authentication scheme used by the client.</p>
+<p><a class="reference external" href="https://tools.ietf.org/html/rfc6749#section-5.2">https://tools.ietf.org/html/rfc6749#section-5.2</a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.oauth2.rfc6749.InvalidGrantError">
+<em class="property">class </em><code class="descclassname">authlib.oauth2.rfc6749.</code><code class="descname">InvalidGrantError</code><span class="sig-paren">(</span><em>description=None</em>, <em>uri=None</em>, <em>status_code=None</em>, <em>state=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.InvalidGrantError" title="정의 주소">¶</a></dt>
+<dd><p>The provided authorization grant (e.g., authorization
+code, resource owner credentials) or refresh token is
+invalid, expired, revoked, does not match the redirection
+URI used in the authorization request, or was issued to
+another client.</p>
+<p><a class="reference external" href="https://tools.ietf.org/html/rfc6749#section-5.2">https://tools.ietf.org/html/rfc6749#section-5.2</a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.oauth2.rfc6749.UnauthorizedClientError">
+<em class="property">class </em><code class="descclassname">authlib.oauth2.rfc6749.</code><code class="descname">UnauthorizedClientError</code><span class="sig-paren">(</span><em>description=None</em>, <em>uri=None</em>, <em>status_code=None</em>, <em>state=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.UnauthorizedClientError" title="정의 주소">¶</a></dt>
+<dd><p>The authenticated client is not authorized to use this
+authorization grant type.</p>
+<p><a class="reference external" href="https://tools.ietf.org/html/rfc6749#section-5.2">https://tools.ietf.org/html/rfc6749#section-5.2</a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.oauth2.rfc6749.UnsupportedGrantTypeError">
+<em class="property">class </em><code class="descclassname">authlib.oauth2.rfc6749.</code><code class="descname">UnsupportedGrantTypeError</code><span class="sig-paren">(</span><em>description=None</em>, <em>uri=None</em>, <em>status_code=None</em>, <em>state=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.UnsupportedGrantTypeError" title="정의 주소">¶</a></dt>
+<dd><p>The authorization grant type is not supported by the
+authorization server.</p>
+<p><a class="reference external" href="https://tools.ietf.org/html/rfc6749#section-5.2">https://tools.ietf.org/html/rfc6749#section-5.2</a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.oauth2.rfc6749.InvalidScopeError">
+<em class="property">class </em><code class="descclassname">authlib.oauth2.rfc6749.</code><code class="descname">InvalidScopeError</code><span class="sig-paren">(</span><em>description=None</em>, <em>uri=None</em>, <em>status_code=None</em>, <em>state=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.InvalidScopeError" title="정의 주소">¶</a></dt>
+<dd><p>The requested scope is invalid, unknown, malformed, or
+exceeds the scope granted by the resource owner.</p>
+<p><a class="reference external" href="https://tools.ietf.org/html/rfc6749#section-5.2">https://tools.ietf.org/html/rfc6749#section-5.2</a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.oauth2.rfc6749.AccessDeniedError">
+<em class="property">class </em><code class="descclassname">authlib.oauth2.rfc6749.</code><code class="descname">AccessDeniedError</code><span class="sig-paren">(</span><em>description=None</em>, <em>uri=None</em>, <em>status_code=None</em>, <em>state=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.AccessDeniedError" title="정의 주소">¶</a></dt>
+<dd><p>The resource owner or authorization server denied the request.</p>
+<p>Used in authorization endpoint for &quot;code&quot; and &quot;implicit&quot;. Defined in
+<a class="reference external" href="https://tools.ietf.org/html/rfc6749#section-4.1.2.1">Section 4.1.2.1</a>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-authlib.oauth2.rfc6749.grants">
+<span id="grant-types"></span><h3>Grant Types<a class="headerlink" href="#module-authlib.oauth2.rfc6749.grants" title="제목 주소">¶</a></h3>
+<dl class="class">
+<dt id="authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant">
+<em class="property">class </em><code class="descclassname">authlib.oauth2.rfc6749.grants.</code><code class="descname">AuthorizationCodeGrant</code><span class="sig-paren">(</span><em>request</em>, <em>server</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant" title="정의 주소">¶</a></dt>
+<dd><p>The authorization code grant type is used to obtain both access
+tokens and refresh tokens and is optimized for confidential clients.
+Since this is a redirection-based flow, the client must be capable of
+interacting with the resource owner's user-agent (typically a web
+browser) and capable of receiving incoming requests (via redirection)
+from the authorization server:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+----------+</span>
+<span class="o">|</span> <span class="n">Resource</span> <span class="o">|</span>
+<span class="o">|</span>   <span class="n">Owner</span>  <span class="o">|</span>
+<span class="o">|</span>          <span class="o">|</span>
+<span class="o">+----------+</span>
+     <span class="o">^</span>
+     <span class="o">|</span>
+    <span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="o">+----|-----+</span>          <span class="n">Client</span> <span class="n">Identifier</span>      <span class="o">+---------------+</span>
+<span class="o">|</span>         <span class="o">-+----</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">--</span> <span class="o">&amp;</span> <span class="n">Redirection</span> <span class="n">URI</span> <span class="o">----&gt;|</span>               <span class="o">|</span>
+<span class="o">|</span>  <span class="n">User</span><span class="o">-</span>   <span class="o">|</span>                                 <span class="o">|</span> <span class="n">Authorization</span> <span class="o">|</span>
+<span class="o">|</span>  <span class="n">Agent</span>  <span class="o">-+----</span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="o">--</span> <span class="n">User</span> <span class="n">authenticates</span> <span class="o">---&gt;|</span>     <span class="n">Server</span>    <span class="o">|</span>
+<span class="o">|</span>          <span class="o">|</span>                                 <span class="o">|</span>               <span class="o">|</span>
+<span class="o">|</span>         <span class="o">-+----</span><span class="p">(</span><span class="n">C</span><span class="p">)</span><span class="o">--</span> <span class="n">Authorization</span> <span class="n">Code</span> <span class="o">---&lt;|</span>               <span class="o">|</span>
+<span class="o">+-|----|---+</span>                                 <span class="o">+---------------+</span>
+  <span class="o">|</span>    <span class="o">|</span>                                         <span class="o">^</span>      <span class="n">v</span>
+ <span class="p">(</span><span class="n">A</span><span class="p">)</span>  <span class="p">(</span><span class="n">C</span><span class="p">)</span>                                        <span class="o">|</span>      <span class="o">|</span>
+  <span class="o">|</span>    <span class="o">|</span>                                         <span class="o">|</span>      <span class="o">|</span>
+  <span class="o">^</span>    <span class="n">v</span>                                         <span class="o">|</span>      <span class="o">|</span>
+<span class="o">+---------+</span>                                      <span class="o">|</span>      <span class="o">|</span>
+<span class="o">|</span>         <span class="o">|&gt;---</span><span class="p">(</span><span class="n">D</span><span class="p">)</span><span class="o">--</span> <span class="n">Authorization</span> <span class="n">Code</span> <span class="o">---------</span><span class="s1">&#39;      |</span>
+<span class="o">|</span>  <span class="n">Client</span> <span class="o">|</span>          <span class="o">&amp;</span> <span class="n">Redirection</span> <span class="n">URI</span>                  <span class="o">|</span>
+<span class="o">|</span>         <span class="o">|</span>                                             <span class="o">|</span>
+<span class="o">|</span>         <span class="o">|&lt;---</span><span class="p">(</span><span class="n">E</span><span class="p">)</span><span class="o">-----</span> <span class="n">Access</span> <span class="n">Token</span> <span class="o">-------------------</span><span class="s1">&#39;</span>
+<span class="o">+---------+</span>       <span class="p">(</span><span class="n">w</span><span class="o">/</span> <span class="n">Optional</span> <span class="n">Refresh</span> <span class="n">Token</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="attribute">
+<dt id="authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.AUTHORIZATION_ENDPOINT">
+<code class="descname">AUTHORIZATION_ENDPOINT</code><em class="property"> = True</em><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.AUTHORIZATION_ENDPOINT" title="정의 주소">¶</a></dt>
+<dd><p>authorization_code grant type has authorization endpoint</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.TOKEN_ENDPOINT">
+<code class="descname">TOKEN_ENDPOINT</code><em class="property"> = True</em><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.TOKEN_ENDPOINT" title="정의 주소">¶</a></dt>
+<dd><p>authorization_code grant type has token endpoint</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.TOKEN_ENDPOINT_AUTH_METHODS">
+<code class="descname">TOKEN_ENDPOINT_AUTH_METHODS</code><em class="property"> = ['client_secret_basic', 'client_secret_post', 'none']</em><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.TOKEN_ENDPOINT_AUTH_METHODS" title="정의 주소">¶</a></dt>
+<dd><p>Allowed client auth methods for token endpoint</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_authorization_request">
+<code class="descname">validate_authorization_request</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_authorization_request" title="정의 주소">¶</a></dt>
+<dd><p>The client constructs the request URI by adding the following
+parameters to the query component of the authorization endpoint URI
+using the &quot;application/x-www-form-urlencoded&quot; format.
+Per <a class="reference external" href="https://tools.ietf.org/html/rfc6749#section-4.1.1">Section 4.1.1</a>.</p>
+<dl class="docutils">
+<dt>response_type</dt>
+<dd>REQUIRED.  Value MUST be set to &quot;code&quot;.</dd>
+<dt>client_id</dt>
+<dd>REQUIRED.  The client identifier as described in Section 2.2.</dd>
+<dt>redirect_uri</dt>
+<dd>OPTIONAL.  As described in Section 3.1.2.</dd>
+<dt>scope</dt>
+<dd>OPTIONAL.  The scope of the access request as described by
+Section 3.3.</dd>
+<dt>state</dt>
+<dd>RECOMMENDED.  An opaque value used by the client to maintain
+state between the request and callback.  The authorization
+server includes this value when redirecting the user-agent back
+to the client.  The parameter SHOULD be used for preventing
+cross-site request forgery as described in Section 10.12.</dd>
+</dl>
+<p>The client directs the resource owner to the constructed URI using an
+HTTP redirection response, or by other means available to it via the
+user-agent.</p>
+<p>For example, the client directs the user-agent to make the following
+HTTP request using TLS (with extra line breaks for display purposes
+only):</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/authorize?response_type=code&amp;client_id=s6BhdRkqt3&amp;state=xyz</span>
+<span class="nn">&amp;redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">server.example.com</span>
+</pre></div>
+</div>
+<p>The authorization server validates the request to ensure that all
+required parameters are present and valid.  If the request is valid,
+the authorization server authenticates the resource owner and obtains
+an authorization decision (by asking the resource owner or by
+establishing approval via other means).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.create_authorization_response">
+<code class="descname">create_authorization_response</code><span class="sig-paren">(</span><em>grant_user</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.create_authorization_response" title="정의 주소">¶</a></dt>
+<dd><p>If the resource owner grants the access request, the authorization
+server issues an authorization code and delivers it to the client by
+adding the following parameters to the query component of the
+redirection URI using the &quot;application/x-www-form-urlencoded&quot; format.
+Per <a class="reference external" href="https://tools.ietf.org/html/rfc6749#section-4.1.2">Section 4.1.2</a>.</p>
+<dl class="docutils">
+<dt>code</dt>
+<dd>REQUIRED.  The authorization code generated by the
+authorization server. The authorization code MUST expire
+shortly after it is issued to mitigate the risk of leaks. A
+maximum authorization code lifetime of 10 minutes is
+RECOMMENDED. The client MUST NOT use the authorization code
+more than once. If an authorization code is used more than
+once, the authorization server MUST deny the request and SHOULD
+revoke (when possible) all tokens previously issued based on
+that authorization code.  The authorization code is bound to
+the client identifier and redirection URI.</dd>
+<dt>state</dt>
+<dd>REQUIRED if the &quot;state&quot; parameter was present in the client
+authorization request.  The exact value received from the
+client.</dd>
+</dl>
+<p>For example, the authorization server redirects the user-agent by
+sending the following HTTP response.</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">Found</span>
+<span class="na">Location</span><span class="o">:</span> <span class="l">https://client.example.com/cb?code=SplxlOBeZQQYbYS6WxSbIA</span>
+       <span class="l">&amp;state=xyz</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>grant_user</strong> -- if resource owner granted the request, pass this
+resource owner, otherwise pass None.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">(status_code, body, headers)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_token_request">
+<code class="descname">validate_token_request</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_token_request" title="정의 주소">¶</a></dt>
+<dd><p>The client makes a request to the token endpoint by sending the
+following parameters using the &quot;application/x-www-form-urlencoded&quot;
+format per <a class="reference external" href="https://tools.ietf.org/html/rfc6749#section-4.1.3">Section 4.1.3</a>:</p>
+<dl class="docutils">
+<dt>grant_type</dt>
+<dd>REQUIRED.  Value MUST be set to &quot;authorization_code&quot;.</dd>
+<dt>code</dt>
+<dd>REQUIRED.  The authorization code received from the
+authorization server.</dd>
+<dt>redirect_uri</dt>
+<dd>REQUIRED, if the &quot;redirect_uri&quot; parameter was included in the
+authorization request as described in Section 4.1.1, and their
+values MUST be identical.</dd>
+<dt>client_id</dt>
+<dd>REQUIRED, if the client is not authenticating with the
+authorization server as described in Section 3.2.1.</dd>
+</dl>
+<p>If the client type is confidential or the client was issued client
+credentials (or assigned other authentication requirements), the
+client MUST authenticate with the authorization server as described
+in Section 3.2.1.</p>
+<p>For example, the client makes the following HTTP request using TLS:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/token</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">server.example.com</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/x-www-form-urlencoded</span>
+
+grant_type=authorization_code&amp;code=SplxlOBeZQQYbYS6WxSbIA
+&amp;redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.create_token_response">
+<code class="descname">create_token_response</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.create_token_response" title="정의 주소">¶</a></dt>
+<dd><p>If the access token request is valid and authorized, the
+authorization server issues an access token and optional refresh
+token as described in Section 5.1.  If the request client
+authentication failed or is invalid, the authorization server returns
+an error response as described in Section 5.2. Per <a class="reference external" href="https://tools.ietf.org/html/rfc6749#section-4.1.4">Section 4.1.4</a>.</p>
+<p>An example successful response:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Cache-Control</span><span class="o">:</span> <span class="l">no-store</span>
+<span class="na">Pragma</span><span class="o">:</span> <span class="l">no-cache</span>
+
+<span class="p">{</span>
+    <span class="nt">&quot;access_token&quot;</span><span class="p">:</span><span class="s2">&quot;2YotnFZFEjr1zCsicMWpAA&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;token_type&quot;</span><span class="p">:</span><span class="s2">&quot;example&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;expires_in&quot;</span><span class="p">:</span><span class="mi">3600</span><span class="p">,</span>
+    <span class="nt">&quot;refresh_token&quot;</span><span class="p">:</span><span class="s2">&quot;tGzv3JOkF0XG5Qx2TlKWIA&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;example_parameter&quot;</span><span class="p">:</span><span class="s2">&quot;example_value&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">반환:</th><td class="field-body">(status_code, body, headers)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.create_authorization_code">
+<code class="descname">create_authorization_code</code><span class="sig-paren">(</span><em>client</em>, <em>grant_user</em>, <em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.create_authorization_code" title="정의 주소">¶</a></dt>
+<dd><p>Save authorization_code for later use. Developers should implement
+it in subclass. Here is an example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">authlib.common.security</span> <span class="k">import</span> <span class="n">generate_token</span>
+
+<span class="k">def</span> <span class="nf">create_authorization_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">generate_token</span><span class="p">(</span><span class="mi">48</span><span class="p">)</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="n">AuthorizationCode</span><span class="p">(</span>
+        <span class="n">code</span><span class="o">=</span><span class="n">code</span><span class="p">,</span>
+        <span class="n">client_id</span><span class="o">=</span><span class="n">client</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="n">redirect_uri</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">redirect_uri</span><span class="p">,</span>
+        <span class="n">scope</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">scope</span><span class="p">,</span>
+        <span class="n">user_id</span><span class="o">=</span><span class="n">grant_user</span><span class="o">.</span><span class="n">get_user_id</span><span class="p">(),</span>
+    <span class="p">)</span>
+    <span class="n">item</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">code</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first simple">
+<li><strong>client</strong> -- the client that requesting the token.</li>
+<li><strong>grant_user</strong> -- the resource owner that grant the permission.</li>
+<li><strong>request</strong> -- OAuth2Request instance.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body"><p class="first last">code string</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.parse_authorization_code">
+<code class="descname">parse_authorization_code</code><span class="sig-paren">(</span><em>code</em>, <em>client</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.parse_authorization_code" title="정의 주소">¶</a></dt>
+<dd><p>Get authorization_code from previously savings. Developers should
+implement it in subclass:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parse_authorization_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">client</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Authorization</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="n">code</span><span class="p">,</span> <span class="n">client_id</span><span class="o">=</span><span class="n">client</span><span class="o">.</span><span class="n">client_id</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first simple">
+<li><strong>code</strong> -- a string represent the code.</li>
+<li><strong>client</strong> -- client related to this code.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body"><p class="first last">authorization_code object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.delete_authorization_code">
+<code class="descname">delete_authorization_code</code><span class="sig-paren">(</span><em>authorization_code</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.delete_authorization_code" title="정의 주소">¶</a></dt>
+<dd><p>Delete authorization code from database or cache. Developers should
+implement it in subclass, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">delete_authorization_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">authorization_code</span><span class="p">):</span>
+    <span class="n">authorization_code</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>authorization_code</strong> -- the instance of authorization_code</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.authenticate_user">
+<code class="descname">authenticate_user</code><span class="sig-paren">(</span><em>authorization_code</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.authenticate_user" title="정의 주소">¶</a></dt>
+<dd><p>Authenticate the user related to this authorization_code. Developers
+should implement this method in subclass, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">authenticate_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">authorization_code</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">authorization_code</span><span class="o">.</span><span class="n">user_id</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>authorization_code</strong> -- AuthorizationCode object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">user</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.oauth2.rfc6749.grants.ImplicitGrant">
+<em class="property">class </em><code class="descclassname">authlib.oauth2.rfc6749.grants.</code><code class="descname">ImplicitGrant</code><span class="sig-paren">(</span><em>request</em>, <em>server</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.ImplicitGrant" title="정의 주소">¶</a></dt>
+<dd><p>The implicit grant type is used to obtain access tokens (it does not
+support the issuance of refresh tokens) and is optimized for public
+clients known to operate a particular redirection URI.  These clients
+are typically implemented in a browser using a scripting language
+such as JavaScript.</p>
+<p>Since this is a redirection-based flow, the client must be capable of
+interacting with the resource owner's user-agent (typically a web
+browser) and capable of receiving incoming requests (via redirection)
+from the authorization server.</p>
+<p>Unlike the authorization code grant type, in which the client makes
+separate requests for authorization and for an access token, the
+client receives the access token as the result of the authorization
+request.</p>
+<p>The implicit grant type does not include client authentication, and
+relies on the presence of the resource owner and the registration of
+the redirection URI.  Because the access token is encoded into the
+redirection URI, it may be exposed to the resource owner and other
+applications residing on the same device:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+----------+</span>
+<span class="o">|</span> <span class="n">Resource</span> <span class="o">|</span>
+<span class="o">|</span>  <span class="n">Owner</span>   <span class="o">|</span>
+<span class="o">|</span>          <span class="o">|</span>
+<span class="o">+----------+</span>
+     <span class="o">^</span>
+     <span class="o">|</span>
+    <span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="o">+----|-----+</span>          <span class="n">Client</span> <span class="n">Identifier</span>     <span class="o">+---------------+</span>
+<span class="o">|</span>         <span class="o">-+----</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">--</span> <span class="o">&amp;</span> <span class="n">Redirection</span> <span class="n">URI</span> <span class="o">---&gt;|</span>               <span class="o">|</span>
+<span class="o">|</span>  <span class="n">User</span><span class="o">-</span>   <span class="o">|</span>                                <span class="o">|</span> <span class="n">Authorization</span> <span class="o">|</span>
+<span class="o">|</span>  <span class="n">Agent</span>  <span class="o">-|----</span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="o">--</span> <span class="n">User</span> <span class="n">authenticates</span> <span class="o">--&gt;|</span>     <span class="n">Server</span>    <span class="o">|</span>
+<span class="o">|</span>          <span class="o">|</span>                                <span class="o">|</span>               <span class="o">|</span>
+<span class="o">|</span>          <span class="o">|&lt;---</span><span class="p">(</span><span class="n">C</span><span class="p">)</span><span class="o">---</span> <span class="n">Redirection</span> <span class="n">URI</span> <span class="o">----&lt;|</span>               <span class="o">|</span>
+<span class="o">|</span>          <span class="o">|</span>          <span class="k">with</span> <span class="n">Access</span> <span class="n">Token</span>     <span class="o">+---------------+</span>
+<span class="o">|</span>          <span class="o">|</span>            <span class="ow">in</span> <span class="n">Fragment</span>
+<span class="o">|</span>          <span class="o">|</span>                                <span class="o">+---------------+</span>
+<span class="o">|</span>          <span class="o">|----</span><span class="p">(</span><span class="n">D</span><span class="p">)</span><span class="o">---</span> <span class="n">Redirection</span> <span class="n">URI</span> <span class="o">----&gt;|</span>   <span class="n">Web</span><span class="o">-</span><span class="n">Hosted</span>  <span class="o">|</span>
+<span class="o">|</span>          <span class="o">|</span>          <span class="n">without</span> <span class="n">Fragment</span>      <span class="o">|</span>     <span class="n">Client</span>    <span class="o">|</span>
+<span class="o">|</span>          <span class="o">|</span>                                <span class="o">|</span>    <span class="n">Resource</span>   <span class="o">|</span>
+<span class="o">|</span>     <span class="p">(</span><span class="n">F</span><span class="p">)</span>  <span class="o">|&lt;---</span><span class="p">(</span><span class="n">E</span><span class="p">)</span><span class="o">-------</span> <span class="n">Script</span> <span class="o">---------&lt;|</span>               <span class="o">|</span>
+<span class="o">|</span>          <span class="o">|</span>                                <span class="o">+---------------+</span>
+<span class="o">+-|--------+</span>
+  <span class="o">|</span>    <span class="o">|</span>
+ <span class="p">(</span><span class="n">A</span><span class="p">)</span>  <span class="p">(</span><span class="n">G</span><span class="p">)</span> <span class="n">Access</span> <span class="n">Token</span>
+  <span class="o">|</span>    <span class="o">|</span>
+  <span class="o">^</span>    <span class="n">v</span>
+<span class="o">+---------+</span>
+<span class="o">|</span>         <span class="o">|</span>
+<span class="o">|</span>  <span class="n">Client</span> <span class="o">|</span>
+<span class="o">|</span>         <span class="o">|</span>
+<span class="o">+---------+</span>
+</pre></div>
+</div>
+<dl class="attribute">
+<dt id="authlib.oauth2.rfc6749.grants.ImplicitGrant.AUTHORIZATION_ENDPOINT">
+<code class="descname">AUTHORIZATION_ENDPOINT</code><em class="property"> = True</em><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.ImplicitGrant.AUTHORIZATION_ENDPOINT" title="정의 주소">¶</a></dt>
+<dd><p>authorization_code grant type has authorization endpoint</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="authlib.oauth2.rfc6749.grants.ImplicitGrant.TOKEN_ENDPOINT_AUTH_METHODS">
+<code class="descname">TOKEN_ENDPOINT_AUTH_METHODS</code><em class="property"> = ['none']</em><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.ImplicitGrant.TOKEN_ENDPOINT_AUTH_METHODS" title="정의 주소">¶</a></dt>
+<dd><p>Allowed client auth methods for token endpoint</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.grants.ImplicitGrant.validate_authorization_request">
+<code class="descname">validate_authorization_request</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.ImplicitGrant.validate_authorization_request" title="정의 주소">¶</a></dt>
+<dd><p>The client constructs the request URI by adding the following
+parameters to the query component of the authorization endpoint URI
+using the &quot;application/x-www-form-urlencoded&quot; format.
+Per <a class="reference external" href="https://tools.ietf.org/html/rfc6749#section-4.2.1">Section 4.2.1</a>.</p>
+<dl class="docutils">
+<dt>response_type</dt>
+<dd>REQUIRED.  Value MUST be set to &quot;token&quot;.</dd>
+<dt>client_id</dt>
+<dd>REQUIRED.  The client identifier as described in Section 2.2.</dd>
+<dt>redirect_uri</dt>
+<dd>OPTIONAL.  As described in Section 3.1.2.</dd>
+<dt>scope</dt>
+<dd>OPTIONAL.  The scope of the access request as described by
+Section 3.3.</dd>
+<dt>state</dt>
+<dd>RECOMMENDED.  An opaque value used by the client to maintain
+state between the request and callback.  The authorization
+server includes this value when redirecting the user-agent back
+to the client.  The parameter SHOULD be used for preventing
+cross-site request forgery as described in Section 10.12.</dd>
+</dl>
+<p>The client directs the resource owner to the constructed URI using an
+HTTP redirection response, or by other means available to it via the
+user-agent.</p>
+<p>For example, the client directs the user-agent to make the following
+HTTP request using TLS:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/authorize?response_type=token&amp;client_id=s6BhdRkqt3&amp;state=xyz</span>
+<span class="nn">&amp;redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">server.example.com</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.grants.ImplicitGrant.create_authorization_response">
+<code class="descname">create_authorization_response</code><span class="sig-paren">(</span><em>grant_user</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.ImplicitGrant.create_authorization_response" title="정의 주소">¶</a></dt>
+<dd><p>If the resource owner grants the access request, the authorization
+server issues an access token and delivers it to the client by adding
+the following parameters to the fragment component of the redirection
+URI using the &quot;application/x-www-form-urlencoded&quot; format.
+Per <a class="reference external" href="https://tools.ietf.org/html/rfc6749#section-4.2.2">Section 4.2.2</a>.</p>
+<dl class="docutils">
+<dt>access_token</dt>
+<dd>REQUIRED.  The access token issued by the authorization server.</dd>
+<dt>token_type</dt>
+<dd>REQUIRED.  The type of the token issued as described in
+Section 7.1.  Value is case insensitive.</dd>
+<dt>expires_in</dt>
+<dd>RECOMMENDED.  The lifetime in seconds of the access token.  For
+example, the value &quot;3600&quot; denotes that the access token will
+expire in one hour from the time the response was generated.
+If omitted, the authorization server SHOULD provide the
+expiration time via other means or document the default value.</dd>
+<dt>scope</dt>
+<dd>OPTIONAL, if identical to the scope requested by the client;
+otherwise, REQUIRED.  The scope of the access token as
+described by Section 3.3.</dd>
+<dt>state</dt>
+<dd>REQUIRED if the &quot;state&quot; parameter was present in the client
+authorization request.  The exact value received from the
+client.</dd>
+</dl>
+<p>The authorization server MUST NOT issue a refresh token.</p>
+<p>For example, the authorization server redirects the user-agent by
+sending the following HTTP response:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">Found</span>
+<span class="na">Location</span><span class="o">:</span> <span class="l">http://example.com/cb#access_token=2YotnFZFEjr1zCsicMWpAA</span>
+       <span class="l">&amp;state=xyz&amp;token_type=example&amp;expires_in=3600</span>
+</pre></div>
+</div>
+<p>Developers should note that some user-agents do not support the
+inclusion of a fragment component in the HTTP &quot;Location&quot; response
+header field.  Such clients will require using other methods for
+redirecting the client than a 3xx redirection response -- for
+example, returning an HTML page that includes a 'continue' button
+with an action linked to the redirection URI.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>grant_user</strong> -- if resource owner granted the request, pass this
+resource owner, otherwise pass None.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">(status_code, body, headers)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant">
+<em class="property">class </em><code class="descclassname">authlib.oauth2.rfc6749.grants.</code><code class="descname">ResourceOwnerPasswordCredentialsGrant</code><span class="sig-paren">(</span><em>request</em>, <em>server</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant" title="정의 주소">¶</a></dt>
+<dd><p>The resource owner password credentials grant type is suitable in
+cases where the resource owner has a trust relationship with the
+client, such as the device operating system or a highly privileged</p>
+<p>application.  The authorization server should take special care when
+enabling this grant type and only allow it when other flows are not
+viable.</p>
+<p>This grant type is suitable for clients capable of obtaining the
+resource owner's credentials (username and password, typically using
+an interactive form).  It is also used to migrate existing clients
+using direct authentication schemes such as HTTP Basic or Digest
+authentication to OAuth by converting the stored credentials to an
+access token:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+----------+</span>
+<span class="o">|</span> <span class="n">Resource</span> <span class="o">|</span>
+<span class="o">|</span>  <span class="n">Owner</span>   <span class="o">|</span>
+<span class="o">|</span>          <span class="o">|</span>
+<span class="o">+----------+</span>
+    <span class="n">v</span>
+    <span class="o">|</span>    <span class="n">Resource</span> <span class="n">Owner</span>
+   <span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="n">Password</span> <span class="n">Credentials</span>
+    <span class="o">|</span>
+    <span class="n">v</span>
+<span class="o">+---------+</span>                                  <span class="o">+---------------+</span>
+<span class="o">|</span>         <span class="o">|&gt;--</span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="o">----</span> <span class="n">Resource</span> <span class="n">Owner</span> <span class="o">-------&gt;|</span>               <span class="o">|</span>
+<span class="o">|</span>         <span class="o">|</span>         <span class="n">Password</span> <span class="n">Credentials</span>     <span class="o">|</span> <span class="n">Authorization</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">Client</span>  <span class="o">|</span>                                  <span class="o">|</span>     <span class="n">Server</span>    <span class="o">|</span>
+<span class="o">|</span>         <span class="o">|&lt;--</span><span class="p">(</span><span class="n">C</span><span class="p">)</span><span class="o">----</span> <span class="n">Access</span> <span class="n">Token</span> <span class="o">---------&lt;|</span>               <span class="o">|</span>
+<span class="o">|</span>         <span class="o">|</span>    <span class="p">(</span><span class="n">w</span><span class="o">/</span> <span class="n">Optional</span> <span class="n">Refresh</span> <span class="n">Token</span><span class="p">)</span>   <span class="o">|</span>               <span class="o">|</span>
+<span class="o">+---------+</span>                                  <span class="o">+---------------+</span>
+</pre></div>
+</div>
+<dl class="attribute">
+<dt id="authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant.TOKEN_ENDPOINT">
+<code class="descname">TOKEN_ENDPOINT</code><em class="property"> = True</em><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant.TOKEN_ENDPOINT" title="정의 주소">¶</a></dt>
+<dd><p>authorization_code grant type has token endpoint</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant.validate_token_request">
+<code class="descname">validate_token_request</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant.validate_token_request" title="정의 주소">¶</a></dt>
+<dd><p>The client makes a request to the token endpoint by adding the
+following parameters using the &quot;application/x-www-form-urlencoded&quot;
+format per Appendix B with a character encoding of UTF-8 in the HTTP
+request entity-body:</p>
+<dl class="docutils">
+<dt>grant_type</dt>
+<dd>REQUIRED.  Value MUST be set to &quot;password&quot;.</dd>
+<dt>username</dt>
+<dd>REQUIRED.  The resource owner username.</dd>
+<dt>password</dt>
+<dd>REQUIRED.  The resource owner password.</dd>
+<dt>scope</dt>
+<dd>OPTIONAL.  The scope of the access request as described by
+Section 3.3.</dd>
+</dl>
+<p>If the client type is confidential or the client was issued client
+credentials (or assigned other authentication requirements), the
+client MUST authenticate with the authorization server as described
+in Section 3.2.1.</p>
+<p>For example, the client makes the following HTTP request using
+transport-layer security (with extra line breaks for display purposes
+only):</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/token</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">server.example.com</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/x-www-form-urlencoded</span>
+
+grant_type=password&amp;username=johndoe&amp;password=A3ddj3w
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant.create_token_response">
+<code class="descname">create_token_response</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant.create_token_response" title="정의 주소">¶</a></dt>
+<dd><p>If the access token request is valid and authorized, the
+authorization server issues an access token and optional refresh
+token as described in Section 5.1.  If the request failed client
+authentication or is invalid, the authorization server returns an
+error response as described in Section 5.2.</p>
+<p>An example successful response:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Cache-Control</span><span class="o">:</span> <span class="l">no-store</span>
+<span class="na">Pragma</span><span class="o">:</span> <span class="l">no-cache</span>
+
+<span class="p">{</span>
+    <span class="nt">&quot;access_token&quot;</span><span class="p">:</span><span class="s2">&quot;2YotnFZFEjr1zCsicMWpAA&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;token_type&quot;</span><span class="p">:</span><span class="s2">&quot;example&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;expires_in&quot;</span><span class="p">:</span><span class="mi">3600</span><span class="p">,</span>
+    <span class="nt">&quot;refresh_token&quot;</span><span class="p">:</span><span class="s2">&quot;tGzv3JOkF0XG5Qx2TlKWIA&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;example_parameter&quot;</span><span class="p">:</span><span class="s2">&quot;example_value&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">반환:</th><td class="field-body">(status_code, body, headers)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant.authenticate_user">
+<code class="descname">authenticate_user</code><span class="sig-paren">(</span><em>username</em>, <em>password</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant.authenticate_user" title="정의 주소">¶</a></dt>
+<dd><p>validate the resource owner password credentials using its
+existing password validation algorithm:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">authenticate_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">get_user_by_username</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">user</span><span class="o">.</span><span class="n">check_password</span><span class="p">(</span><span class="n">password</span><span class="p">):</span>
+       <span class="k">return</span> <span class="n">user</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.oauth2.rfc6749.grants.ClientCredentialsGrant">
+<em class="property">class </em><code class="descclassname">authlib.oauth2.rfc6749.grants.</code><code class="descname">ClientCredentialsGrant</code><span class="sig-paren">(</span><em>request</em>, <em>server</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.ClientCredentialsGrant" title="정의 주소">¶</a></dt>
+<dd><p>The client can request an access token using only its client
+credentials (or other supported means of authentication) when the
+client is requesting access to the protected resources under its
+control, or those of another resource owner that have been previously
+arranged with the authorization server.</p>
+<p>The client credentials grant type MUST only be used by confidential
+clients:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+---------+</span>                                  <span class="o">+---------------+</span>
+<span class="o">|</span>         <span class="o">|</span>                                  <span class="o">|</span>               <span class="o">|</span>
+<span class="o">|</span>         <span class="o">|&gt;--</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">-</span> <span class="n">Client</span> <span class="n">Authentication</span> <span class="o">---&gt;|</span> <span class="n">Authorization</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">Client</span>  <span class="o">|</span>                                  <span class="o">|</span>     <span class="n">Server</span>    <span class="o">|</span>
+<span class="o">|</span>         <span class="o">|&lt;--</span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="o">----</span> <span class="n">Access</span> <span class="n">Token</span> <span class="o">---------&lt;|</span>               <span class="o">|</span>
+<span class="o">|</span>         <span class="o">|</span>                                  <span class="o">|</span>               <span class="o">|</span>
+<span class="o">+---------+</span>                                  <span class="o">+---------------+</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://tools.ietf.org/html/rfc6749#section-4.4">https://tools.ietf.org/html/rfc6749#section-4.4</a></p>
+<dl class="attribute">
+<dt id="authlib.oauth2.rfc6749.grants.ClientCredentialsGrant.TOKEN_ENDPOINT">
+<code class="descname">TOKEN_ENDPOINT</code><em class="property"> = True</em><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.ClientCredentialsGrant.TOKEN_ENDPOINT" title="정의 주소">¶</a></dt>
+<dd><p>authorization_code grant type has token endpoint</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.grants.ClientCredentialsGrant.validate_token_request">
+<code class="descname">validate_token_request</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.ClientCredentialsGrant.validate_token_request" title="정의 주소">¶</a></dt>
+<dd><p>The client makes a request to the token endpoint by adding the
+following parameters using the &quot;application/x-www-form-urlencoded&quot;
+format per Appendix B with a character encoding of UTF-8 in the HTTP
+request entity-body:</p>
+<dl class="docutils">
+<dt>grant_type</dt>
+<dd>REQUIRED.  Value MUST be set to &quot;client_credentials&quot;.</dd>
+<dt>scope</dt>
+<dd>OPTIONAL.  The scope of the access request as described by
+Section 3.3.</dd>
+</dl>
+<p>The client MUST authenticate with the authorization server as
+described in Section 3.2.1.</p>
+<p>For example, the client makes the following HTTP request using
+transport-layer security (with extra line breaks for display purposes
+only):</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/token</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">server.example.com</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/x-www-form-urlencoded</span>
+
+grant_type=client_credentials
+</pre></div>
+</div>
+<p>The authorization server MUST authenticate the client.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.grants.ClientCredentialsGrant.create_token_response">
+<code class="descname">create_token_response</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.ClientCredentialsGrant.create_token_response" title="정의 주소">¶</a></dt>
+<dd><p>If the access token request is valid and authorized, the
+authorization server issues an access token as described in
+Section 5.1.  A refresh token SHOULD NOT be included.  If the request
+failed client authentication or is invalid, the authorization server
+returns an error response as described in Section 5.2.</p>
+<p>An example successful response:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Cache-Control</span><span class="o">:</span> <span class="l">no-store</span>
+<span class="na">Pragma</span><span class="o">:</span> <span class="l">no-cache</span>
+
+<span class="p">{</span>
+    <span class="nt">&quot;access_token&quot;</span><span class="p">:</span><span class="s2">&quot;2YotnFZFEjr1zCsicMWpAA&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;token_type&quot;</span><span class="p">:</span><span class="s2">&quot;example&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;expires_in&quot;</span><span class="p">:</span><span class="mi">3600</span><span class="p">,</span>
+    <span class="nt">&quot;example_parameter&quot;</span><span class="p">:</span><span class="s2">&quot;example_value&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">반환:</th><td class="field-body">(status_code, body, headers)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.oauth2.rfc6749.grants.RefreshTokenGrant">
+<em class="property">class </em><code class="descclassname">authlib.oauth2.rfc6749.grants.</code><code class="descname">RefreshTokenGrant</code><span class="sig-paren">(</span><em>request</em>, <em>server</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.RefreshTokenGrant" title="정의 주소">¶</a></dt>
+<dd><p>A special grant endpoint for refresh_token grant_type. Refreshing an
+Access Token per <a class="reference external" href="https://tools.ietf.org/html/rfc6749#section-6">Section 6</a>.</p>
+<dl class="attribute">
+<dt id="authlib.oauth2.rfc6749.grants.RefreshTokenGrant.TOKEN_ENDPOINT">
+<code class="descname">TOKEN_ENDPOINT</code><em class="property"> = True</em><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.RefreshTokenGrant.TOKEN_ENDPOINT" title="정의 주소">¶</a></dt>
+<dd><p>authorization_code grant type has token endpoint</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.grants.RefreshTokenGrant.validate_token_request">
+<code class="descname">validate_token_request</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.RefreshTokenGrant.validate_token_request" title="정의 주소">¶</a></dt>
+<dd><p>If the authorization server issued a refresh token to the client, the
+client makes a refresh request to the token endpoint by adding the
+following parameters using the &quot;application/x-www-form-urlencoded&quot;
+format per Appendix B with a character encoding of UTF-8 in the HTTP
+request entity-body, per Section 6:</p>
+<dl class="docutils">
+<dt>grant_type</dt>
+<dd>REQUIRED.  Value MUST be set to &quot;refresh_token&quot;.</dd>
+<dt>refresh_token</dt>
+<dd>REQUIRED.  The refresh token issued to the client.</dd>
+<dt>scope</dt>
+<dd>OPTIONAL.  The scope of the access request as described by
+Section 3.3.  The requested scope MUST NOT include any scope
+not originally granted by the resource owner, and if omitted is
+treated as equal to the scope originally granted by the
+resource owner.</dd>
+</dl>
+<p>For example, the client makes the following HTTP request using
+transport-layer security (with extra line breaks for display purposes
+only):</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/token</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">server.example.com</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/x-www-form-urlencoded</span>
+
+grant_type=refresh_token&amp;refresh_token=tGzv3JOkF0XG5Qx2TlKWIA
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.grants.RefreshTokenGrant.create_token_response">
+<code class="descname">create_token_response</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.RefreshTokenGrant.create_token_response" title="정의 주소">¶</a></dt>
+<dd><p>If valid and authorized, the authorization server issues an access
+token as described in Section 5.1.  If the request failed
+verification or is invalid, the authorization server returns an error
+response as described in Section 5.2.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.grants.RefreshTokenGrant.authenticate_refresh_token">
+<code class="descname">authenticate_refresh_token</code><span class="sig-paren">(</span><em>refresh_token</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.RefreshTokenGrant.authenticate_refresh_token" title="정의 주소">¶</a></dt>
+<dd><p>Get token information with refresh_token string. Developers should
+implement this method in subclass:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">authenticate_refresh_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">refresh_token</span><span class="p">):</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="n">Token</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">refresh_token</span><span class="o">=</span><span class="n">refresh_token</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">item</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">item</span><span class="o">.</span><span class="n">is_refresh_token_expired</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">item</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>refresh_token</strong> -- The refresh token issued to the client</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">token</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc6749.grants.RefreshTokenGrant.authenticate_user">
+<code class="descname">authenticate_user</code><span class="sig-paren">(</span><em>credential</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc6749.grants.RefreshTokenGrant.authenticate_user" title="정의 주소">¶</a></dt>
+<dd><p>Authenticate the user related to this credential. Developers should
+implement this method in subclass:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">authenticate_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">credential</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">credential</span><span class="o">.</span><span class="n">user_id</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>credential</strong> -- Token object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">user</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+  <div class="t-pagination clearfix">
+    <span>
+      ← <a href="rfc5849.html" title="RFC5849: The OAuth 1.0 Protocol">RFC5849: The OAuth 1.0 Protocol</a>
+    </span>
+    <span style="float:right">
+      <a href="rfc6750.html" title="RFC6750: The OAuth 2.0 Authorization Framework: Bearer Token Usage">RFC6750: The OAuth 2.0...</a> →
+    </span>
+  </div>
+</div><footer class="t-foot">
+    &copy; Copyright 2018, Hsiaoming Ltd.
+    <br>
+    A <a href="https://typlog.com/">typlog</a> <a href="https://github.com/typlog/sphinx-typlog-theme">sphinx theme</a>,
+    designed by <a href="https://lepture.com/">Hsiaoming Yang</a>.
+</footer>
+  </div>
+  <script>$(function(){$(".t-head_menu").on("click",function(){$("body").addClass("_expand")});$(".t-body").on("click",function(){$("body").removeClass("_expand")});$(".t-sidebar_close").on("click",function(){$("body").removeClass("_expand")});$("a.footnote-reference").on("click",function(e){e.preventDefault();var id=$(this).attr("href");var html=$(id).find("td.label + td").html();var w=Math.max(document.documentElement.clientWidth,window.innerWidth||0);var style="top:"+e.pageY+"px;";if(w>560){style+="width:480px;";if(e.pageX>240&&e.pageX+240<w){style+="left:"+(e.pageX-240)+"px;"}else if(e.pageX<=240){style+="left:20px;"}else{style+="right:20px;"}}showFootnote(html,style)});function showFootnote(html,style){var CONTENT_ID="typlog-footnote-content";var content=document.getElementById(CONTENT_ID);if(!content){content=document.createElement("div");content.id=CONTENT_ID;$(".t-body").append(content)}var MASK_ID="typlog-footnote-mask";var mask=document.getElementById(MASK_ID);if(!mask){mask=document.createElement("div");mask.id=MASK_ID;document.body.appendChild(mask);mask.addEventListener("click",function(){content.className="";mask.className=""})}content.innerHTML=html;content.setAttribute("style",style);content.className="_active";mask.className="_active"}function fetchGitHubRepo(repo){var url="https://api.github.com/repos/"+repo;$.getJSON(url,function(data){var counts=[+new Date,data.stargazers_count,data.forks_count];localStorage.setItem("gh:"+repo,JSON.stringify(counts));updateGitHubStats(counts[1],counts[2])})}function updateGitHubStats(stars,forks){$(".github_stars strong").text(stars);$(".github_forks strong").text(forks)}function initGitHub(url){if(!url){return}var repo=url.replace("https://github.com/","");var cache=localStorage.getItem("gh:"+repo);if(cache){try{var counts=JSON.parse(cache);updateGitHubStats(counts[1],counts[2]);var delta=new Date-counts[0];if(delta<0||delta>9e5){fetchGitHubRepo(repo)}}catch(error){fetchGitHubRepo(repo)}}else{fetchGitHubRepo(repo)}}initGitHub($(".github").attr("href"))});</script>
+</body>
+</html>

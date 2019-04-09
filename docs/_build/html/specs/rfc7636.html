@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="API references on RFC76736 Proof Key for Code Exchange by OAuth Public Clients implementation, guide on how to add it to OAuth 2.0 authorization server." name="description" />
+<title>RFC7636: Proof Key for Code Exchange by OAuth Public Clients &mdash; Authlib 0.12.dev documentation</title>
+  <link rel="shortcut icon" href="../_static/favicon.ico"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono"><link rel="stylesheet" href="../_static/typlog.css?v=0.7.2" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme.css?v=0.7.2" type="text/css" />
+      <link rel="index" title="색인" href="../genindex.html"/>
+      <link rel="search" title="검색" href="../search.html"/>
+    <link rel="top" title="Authlib 0.12.dev documentation" href="../index.html"/>
+      <link rel="up" title="Specifications" href="index.html"/>
+      <link rel="next" title="RFC7662: OAuth 2.0 Token Introspection" href="rfc7662.html"/>
+      <link rel="prev" title="RFC7523: JWT Profile for OAuth 2.0 Client Authentication and Authorization Grants" href="rfc7523.html"/>
+  <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-34098939-7');ga('send', 'pageview');</script>
+  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script><link rel="apple-touch-icon" sizes="180x180" href="https://authlib.org/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Authlib">
+  <meta property="og:title" content="RFC7636: Proof Key for Code Exchange by OAuth Public Clients">
+    <meta property="og:description" content="API references on RFC76736 Proof Key for Code Exchange by OAuth Public Clients implementation, guide on how to add it to OAuth 2.0 authorization server.">
+    <meta property="og:image" content="https://authlib.org/logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@authlib">
+</head>
+<body role="document" data-page="specs/rfc7636">
+  <header class="t-head">
+    <div class="t-head_menu"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z"/></svg></div>
+    <a class="t-head_logo" href="../index.html"><img src="../_static/authlib.svg" alt="Logo"/>Authlib
+    </a>
+  </header>
+  <aside class="t-sidebar">
+    <div class="t-sidebar_close">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M405 136.798L375.202 107 256 226.202 136.798 107 107 136.798 226.202 256 107 375.202 136.798 405 256 285.798 375.202 405 405 375.202 285.798 256z"/></svg>
+    </div>
+    <div class="inner">
+<a class="logo" href="../index.html"><img src="../_static/authlib.svg" alt="Logo"/>
+    Authlib
+</a><div class="logo_desc">The ultimate Python library in building OAuth and OpenID Connect servers. JWS, JWE, JWK, JWA, JWT are included.</div>
+<div class="github_wrap">
+  <a class="github" href="https://github.com/lepture/authlib" target="_blank">
+    <span class="github_icon"></span>
+    <span class="github_stars">
+      <strong>-</strong>stars
+    </span>
+    <span class="github_forks">
+      <strong>-</strong>forks
+    </span>
+  </a>
+</div><div class="sponsors">
+  <div class="sponsor">
+    <a class="image" href="https://auth0.com/overview?utm_source=authlib&utm_medium=devsponsor&utm_campaign=authlib"><img src="https://user-images.githubusercontent.com/290496/39297078-89d00928-497d-11e8-8119-0c53afe14cd0.png" alt="Sponsor"></a>
+    <div class="text">The new way to solve Identity. Sponsored by <a href="https://auth0.com/overview?utm_source=authlib&utm_medium=devsponsor&utm_campaign=authlib">auth0.com</a></div>
+  </div>
+  <div class="patron">
+    <a class="patron-button" style="border: 1px solid #3E7FCB;display: inline-block;padding: 4px 18px;border-radius: 20px;color: #3E7FCB;" href="https://www.patreon.com/bePatron?u=8179754">Become a Patron!</a>
+  </div>
+</div><div class="globaltoc">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../basic/index.html">Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../client/index.html">Client Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jose/index.html">JOSE Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flask/1/index.html">Flask OAuth 1.0 Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flask/2/index.html">Flask OAuth 2.0 Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../django/1/index.html">Django OAuth 1.0 Server</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Specifications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rfc5849.html">RFC5849: The OAuth 1.0 Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc6749.html">RFC6749: The OAuth 2.0 Authorization Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc6750.html">RFC6750: The OAuth 2.0 Authorization Framework: Bearer Token Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7009.html">RFC7009: OAuth 2.0 Token Revocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7515.html">RFC7515: JSON Web Signature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7516.html">RFC7516: JSON Web Encryption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7517.html">RFC7517: JSON Web Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7518.html">RFC7518: JSON Web Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7519.html">RFC7519: JSON Web Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7523.html">RFC7523: JWT Profile for OAuth 2.0 Client Authentication and Authorization Grants</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">RFC7636: Proof Key for Code Exchange by OAuth Public Clients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7662.html">RFC7662: OAuth 2.0 Token Introspection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oidc.html">OpenID Connect 1.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../community/index.html">Community</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+
+</div><div class="useful-links">
+  <h3>Useful Links</h3>
+  <ul>
+    <li><a href="https://authlib.org/">Homepage</a></li>
+    <li><a href="https://blog.authlib.org/">Read Blog</a></li>
+    <li><a href="https://authlib.org/plans">Commercial License</a></li>
+    <li><a href="https://github.com/lepture/authlib">Star on GitHub</a></li>
+    <li><a href="https://twitter.com/authlib">Follow on Twitter</a></li>
+    <li><a href="https://stackoverflow.com/questions/tagged/authlib">Help on StackOverflow</a></li>
+    <li><a href="https://github.com/authlib/loginpass">Loginpass</a></li>
+  </ul>
+</div>
+<div id="searchbox">
+  <form class="search" action="../search.html" method="get">
+    <div class="input-group">
+      <input type="text" name="q" placeholder="검색" />
+      <button type="submit">바로 가기</button>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+    </div>
+  </aside>
+  <div class="t-content">
+    <div class="t-body yue">
+  <div class="section" id="rfc7636-proof-key-for-code-exchange-by-oauth-public-clients">
+<span id="specs-rfc7636"></span><h1>RFC7636: Proof Key for Code Exchange by OAuth Public Clients<a class="headerlink" href="#rfc7636-proof-key-for-code-exchange-by-oauth-public-clients" title="제목 주소">¶</a></h1>
+<p>This <a class="reference external" href="https://tools.ietf.org/html/rfc7636">RFC7636</a> is used to improve the security of Authorization Code flow
+for public clients by sending extra &quot;code_challenge&quot; and &quot;code_verifier&quot;
+to the authorization server.</p>
+<span class="target" id="module-authlib.oauth2.rfc7636"></span><div class="section" id="using-rfc7636-in-authorization-code-grant">
+<h2>Using RFC7636 in Authorization Code Grant<a class="headerlink" href="#using-rfc7636-in-authorization-code-grant" title="제목 주소">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">버전 v0.10에 추가.</span></p>
+</div>
+<p>In order to apply proof key for code exchange, you need to register the
+<a class="reference internal" href="#authlib.oauth2.rfc7636.CodeChallenge" title="authlib.oauth2.rfc7636.CodeChallenge"><code class="xref py py-class docutils literal notranslate"><span class="pre">CodeChallenge</span></code></a> extension to <code class="docutils literal notranslate"><span class="pre">AuthorizationCodeGrant</span></code>. But before
+that, we need to re-design our AuthorizationCode database. If you are using
+Flask, check the section <a class="reference internal" href="../flask/2/grants.html#flask-oauth2-code-grant"><span class="std std-ref">Authorization Code Grant</span></a>.</p>
+<p>The new database SHOULD contain two more columns:</p>
+<ol class="arabic simple">
+<li>code_challenge: A VARCHAR</li>
+<li>code_challenge_method: A VARCHAR</li>
+</ol>
+<p>And the <code class="docutils literal notranslate"><span class="pre">AuthorizationCodeGrant</span></code> should record the <code class="docutils literal notranslate"><span class="pre">code_challenge</span></code> and
+<code class="docutils literal notranslate"><span class="pre">code_challenge_method</span></code> into database in <code class="docutils literal notranslate"><span class="pre">create_authorization_code</span></code>
+method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyAuthorizationCodeGrant</span><span class="p">(</span><span class="n">AuthorizationCodeGrant</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">create_authorization_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">grant_user</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="n">code</span> <span class="o">=</span> <span class="n">generate_token</span><span class="p">(</span><span class="mi">48</span><span class="p">)</span>
+
+        <span class="c1"># NOTICE BELOW</span>
+        <span class="n">code_challenge</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;code_challenge&#39;</span><span class="p">)</span>
+        <span class="n">code_challenge_method</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;code_challenge_method&#39;</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">AuthorizationCode</span><span class="p">(</span>
+            <span class="n">code</span><span class="o">=</span><span class="n">code</span><span class="p">,</span>
+            <span class="n">client_id</span><span class="o">=</span><span class="n">client</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span>
+            <span class="n">redirect_uri</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">redirect_uri</span><span class="p">,</span>
+            <span class="n">scope</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">scope</span><span class="p">,</span>
+            <span class="n">user_id</span><span class="o">=</span><span class="n">grant_user</span><span class="o">.</span><span class="n">get_user_id</span><span class="p">(),</span>
+            <span class="n">code_challenge</span><span class="o">=</span><span class="n">code_challenge</span><span class="p">,</span>
+            <span class="n">code_challenge_method</span><span class="o">=</span><span class="n">code_challenge_method</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">code</span>
+</pre></div>
+</div>
+<p>Now you can register your <code class="docutils literal notranslate"><span class="pre">AuthorizationCodeGrant</span></code> with the extension:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">authlib.oauth2.rfc7636</span> <span class="k">import</span> <span class="n">CodeChallenge</span>
+<span class="n">server</span><span class="o">.</span><span class="n">register_grant</span><span class="p">(</span><span class="n">MyAuthorizationCodeGrant</span><span class="p">,</span> <span class="p">[</span><span class="n">CodeChallenge</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)])</span>
+</pre></div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">required=True</span></code>, code challenge is required for authorization code flow.
+If <code class="docutils literal notranslate"><span class="pre">required=False</span></code>, it is optional, it will only valid the code challenge
+when clients send these parameters.</p>
+</div>
+<div class="section" id="using-code-challenge-in-client">
+<h2>Using <code class="docutils literal notranslate"><span class="pre">code_challenge</span></code> in Client<a class="headerlink" href="#using-code-challenge-in-client" title="제목 주소">¶</a></h2>
+<p>Read the <strong>Code Challenge</strong> section in the framework integrations:</p>
+<ol class="arabic simple">
+<li><a class="reference internal" href="../client/flask.html#flask-client"><span class="std std-ref">Flask OAuth Client</span></a>.</li>
+<li><a class="reference internal" href="../client/django.html#django-client"><span class="std std-ref">Django OAuth Client</span></a>.</li>
+</ol>
+<p>It is also possible to add <code class="docutils literal notranslate"><span class="pre">code_challenge</span></code> in <code class="docutils literal notranslate"><span class="pre">OAuth2Session</span></code>,
+consider that we already have a <code class="docutils literal notranslate"><span class="pre">session</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">authlib.oauth2.rfc7636</span> <span class="k">import</span> <span class="n">create_s256_code_challenge</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">code_verifier</span> <span class="o">=</span> <span class="s1">&#39;generate-a-urlsafe-string&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">code_challenge</span> <span class="o">=</span> <span class="n">create_s256_code_challenge</span><span class="p">(</span><span class="n">code_verifier</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">uri</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">authorization_url</span><span class="p">(</span><span class="n">authorize_url</span><span class="p">,</span> <span class="n">code_challenge</span><span class="o">=</span><span class="n">code_challenge</span><span class="p">,</span> <span class="n">code_challenge_method</span><span class="o">=</span><span class="s1">&#39;S256&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># visit uri, get the response</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">authorization_response</span> <span class="o">=</span> <span class="s1">&#39;https://example.com/auth?code=42..e9&amp;state=d..t&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">token</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">fetch_access_token</span><span class="p">(</span><span class="n">access_token_url</span><span class="p">,</span> <span class="n">authorization_response</span><span class="o">=</span><span class="n">authorization_response</span><span class="p">,</span> <span class="n">code_verifier</span><span class="o">=</span><span class="n">code_verifier</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The authorization flow is the same as in <a class="reference internal" href="../client/oauth2.html#oauth-2-session"><span class="std std-ref">OAuth 2 Session</span></a>, what you need
+to do is:</p>
+<ol class="arabic simple">
+<li>adding <code class="docutils literal notranslate"><span class="pre">code_challenge</span></code> and <code class="docutils literal notranslate"><span class="pre">code_challenge_method</span></code> in <code class="xref py py-meth docutils literal notranslate"><span class="pre">authorization_url()</span></code>.</li>
+<li>adding <code class="docutils literal notranslate"><span class="pre">code_verifier</span></code> in <a class="reference internal" href="../client/api.html#authlib.client.OAuth2Session.fetch_access_token" title="authlib.client.OAuth2Session.fetch_access_token"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fetch_access_token()</span></code></a>.</li>
+</ol>
+</div>
+<div class="section" id="api-reference">
+<h2>API Reference<a class="headerlink" href="#api-reference" title="제목 주소">¶</a></h2>
+<dl class="class">
+<dt id="authlib.oauth2.rfc7636.CodeChallenge">
+<em class="property">class </em><code class="descclassname">authlib.oauth2.rfc7636.</code><code class="descname">CodeChallenge</code><span class="sig-paren">(</span><em>required=False</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc7636.CodeChallenge" title="정의 주소">¶</a></dt>
+<dd><p>CodeChallenge extension to Authorization Code Grant. It is used to
+improve the security of Authorization Code flow for public clients by
+sending extra &quot;code_challenge&quot; and &quot;code_verifier&quot; to the authorization
+server.</p>
+<p>The AuthorizationCodeGrant SHOULD save the code_challenge and
+code_challenge_method into database when create_authorization_code. Then
+register this extension via:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">server</span><span class="o">.</span><span class="n">register_grant</span><span class="p">(</span>
+    <span class="n">AuthorizationCodeGrant</span><span class="p">,</span>
+    <span class="p">[</span><span class="n">CodeChallenge</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<dl class="attribute">
+<dt id="authlib.oauth2.rfc7636.CodeChallenge.DEFAULT_CODE_CHALLENGE_METHOD">
+<code class="descname">DEFAULT_CODE_CHALLENGE_METHOD</code><em class="property"> = 'plain'</em><a class="headerlink" href="#authlib.oauth2.rfc7636.CodeChallenge.DEFAULT_CODE_CHALLENGE_METHOD" title="정의 주소">¶</a></dt>
+<dd><p>defaults to &quot;plain&quot; if not present in the request</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="authlib.oauth2.rfc7636.CodeChallenge.SUPPORTED_CODE_CHALLENGE_METHOD">
+<code class="descname">SUPPORTED_CODE_CHALLENGE_METHOD</code><em class="property"> = ['plain', 'S256']</em><a class="headerlink" href="#authlib.oauth2.rfc7636.CodeChallenge.SUPPORTED_CODE_CHALLENGE_METHOD" title="정의 주소">¶</a></dt>
+<dd><p>supported <code class="docutils literal notranslate"><span class="pre">code_challenge_method</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc7636.CodeChallenge.get_authorization_code_challenge">
+<code class="descname">get_authorization_code_challenge</code><span class="sig-paren">(</span><em>authorization_code</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc7636.CodeChallenge.get_authorization_code_challenge" title="정의 주소">¶</a></dt>
+<dd><p>Get &quot;code_challenge&quot; associated with this authorization code.
+Developers CAN re-implement it in subclass, the default logic:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_authorization_code_challenge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">authorization_code</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">authorization_code</span><span class="o">.</span><span class="n">code_challenge</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>authorization_code</strong> -- the instance of authorization_code</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oauth2.rfc7636.CodeChallenge.get_authorization_code_challenge_method">
+<code class="descname">get_authorization_code_challenge_method</code><span class="sig-paren">(</span><em>authorization_code</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oauth2.rfc7636.CodeChallenge.get_authorization_code_challenge_method" title="정의 주소">¶</a></dt>
+<dd><p>Get &quot;code_challenge_method&quot; associated with this authorization code.
+Developers CAN re-implement it in subclass, the default logic:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_authorization_code_challenge_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">authorization_code</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">authorization_code</span><span class="o">.</span><span class="n">code_challenge_method</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>authorization_code</strong> -- the instance of authorization_code</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+  <div class="t-pagination clearfix">
+    <span>
+      ← <a href="rfc7523.html" title="RFC7523: JWT Profile for OAuth 2.0 Client Authentication and Authorization Grants">RFC7523: JWT Profile for...</a>
+    </span>
+    <span style="float:right">
+      <a href="rfc7662.html" title="RFC7662: OAuth 2.0 Token Introspection">RFC7662: OAuth 2.0 Token...</a> →
+    </span>
+  </div>
+</div><footer class="t-foot">
+    &copy; Copyright 2018, Hsiaoming Ltd.
+    <br>
+    A <a href="https://typlog.com/">typlog</a> <a href="https://github.com/typlog/sphinx-typlog-theme">sphinx theme</a>,
+    designed by <a href="https://lepture.com/">Hsiaoming Yang</a>.
+</footer>
+  </div>
+  <script>$(function(){$(".t-head_menu").on("click",function(){$("body").addClass("_expand")});$(".t-body").on("click",function(){$("body").removeClass("_expand")});$(".t-sidebar_close").on("click",function(){$("body").removeClass("_expand")});$("a.footnote-reference").on("click",function(e){e.preventDefault();var id=$(this).attr("href");var html=$(id).find("td.label + td").html();var w=Math.max(document.documentElement.clientWidth,window.innerWidth||0);var style="top:"+e.pageY+"px;";if(w>560){style+="width:480px;";if(e.pageX>240&&e.pageX+240<w){style+="left:"+(e.pageX-240)+"px;"}else if(e.pageX<=240){style+="left:20px;"}else{style+="right:20px;"}}showFootnote(html,style)});function showFootnote(html,style){var CONTENT_ID="typlog-footnote-content";var content=document.getElementById(CONTENT_ID);if(!content){content=document.createElement("div");content.id=CONTENT_ID;$(".t-body").append(content)}var MASK_ID="typlog-footnote-mask";var mask=document.getElementById(MASK_ID);if(!mask){mask=document.createElement("div");mask.id=MASK_ID;document.body.appendChild(mask);mask.addEventListener("click",function(){content.className="";mask.className=""})}content.innerHTML=html;content.setAttribute("style",style);content.className="_active";mask.className="_active"}function fetchGitHubRepo(repo){var url="https://api.github.com/repos/"+repo;$.getJSON(url,function(data){var counts=[+new Date,data.stargazers_count,data.forks_count];localStorage.setItem("gh:"+repo,JSON.stringify(counts));updateGitHubStats(counts[1],counts[2])})}function updateGitHubStats(stars,forks){$(".github_stars strong").text(stars);$(".github_forks strong").text(forks)}function initGitHub(url){if(!url){return}var repo=url.replace("https://github.com/","");var cache=localStorage.getItem("gh:"+repo);if(cache){try{var counts=JSON.parse(cache);updateGitHubStats(counts[1],counts[2]);var delta=new Date-counts[0];if(delta<0||delta>9e5){fetchGitHubRepo(repo)}}catch(error){fetchGitHubRepo(repo)}}else{fetchGitHubRepo(repo)}}initGitHub($(".github").attr("href"))});</script>
+</body>
+</html>

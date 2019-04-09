@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="The full list of changes between each Authlib release." name="description" />
+<title>Changelog &mdash; Authlib 0.12.dev documentation</title>
+  <link rel="shortcut icon" href="_static/favicon.ico"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono"><link rel="stylesheet" href="_static/typlog.css?v=0.7.2" type="text/css" />
+  <link rel="stylesheet" href="_static/theme.css?v=0.7.2" type="text/css" />
+      <link rel="index" title="색인" href="genindex.html"/>
+      <link rel="search" title="검색" href="search.html"/>
+    <link rel="top" title="Authlib 0.12.dev documentation" href="index.html"/>
+      <link rel="prev" title="Authlib Licenses" href="community/licenses.html"/>
+  <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-34098939-7');ga('send', 'pageview');</script>
+  <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script><link rel="apple-touch-icon" sizes="180x180" href="https://authlib.org/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Authlib">
+  <meta property="og:title" content="Changelog">
+    <meta property="og:description" content="The full list of changes between each Authlib release.">
+    <meta property="og:image" content="https://authlib.org/logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@authlib">
+</head>
+<body role="document" data-page="changelog">
+  <header class="t-head">
+    <div class="t-head_menu"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z"/></svg></div>
+    <a class="t-head_logo" href="index.html"><img src="_static/authlib.svg" alt="Logo"/>Authlib
+    </a>
+  </header>
+  <aside class="t-sidebar">
+    <div class="t-sidebar_close">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M405 136.798L375.202 107 256 226.202 136.798 107 107 136.798 226.202 256 107 375.202 136.798 405 256 285.798 375.202 405 405 375.202 285.798 256z"/></svg>
+    </div>
+    <div class="inner">
+<a class="logo" href="index.html"><img src="_static/authlib.svg" alt="Logo"/>
+    Authlib
+</a><div class="logo_desc">The ultimate Python library in building OAuth and OpenID Connect servers. JWS, JWE, JWK, JWA, JWT are included.</div>
+<div class="github_wrap">
+  <a class="github" href="https://github.com/lepture/authlib" target="_blank">
+    <span class="github_icon"></span>
+    <span class="github_stars">
+      <strong>-</strong>stars
+    </span>
+    <span class="github_forks">
+      <strong>-</strong>forks
+    </span>
+  </a>
+</div><div class="sponsors">
+  <div class="sponsor">
+    <a class="image" href="https://auth0.com/overview?utm_source=authlib&utm_medium=devsponsor&utm_campaign=authlib"><img src="https://user-images.githubusercontent.com/290496/39297078-89d00928-497d-11e8-8119-0c53afe14cd0.png" alt="Sponsor"></a>
+    <div class="text">The new way to solve Identity. Sponsored by <a href="https://auth0.com/overview?utm_source=authlib&utm_medium=devsponsor&utm_campaign=authlib">auth0.com</a></div>
+  </div>
+  <div class="patron">
+    <a class="patron-button" style="border: 1px solid #3E7FCB;display: inline-block;padding: 4px 18px;border-radius: 20px;color: #3E7FCB;" href="https://www.patreon.com/bePatron?u=8179754">Become a Patron!</a>
+  </div>
+</div><div class="globaltoc">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="basic/index.html">Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client/index.html">Client Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jose/index.html">JOSE Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flask/1/index.html">Flask OAuth 1.0 Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flask/2/index.html">Flask OAuth 2.0 Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="django/1/index.html">Django OAuth 1.0 Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specs/index.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="community/index.html">Community</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-11-kaori">Version 0.11: Kaori</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-10-kluke">Version 0.10: Kluke</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-9-ponyo">Version 0.9: Ponyo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-8-arutoria">Version 0.8: Arutoria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-7-honami">Version 0.7: Honami</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-6-matoi">Version 0.6: Matoi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-5-1">Version 0.5.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-5-kirie">Version 0.5: Kirie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-4-1">Version 0.4.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-4-tsukino">Version 0.4: Tsukino</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#old-versions">Old Versions</a></li>
+</ul>
+</li>
+</ul>
+
+</div><div class="useful-links">
+  <h3>Useful Links</h3>
+  <ul>
+    <li><a href="https://authlib.org/">Homepage</a></li>
+    <li><a href="https://blog.authlib.org/">Read Blog</a></li>
+    <li><a href="https://authlib.org/plans">Commercial License</a></li>
+    <li><a href="https://github.com/lepture/authlib">Star on GitHub</a></li>
+    <li><a href="https://twitter.com/authlib">Follow on Twitter</a></li>
+    <li><a href="https://stackoverflow.com/questions/tagged/authlib">Help on StackOverflow</a></li>
+    <li><a href="https://github.com/authlib/loginpass">Loginpass</a></li>
+  </ul>
+</div>
+<div id="searchbox">
+  <form class="search" action="search.html" method="get">
+    <div class="input-group">
+      <input type="text" name="q" placeholder="검색" />
+      <button type="submit">바로 가기</button>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+    </div>
+  </aside>
+  <div class="t-content">
+    <div class="t-body yue">
+  <div class="section" id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="제목 주소">¶</a></h1>
+<p>Here you can see the full list of changes between each Authlib release.</p>
+<div class="section" id="version-0-11-kaori">
+<h2>Version 0.11: Kaori<a class="headerlink" href="#version-0-11-kaori" title="제목 주소">¶</a></h2>
+<p><strong>Released on Apr 6, 2019.</strong></p>
+<p><strong>BIG NEWS</strong>: Authlib has changed its open source license <strong>from AGPL to BSD</strong>.</p>
+<p><strong>Important Changes</strong>: Authlib specs module has been split into jose, oauth1,
+oauth2, and oidc. Find how to solve the deprecate issues via <a class="reference external" href="https://git.io/fjvpt">https://git.io/fjvpt</a></p>
+<p>RFC implementations and updates in this release:</p>
+<ul class="simple">
+<li>RFC7518: Added A128GCMKW, A192GCMKW, A256GCMKW algorithms for JWE.</li>
+<li>RFC5849: Removed draft-eaton-oauth-bodyhash-00 spec for OAuth 1.0.</li>
+</ul>
+<p>Small changes and bug fixes in this release:</p>
+<ul class="simple">
+<li>Fixed missing scope on password and client_credentials grant types
+of <code class="docutils literal notranslate"><span class="pre">OAuth2Session</span></code> via <a class="gh reference external" href="https://github.com/lepture/authlib/issues/96">issue#96</a>.</li>
+<li>Fixed Flask OAuth client cache detection via <a class="gh reference external" href="https://github.com/lepture/authlib/issues/98">issue#98</a>.</li>
+<li>Enabled ssl certificates for <code class="docutils literal notranslate"><span class="pre">OAuth2Session</span></code> via <a class="gh reference external" href="https://github.com/lepture/authlib/pull/100">PR#100</a>, thanks
+to pingz.</li>
+<li>Fixed error response for invalid/expired refresh token via <a class="gh reference external" href="https://github.com/lepture/authlib/issues/112">issue#112</a>.</li>
+<li>Fixed error handle for invalid redirect uri via <a class="gh reference external" href="https://github.com/lepture/authlib/issues/113">issue#113</a>.</li>
+<li>Fixed error response redirect to fragment via <a class="gh reference external" href="https://github.com/lepture/authlib/issues/114">issue#114</a>.</li>
+<li>Fixed non-compliant responses from RFC7009 via <a class="gh reference external" href="https://github.com/lepture/authlib/issues/119">issue#119</a>.</li>
+</ul>
+<p><strong>Experiment Features</strong>: There is an experiment <code class="docutils literal notranslate"><span class="pre">aiohttp</span></code> client for OAuth1
+and OAuth2 in <code class="docutils literal notranslate"><span class="pre">authlib.client.aiohttp</span></code>.</p>
+</div>
+<div class="section" id="version-0-10-kluke">
+<h2>Version 0.10: Kluke<a class="headerlink" href="#version-0-10-kluke" title="제목 주소">¶</a></h2>
+<p><strong>Released on Oct 12, 2018.</strong></p>
+<p>The most important change in this version is grant extension system. When
+registering a grant, developers can pass extensions to the grant:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">authorization_server</span><span class="o">.</span><span class="n">register_grant</span><span class="p">(</span><span class="n">GrantClass</span><span class="p">,</span> <span class="p">[</span><span class="n">extension</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Find Flask <a class="reference internal" href="flask/2/grants.html#flask-oauth2-grant-extensions"><span class="std std-ref">Grant Extensions</span></a> implementation.</p>
+<p>RFC implementations and updates in this release:</p>
+<ul class="simple">
+<li>RFC8414: OAuth 2.0 Authorization Server Metadata</li>
+<li>RFC7636: make CodeChallenge a grant extension <a class="reference internal" href="specs/rfc7636.html#specs-rfc7636"><span class="std std-ref">RFC7636: Proof Key for Code Exchange by OAuth Public Clients</span></a></li>
+<li>OIDC: make OpenIDCode a grant extension</li>
+</ul>
+<p>Besides that, there are other improvements:</p>
+<ul class="simple">
+<li>Export <code class="docutils literal notranslate"><span class="pre">save_authorize_state</span></code> method on Flask and Django client</li>
+<li>Add <code class="docutils literal notranslate"><span class="pre">fetch_token</span></code> to Django OAuth client</li>
+<li>Add scope operator for <code class="docutils literal notranslate"><span class="pre">&#64;require_oauth</span></code> <a class="reference internal" href="flask/2/resource-server.html#flask-oauth2-multiple-scopes"><span class="std std-ref">Multiple Scopes</span></a></li>
+<li>Fix two OAuth clients in the same Flask route <a class="gh reference external" href="https://github.com/lepture/authlib/pull/85">PR#85</a></li>
+</ul>
+<p><strong>Deprecate Changes</strong>: find how to solve the deprecate issues via <a class="reference external" href="https://git.io/fAmW1">https://git.io/fAmW1</a></p>
+</div>
+<div class="section" id="version-0-9-ponyo">
+<h2>Version 0.9: Ponyo<a class="headerlink" href="#version-0-9-ponyo" title="제목 주소">¶</a></h2>
+<p><strong>Released on Aug 12, 2018. Fun Dive.</strong></p>
+<p>There is no big break changes in this version. The very great improvement is
+adding JWE support. But the JWA parts of JWE are not finished yet, use with
+caution.</p>
+<p>RFC implementations in this release:</p>
+<ul class="simple">
+<li>RFC7636: client and server implementation of <a class="reference internal" href="specs/rfc7636.html#specs-rfc7636"><span class="std std-ref">RFC7636: Proof Key for Code Exchange by OAuth Public Clients</span></a>.</li>
+<li>RFC7523: easy integration of <a class="reference internal" href="specs/rfc7523.html#jwt-oauth2session"><span class="std std-ref">Using JWTs Client Assertion in OAuth2Session</span></a>.</li>
+<li>RFC7516: JWE compact serialization and deserialization.</li>
+<li>RFC7519: JWT with JWE encode and decode.</li>
+</ul>
+<p><strong>Other Changes</strong>:</p>
+<ul class="simple">
+<li>Fixed the lazy initialization of Flask OAuth 2.0 provider.</li>
+<li>Deprecated <code class="docutils literal notranslate"><span class="pre">authlib.client.apps</span></code> from v0.7 has been dropped.</li>
+</ul>
+</div>
+<div class="section" id="version-0-8-arutoria">
+<h2>Version 0.8: Arutoria<a class="headerlink" href="#version-0-8-arutoria" title="제목 주소">¶</a></h2>
+<p><strong>Released on Jun 17, 2018. Try Django.</strong></p>
+<p>Authlib has tried to introduce Django OAuth server implementation in this
+version. It turns out that it is not that easy. In this version, only Django
+OAuth 1.0 server is provided.</p>
+<p>As always, there are also RFC features added in this release, here is what's
+in version 0.8:</p>
+<ul class="simple">
+<li>RFC7523: Add JWTs for Client Authentication of <a class="reference internal" href="specs/rfc7523.html#specs-rfc7523"><span class="std std-ref">RFC7523: JWT Profile for OAuth 2.0 Client Authentication and Authorization Grants</span></a>.</li>
+<li>OIDC: Add <code class="docutils literal notranslate"><span class="pre">response_mode=form_post</span></code> support for OpenID Connect.</li>
+</ul>
+<p><strong>Improvement</strong> in this release:</p>
+<ul class="simple">
+<li>A new redesigned error system. All errors are subclasses of a <code class="docutils literal notranslate"><span class="pre">AuthlibBaseError</span></code>.</li>
+<li>I18N support for error descriptions.</li>
+<li>Separate AuthorizationCodeMixin in <code class="docutils literal notranslate"><span class="pre">authlib.flask.oauth2.sqla</span></code> via <a class="gh reference external" href="https://github.com/lepture/authlib/issues/57">issue#57</a>.</li>
+<li>Add context information when generate token via <a class="gh reference external" href="https://github.com/lepture/authlib/issues/58">issue#58</a>.</li>
+<li>Improve JWT key handles, auto load JWK and JWK set.</li>
+<li>Add <code class="docutils literal notranslate"><span class="pre">require_oauth.acquire</span></code> with statement, get example on <a class="reference internal" href="flask/2/index.html#flask-oauth2-server"><span class="std std-ref">Flask OAuth 2.0 Server</span></a>.</li>
+</ul>
+<p><strong>Deprecate Changes</strong>: find how to solve the deprecate issues via <a class="reference external" href="https://git.io/vhL75">https://git.io/vhL75</a></p>
+<ul class="simple">
+<li>Rename config key <code class="docutils literal notranslate"><span class="pre">OAUTH2_EXPIRES_IN</span></code> to <code class="docutils literal notranslate"><span class="pre">OAUTH2_TOKEN_EXPIRES_IN</span></code>.</li>
+<li>Rename Flask OAuth 2.0 <code class="docutils literal notranslate"><span class="pre">create_expires_generator</span></code> to
+<code class="docutils literal notranslate"><span class="pre">create_token_expires_in_generator</span></code></li>
+</ul>
+</div>
+<div class="section" id="version-0-7-honami">
+<h2>Version 0.7: Honami<a class="headerlink" href="#version-0-7-honami" title="제목 주소">¶</a></h2>
+<p><strong>Released on Apr 28, 2018. Better Beta.</strong></p>
+<p>Authlib has changed its license from LGPL to AGPL. This is not a huge release
+like v0.6, but it still contains some deprecate changes, the good news is
+they are compatible, they won't break your project. Authlib can't go further
+without these deprecate changes.</p>
+<p>As always, Authlib is adding specification implementations. Here is what's in
+version 0.7:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://tools.ietf.org/html/rfc7515">RFC7515</a>: Refactored <code class="xref py py-class docutils literal notranslate"><span class="pre">JWS</span></code>, make it a full implementation.</li>
+<li><a class="reference external" href="https://tools.ietf.org/html/rfc7521">RFC7521</a>: Add <a class="reference internal" href="client/api.html#authlib.client.AssertionSession" title="authlib.client.AssertionSession"><code class="xref py py-class docutils literal notranslate"><span class="pre">AssertionSession</span></code></a>, only works with <a class="reference external" href="https://tools.ietf.org/html/rfc7523">RFC7523</a>.</li>
+<li><a class="reference external" href="https://tools.ietf.org/html/rfc7523">RFC7523</a>: Add <a class="reference internal" href="specs/rfc7523.html#authlib.oauth2.rfc7523.JWTBearerGrant" title="authlib.oauth2.rfc7523.JWTBearerGrant"><code class="xref py py-class docutils literal notranslate"><span class="pre">JWTBearerGrant</span></code></a>, read the guide in
+<a class="reference internal" href="specs/rfc7523.html#specs-rfc7523"><span class="std std-ref">RFC7523: JWT Profile for OAuth 2.0 Client Authentication and Authorization Grants</span></a>.</li>
+</ul>
+<p>Besides that, there are more changes:</p>
+<ul class="simple">
+<li>Add <code class="docutils literal notranslate"><span class="pre">overwrite</span></code> parameter for framework integrations clients.</li>
+<li>Add <code class="docutils literal notranslate"><span class="pre">response_mode=query</span></code> for OpenID Connect implicit and hybrid flow.</li>
+<li>Bug fix and documentation fix via <a class="gh reference external" href="https://github.com/lepture/authlib/issues/42">issue#42</a>, <a class="gh reference external" href="https://github.com/lepture/authlib/issues/43">issue#43</a>.</li>
+<li>Dropping <code class="docutils literal notranslate"><span class="pre">authlib.client.apps</span></code>. Use <a class="reference external" href="https://github.com/authlib/loginpass">Loginpass</a> instead.</li>
+</ul>
+<p><strong>Deprecate Changes</strong>: find how to solve the deprecate issues via <a class="reference external" href="https://git.io/vpCH5">https://git.io/vpCH5</a></p>
+</div>
+<div class="section" id="version-0-6-matoi">
+<h2>Version 0.6: Matoi<a class="headerlink" href="#version-0-6-matoi" title="제목 주소">¶</a></h2>
+<p><strong>Released on Mar 20, 2018. Going Beta!</strong></p>
+<p>From alpha to beta. This is a huge release with lots of deprecating changes
+and some breaking changes. And finally, OpenID Connect server is supported
+by now, because Authlib has added these specifications:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://tools.ietf.org/html/rfc7515">RFC7515</a>: JSON Web Signature (JWS)</li>
+<li><a class="reference external" href="https://tools.ietf.org/html/rfc7517">RFC7517</a>: JSON Web Key (JWK)</li>
+<li><a class="reference external" href="https://tools.ietf.org/html/rfc7518">RFC7518</a>: JSON Web Algorithms (JWA)</li>
+<li><a class="reference external" href="https://tools.ietf.org/html/rfc7519">RFC7519</a>: JSON Web Token (JWT)</li>
+</ul>
+<p>The specifications are not completed yet, but they are ready to use. The
+missing RFC7516 (JWE) is going to be implemented in next version. Open ID
+Connect 1.0 is added with:</p>
+<ul class="simple">
+<li>Authentication using the <a class="reference internal" href="flask/2/openid-connect.html#flask-odic-code"><span class="std std-ref">Code Flow</span></a></li>
+<li>Authentication using the <a class="reference internal" href="flask/2/openid-connect.html#flask-odic-implicit"><span class="std std-ref">Implicit Flow</span></a></li>
+<li>Authentication using the <a class="reference internal" href="flask/2/openid-connect.html#flask-odic-hybrid"><span class="std std-ref">Hybrid Flow</span></a></li>
+<li>ID Token Validation</li>
+</ul>
+<p>Besides that, there are more changes:</p>
+<ul class="simple">
+<li>Implementation of RFC7662: OAuth 2.0 Token Introspection via <a class="gh reference external" href="https://github.com/lepture/authlib/pull/36">PR#36</a>.</li>
+<li>Use the <code class="docutils literal notranslate"><span class="pre">token_endpoint_auth_method</span></code> concept defined in <a class="reference external" href="https://tools.ietf.org/html/rfc7591">RFC7591</a>.</li>
+<li>Signal feature for Flask integration of OAuth 2.0 server.</li>
+<li>Bug fixes for OAuth client parts, thanks for the instruction by Lukas Schink.</li>
+</ul>
+<p><strong>Breaking Changes</strong>:</p>
+<ol class="arabic simple">
+<li>the columns in <code class="docutils literal notranslate"><span class="pre">authlib.flask.oauth2.sqla</span></code> has been changed a lot.
+If you are using it, you need to upgrade your database.</li>
+<li>use <code class="docutils literal notranslate"><span class="pre">register_token_validator</span></code> on
+<a class="reference internal" href="flask/2/resource-server.html#flask-oauth2-resource-protector"><span class="std std-ref">ResourceProtector</span></a>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">authlib.client.oauth1.OAuth1</span></code> has been renamed to
+<code class="docutils literal notranslate"><span class="pre">authlib.client.oauth1.OAuth1Auth</span></code>.</li>
+</ol>
+<p><strong>Deprecate Changes</strong>: find how to solve the deprecate issues via <a class="reference external" href="https://git.io/vAAUK">https://git.io/vAAUK</a></p>
+</div>
+<div class="section" id="version-0-5-1">
+<h2>Version 0.5.1<a class="headerlink" href="#version-0-5-1" title="제목 주소">¶</a></h2>
+<p><strong>Released on Feb 11, 2018.</strong></p>
+<p>Just a quick bug fix release.</p>
+<ul class="simple">
+<li>Fixed <code class="docutils literal notranslate"><span class="pre">OAuth2Session.request</span></code> with auth.</li>
+</ul>
+</div>
+<div class="section" id="version-0-5-kirie">
+<h2>Version 0.5: Kirie<a class="headerlink" href="#version-0-5-kirie" title="제목 주소">¶</a></h2>
+<p><strong>Released on Feb 11, 2018. Breaking Changes!</strong></p>
+<p>This version breaks a lot of things. There are many redesigns in order to
+get a better stable API. It is still in Alpha stage, with these breaking
+changes, I hope Authlib will go into Beta in the next version.</p>
+<ul class="simple">
+<li>Added <code class="xref py py-meth docutils literal notranslate"><span class="pre">register_error_uri()</span></code> and its Flask
+integration.</li>
+<li><a class="reference internal" href="client/api.html#authlib.client.OAuth2Session" title="authlib.client.OAuth2Session"><code class="xref py py-class docutils literal notranslate"><span class="pre">OAuth2Session</span></code></a> supports more grant types.</li>
+<li>Deprecate built-in cache. Read more on <a class="gh reference external" href="https://github.com/lepture/authlib/issues/23">issue#23</a>.</li>
+<li><strong>Redesigned OAuth 1 Flask server</strong>. Read the docs <a class="reference internal" href="flask/1/index.html#flask-oauth1-server"><span class="std std-ref">Flask OAuth 1.0 Server</span></a>.</li>
+<li>Deprecate <code class="docutils literal notranslate"><span class="pre">client_model</span></code>. Read more on <a class="gh reference external" href="https://github.com/lepture/authlib/issues/27">issue#27</a>.</li>
+<li><strong>Breaking change</strong> on <code class="docutils literal notranslate"><span class="pre">AuthorizationCodeGrant.create_authorization_code</span></code>,
+last parameter is changed to an <cite>OAuth2Request</cite> instance.</li>
+<li>Rename <code class="docutils literal notranslate"><span class="pre">callback_uri</span></code> to <code class="docutils literal notranslate"><span class="pre">redirect_uri</span></code> in client.</li>
+</ul>
+</div>
+<div class="section" id="version-0-4-1">
+<h2>Version 0.4.1<a class="headerlink" href="#version-0-4-1" title="제목 주소">¶</a></h2>
+<p><strong>Released on Feb 2, 2018. A Quick Bugfix</strong></p>
+<ul class="simple">
+<li>Fixed missing code params when fetching access token. This bug is
+introduced when fixing <a class="gh reference external" href="https://github.com/lepture/authlib/issues/16">issue#16</a>.</li>
+</ul>
+</div>
+<div class="section" id="version-0-4-tsukino">
+<h2>Version 0.4: Tsukino<a class="headerlink" href="#version-0-4-tsukino" title="제목 주소">¶</a></h2>
+<p><strong>Released on Jan 31, 2018. Enjoy the Super Blue Blood Moon!</strong></p>
+<p>This is a feature releasing for OAuth 1 server. Things are not settled yet,
+there will still be breaking changes in the future. Some of the breaking
+changes are compatible with deprecated messages, a few are not. I'll keep the
+deprecated message for 2 versions. Here is the main features:</p>
+<ul class="simple">
+<li><a class="reference internal" href="specs/rfc5849.html#specs-rfc5849"><span class="std std-ref">RFC5847</span></a>, OAuth 1 client and server</li>
+<li><a class="reference internal" href="flask/1/index.html#flask-oauth1-server"><span class="std std-ref">Flask implementation</span></a> of OAuth 1 authorization
+server and resource protector.</li>
+<li>Mixin of SQLAlchemy models for easy integration with OAuth 1.</li>
+</ul>
+<p>In version 0.4, there is also several bug fixes. Thanks for the early
+contributors.</p>
+<ul class="simple">
+<li>Allow Flask OAuth register <code class="docutils literal notranslate"><span class="pre">fetch_token</span></code> and <code class="docutils literal notranslate"><span class="pre">update_token</span></code>.</li>
+<li>Bug fix for OAuthClient when <code class="docutils literal notranslate"><span class="pre">refresh_token_params</span></code> is None via <a class="gh reference external" href="https://github.com/lepture/authlib/pull/14">PR#14</a>.</li>
+<li>Don't pass everything in request args for Flask OAuth client via <a class="gh reference external" href="https://github.com/lepture/authlib/issues/16">issue#16</a>.</li>
+<li>Bug fix for <code class="docutils literal notranslate"><span class="pre">IDToken.validate_exp</span></code> via <a class="gh reference external" href="https://github.com/lepture/authlib/issues/17">issue#17</a>.</li>
+</ul>
+<div class="admonition-deprecated-changes admonition">
+<p class="first admonition-title">Deprecated Changes</p>
+<p>There are parameters naming changes in the client part:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">client_key</span></code> has been changed to <code class="docutils literal notranslate"><span class="pre">client_id</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">resource_owner_key</span></code> has been changed to <code class="docutils literal notranslate"><span class="pre">token</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">resource_owner_secret</span></code> has been changed to <code class="docutils literal notranslate"><span class="pre">token_secret</span></code></li>
+</ul>
+<p class="last">Currently, they are backward compatible. You will be notified by warnings.</p>
+</div>
+</div>
+<div class="section" id="old-versions">
+<h2>Old Versions<a class="headerlink" href="#old-versions" title="제목 주소">¶</a></h2>
+<ul class="simple">
+<li>Version 0.3: Released on Dec 24, 2017</li>
+<li>Version 0.2.1: Released on Dec 6, 2017</li>
+<li>Version 0.2: Released on Nov 25, 2017</li>
+<li>Version 0.1: Released on Nov 18, 2017</li>
+</ul>
+</div>
+</div>
+
+  <div class="t-pagination clearfix">
+    <span>
+      ← <a href="community/licenses.html" title="Authlib Licenses">Authlib Licenses</a>
+    </span>
+  </div>
+</div><footer class="t-foot">
+    &copy; Copyright 2018, Hsiaoming Ltd.
+    <br>
+    A <a href="https://typlog.com/">typlog</a> <a href="https://github.com/typlog/sphinx-typlog-theme">sphinx theme</a>,
+    designed by <a href="https://lepture.com/">Hsiaoming Yang</a>.
+</footer>
+  </div>
+  <script>$(function(){$(".t-head_menu").on("click",function(){$("body").addClass("_expand")});$(".t-body").on("click",function(){$("body").removeClass("_expand")});$(".t-sidebar_close").on("click",function(){$("body").removeClass("_expand")});$("a.footnote-reference").on("click",function(e){e.preventDefault();var id=$(this).attr("href");var html=$(id).find("td.label + td").html();var w=Math.max(document.documentElement.clientWidth,window.innerWidth||0);var style="top:"+e.pageY+"px;";if(w>560){style+="width:480px;";if(e.pageX>240&&e.pageX+240<w){style+="left:"+(e.pageX-240)+"px;"}else if(e.pageX<=240){style+="left:20px;"}else{style+="right:20px;"}}showFootnote(html,style)});function showFootnote(html,style){var CONTENT_ID="typlog-footnote-content";var content=document.getElementById(CONTENT_ID);if(!content){content=document.createElement("div");content.id=CONTENT_ID;$(".t-body").append(content)}var MASK_ID="typlog-footnote-mask";var mask=document.getElementById(MASK_ID);if(!mask){mask=document.createElement("div");mask.id=MASK_ID;document.body.appendChild(mask);mask.addEventListener("click",function(){content.className="";mask.className=""})}content.innerHTML=html;content.setAttribute("style",style);content.className="_active";mask.className="_active"}function fetchGitHubRepo(repo){var url="https://api.github.com/repos/"+repo;$.getJSON(url,function(data){var counts=[+new Date,data.stargazers_count,data.forks_count];localStorage.setItem("gh:"+repo,JSON.stringify(counts));updateGitHubStats(counts[1],counts[2])})}function updateGitHubStats(stars,forks){$(".github_stars strong").text(stars);$(".github_forks strong").text(forks)}function initGitHub(url){if(!url){return}var repo=url.replace("https://github.com/","");var cache=localStorage.getItem("gh:"+repo);if(cache){try{var counts=JSON.parse(cache);updateGitHubStats(counts[1],counts[2]);var delta=new Date-counts[0];if(delta<0||delta>9e5){fetchGitHubRepo(repo)}}catch(error){fetchGitHubRepo(repo)}}else{fetchGitHubRepo(repo)}}initGitHub($(".github").attr("href"))});</script>
+</body>
+</html>

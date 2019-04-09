@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="General implementation of OpenID Connect 1.0 in Python. Learn how to create a OpenID Connect provider in Python." name="description" />
+<title>OpenID Connect 1.0 &mdash; Authlib 0.12.dev documentation</title>
+  <link rel="shortcut icon" href="../_static/favicon.ico"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono"><link rel="stylesheet" href="../_static/typlog.css?v=0.7.2" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme.css?v=0.7.2" type="text/css" />
+      <link rel="index" title="색인" href="../genindex.html"/>
+      <link rel="search" title="검색" href="../search.html"/>
+    <link rel="top" title="Authlib 0.12.dev documentation" href="../index.html"/>
+      <link rel="up" title="Specifications" href="index.html"/>
+      <link rel="next" title="Community" href="../community/index.html"/>
+      <link rel="prev" title="RFC7662: OAuth 2.0 Token Introspection" href="rfc7662.html"/>
+  <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-34098939-7');ga('send', 'pageview');</script>
+  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script><link rel="apple-touch-icon" sizes="180x180" href="https://authlib.org/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Authlib">
+  <meta property="og:title" content="OpenID Connect 1.0">
+    <meta property="og:description" content="General implementation of OpenID Connect 1.0 in Python. Learn how to create a OpenID Connect provider in Python.">
+    <meta property="og:image" content="https://authlib.org/logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@authlib">
+</head>
+<body role="document" data-page="specs/oidc">
+  <header class="t-head">
+    <div class="t-head_menu"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z"/></svg></div>
+    <a class="t-head_logo" href="../index.html"><img src="../_static/authlib.svg" alt="Logo"/>Authlib
+    </a>
+  </header>
+  <aside class="t-sidebar">
+    <div class="t-sidebar_close">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M405 136.798L375.202 107 256 226.202 136.798 107 107 136.798 226.202 256 107 375.202 136.798 405 256 285.798 375.202 405 405 375.202 285.798 256z"/></svg>
+    </div>
+    <div class="inner">
+<a class="logo" href="../index.html"><img src="../_static/authlib.svg" alt="Logo"/>
+    Authlib
+</a><div class="logo_desc">The ultimate Python library in building OAuth and OpenID Connect servers. JWS, JWE, JWK, JWA, JWT are included.</div>
+<div class="github_wrap">
+  <a class="github" href="https://github.com/lepture/authlib" target="_blank">
+    <span class="github_icon"></span>
+    <span class="github_stars">
+      <strong>-</strong>stars
+    </span>
+    <span class="github_forks">
+      <strong>-</strong>forks
+    </span>
+  </a>
+</div><div class="sponsors">
+  <div class="sponsor">
+    <a class="image" href="https://auth0.com/overview?utm_source=authlib&utm_medium=devsponsor&utm_campaign=authlib"><img src="https://user-images.githubusercontent.com/290496/39297078-89d00928-497d-11e8-8119-0c53afe14cd0.png" alt="Sponsor"></a>
+    <div class="text">The new way to solve Identity. Sponsored by <a href="https://auth0.com/overview?utm_source=authlib&utm_medium=devsponsor&utm_campaign=authlib">auth0.com</a></div>
+  </div>
+  <div class="patron">
+    <a class="patron-button" style="border: 1px solid #3E7FCB;display: inline-block;padding: 4px 18px;border-radius: 20px;color: #3E7FCB;" href="https://www.patreon.com/bePatron?u=8179754">Become a Patron!</a>
+  </div>
+</div><div class="globaltoc">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../basic/index.html">Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../client/index.html">Client Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jose/index.html">JOSE Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flask/1/index.html">Flask OAuth 1.0 Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flask/2/index.html">Flask OAuth 2.0 Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../django/1/index.html">Django OAuth 1.0 Server</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Specifications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rfc5849.html">RFC5849: The OAuth 1.0 Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc6749.html">RFC6749: The OAuth 2.0 Authorization Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc6750.html">RFC6750: The OAuth 2.0 Authorization Framework: Bearer Token Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7009.html">RFC7009: OAuth 2.0 Token Revocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7515.html">RFC7515: JSON Web Signature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7516.html">RFC7516: JSON Web Encryption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7517.html">RFC7517: JSON Web Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7518.html">RFC7518: JSON Web Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7519.html">RFC7519: JSON Web Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7523.html">RFC7523: JWT Profile for OAuth 2.0 Client Authentication and Authorization Grants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7636.html">RFC7636: Proof Key for Code Exchange by OAuth Public Clients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rfc7662.html">RFC7662: OAuth 2.0 Token Introspection</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">OpenID Connect 1.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../community/index.html">Community</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+
+</div><div class="useful-links">
+  <h3>Useful Links</h3>
+  <ul>
+    <li><a href="https://authlib.org/">Homepage</a></li>
+    <li><a href="https://blog.authlib.org/">Read Blog</a></li>
+    <li><a href="https://authlib.org/plans">Commercial License</a></li>
+    <li><a href="https://github.com/lepture/authlib">Star on GitHub</a></li>
+    <li><a href="https://twitter.com/authlib">Follow on Twitter</a></li>
+    <li><a href="https://stackoverflow.com/questions/tagged/authlib">Help on StackOverflow</a></li>
+    <li><a href="https://github.com/authlib/loginpass">Loginpass</a></li>
+  </ul>
+</div>
+<div id="searchbox">
+  <form class="search" action="../search.html" method="get">
+    <div class="input-group">
+      <input type="text" name="q" placeholder="검색" />
+      <button type="submit">바로 가기</button>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+    </div>
+  </aside>
+  <div class="t-content">
+    <div class="t-body yue">
+  <div class="section" id="openid-connect-1-0">
+<span id="specs-oidc"></span><h1>OpenID Connect 1.0<a class="headerlink" href="#openid-connect-1-0" title="제목 주소">¶</a></h1>
+<p>This part of the documentation covers the specification of OpenID Connect. Learn
+how to use it in <a class="reference internal" href="../flask/2/openid-connect.html#flask-odic-server"><span class="std std-ref">Flask OpenID Connect 1.0</span></a>.</p>
+<div class="section" id="module-authlib.oidc.core.grants">
+<span id="openid-grants"></span><h2>OpenID Grants<a class="headerlink" href="#module-authlib.oidc.core.grants" title="제목 주소">¶</a></h2>
+<dl class="class">
+<dt id="authlib.oidc.core.grants.OpenIDCodeGrant">
+<em class="property">class </em><code class="descclassname">authlib.oidc.core.grants.</code><code class="descname">OpenIDCodeGrant</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oidc.core.grants.OpenIDCodeGrant" title="정의 주소">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">authlib.oauth2.rfc6749.grants.authorization_code.AuthorizationCodeGrant</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.oidc.core.grants.OpenIDImplicitGrant">
+<em class="property">class </em><code class="descclassname">authlib.oidc.core.grants.</code><code class="descname">OpenIDImplicitGrant</code><span class="sig-paren">(</span><em>request</em>, <em>server</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oidc.core.grants.OpenIDImplicitGrant" title="정의 주소">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">authlib.oauth2.rfc6749.grants.implicit.ImplicitGrant</span></code></p>
+<dl class="method">
+<dt id="authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response">
+<code class="descname">create_authorization_response</code><span class="sig-paren">(</span><em>grant_user</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response" title="정의 주소">¶</a></dt>
+<dd><p>If the resource owner grants the access request, the authorization
+server issues an access token and delivers it to the client by adding
+the following parameters to the fragment component of the redirection
+URI using the &quot;application/x-www-form-urlencoded&quot; format.
+Per <a class="reference external" href="https://tools.ietf.org/html/rfc6749#section-4.2.2">Section 4.2.2</a>.</p>
+<dl class="docutils">
+<dt>access_token</dt>
+<dd>REQUIRED.  The access token issued by the authorization server.</dd>
+<dt>token_type</dt>
+<dd>REQUIRED.  The type of the token issued as described in
+Section 7.1.  Value is case insensitive.</dd>
+<dt>expires_in</dt>
+<dd>RECOMMENDED.  The lifetime in seconds of the access token.  For
+example, the value &quot;3600&quot; denotes that the access token will
+expire in one hour from the time the response was generated.
+If omitted, the authorization server SHOULD provide the
+expiration time via other means or document the default value.</dd>
+<dt>scope</dt>
+<dd>OPTIONAL, if identical to the scope requested by the client;
+otherwise, REQUIRED.  The scope of the access token as
+described by Section 3.3.</dd>
+<dt>state</dt>
+<dd>REQUIRED if the &quot;state&quot; parameter was present in the client
+authorization request.  The exact value received from the
+client.</dd>
+</dl>
+<p>The authorization server MUST NOT issue a refresh token.</p>
+<p>For example, the authorization server redirects the user-agent by
+sending the following HTTP response:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">Found</span>
+<span class="na">Location</span><span class="o">:</span> <span class="l">http://example.com/cb#access_token=2YotnFZFEjr1zCsicMWpAA</span>
+       <span class="l">&amp;state=xyz&amp;token_type=example&amp;expires_in=3600</span>
+</pre></div>
+</div>
+<p>Developers should note that some user-agents do not support the
+inclusion of a fragment component in the HTTP &quot;Location&quot; response
+header field.  Such clients will require using other methods for
+redirecting the client than a 3xx redirection response -- for
+example, returning an HTML page that includes a 'continue' button
+with an action linked to the redirection URI.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>grant_user</strong> -- if resource owner granted the request, pass this
+resource owner, otherwise pass None.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">(status_code, body, headers)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oidc.core.grants.OpenIDImplicitGrant.validate_authorization_request">
+<code class="descname">validate_authorization_request</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oidc.core.grants.OpenIDImplicitGrant.validate_authorization_request" title="정의 주소">¶</a></dt>
+<dd><p>The client constructs the request URI by adding the following
+parameters to the query component of the authorization endpoint URI
+using the &quot;application/x-www-form-urlencoded&quot; format.
+Per <a class="reference external" href="https://tools.ietf.org/html/rfc6749#section-4.2.1">Section 4.2.1</a>.</p>
+<dl class="docutils">
+<dt>response_type</dt>
+<dd>REQUIRED.  Value MUST be set to &quot;token&quot;.</dd>
+<dt>client_id</dt>
+<dd>REQUIRED.  The client identifier as described in Section 2.2.</dd>
+<dt>redirect_uri</dt>
+<dd>OPTIONAL.  As described in Section 3.1.2.</dd>
+<dt>scope</dt>
+<dd>OPTIONAL.  The scope of the access request as described by
+Section 3.3.</dd>
+<dt>state</dt>
+<dd>RECOMMENDED.  An opaque value used by the client to maintain
+state between the request and callback.  The authorization
+server includes this value when redirecting the user-agent back
+to the client.  The parameter SHOULD be used for preventing
+cross-site request forgery as described in Section 10.12.</dd>
+</dl>
+<p>The client directs the resource owner to the constructed URI using an
+HTTP redirection response, or by other means available to it via the
+user-agent.</p>
+<p>For example, the client directs the user-agent to make the following
+HTTP request using TLS:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/authorize?response_type=token&amp;client_id=s6BhdRkqt3&amp;state=xyz</span>
+<span class="nn">&amp;redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">server.example.com</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.oidc.core.grants.OpenIDHybridGrant">
+<em class="property">class </em><code class="descclassname">authlib.oidc.core.grants.</code><code class="descname">OpenIDHybridGrant</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oidc.core.grants.OpenIDHybridGrant" title="정의 주소">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">authlib.oauth2.rfc6749.grants.authorization_code.AuthorizationCodeGrant</span></code></p>
+<dl class="method">
+<dt id="authlib.oidc.core.grants.OpenIDHybridGrant.create_authorization_response">
+<code class="descname">create_authorization_response</code><span class="sig-paren">(</span><em>grant_user</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oidc.core.grants.OpenIDHybridGrant.create_authorization_response" title="정의 주소">¶</a></dt>
+<dd><p>If the resource owner grants the access request, the authorization
+server issues an authorization code and delivers it to the client by
+adding the following parameters to the query component of the
+redirection URI using the &quot;application/x-www-form-urlencoded&quot; format.
+Per <a class="reference external" href="https://tools.ietf.org/html/rfc6749#section-4.1.2">Section 4.1.2</a>.</p>
+<dl class="docutils">
+<dt>code</dt>
+<dd>REQUIRED.  The authorization code generated by the
+authorization server. The authorization code MUST expire
+shortly after it is issued to mitigate the risk of leaks. A
+maximum authorization code lifetime of 10 minutes is
+RECOMMENDED. The client MUST NOT use the authorization code
+more than once. If an authorization code is used more than
+once, the authorization server MUST deny the request and SHOULD
+revoke (when possible) all tokens previously issued based on
+that authorization code.  The authorization code is bound to
+the client identifier and redirection URI.</dd>
+<dt>state</dt>
+<dd>REQUIRED if the &quot;state&quot; parameter was present in the client
+authorization request.  The exact value received from the
+client.</dd>
+</dl>
+<p>For example, the authorization server redirects the user-agent by
+sending the following HTTP response.</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">Found</span>
+<span class="na">Location</span><span class="o">:</span> <span class="l">https://client.example.com/cb?code=SplxlOBeZQQYbYS6WxSbIA</span>
+       <span class="l">&amp;state=xyz</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>grant_user</strong> -- if resource owner granted the request, pass this
+resource owner, otherwise pass None.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">(status_code, body, headers)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request">
+<code class="descname">validate_authorization_request</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request" title="정의 주소">¶</a></dt>
+<dd><p>The client constructs the request URI by adding the following
+parameters to the query component of the authorization endpoint URI
+using the &quot;application/x-www-form-urlencoded&quot; format.
+Per <a class="reference external" href="https://tools.ietf.org/html/rfc6749#section-4.1.1">Section 4.1.1</a>.</p>
+<dl class="docutils">
+<dt>response_type</dt>
+<dd>REQUIRED.  Value MUST be set to &quot;code&quot;.</dd>
+<dt>client_id</dt>
+<dd>REQUIRED.  The client identifier as described in Section 2.2.</dd>
+<dt>redirect_uri</dt>
+<dd>OPTIONAL.  As described in Section 3.1.2.</dd>
+<dt>scope</dt>
+<dd>OPTIONAL.  The scope of the access request as described by
+Section 3.3.</dd>
+<dt>state</dt>
+<dd>RECOMMENDED.  An opaque value used by the client to maintain
+state between the request and callback.  The authorization
+server includes this value when redirecting the user-agent back
+to the client.  The parameter SHOULD be used for preventing
+cross-site request forgery as described in Section 10.12.</dd>
+</dl>
+<p>The client directs the resource owner to the constructed URI using an
+HTTP redirection response, or by other means available to it via the
+user-agent.</p>
+<p>For example, the client directs the user-agent to make the following
+HTTP request using TLS (with extra line breaks for display purposes
+only):</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/authorize?response_type=code&amp;client_id=s6BhdRkqt3&amp;state=xyz</span>
+<span class="nn">&amp;redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">server.example.com</span>
+</pre></div>
+</div>
+<p>The authorization server validates the request to ensure that all
+required parameters are present and valid.  If the request is valid,
+the authorization server authenticates the resource owner and obtains
+an authorization decision (by asking the resource owner or by
+establishing approval via other means).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-authlib.oidc.core">
+<span id="openid-claims"></span><h2>OpenID Claims<a class="headerlink" href="#module-authlib.oidc.core" title="제목 주소">¶</a></h2>
+<dl class="class">
+<dt id="authlib.oidc.core.IDToken">
+<em class="property">class </em><code class="descclassname">authlib.oidc.core.</code><code class="descname">IDToken</code><span class="sig-paren">(</span><em>payload</em>, <em>header</em>, <em>options=None</em>, <em>params=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oidc.core.IDToken" title="정의 주소">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">authlib.jose.rfc7519.claims.JWTClaims</span></code></p>
+<dl class="method">
+<dt id="authlib.oidc.core.IDToken.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><em>now=None</em>, <em>leeway=0</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oidc.core.IDToken.validate" title="정의 주소">¶</a></dt>
+<dd><p>Validate everything in claims payload.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oidc.core.IDToken.validate_acr">
+<code class="descname">validate_acr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oidc.core.IDToken.validate_acr" title="정의 주소">¶</a></dt>
+<dd><p>OPTIONAL. Authentication Context Class Reference. String specifying
+an Authentication Context Class Reference value that identifies the
+Authentication Context Class that the authentication performed
+satisfied. The value &quot;0&quot; indicates the End-User authentication did not
+meet the requirements of <a class="reference external" href="https://www.iso.org/standard/45138.html">ISO/IEC 29115</a> level 1. Authentication
+using a long-lived browser cookie, for instance, is one example where
+the use of &quot;level 0&quot; is appropriate. Authentications with level 0
+SHOULD NOT be used to authorize access to any resource of any monetary
+value. An absolute URI or an <a class="reference external" href="https://tools.ietf.org/html/rfc6711">RFC 6711</a> registered name SHOULD be
+used as the acr value; registered names MUST NOT be used with a
+different meaning than that which is registered. Parties using this
+claim will need to agree upon the meanings of the values used, which
+may be context-specific. The acr value is a case sensitive string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oidc.core.IDToken.validate_amr">
+<code class="descname">validate_amr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oidc.core.IDToken.validate_amr" title="정의 주소">¶</a></dt>
+<dd><p>OPTIONAL. Authentication Methods References. JSON array of strings
+that are identifiers for authentication methods used in the
+authentication. For instance, values might indicate that both password
+and OTP authentication methods were used. The definition of particular
+values to be used in the amr Claim is beyond the scope of this
+specification. Parties using this claim will need to agree upon the
+meanings of the values used, which may be context-specific. The amr
+value is an array of case sensitive strings.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oidc.core.IDToken.validate_at_hash">
+<code class="descname">validate_at_hash</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oidc.core.IDToken.validate_at_hash" title="정의 주소">¶</a></dt>
+<dd><p>OPTIONAL. Access Token hash value. Its value is the base64url
+encoding of the left-most half of the hash of the octets of the ASCII
+representation of the access_token value, where the hash algorithm
+used is the hash algorithm used in the alg Header Parameter of the
+ID Token's JOSE Header. For instance, if the alg is RS256, hash the
+access_token value with SHA-256, then take the left-most 128 bits and
+base64url encode them. The at_hash value is a case sensitive string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oidc.core.IDToken.validate_auth_time">
+<code class="descname">validate_auth_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oidc.core.IDToken.validate_auth_time" title="정의 주소">¶</a></dt>
+<dd><p>Time when the End-User authentication occurred. Its value is a JSON
+number representing the number of seconds from 1970-01-01T0:0:0Z as
+measured in UTC until the date/time. When a max_age request is made or
+when auth_time is requested as an Essential Claim, then this Claim is
+REQUIRED; otherwise, its inclusion is OPTIONAL.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oidc.core.IDToken.validate_azp">
+<code class="descname">validate_azp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oidc.core.IDToken.validate_azp" title="정의 주소">¶</a></dt>
+<dd><p>OPTIONAL. Authorized party - the party to which the ID Token was
+issued. If present, it MUST contain the OAuth 2.0 Client ID of this
+party. This Claim is only needed when the ID Token has a single
+audience value and that audience is different than the authorized
+party. It MAY be included even when the authorized party is the same
+as the sole audience. The azp value is a case sensitive string
+containing a StringOrURI value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oidc.core.IDToken.validate_nonce">
+<code class="descname">validate_nonce</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oidc.core.IDToken.validate_nonce" title="정의 주소">¶</a></dt>
+<dd><p>String value used to associate a Client session with an ID Token,
+and to mitigate replay attacks. The value is passed through unmodified
+from the Authentication Request to the ID Token. If present in the ID
+Token, Clients MUST verify that the nonce Claim Value is equal to the
+value of the nonce parameter sent in the Authentication Request. If
+present in the Authentication Request, Authorization Servers MUST
+include a nonce Claim in the ID Token with the Claim Value being the
+nonce value sent in the Authentication Request. Authorization Servers
+SHOULD perform no other processing on nonce values used. The nonce
+value is a case sensitive string.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.oidc.core.CodeIDToken">
+<em class="property">class </em><code class="descclassname">authlib.oidc.core.</code><code class="descname">CodeIDToken</code><span class="sig-paren">(</span><em>payload</em>, <em>header</em>, <em>options=None</em>, <em>params=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oidc.core.CodeIDToken" title="정의 주소">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">authlib.oidc.core.claims.IDToken</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.oidc.core.ImplicitIDToken">
+<em class="property">class </em><code class="descclassname">authlib.oidc.core.</code><code class="descname">ImplicitIDToken</code><span class="sig-paren">(</span><em>payload</em>, <em>header</em>, <em>options=None</em>, <em>params=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oidc.core.ImplicitIDToken" title="정의 주소">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">authlib.oidc.core.claims.IDToken</span></code></p>
+<dl class="method">
+<dt id="authlib.oidc.core.ImplicitIDToken.validate_at_hash">
+<code class="descname">validate_at_hash</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oidc.core.ImplicitIDToken.validate_at_hash" title="정의 주소">¶</a></dt>
+<dd><p>If the ID Token is issued from the Authorization Endpoint with an
+access_token value, which is the case for the response_type value
+id_token token, this is REQUIRED; it MAY NOT be used when no Access
+Token is issued, which is the case for the response_type value
+id_token.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.oidc.core.HybridIDToken">
+<em class="property">class </em><code class="descclassname">authlib.oidc.core.</code><code class="descname">HybridIDToken</code><span class="sig-paren">(</span><em>payload</em>, <em>header</em>, <em>options=None</em>, <em>params=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oidc.core.HybridIDToken" title="정의 주소">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">authlib.oidc.core.claims.ImplicitIDToken</span></code></p>
+<dl class="method">
+<dt id="authlib.oidc.core.HybridIDToken.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><em>now=None</em>, <em>leeway=0</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oidc.core.HybridIDToken.validate" title="정의 주소">¶</a></dt>
+<dd><p>Validate everything in claims payload.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.oidc.core.HybridIDToken.validate_c_hash">
+<code class="descname">validate_c_hash</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.oidc.core.HybridIDToken.validate_c_hash" title="정의 주소">¶</a></dt>
+<dd><p>Code hash value. Its value is the base64url encoding of the
+left-most half of the hash of the octets of the ASCII representation
+of the code value, where the hash algorithm used is the hash algorithm
+used in the alg Header Parameter of the ID Token's JOSE Header. For
+instance, if the alg is HS512, hash the code value with SHA-512, then
+take the left-most 256 bits and base64url encode them. The c_hash
+value is a case sensitive string.
+If the ID Token is issued from the Authorization Endpoint with a code,
+which is the case for the response_type values code id_token and code
+id_token token, this is REQUIRED; otherwise, its inclusion is OPTIONAL.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+  <div class="t-pagination clearfix">
+    <span>
+      ← <a href="rfc7662.html" title="RFC7662: OAuth 2.0 Token Introspection">RFC7662: OAuth 2.0 Token...</a>
+    </span>
+    <span style="float:right">
+      <a href="../community/index.html" title="Community">Community</a> →
+    </span>
+  </div>
+</div><footer class="t-foot">
+    &copy; Copyright 2018, Hsiaoming Ltd.
+    <br>
+    A <a href="https://typlog.com/">typlog</a> <a href="https://github.com/typlog/sphinx-typlog-theme">sphinx theme</a>,
+    designed by <a href="https://lepture.com/">Hsiaoming Yang</a>.
+</footer>
+  </div>
+  <script>$(function(){$(".t-head_menu").on("click",function(){$("body").addClass("_expand")});$(".t-body").on("click",function(){$("body").removeClass("_expand")});$(".t-sidebar_close").on("click",function(){$("body").removeClass("_expand")});$("a.footnote-reference").on("click",function(e){e.preventDefault();var id=$(this).attr("href");var html=$(id).find("td.label + td").html();var w=Math.max(document.documentElement.clientWidth,window.innerWidth||0);var style="top:"+e.pageY+"px;";if(w>560){style+="width:480px;";if(e.pageX>240&&e.pageX+240<w){style+="left:"+(e.pageX-240)+"px;"}else if(e.pageX<=240){style+="left:20px;"}else{style+="right:20px;"}}showFootnote(html,style)});function showFootnote(html,style){var CONTENT_ID="typlog-footnote-content";var content=document.getElementById(CONTENT_ID);if(!content){content=document.createElement("div");content.id=CONTENT_ID;$(".t-body").append(content)}var MASK_ID="typlog-footnote-mask";var mask=document.getElementById(MASK_ID);if(!mask){mask=document.createElement("div");mask.id=MASK_ID;document.body.appendChild(mask);mask.addEventListener("click",function(){content.className="";mask.className=""})}content.innerHTML=html;content.setAttribute("style",style);content.className="_active";mask.className="_active"}function fetchGitHubRepo(repo){var url="https://api.github.com/repos/"+repo;$.getJSON(url,function(data){var counts=[+new Date,data.stargazers_count,data.forks_count];localStorage.setItem("gh:"+repo,JSON.stringify(counts));updateGitHubStats(counts[1],counts[2])})}function updateGitHubStats(stars,forks){$(".github_stars strong").text(stars);$(".github_forks strong").text(forks)}function initGitHub(url){if(!url){return}var repo=url.replace("https://github.com/","");var cache=localStorage.getItem("gh:"+repo);if(cache){try{var counts=JSON.parse(cache);updateGitHubStats(counts[1],counts[2]);var delta=new Date-counts[0];if(delta<0||delta>9e5){fetchGitHubRepo(repo)}}catch(error){fetchGitHubRepo(repo)}}else{fetchGitHubRepo(repo)}}initGitHub($(".github").attr("href"))});</script>
+</body>
+</html>

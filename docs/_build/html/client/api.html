@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="API references on Authlib Client and its related Flask/Django integrations." name="description" />
+<title>Client API References &mdash; Authlib 0.12.dev documentation</title>
+  <link rel="shortcut icon" href="../_static/favicon.ico"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono"><link rel="stylesheet" href="../_static/typlog.css?v=0.7.2" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme.css?v=0.7.2" type="text/css" />
+      <link rel="index" title="색인" href="../genindex.html"/>
+      <link rel="search" title="검색" href="../search.html"/>
+    <link rel="top" title="Authlib 0.12.dev documentation" href="../index.html"/>
+      <link rel="up" title="Client Guide" href="index.html"/>
+      <link rel="next" title="JOSE Guide" href="../jose/index.html"/>
+      <link rel="prev" title="OAuthClient" href="mixed.html"/>
+  <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-34098939-7');ga('send', 'pageview');</script>
+  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script><link rel="apple-touch-icon" sizes="180x180" href="https://authlib.org/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Authlib">
+  <meta property="og:title" content="Client API References">
+    <meta property="og:description" content="API references on Authlib Client and its related Flask/Django integrations.">
+    <meta property="og:image" content="https://authlib.org/logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@authlib">
+</head>
+<body role="document" data-page="client/api">
+  <header class="t-head">
+    <div class="t-head_menu"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z"/></svg></div>
+    <a class="t-head_logo" href="../index.html"><img src="../_static/authlib.svg" alt="Logo"/>Authlib
+    </a>
+  </header>
+  <aside class="t-sidebar">
+    <div class="t-sidebar_close">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M405 136.798L375.202 107 256 226.202 136.798 107 107 136.798 226.202 256 107 375.202 136.798 405 256 285.798 375.202 405 405 375.202 285.798 256z"/></svg>
+    </div>
+    <div class="inner">
+<a class="logo" href="../index.html"><img src="../_static/authlib.svg" alt="Logo"/>
+    Authlib
+</a><div class="logo_desc">The ultimate Python library in building OAuth and OpenID Connect servers. JWS, JWE, JWK, JWA, JWT are included.</div>
+<div class="github_wrap">
+  <a class="github" href="https://github.com/lepture/authlib" target="_blank">
+    <span class="github_icon"></span>
+    <span class="github_stars">
+      <strong>-</strong>stars
+    </span>
+    <span class="github_forks">
+      <strong>-</strong>forks
+    </span>
+  </a>
+</div><div class="sponsors">
+  <div class="sponsor">
+    <a class="image" href="https://auth0.com/overview?utm_source=authlib&utm_medium=devsponsor&utm_campaign=authlib"><img src="https://user-images.githubusercontent.com/290496/39297078-89d00928-497d-11e8-8119-0c53afe14cd0.png" alt="Sponsor"></a>
+    <div class="text">The new way to solve Identity. Sponsored by <a href="https://auth0.com/overview?utm_source=authlib&utm_medium=devsponsor&utm_campaign=authlib">auth0.com</a></div>
+  </div>
+  <div class="patron">
+    <a class="patron-button" style="border: 1px solid #3E7FCB;display: inline-block;padding: 4px 18px;border-radius: 20px;color: #3E7FCB;" href="https://www.patreon.com/bePatron?u=8179754">Become a Patron!</a>
+  </div>
+</div><div class="globaltoc">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../basic/index.html">Get Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Client Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="oauth1.html">OAuth 1 Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oauth2.html">OAuth 2 Session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flask.html">Flask OAuth Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.html">Django OAuth Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mixed.html">OAuthClient</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Client API References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../jose/index.html">JOSE Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flask/1/index.html">Flask OAuth 1.0 Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flask/2/index.html">Flask OAuth 2.0 Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../django/1/index.html">Django OAuth 1.0 Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../specs/index.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../community/index.html">Community</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+
+</div><div class="useful-links">
+  <h3>Useful Links</h3>
+  <ul>
+    <li><a href="https://authlib.org/">Homepage</a></li>
+    <li><a href="https://blog.authlib.org/">Read Blog</a></li>
+    <li><a href="https://authlib.org/plans">Commercial License</a></li>
+    <li><a href="https://github.com/lepture/authlib">Star on GitHub</a></li>
+    <li><a href="https://twitter.com/authlib">Follow on Twitter</a></li>
+    <li><a href="https://stackoverflow.com/questions/tagged/authlib">Help on StackOverflow</a></li>
+    <li><a href="https://github.com/authlib/loginpass">Loginpass</a></li>
+  </ul>
+</div>
+<div id="searchbox">
+  <form class="search" action="../search.html" method="get">
+    <div class="input-group">
+      <input type="text" name="q" placeholder="검색" />
+      <button type="submit">바로 가기</button>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+    </div>
+  </aside>
+  <div class="t-content">
+    <div class="t-body yue">
+  <div class="section" id="client-api-references">
+<h1>Client API References<a class="headerlink" href="#client-api-references" title="제목 주소">¶</a></h1>
+<p>This part of the documentation covers the interface of Authlib Client.</p>
+<div class="section" id="module-authlib.client">
+<span id="sessions-and-client"></span><h2>Sessions and Client<a class="headerlink" href="#module-authlib.client" title="제목 주소">¶</a></h2>
+<dl class="class">
+<dt id="authlib.client.OAuth1Session">
+<em class="property">class </em><code class="descclassname">authlib.client.</code><code class="descname">OAuth1Session</code><span class="sig-paren">(</span><em>client_id</em>, <em>client_secret=None</em>, <em>token=None</em>, <em>token_secret=None</em>, <em>redirect_uri=None</em>, <em>rsa_key=None</em>, <em>verifier=None</em>, <em>signature_method='HMAC-SHA1'</em>, <em>signature_type='HEADER'</em>, <em>force_include_body=False</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.client.OAuth1Session" title="정의 주소">¶</a></dt>
+<dd><dl class="method">
+<dt id="authlib.client.OAuth1Session.create_authorization_url">
+<code class="descname">create_authorization_url</code><span class="sig-paren">(</span><em>url</em>, <em>request_token=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.client.OAuth1Session.create_authorization_url" title="정의 주소">¶</a></dt>
+<dd><p>Create an authorization URL by appending request_token and optional
+kwargs to url.</p>
+<p>This is the second step in the OAuth 1 workflow. The user should be
+redirected to this authorization URL, grant access to you, and then
+be redirected back to you. The redirection back can either be specified
+during client registration or by supplying a callback URI per request.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first simple">
+<li><strong>url</strong> -- The authorization endpoint URL.</li>
+<li><strong>request_token</strong> -- The previously obtained request token.</li>
+<li><strong>kwargs</strong> -- Optional parameters to append to the URL.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body"><p class="first last">The authorization URL with new parameters embedded.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.client.OAuth1Session.fetch_access_token">
+<code class="descname">fetch_access_token</code><span class="sig-paren">(</span><em>url</em>, <em>verifier=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.client.OAuth1Session.fetch_access_token" title="정의 주소">¶</a></dt>
+<dd><p>Method for fetching an access token from the token endpoint.</p>
+<p>This is the final step in the OAuth 1 workflow. An access token is
+obtained using all previously obtained credentials, including the
+verifier from the authorization step.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first simple">
+<li><strong>url</strong> -- Access Token endpoint.</li>
+<li><strong>verifier</strong> -- A verifier string to prove authorization was granted.</li>
+<li><strong>kwargs</strong> -- Extra parameters to include for fetching access token.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body"><p class="first last">A token dict.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.client.OAuth1Session.fetch_request_token">
+<code class="descname">fetch_request_token</code><span class="sig-paren">(</span><em>url</em>, <em>realm=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.client.OAuth1Session.fetch_request_token" title="정의 주소">¶</a></dt>
+<dd><p>Method for fetching an access token from the token endpoint.</p>
+<p>This is the first step in the OAuth 1 workflow. A request token is
+obtained by making a signed post request to url. The token is then
+parsed from the application/x-www-form-urlencoded response and ready
+to be used to construct an authorization url.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first simple">
+<li><strong>url</strong> -- Request Token endpoint.</li>
+<li><strong>realm</strong> -- A string/list/tuple of realm for Authorization header.</li>
+<li><strong>kwargs</strong> -- Extra parameters to include for fetching token.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body"><p class="first last">A Request Token dict.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Note, <code class="docutils literal notranslate"><span class="pre">realm</span></code> can also be configured when session created:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">session</span> <span class="o">=</span> <span class="n">OAuth1Session</span><span class="p">(</span><span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">realm</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.client.OAuth1Session.parse_authorization_response">
+<code class="descname">parse_authorization_response</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.client.OAuth1Session.parse_authorization_response" title="정의 주소">¶</a></dt>
+<dd><p>Extract parameters from the post authorization redirect
+response URL.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>url</strong> -- The full URL that resulted from the user being redirected
+back from the OAuth provider to you, the client.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">A dict of parameters extracted from the URL.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.client.OAuth1Auth">
+<em class="property">class </em><code class="descclassname">authlib.client.</code><code class="descname">OAuth1Auth</code><span class="sig-paren">(</span><em>client_id</em>, <em>client_secret=None</em>, <em>token=None</em>, <em>token_secret=None</em>, <em>redirect_uri=None</em>, <em>rsa_key=None</em>, <em>verifier=None</em>, <em>signature_method='HMAC-SHA1'</em>, <em>signature_type='HEADER'</em>, <em>realm=None</em>, <em>force_include_body=False</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.client.OAuth1Auth" title="정의 주소">¶</a></dt>
+<dd><p>Signs the request using OAuth 1 (RFC5849)</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.client.OAuth2Session">
+<em class="property">class </em><code class="descclassname">authlib.client.</code><code class="descname">OAuth2Session</code><span class="sig-paren">(</span><em>client_id=None</em>, <em>client_secret=None</em>, <em>token_endpoint_auth_method=None</em>, <em>refresh_token_url=None</em>, <em>refresh_token_params=None</em>, <em>scope=None</em>, <em>redirect_uri=None</em>, <em>token=None</em>, <em>token_placement='header'</em>, <em>state=None</em>, <em>token_updater=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.client.OAuth2Session" title="정의 주소">¶</a></dt>
+<dd><p>Construct a new OAuth 2 client requests session.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client_id</strong> -- Client ID, which you get from client registration.</li>
+<li><strong>client_secret</strong> -- Client Secret, which you get from registration.</li>
+<li><strong>token_endpoint_auth_method</strong> -- Client auth method for token endpoint.</li>
+<li><strong>refresh_token_url</strong> -- Refresh Token endpoint for auto refresh token.</li>
+<li><strong>refresh_token_params</strong> -- Extra parameters for refresh token endpoint.</li>
+<li><strong>scope</strong> -- Scope that you needed to access user resources.</li>
+<li><strong>redirect_uri</strong> -- Redirect URI you registered as callback.</li>
+<li><strong>token</strong> -- A dict of token attributes such as <code class="docutils literal notranslate"><span class="pre">access_token</span></code>,
+<code class="docutils literal notranslate"><span class="pre">token_type</span></code> and <code class="docutils literal notranslate"><span class="pre">expires_at</span></code>.</li>
+<li><strong>token_placement</strong> -- The place to put token in HTTP request. Available
+values: &quot;header&quot;, &quot;body&quot;, &quot;uri&quot;.</li>
+<li><strong>state</strong> -- State string used to prevent CSRF. This will be given
+when creating the authorization url and must be
+supplied when parsing the authorization response.</li>
+<li><strong>token_updater</strong> -- A function for you to update token. It accept a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">OAuth2Token</span></code> as parameter.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="authlib.client.OAuth2Session.create_authorization_url">
+<code class="descname">create_authorization_url</code><span class="sig-paren">(</span><em>url</em>, <em>state=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.client.OAuth2Session.create_authorization_url" title="정의 주소">¶</a></dt>
+<dd><p>Generate an authorization URL and state.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first simple">
+<li><strong>url</strong> -- Authorization endpoint url, must be HTTPS.</li>
+<li><strong>state</strong> -- An optional state string for CSRF protection. If not
+given it will be generated for you.</li>
+<li><strong>kwargs</strong> -- Extra parameters to include.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body"><p class="first last">authorization_url, state</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.client.OAuth2Session.fetch_access_token">
+<code class="descname">fetch_access_token</code><span class="sig-paren">(</span><em>url=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.client.OAuth2Session.fetch_access_token" title="정의 주소">¶</a></dt>
+<dd><p>Alias for fetch_token.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.client.OAuth2Session.fetch_token">
+<code class="descname">fetch_token</code><span class="sig-paren">(</span><em>url=None</em>, <em>code=None</em>, <em>authorization_response=None</em>, <em>body=''</em>, <em>auth=None</em>, <em>username=None</em>, <em>password=None</em>, <em>method='POST'</em>, <em>headers=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.client.OAuth2Session.fetch_token" title="정의 주소">¶</a></dt>
+<dd><p>Generic method for fetching an access token from the token endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first simple">
+<li><strong>url</strong> -- Access Token endpoint URL, if not configured,
+<code class="docutils literal notranslate"><span class="pre">authorization_response</span></code> is used to extract token from
+its fragment (implicit way).</li>
+<li><strong>code</strong> -- Authorization code (if any)</li>
+<li><strong>authorization_response</strong> -- Authorization response URL, the callback
+URL of the request back to you. We can
+extract authorization code from it.</li>
+<li><strong>body</strong> -- Optional application/x-www-form-urlencoded body to add the
+include in the token request. Prefer kwargs over body.</li>
+<li><strong>auth</strong> -- An auth tuple or method as accepted by requests.</li>
+<li><strong>username</strong> -- Username of the resource owner for password grant.</li>
+<li><strong>password</strong> -- Password of the resource owner for password grant.</li>
+<li><strong>method</strong> -- The HTTP method used to make the request. Defaults
+to POST, but may also be GET. Other methods should
+be added as needed.</li>
+<li><strong>headers</strong> -- Dict to default request headers with.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body"><p class="first last">A <code class="xref py py-class docutils literal notranslate"><span class="pre">OAuth2Token</span></code> object (a dict too).</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.client.OAuth2Session.refresh_token">
+<code class="descname">refresh_token</code><span class="sig-paren">(</span><em>url=None</em>, <em>refresh_token=None</em>, <em>body=''</em>, <em>auth=None</em>, <em>headers=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.client.OAuth2Session.refresh_token" title="정의 주소">¶</a></dt>
+<dd><p>Fetch a new access token using a refresh token.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first simple">
+<li><strong>url</strong> -- Refresh Token endpoint, must be HTTPS.</li>
+<li><strong>refresh_token</strong> -- The refresh_token to use.</li>
+<li><strong>body</strong> -- Optional application/x-www-form-urlencoded body to add the
+include in the token request. Prefer kwargs over body.</li>
+<li><strong>auth</strong> -- An auth tuple or method as accepted by requests.</li>
+<li><strong>headers</strong> -- Dict to default request headers with.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body"><p class="first last">A <code class="xref py py-class docutils literal notranslate"><span class="pre">OAuth2Token</span></code> object (a dict too).</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.client.OAuth2Session.register_client_auth_method">
+<code class="descname">register_client_auth_method</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.client.OAuth2Session.register_client_auth_method" title="정의 주소">¶</a></dt>
+<dd><p>Extend client authenticate for token endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>func</strong> -- a function to sign the request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.client.OAuth2Session.register_compliance_hook">
+<code class="descname">register_compliance_hook</code><span class="sig-paren">(</span><em>hook_type</em>, <em>hook</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.client.OAuth2Session.register_compliance_hook" title="정의 주소">¶</a></dt>
+<dd><p>Register a hook for request/response tweaking.</p>
+<p>Available hooks are:</p>
+<ul class="simple">
+<li>access_token_response: invoked before token parsing.</li>
+<li>refresh_token_response: invoked before refresh token parsing.</li>
+<li>protected_request: invoked before making a request.</li>
+<li>revoke_token_request: invoked before revoking a token.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.client.OAuth2Session.revoke_token">
+<code class="descname">revoke_token</code><span class="sig-paren">(</span><em>url</em>, <em>token</em>, <em>token_type_hint=None</em>, <em>body=None</em>, <em>auth=None</em>, <em>headers=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.client.OAuth2Session.revoke_token" title="정의 주소">¶</a></dt>
+<dd><p>Revoke token method defined via <a class="reference external" href="https://tools.ietf.org/html/rfc7009">RFC7009</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first simple">
+<li><strong>url</strong> -- Revoke Token endpoint, must be HTTPS.</li>
+<li><strong>token</strong> -- The token to be revoked.</li>
+<li><strong>token_type_hint</strong> -- The type of the token that to be revoked.
+It can be &quot;access_token&quot; or &quot;refresh_token&quot;.</li>
+<li><strong>body</strong> -- Optional application/x-www-form-urlencoded body to add the
+include in the token request. Prefer kwargs over body.</li>
+<li><strong>auth</strong> -- An auth tuple or method as accepted by requests.</li>
+<li><strong>headers</strong> -- Dict to default request headers with.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body"><p class="first last">A <code class="xref py py-class docutils literal notranslate"><span class="pre">OAuth2Token</span></code> object (a dict too).</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.client.AssertionSession">
+<em class="property">class </em><code class="descclassname">authlib.client.</code><code class="descname">AssertionSession</code><span class="sig-paren">(</span><em>token_url</em>, <em>issuer</em>, <em>subject</em>, <em>audience</em>, <em>grant_type</em>, <em>claims=None</em>, <em>token_placement='header'</em>, <em>scope=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.client.AssertionSession" title="정의 주소">¶</a></dt>
+<dd><p>Constructs a new Assertion Framework for OAuth 2.0 Authorization Grants
+per <a class="reference external" href="https://tools.ietf.org/html/rfc7521">RFC7521</a>.</p>
+<dl class="method">
+<dt id="authlib.client.AssertionSession.refresh_token">
+<code class="descname">refresh_token</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authlib.client.AssertionSession.refresh_token" title="정의 주소">¶</a></dt>
+<dd><p>Using Assertions as Authorization Grants to refresh token as
+described in <a class="reference external" href="https://tools.ietf.org/html/rfc7521#section-4.1">Section 4.1</a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.client.AssertionSession.request">
+<code class="descname">request</code><span class="sig-paren">(</span><em>method</em>, <em>url</em>, <em>data=None</em>, <em>headers=None</em>, <em>withhold_token=False</em>, <em>auth=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.client.AssertionSession.request" title="정의 주소">¶</a></dt>
+<dd><p>Send request with auto refresh token feature.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.client.OAuth2Auth">
+<em class="property">class </em><code class="descclassname">authlib.client.</code><code class="descname">OAuth2Auth</code><span class="sig-paren">(</span><em>token</em>, <em>token_placement='header'</em>, <em>client=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.client.OAuth2Auth" title="정의 주소">¶</a></dt>
+<dd><p>Sign requests for OAuth 2.0, currently only bearer token is supported.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.client.OAuthClient">
+<em class="property">class </em><code class="descclassname">authlib.client.</code><code class="descname">OAuthClient</code><span class="sig-paren">(</span><em>client_id=None</em>, <em>client_secret=None</em>, <em>request_token_url=None</em>, <em>request_token_params=None</em>, <em>access_token_url=None</em>, <em>access_token_params=None</em>, <em>refresh_token_url=None</em>, <em>refresh_token_params=None</em>, <em>authorize_url=None</em>, <em>authorize_params=None</em>, <em>api_base_url=None</em>, <em>client_kwargs=None</em>, <em>server_metadata_url=None</em>, <em>compliance_fix=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.client.OAuthClient" title="정의 주소">¶</a></dt>
+<dd><p>A mixed OAuth client for OAuth 1 and OAuth 2.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client_id</strong> -- Client key of OAuth 1, or Client ID of OAuth 2</li>
+<li><strong>client_secret</strong> -- Client secret of OAuth 2, or Client Secret of OAuth 2</li>
+<li><strong>request_token_url</strong> -- Request Token endpoint for OAuth 1</li>
+<li><strong>request_token_params</strong> -- Extra parameters for Request Token endpoint</li>
+<li><strong>access_token_url</strong> -- Access Token endpoint for OAuth 1 and OAuth 2</li>
+<li><strong>access_token_params</strong> -- Extra parameters for Access Token endpoint</li>
+<li><strong>refresh_token_url</strong> -- Refresh Token endpoint for OAuth 2 (if any)</li>
+<li><strong>refresh_token_params</strong> -- Extra parameters for Refresh Token endpoint</li>
+<li><strong>authorize_url</strong> -- Endpoint for user authorization of OAuth 1 ro OAuth 2</li>
+<li><strong>authorize_params</strong> -- Extra parameters for Authorization Endpoint</li>
+<li><strong>api_base_url</strong> -- The base API endpoint to make requests simple</li>
+<li><strong>client_kwargs</strong> -- Extra keyword arguments for session</li>
+<li><strong>server_metadata_url</strong> -- Discover server metadata from this URL</li>
+<li><strong>kwargs</strong> -- Extra keyword arguments</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Create an instance of OAuthClient. If <code class="docutils literal notranslate"><span class="pre">request_token_url</span></code> is configured,
+it would be an OAuth 1 instance, otherwise it is OAuth 2 instance:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oauth1_client</span> <span class="o">=</span> <span class="n">OAuthClient</span><span class="p">(</span>
+    <span class="n">client_id</span><span class="o">=</span><span class="s1">&#39;Twitter Consumer Key&#39;</span><span class="p">,</span>
+    <span class="n">client_secret</span><span class="o">=</span><span class="s1">&#39;Twitter Consumer Secret&#39;</span><span class="p">,</span>
+    <span class="n">request_token_url</span><span class="o">=</span><span class="s1">&#39;https://api.twitter.com/oauth/request_token&#39;</span><span class="p">,</span>
+    <span class="n">access_token_url</span><span class="o">=</span><span class="s1">&#39;https://api.twitter.com/oauth/access_token&#39;</span><span class="p">,</span>
+    <span class="n">authorize_url</span><span class="o">=</span><span class="s1">&#39;https://api.twitter.com/oauth/authenticate&#39;</span><span class="p">,</span>
+    <span class="n">api_base_url</span><span class="o">=</span><span class="s1">&#39;https://api.twitter.com/1.1/&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">oauth2_client</span> <span class="o">=</span> <span class="n">OAuthClient</span><span class="p">(</span>
+    <span class="n">client_id</span><span class="o">=</span><span class="s1">&#39;GitHub Client ID&#39;</span><span class="p">,</span>
+    <span class="n">client_secret</span><span class="o">=</span><span class="s1">&#39;GitHub Client Secret&#39;</span><span class="p">,</span>
+    <span class="n">api_base_url</span><span class="o">=</span><span class="s1">&#39;https://api.github.com/&#39;</span><span class="p">,</span>
+    <span class="n">access_token_url</span><span class="o">=</span><span class="s1">&#39;https://github.com/login/oauth/access_token&#39;</span><span class="p">,</span>
+    <span class="n">authorize_url</span><span class="o">=</span><span class="s1">&#39;https://github.com/login/oauth/authorize&#39;</span><span class="p">,</span>
+    <span class="n">client_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;scope&#39;</span><span class="p">:</span> <span class="s1">&#39;user:email&#39;</span><span class="p">},</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="authlib.client.OAuthClient.generate_authorize_redirect">
+<code class="descname">generate_authorize_redirect</code><span class="sig-paren">(</span><em>redirect_uri=None</em>, <em>save_request_token=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.client.OAuthClient.generate_authorize_redirect" title="정의 주소">¶</a></dt>
+<dd><p>Generate the authorization url and state for HTTP redirect.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first simple">
+<li><strong>redirect_uri</strong> -- Callback or redirect URI for authorization.</li>
+<li><strong>save_request_token</strong> -- A function to save request token.</li>
+<li><strong>kwargs</strong> -- Extra parameters to include.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body"><p class="first last">(url, state)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.client.OAuthClient.fetch_access_token">
+<code class="descname">fetch_access_token</code><span class="sig-paren">(</span><em>redirect_uri=None</em>, <em>request_token=None</em>, <em>**params</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.client.OAuthClient.fetch_access_token" title="정의 주소">¶</a></dt>
+<dd><p>Fetch access token in one step.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first simple">
+<li><strong>redirect_uri</strong> -- Callback or Redirect URI that is used in
+previous <code class="xref py py-meth docutils literal notranslate"><span class="pre">authorize_redirect()</span></code>.</li>
+<li><strong>request_token</strong> -- A previous request token for OAuth 1.</li>
+<li><strong>params</strong> -- Extra parameters to fetch access token.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body"><p class="first last">A token dict.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.client.OAuthClient.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>url</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.client.OAuthClient.get" title="정의 주소">¶</a></dt>
+<dd><p>Invoke GET http request.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">api_base_url</span></code> configured, shortcut is available:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;users/lepture&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.client.OAuthClient.post">
+<code class="descname">post</code><span class="sig-paren">(</span><em>url</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.client.OAuthClient.post" title="정의 주소">¶</a></dt>
+<dd><p>Invoke POST http request.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">api_base_url</span></code> configured, shortcut is available:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;timeline&#39;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="s1">&#39;Hi&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.client.OAuthClient.patch">
+<code class="descname">patch</code><span class="sig-paren">(</span><em>url</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.client.OAuthClient.patch" title="정의 주소">¶</a></dt>
+<dd><p>Invoke PATCH http request.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">api_base_url</span></code> configured, shortcut is available:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s1">&#39;profile&#39;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Hsiaoming Yang&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.client.OAuthClient.put">
+<code class="descname">put</code><span class="sig-paren">(</span><em>url</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.client.OAuthClient.put" title="정의 주소">¶</a></dt>
+<dd><p>Invoke PUT http request.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">api_base_url</span></code> configured, shortcut is available:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">&#39;profile&#39;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Hsiaoming Yang&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.client.OAuthClient.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>url</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.client.OAuthClient.delete" title="정의 주소">¶</a></dt>
+<dd><p>Invoke DELETE http request.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">api_base_url</span></code> configured, shortcut is available:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;posts/123&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-authlib.flask.client">
+<span id="flask-registry-and-remoteapp"></span><h2>Flask Registry and RemoteApp<a class="headerlink" href="#module-authlib.flask.client" title="제목 주소">¶</a></h2>
+<dl class="class">
+<dt id="authlib.flask.client.OAuth">
+<em class="property">class </em><code class="descclassname">authlib.flask.client.</code><code class="descname">OAuth</code><span class="sig-paren">(</span><em>app=None</em>, <em>cache=None</em>, <em>fetch_token=None</em>, <em>update_token=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.flask.client.OAuth" title="정의 주소">¶</a></dt>
+<dd><p>Registry for oauth clients.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>app</strong> -- the app instance of Flask</td>
+</tr>
+</tbody>
+</table>
+<p>Create an instance with Flask:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oauth</span> <span class="o">=</span> <span class="n">OAuth</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="n">cache</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can also pass the instance of Flask later:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oauth</span> <span class="o">=</span> <span class="n">OAuth</span><span class="p">()</span>
+<span class="n">oauth</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="n">cache</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first last simple">
+<li><strong>app</strong> -- Flask application instance</li>
+<li><strong>cache</strong> -- A cache instance that has .get .set and .delete methods</li>
+<li><strong>fetch_token</strong> -- a shared function to get current user's token</li>
+<li><strong>update_token</strong> -- a share function to update current user's token</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="authlib.flask.client.OAuth.init_app">
+<code class="descname">init_app</code><span class="sig-paren">(</span><em>app</em>, <em>cache=None</em>, <em>fetch_token=None</em>, <em>update_token=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.flask.client.OAuth.init_app" title="정의 주소">¶</a></dt>
+<dd><p>Init app with Flask instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.flask.client.OAuth.register">
+<code class="descname">register</code><span class="sig-paren">(</span><em>name</em>, <em>overwrite=False</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.flask.client.OAuth.register" title="정의 주소">¶</a></dt>
+<dd><p>Registers a new remote application.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> -- Name of the remote application.</li>
+<li><strong>overwrite</strong> -- Overwrite existing config with Flask config.</li>
+<li><strong>kwargs</strong> -- Parameters for <a class="reference internal" href="#authlib.flask.client.RemoteApp" title="authlib.flask.client.RemoteApp"><code class="xref py py-class docutils literal notranslate"><span class="pre">RemoteApp</span></code></a>.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Find parameters from <a class="reference internal" href="#authlib.client.OAuthClient" title="authlib.client.OAuthClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">OAuthClient</span></code></a>.
+When a remote app is registered, it can be accessed with
+<em>named</em> attribute:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oauth</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;twitter&#39;</span><span class="p">,</span> <span class="n">client_id</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+<span class="n">oauth</span><span class="o">.</span><span class="n">twitter</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;timeline&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.flask.client.RemoteApp">
+<em class="property">class </em><code class="descclassname">authlib.flask.client.</code><code class="descname">RemoteApp</code><span class="sig-paren">(</span><em>name</em>, <em>fetch_token=None</em>, <em>update_token=None</em>, <em>fetch_request_token=None</em>, <em>save_request_token=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.flask.client.RemoteApp" title="정의 주소">¶</a></dt>
+<dd><p>Flask integrated RemoteApp of <a class="reference internal" href="#authlib.client.OAuthClient" title="authlib.client.OAuthClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">OAuthClient</span></code></a>.
+It has built-in hooks for OAuthClient. The only required configuration
+is token model.</p>
+<dl class="method">
+<dt id="authlib.flask.client.RemoteApp.authorize_access_token">
+<code class="descname">authorize_access_token</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.flask.client.RemoteApp.authorize_access_token" title="정의 주소">¶</a></dt>
+<dd><p>Authorize access token.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.flask.client.RemoteApp.authorize_redirect">
+<code class="descname">authorize_redirect</code><span class="sig-paren">(</span><em>redirect_uri=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.flask.client.RemoteApp.authorize_redirect" title="정의 주소">¶</a></dt>
+<dd><p>Create a HTTP Redirect for Authorization Endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first simple">
+<li><strong>redirect_uri</strong> -- Callback or redirect URI for authorization.</li>
+<li><strong>kwargs</strong> -- Extra parameters to include.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body"><p class="first last">A HTTP redirect response.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.flask.client.RemoteApp.save_authorize_state">
+<code class="descname">save_authorize_state</code><span class="sig-paren">(</span><em>redirect_uri=None</em>, <em>state=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.flask.client.RemoteApp.save_authorize_state" title="정의 주소">¶</a></dt>
+<dd><p>Save <code class="docutils literal notranslate"><span class="pre">redirect_uri</span></code> and <code class="docutils literal notranslate"><span class="pre">state</span></code> into session during
+authorize step.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-authlib.django.client">
+<span id="django-registry-and-remoteapp"></span><h2>Django Registry and RemoteApp<a class="headerlink" href="#module-authlib.django.client" title="제목 주소">¶</a></h2>
+<dl class="class">
+<dt id="authlib.django.client.OAuth">
+<em class="property">class </em><code class="descclassname">authlib.django.client.</code><code class="descname">OAuth</code><span class="sig-paren">(</span><em>fetch_token=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.django.client.OAuth" title="정의 주소">¶</a></dt>
+<dd><p>Registry for oauth clients.</p>
+<p>Create an instance for registry:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oauth</span> <span class="o">=</span> <span class="n">OAuth</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="authlib.django.client.OAuth.register">
+<code class="descname">register</code><span class="sig-paren">(</span><em>name</em>, <em>overwrite=False</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.django.client.OAuth.register" title="정의 주소">¶</a></dt>
+<dd><p>Registers a new remote application.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> -- Name of the remote application.</li>
+<li><strong>overwrite</strong> -- Overwrite existing config with django settings.</li>
+<li><strong>kwargs</strong> -- Parameters for <a class="reference internal" href="#authlib.django.client.RemoteApp" title="authlib.django.client.RemoteApp"><code class="xref py py-class docutils literal notranslate"><span class="pre">RemoteApp</span></code></a>.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Find parameters from <a class="reference internal" href="#authlib.client.OAuthClient" title="authlib.client.OAuthClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">OAuthClient</span></code></a>.
+When a remote app is registered, it can be accessed with
+<em>named</em> attribute:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oauth</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;twitter&#39;</span><span class="p">,</span> <span class="n">client_id</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+<span class="n">oauth</span><span class="o">.</span><span class="n">twitter</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;timeline&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="authlib.django.client.RemoteApp">
+<em class="property">class </em><code class="descclassname">authlib.django.client.</code><code class="descname">RemoteApp</code><span class="sig-paren">(</span><em>name</em>, <em>fetch_token=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.django.client.RemoteApp" title="정의 주소">¶</a></dt>
+<dd><p>Django integrated RemoteApp of <a class="reference internal" href="#authlib.client.OAuthClient" title="authlib.client.OAuthClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">OAuthClient</span></code></a>.
+It has built-in hooks for OAuthClient.</p>
+<dl class="method">
+<dt id="authlib.django.client.RemoteApp.authorize_access_token">
+<code class="descname">authorize_access_token</code><span class="sig-paren">(</span><em>request</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.django.client.RemoteApp.authorize_access_token" title="정의 주소">¶</a></dt>
+<dd><p>Fetch access token in one step.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><strong>request</strong> -- HTTP request instance from Django view.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body">A token dict.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.django.client.RemoteApp.authorize_redirect">
+<code class="descname">authorize_redirect</code><span class="sig-paren">(</span><em>request</em>, <em>redirect_uri=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.django.client.RemoteApp.authorize_redirect" title="정의 주소">¶</a></dt>
+<dd><p>Create a HTTP Redirect for Authorization Endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">매개 변수:</th><td class="field-body"><ul class="first simple">
+<li><strong>request</strong> -- HTTP request instance from Django view.</li>
+<li><strong>redirect_uri</strong> -- Callback or redirect URI for authorization.</li>
+<li><strong>kwargs</strong> -- Extra parameters to include.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">반환:</th><td class="field-body"><p class="first last">A HTTP redirect response.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="authlib.django.client.RemoteApp.save_authorize_state">
+<code class="descname">save_authorize_state</code><span class="sig-paren">(</span><em>request</em>, <em>redirect_uri=None</em>, <em>state=None</em><span class="sig-paren">)</span><a class="headerlink" href="#authlib.django.client.RemoteApp.save_authorize_state" title="정의 주소">¶</a></dt>
+<dd><p>Save <code class="docutils literal notranslate"><span class="pre">redirect_uri</span></code> and <code class="docutils literal notranslate"><span class="pre">state</span></code> into session during
+authorize step.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+  <div class="t-pagination clearfix">
+    <span>
+      ← <a href="mixed.html" title="OAuthClient">OAuthClient</a>
+    </span>
+    <span style="float:right">
+      <a href="../jose/index.html" title="JOSE Guide">JOSE Guide</a> →
+    </span>
+  </div>
+</div><footer class="t-foot">
+    &copy; Copyright 2018, Hsiaoming Ltd.
+    <br>
+    A <a href="https://typlog.com/">typlog</a> <a href="https://github.com/typlog/sphinx-typlog-theme">sphinx theme</a>,
+    designed by <a href="https://lepture.com/">Hsiaoming Yang</a>.
+</footer>
+  </div>
+  <script>$(function(){$(".t-head_menu").on("click",function(){$("body").addClass("_expand")});$(".t-body").on("click",function(){$("body").removeClass("_expand")});$(".t-sidebar_close").on("click",function(){$("body").removeClass("_expand")});$("a.footnote-reference").on("click",function(e){e.preventDefault();var id=$(this).attr("href");var html=$(id).find("td.label + td").html();var w=Math.max(document.documentElement.clientWidth,window.innerWidth||0);var style="top:"+e.pageY+"px;";if(w>560){style+="width:480px;";if(e.pageX>240&&e.pageX+240<w){style+="left:"+(e.pageX-240)+"px;"}else if(e.pageX<=240){style+="left:20px;"}else{style+="right:20px;"}}showFootnote(html,style)});function showFootnote(html,style){var CONTENT_ID="typlog-footnote-content";var content=document.getElementById(CONTENT_ID);if(!content){content=document.createElement("div");content.id=CONTENT_ID;$(".t-body").append(content)}var MASK_ID="typlog-footnote-mask";var mask=document.getElementById(MASK_ID);if(!mask){mask=document.createElement("div");mask.id=MASK_ID;document.body.appendChild(mask);mask.addEventListener("click",function(){content.className="";mask.className=""})}content.innerHTML=html;content.setAttribute("style",style);content.className="_active";mask.className="_active"}function fetchGitHubRepo(repo){var url="https://api.github.com/repos/"+repo;$.getJSON(url,function(data){var counts=[+new Date,data.stargazers_count,data.forks_count];localStorage.setItem("gh:"+repo,JSON.stringify(counts));updateGitHubStats(counts[1],counts[2])})}function updateGitHubStats(stars,forks){$(".github_stars strong").text(stars);$(".github_forks strong").text(forks)}function initGitHub(url){if(!url){return}var repo=url.replace("https://github.com/","");var cache=localStorage.getItem("gh:"+repo);if(cache){try{var counts=JSON.parse(cache);updateGitHubStats(counts[1],counts[2]);var delta=new Date-counts[0];if(delta<0||delta>9e5){fetchGitHubRepo(repo)}}catch(error){fetchGitHubRepo(repo)}}else{fetchGitHubRepo(repo)}}initGitHub($(".github").attr("href"))});</script>
+</body>
+</html>
