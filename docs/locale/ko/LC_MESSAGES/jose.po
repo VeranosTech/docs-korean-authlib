@@ -1,0 +1,437 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:52+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../jose/index.rst:2
+msgid "JOSE Guide"
+msgstr ""
+
+#: ../../jose/index.rst:4
+msgid ""
+"This part of the documentation contains information on the JOSE "
+"implementation. It includes:"
+msgstr ""
+
+#: ../../jose/index.rst:7 ../../jose/jws.rst:4
+msgid "JSON Web Signature (JWS)"
+msgstr ""
+
+#: ../../jose/index.rst:8 ../../jose/jwe.rst:4
+msgid "JSON Web Encryption (JWE)"
+msgstr ""
+
+#: ../../jose/index.rst:9 ../../jose/jwk.rst:4
+msgid "JSON Web Key (JWK)"
+msgstr ""
+
+#: ../../jose/index.rst:10
+msgid "JSON Web Algorithm (JWA)"
+msgstr ""
+
+#: ../../jose/index.rst:11 ../../jose/jwt.rst:4
+msgid "JSON Web Token (JWT)"
+msgstr ""
+
+#: ../../jose/index.rst:13
+msgid "A simple example on how to use JWT with Authlib::"
+msgstr ""
+
+#: ../../jose/index.rst:24
+msgid "Follow the documentation below to find out more in detail."
+msgstr ""
+
+#: ../../jose/jwe.rst:8
+msgid ""
+"JSON Web Encryption (JWE) represents encrypted content using JSON-based "
+"data structures."
+msgstr ""
+
+#: ../../jose/jwe.rst:11
+msgid "There are two types of JWE Serializations:"
+msgstr ""
+
+#: ../../jose/jwe.rst:13
+msgid "JWE Compact Serialization"
+msgstr ""
+
+#: ../../jose/jwe.rst:14
+msgid "JWE JSON Serialization"
+msgstr ""
+
+#: ../../jose/jwe.rst:16
+msgid ""
+"Authlib has only implemented the **Compact Serialization**. This feature "
+"is not mature yet, use at your own risk."
+msgstr ""
+
+#: ../../jose/jwe.rst:19
+msgid ""
+"The JWE Compact Serialization represents encrypted content as a compact, "
+"URL-safe string. This string is:"
+msgstr ""
+
+#: ../../jose/jwe.rst:22
+msgid ""
+"BASE64URL(UTF8(JWE Protected Header)) || '.' || BASE64URL(JWE Encrypted "
+"Key) || '.' || BASE64URL(JWE Initialization Vector) || '.' || "
+"BASE64URL(JWE Ciphertext) || '.' || BASE64URL(JWE Authentication Tag)"
+msgstr ""
+
+#: ../../jose/jwe.rst:28
+msgid "An example (with line breaks for display purposes only)::"
+msgstr ""
+
+#: ../../jose/jwe.rst:46
+msgid ""
+"A JWE requires JWA to work properly. The algorithms for JWE are provided "
+"in :ref:`specs/rfc7518`."
+msgstr ""
+
+#: ../../jose/jwe.rst:50 ../../jose/jws.rst:76
+msgid "Compact Serialize and Deserialize"
+msgstr ""
+
+#: ../../jose/jwe.rst:52
+msgid ""
+"Generate a JWE compact serialization would be easy with "
+":meth:`JWE.serialize_compact`, build a JWE instance with JWA::"
+msgstr ""
+
+#: ../../jose/jwe.rst:66
+msgid ""
+"There are two required algorithms in protected header: ``alg`` and "
+"``enc``."
+msgstr ""
+
+#: ../../jose/jwe.rst:68
+msgid "The available ``alg`` list:"
+msgstr ""
+
+#: ../../jose/jwe.rst:70
+msgid "RSA1_5, RSA-OAEP, RSA-OAEP-256"
+msgstr ""
+
+#: ../../jose/jwe.rst:71
+msgid "A128KW, A192KW, A256KW"
+msgstr ""
+
+#: ../../jose/jwe.rst:72
+msgid "A128GCMKW, A192GCMKW, A256GCMKW"
+msgstr ""
+
+#: ../../jose/jwe.rst:74
+msgid "The available ``enc`` list:"
+msgstr ""
+
+#: ../../jose/jwe.rst:76
+msgid "A128CBC-HS256, A192CBC-HS384, A256CBC-HS512"
+msgstr ""
+
+#: ../../jose/jwe.rst:77
+msgid "A128GCM, A192GCM, A256GCM"
+msgstr ""
+
+#: ../../jose/jwe.rst:79
+msgid "More ``alg`` and ``enc`` will be added in the future."
+msgstr ""
+
+#: ../../jose/jwe.rst:81
+msgid "It is also available to compress the payload with ``zip`` header::"
+msgstr ""
+
+#: ../../jose/jwe.rst:86
+msgid ""
+"To deserialize a JWE Compact Serialization, use "
+":meth:`JWE.deserialize_compact`::"
+msgstr ""
+
+#: ../../jose/jwe.rst:96
+msgid ""
+"The result of the ``deserialize_compact`` is a dict, which contains "
+"``header`` and ``payload``."
+msgstr ""
+
+#: ../../jose/jwe.rst:99 ../../jose/jws.rst:129 ../../jose/jws.rst:176
+msgid "Using **JWK** for keys? Find how to use JWK with :ref:`jwk_guide`."
+msgstr ""
+
+#: ../../jose/jwk.rst:8
+msgid ""
+"A JSON Web Key (JWK) is a JavaScript Object Notation (JSON) data "
+"structure that represents a cryptographic key. An example would help a "
+"lot::"
+msgstr ""
+
+#: ../../jose/jwk.rst:19
+msgid ""
+"This is an Elliptic Curve Public Key represented by JSON data structure. "
+"How do we ``dumps`` a key into JWK, and ``loads`` JWK back into key? The "
+"interface of :class:`JWK` contains these two methods."
+msgstr ""
+
+#: ../../jose/jwk.rst:23
+msgid ""
+"Algorithms for ``kty`` (Key Type) is defined by :ref:`specs/rfc7518`. "
+"Available ``kty`` values are: **EC**, **RSA** and **oct**. Initialize a "
+"JWK instance with JWA::"
+msgstr ""
+
+#: ../../jose/jwk.rst:36
+msgid ""
+"There is an ``jwk`` instance in ``authlib.jose``, so that you don't need "
+"to initialize JWK yourself, try::"
+msgstr ""
+
+#: ../../jose/jwk.rst:45
+msgid ""
+"You may pass extra parameters into ``dumps`` method, available parameters"
+" can be found on RFC7517 `Section 4`_."
+msgstr ""
+
+#: ../../jose/jws.rst:8
+msgid ""
+"JSON Web Signature (JWS) represents content secured with digital "
+"signatures or Message Authentication Codes (MACs) using JSON-based data "
+"structures."
+msgstr ""
+
+#: ../../jose/jws.rst:12
+msgid "There are two types of JWS Serializations:"
+msgstr ""
+
+#: ../../jose/jws.rst:14
+msgid "JWS Compact Serialization"
+msgstr ""
+
+#: ../../jose/jws.rst:15
+msgid "JWS JSON Serialization"
+msgstr ""
+
+#: ../../jose/jws.rst:17
+msgid ""
+"The JWS Compact Serialization represents digitally signed or MACed "
+"content as a compact, URL-safe string. An example (with line breaks for "
+"display purposes only)::"
+msgstr ""
+
+#: ../../jose/jws.rst:28
+msgid "There are two types of JWS JSON Serialization syntax:"
+msgstr ""
+
+#: ../../jose/jws.rst:30
+msgid "General JWS JSON Serialization Syntax"
+msgstr ""
+
+#: ../../jose/jws.rst:31
+msgid "Flattened JWS JSON Serialization Syntax"
+msgstr ""
+
+#: ../../jose/jws.rst:33
+msgid ""
+"An example on General JWS JSON Serialization Syntax (with line breaks "
+"within values for display purposes only)::"
+msgstr ""
+
+#: ../../jose/jws.rst:57
+msgid ""
+"An example on Flattened JWS JSON Serialization Syntax (with line breaks "
+"within values for display purposes only)::"
+msgstr ""
+
+#: ../../jose/jws.rst:72
+msgid ""
+"A JWS requires JWA to work properly. The algorithms for JWS are provided "
+"in :ref:`specs/rfc7518`."
+msgstr ""
+
+#: ../../jose/jws.rst:78
+msgid ""
+"Generate a JWS compact serialization would be easy with "
+":meth:`JWS.serialize_compact`, build a JWS instance with JWA::"
+msgstr ""
+
+#: ../../jose/jws.rst:91
+msgid ""
+"There are other ``alg`` that you could use. Here is a full list of "
+"available algorithms:"
+msgstr ""
+
+#: ../../jose/jws.rst:94
+msgid "HS256, HS384, HS512"
+msgstr ""
+
+#: ../../jose/jws.rst:95
+msgid "RS256, RS384, RS512"
+msgstr ""
+
+#: ../../jose/jws.rst:96
+msgid "ES256, ES384, ES512"
+msgstr ""
+
+#: ../../jose/jws.rst:97
+msgid "PS256, PS384, PS512"
+msgstr ""
+
+#: ../../jose/jws.rst:99
+msgid "For example, a JWS with RS256 requires a private PEM key to sign the JWS::"
+msgstr ""
+
+#: ../../jose/jws.rst:108
+msgid ""
+"To deserialize a JWS Compact Serialization, use "
+":meth:`JWS.deserialize_compact`::"
+msgstr ""
+
+#: ../../jose/jws.rst:118
+msgid ""
+"A ``key`` can be dynamically loaded, if you don't know which key to be "
+"used::"
+msgstr ""
+
+#: ../../jose/jws.rst:126
+msgid ""
+"The result of the ``deserialize_compact`` is a dict, which contains "
+"``header`` and ``payload``. The value of the ``header`` is a "
+":class:`JWSHeader`."
+msgstr ""
+
+#: ../../jose/jws.rst:132
+msgid "JSON Serialize and Deserialize"
+msgstr ""
+
+#: ../../jose/jws.rst:134
+msgid ""
+":meth:`JWS.serialize_json` is used to generate a JWS JSON Serialization, "
+":meth:`JWS.deserialize_json` is used to extract a JWS JSON Serialization."
+" The usage is the same as \"Compact Serialize and Deserialize\", the only"
+" difference is the \"header\"::"
+msgstr ""
+
+#: ../../jose/jws.rst:149
+msgid ""
+"For general JSON Serialization, there may be many signatures, each "
+"signature can use its own key, in this case the dynamical key would be "
+"useful::"
+msgstr ""
+
+#: ../../jose/jws.rst:169
+msgid ""
+"Actually, there is a :meth:`JWS.serialize` and :meth:`JWS.deserialize`, "
+"which can automatically serialize and deserialize Compact and JSON "
+"Serializations."
+msgstr ""
+
+#: ../../jose/jws.rst:173
+msgid ""
+"The result of the ``deserialize_json`` is a dict, which contains "
+"``header`` and ``payload``. The value of the ``header`` is a "
+":class:`JWSHeader`."
+msgstr ""
+
+#: ../../jose/jws.rst:179
+msgid "Header Parameter Names"
+msgstr ""
+
+#: ../../jose/jws.rst:181
+msgid ""
+":class:`JWS` has a validation on header parameter names. It will first "
+"check if the parameter name is in \"Registered Header Parameter Names\" "
+"defined by RFC7515 `Section 4.1`_. Then it will check if the parameter "
+"name is in your defined private headers."
+msgstr ""
+
+#: ../../jose/jws.rst:186
+msgid ""
+"In this case, if there are header parameter names out of the registered "
+"header parameter names scope, you can pass the names::"
+msgstr ""
+
+#: ../../jose/jwt.rst:9
+msgid ""
+"JSON Web Token (JWT) is structured by :ref:`specs/rfc7515` or "
+":`specs/rfc7516` with certain payload claims. The JWT implementation in "
+"Authlib has all built-in algorithms via :ref:`specs/rfc7518`, it can also"
+" load private/public keys of :ref:`specs/rfc7517`::"
+msgstr ""
+
+#: ../../jose/jwt.rst:26
+msgid ""
+"The imported ``jwt`` is an instance of :class:`JWT`. It has all supported"
+" JWS algorithms, and it can handle JWK automatically. When "
+":meth:`JWT.encode` a payload, JWT will check payload claims for security,"
+" if you really want to expose them, you can always turn it off via "
+"``check=False``."
+msgstr ""
+
+#: ../../jose/jwt.rst:32
+msgid ""
+"JWT payload with JWS is not encrypted, it is just signed. Anyone can "
+"extract the payload without any private or public keys. Adding sensitive "
+"data like passwords, social security numbers in JWT payload is not safe "
+"if you are going to send them in a non-secure connection."
+msgstr ""
+
+#: ../../jose/jwt.rst:37
+msgid ""
+"You can also use JWT with JWE which is encrypted. But this feature is not"
+" mature, documentation is not provided yet."
+msgstr ""
+
+#: ../../jose/jwt.rst:41
+msgid "JWT Payload Claims Validation"
+msgstr ""
+
+#: ../../jose/jwt.rst:43
+msgid ""
+":meth:`JWT.decode` accepts 3 claims-related parameters: ``claims_cls``, "
+"``claims_option`` and ``claims_params``. The default ``claims_cls`` is "
+":class:`JWTClaims`. The ``decode`` method returns::"
+msgstr ""
+
+#: ../../jose/jwt.rst:49
+msgid ""
+"Claims validation is actually handled by :meth:`JWTClaims.validate`, "
+"which validates payload claims with ``claims_option`` and "
+"``claims_params``. For standard JWTClaims, ``claims_params`` value is not"
+" used, but it is used in :class:`~authlib.oidc.core.IDToken`."
+msgstr ""
+
+#: ../../jose/jwt.rst:54
+msgid "Here is an example of ``claims_option``::"
+msgstr ""
+
+#: ../../jose/jwt.rst:70
+msgid "It is a dict configuration, the option key is the name of a claim."
+msgstr ""
+
+#: ../../jose/jwt.rst:72
+msgid "**essential**: this value is REQUIRED."
+msgstr ""
+
+#: ../../jose/jwt.rst:73
+msgid "**values**: claim value can be any one in the values list."
+msgstr ""
+
+#: ../../jose/jwt.rst:74
+msgid "**value**: claim value MUST be the same value."
+msgstr ""
+
+#: ../../jose/jwt.rst:75
+msgid "**validate**: a function to validate the claim value."
+msgstr ""
+

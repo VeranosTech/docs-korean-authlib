@@ -1,0 +1,261 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../specs/rfc7515.rst:4
+msgid "RFC7515: JSON Web Signature"
+msgstr ""
+
+#: ../../specs/rfc7515.rst:6
+msgid "API references on RFC7515 JSON Web Signature (JWS) Authlib implementation."
+msgstr ""
+
+#: ../../specs/rfc7515.rst:9
+msgid ""
+"This section contains the generic implementation of RFC7515_. Find how to"
+" use it in :ref:`JWS Guide <jws_guide>`."
+msgstr ""
+
+#: ../../specs/rfc7515.rst:17
+msgid "API Reference"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.REGISTERED_HEADER_PARAMETER_NAMES:1 of
+msgid "Registered Header Parameter Names defined by Section 4.1"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.serialize_compact:1 of
+msgid ""
+"Generate a JWS Compact Serialization. The JWS Compact Serialization "
+"represents digitally signed or MACed content as a compact, URL-safe "
+"string, per `Section 7.1`_."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize
+#: authlib.jose.rfc7515.JWS.deserialize_compact
+#: authlib.jose.rfc7515.JWS.deserialize_json authlib.jose.rfc7515.JWS.serialize
+#: authlib.jose.rfc7515.JWS.serialize_compact
+#: authlib.jose.rfc7515.JWS.serialize_json
+#: authlib.jose.rfc7515.JWSAlgorithm.sign
+#: authlib.jose.rfc7515.JWSAlgorithm.verify authlib.jose.rfc7515.JWSHeader of
+msgid "Parameters"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.serialize_compact:11 of
+msgid "A dict of protected header"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.serialize_compact:12 of
+msgid "A bytes/string of payload"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.serialize:9
+#: authlib.jose.rfc7515.JWS.serialize_compact:13
+#: authlib.jose.rfc7515.JWS.serialize_json:7 of
+msgid "Private key used to generate signature"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize
+#: authlib.jose.rfc7515.JWS.deserialize_compact
+#: authlib.jose.rfc7515.JWS.deserialize_json authlib.jose.rfc7515.JWS.serialize
+#: authlib.jose.rfc7515.JWS.serialize_compact
+#: authlib.jose.rfc7515.JWS.serialize_json
+#: authlib.jose.rfc7515.JWSAlgorithm.sign
+#: authlib.jose.rfc7515.JWSAlgorithm.verify of
+msgid "Returns"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.serialize_compact:14 of
+msgid "byte"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize_compact:1 of
+msgid ""
+"Exact JWS Compact Serialization, and validate with the given key. If key "
+"is not provided, the returned dict will contain the signature, and "
+"signing input values. Via `Section 7.1`_."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize_compact:5 of
+msgid "text of JWS Compact Serialization"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize:5
+#: authlib.jose.rfc7515.JWS.deserialize_compact:6
+#: authlib.jose.rfc7515.JWS.deserialize_json:6 of
+msgid "key used to verify the signature"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize:6
+#: authlib.jose.rfc7515.JWS.deserialize_compact:7
+#: authlib.jose.rfc7515.JWS.deserialize_json:7 of
+msgid "a function to decode payload data"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize_compact:8
+#: authlib.jose.rfc7515.JWS.deserialize_json:8
+#: authlib.jose.rfc7515.JWS.serialize_json:8 of
+msgid "JWSObject"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize
+#: authlib.jose.rfc7515.JWS.deserialize_compact
+#: authlib.jose.rfc7515.JWS.deserialize_json of
+msgid "raise"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize:8
+#: authlib.jose.rfc7515.JWS.deserialize_compact:9
+#: authlib.jose.rfc7515.JWS.deserialize_json:9 of
+msgid "BadSignatureError"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.serialize_json:1 of
+msgid ""
+"Generate a JWS JSON Serialization. The JWS JSON Serialization represents "
+"digitally signed or MACed content as a JSON object, per `Section 7.2`_."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.serialize:7
+#: authlib.jose.rfc7515.JWS.serialize_json:5 of
+msgid "A dict/list of header"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.serialize:8
+#: authlib.jose.rfc7515.JWS.serialize_json:6 of
+msgid "A string/dict of payload"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.serialize_json:10 of
+msgid "Example ``header_obj`` of JWS JSON Serialization::"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.serialize_json:17 of
+msgid ""
+"Pass a dict to generate flattened JSON Serialization, pass a list of "
+"header dict to generate standard JSON Serialization."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize_json:1 of
+msgid ""
+"Exact JWS JSON Serialization, and validate with the given key. If key is "
+"not provided, it will return a dict without signature verification. "
+"Header will still be validated. Via `Section 7.2`_."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize_json:5 of
+msgid "text of JWS JSON Serialization"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.serialize:1 of
+msgid ""
+"Generate a JWS Serialization. It will automatically generate a Compact or"
+" JSON Serialization depending on the given header. If a header is in a "
+"JSON header format, it will call :meth:`serialize_json`, otherwise it "
+"will call :meth:`serialize_compact`."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.serialize:10 of
+msgid "byte/dict"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize:1 of
+msgid ""
+"Deserialize JWS Serialization, both compact and JSON format. It will "
+"automatically deserialize depending on the given JWS."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize:4 of
+msgid "text of JWS Compact/JSON Serialization"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize:7 of
+msgid "dict"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize:10 of
+msgid ""
+"If key is not provided, it will still deserialize the serialization "
+"without verification."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSHeader:1 of
+msgid ""
+"Header object for JWS. It combine the protected header and unprotected "
+"header together. JWSHeader itself is a dict of the combined dict. e.g."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSHeader:12 of
+msgid "dict of protected header"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSHeader:13 of
+msgid "dict of unprotected header"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSObject:1 of
+msgid "A dict instance to represent a JWS object."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSAlgorithm:1 of
+msgid ""
+"Interface for JWS algorithm. JWA specification (RFC7518) SHOULD implement"
+" the algorithms for JWS with this base implementation."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSAlgorithm.prepare_private_key:1 of
+msgid "Prepare key for sign signature."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSAlgorithm.prepare_public_key:1 of
+msgid "Prepare key for verify signature."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSAlgorithm.sign:1 of
+msgid "Sign the text msg with a private/sign key."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSAlgorithm.sign:3
+#: authlib.jose.rfc7515.JWSAlgorithm.verify:3 of
+msgid "message bytes to be signed"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSAlgorithm.sign:4 of
+msgid "private key to sign the message"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSAlgorithm.sign:5 of
+msgid "bytes"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSAlgorithm.verify:1 of
+msgid "Verify the signature of text msg with a public/verify key."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSAlgorithm.verify:4 of
+msgid "public key to verify the signature"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSAlgorithm.verify:5 of
+msgid "result signature to be compared"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSAlgorithm.verify:6 of
+msgid "boolean"
+msgstr ""
+

@@ -1,0 +1,91 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../basic/install.rst:4
+msgid "Installation of Authlib"
+msgstr ""
+
+#: ../../basic/install.rst:6
+msgid "How to install Authlib with pip, source code, etc."
+msgstr ""
+
+#: ../../basic/install.rst:9
+msgid ""
+"This part of the documentation covers the installation of Authlib, just "
+"like any other software package needs to be installed first."
+msgstr ""
+
+#: ../../basic/install.rst:14
+msgid "$ pip install Authlib"
+msgstr ""
+
+#: ../../basic/install.rst:17
+msgid "Installing Authlib is simple with `pip <http://www.pip-installer.org/>`_::"
+msgstr ""
+
+#: ../../basic/install.rst:21
+msgid "It will also install the dependencies:"
+msgstr ""
+
+#: ../../basic/install.rst:23
+msgid "requests"
+msgstr ""
+
+#: ../../basic/install.rst:24
+msgid "cryptography"
+msgstr ""
+
+#: ../../basic/install.rst:27
+msgid ""
+"You may enter problems when installing cryptography, check its official "
+"document at https://cryptography.io/en/latest/installation/"
+msgstr ""
+
+#: ../../basic/install.rst:31
+msgid "Get the Source Code"
+msgstr ""
+
+#: ../../basic/install.rst:33
+msgid ""
+"Authlib is actively developed on GitHub, where the code is `always "
+"available <https://github.com/lepture/authlib>`_."
+msgstr ""
+
+#: ../../basic/install.rst:36
+msgid "You can either clone the public repository::"
+msgstr ""
+
+#: ../../basic/install.rst:40
+msgid ""
+"Download the `tarball "
+"<https://github.com/lepture/authlib/tarball/master>`_::"
+msgstr ""
+
+#: ../../basic/install.rst:44
+msgid ""
+"Or, download the `zipball "
+"<https://github.com/lepture/authlib/zipball/master>`_::"
+msgstr ""
+
+#: ../../basic/install.rst:49
+msgid ""
+"Once you have a copy of the source, you can embed it in your Python "
+"package, or install it into your site-packages easily::"
+msgstr ""
+

@@ -1,0 +1,99 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../specs/rfc7517.rst:4
+msgid "RFC7517: JSON Web Key"
+msgstr ""
+
+#: ../../specs/rfc7517.rst:6
+msgid "API references on RFC7517 JSON Web Key (JWK) Authlib implementation."
+msgstr ""
+
+#: ../../specs/rfc7517.rst:9
+msgid ""
+"This section contains the generic implementation of RFC7517_. Find how to"
+" use it in :ref:`JWK Guide <jwk_guide>`."
+msgstr ""
+
+#: ../../specs/rfc7517.rst:18
+msgid "API Reference"
+msgstr ""
+
+#: authlib.jose.rfc7517.JWK.loads:1 of
+msgid "Loads JSON Web Key object into a public/private key."
+msgstr ""
+
+#: authlib.jose.rfc7517.JWK.dumps authlib.jose.rfc7517.JWK.loads of
+msgid "Parameters"
+msgstr ""
+
+#: authlib.jose.rfc7517.JWK.loads:3 of
+msgid "A JWK (or JWK set) format dict"
+msgstr ""
+
+#: authlib.jose.rfc7517.JWK.loads:4 of
+msgid "kid of a JWK set"
+msgstr ""
+
+#: authlib.jose.rfc7517.JWK.dumps authlib.jose.rfc7517.JWK.loads of
+msgid "Returns"
+msgstr ""
+
+#: authlib.jose.rfc7517.JWK.loads:5 of
+msgid "key"
+msgstr ""
+
+#: authlib.jose.rfc7517.JWK.dumps:1 of
+msgid "Generate JWK format for the given public/private key."
+msgstr ""
+
+#: authlib.jose.rfc7517.JWK.dumps:3 of
+msgid "A public/private key"
+msgstr ""
+
+#: authlib.jose.rfc7517.JWK.dumps:4 of
+msgid "key type of the key"
+msgstr ""
+
+#: authlib.jose.rfc7517.JWK.dumps:5 of
+msgid "Other parameters"
+msgstr ""
+
+#: authlib.jose.rfc7517.JWK.dumps:6 of
+msgid "JWK dict"
+msgstr ""
+
+#: authlib.jose.rfc7517.JWKAlgorithm.name:1 of
+msgid ""
+"Interface for JWK algorithm. JWA specification (RFC7518) SHOULD implement"
+" the algorithms for JWK with this base implementation."
+msgstr ""
+
+#: authlib.jose.rfc7517.JWKAlgorithm.prepare_key:1 of
+msgid "Prepare key before dumping it into JWK."
+msgstr ""
+
+#: authlib.jose.rfc7517.JWKAlgorithm.loads:1 of
+msgid "Load JWK dict object into a public/private key."
+msgstr ""
+
+#: authlib.jose.rfc7517.JWKAlgorithm.dumps:1 of
+msgid "Dump a public/private key into JWK dict object."
+msgstr ""
+

@@ -1,0 +1,269 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../flask/1/authorization-server.rst:2
+msgid "Authorization Server"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:4
+msgid ""
+"The Authorization Server provides several endpoints for temporary "
+"credentials, authorization, and issuing token credentials. When the "
+"resource owner (user) grants the authorization, this server will issue a "
+"token credential to the client."
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:10
+msgid "Resource Owner"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:12
+msgid ""
+"Resource Owner is the user who is using your service. A resource owner "
+"can log in your website with username/email and password, or other "
+"methods."
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:15
+msgid "A resource owner MUST implement ``get_user_id()`` method::"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:24
+msgid "Client"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:26
+msgid ""
+"A client is an application making protected resource requests on behalf "
+"of the resource owner and with its authorization. It contains at least "
+"three information:"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:30
+msgid "Client Identifier, usually called **client_id**"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:31
+msgid "Client Password, usually called **client_secret**"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:32
+msgid "Client RSA Public Key (if RSA-SHA1 signature method supported)"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:34
+msgid ""
+"Authlib has provided a mixin for SQLAlchemy, define the client with this "
+"mixin::"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:45
+msgid ""
+"A client is registered by a user (developer) on your website. Get a deep "
+"inside with :class:`~authlib.oauth1.rfc5849.ClientMixin` API reference."
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:49
+msgid "Temporary Credentials"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:51
+msgid ""
+"A temporary credential is used to exchange a token credential. It is also"
+" known as \"request token and secret\". Since it is temporary, it is "
+"better to save them into cache instead of database. A cache instance "
+"should has these methods:"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:56
+msgid "``.get(key)``"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:57
+msgid "``.set(key, value, expires=None)``"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:58
+msgid "``.delete(key)``"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:60
+msgid ""
+"A cache can be a memcache, redis or something else. If cache is not "
+"available, there is also a SQLAlchemy mixin::"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:72
+msgid ""
+"To make a Temporary Credentials model yourself, get more information with"
+" :class:`~authlib.oauth1.rfc5849.ClientMixin` API reference."
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:76
+msgid "Token Credentials"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:78
+msgid ""
+"A token credential is used to access resource owners' resources. Unlike "
+"OAuth 2, the token credential will not expire in OAuth 1. This token "
+"credentials are supposed to be saved into a persist database rather than "
+"a cache."
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:82
+msgid "Here is a SQLAlchemy mixin for easy integration::"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:96
+msgid ""
+"If SQLAlchemy is not what you want, read the API reference of "
+":class:`~authlib.oauth1.rfc5849.TokenCredentialMixin` and implement the "
+"missing methods."
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:101
+msgid "Timestamp and Nonce"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:103
+msgid ""
+"The nonce value MUST be unique across all requests with the same "
+"timestamp, client credentials, and token combinations. Authlib Flask "
+"integration has a built-in validation with cache."
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:107
+msgid "If cache is not available, there is also a SQLAlchemy mixin::"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:116
+msgid "Define A Server"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:118
+msgid ""
+"Authlib provides a ready to use "
+":class:`~authlib.flask.oauth1.AuthorizationServer` which has built-in "
+"tools to handle requests and responses::"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:127
+msgid "It can also be initialized lazily with init_app::"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:132
+msgid ""
+"It is strongly suggested that you use a cache. In this way, you don't "
+"have to re-implement a lot of the missing methods."
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:135
+msgid ""
+"There are other configurations. It works well without any changes. Here "
+"is a list of them:"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:139
+msgid "OAUTH1_TOKEN_GENERATOR"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:139
+msgid ""
+"A string of module path for importing a function to generate "
+"``oauth_token``"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:141
+msgid "OAUTH1_TOKEN_SECRET_GENERATOR"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:141
+msgid ""
+"A string of module path for importing a function to generate "
+"``oauth_token_secret``."
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:143
+msgid "OAUTH1_TOKEN_LENGTH"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:143
+msgid ""
+"If ``OAUTH1_TOKEN_GENERATOR`` is not configured, a random function will "
+"generate the given length of ``oauth_token``. Default value is ``42``."
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:147
+msgid "OAUTH1_TOKEN_SECRET_LENGTH"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:147
+msgid ""
+"A random function will generate the given length of "
+"``oauth_token_secret``. Default value is ``48``."
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:152
+msgid ""
+"These configurations are used to create the ``token_generator`` function."
+" But you can pass the ``token_generator`` when initializing the "
+"AuthorizationServer::"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:168
+msgid "Server Hooks"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:170
+msgid ""
+"There are missing hooks that should be ``register_hook`` to "
+"AuthorizationServer. There are helper functions for registering hooks. If"
+" cache is available, you can take the advantage with::"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:184
+msgid "If cache is not available, here are the helpers for SQLAlchemy::"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:198
+msgid "Server Implementation"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:200
+msgid ""
+"It is ready to create the endpoints for authorization and issuing tokens."
+" Let's start with the temporary credentials endpoint, which is used for "
+"clients to fetch a temporary credential::"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:208
+msgid ""
+"The endpoint for resource owner authorization. OAuth 1 Client will "
+"redirect user to this authorization page, so that resource owner can "
+"grant or deny this request::"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:233
+msgid ""
+"Then the final token endpoint. OAuth 1 Client will use the given "
+"temporary credential and the ``oauth_verifier`` authorized by resource "
+"owner to exchange the token credential::"
+msgstr ""
+

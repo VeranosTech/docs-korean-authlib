@@ -1,0 +1,97 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../community/sustainable.rst:4
+msgid "Sustainable"
+msgstr ""
+
+#: ../../community/sustainable.rst:6
+msgid ""
+"A sustainable project is trustworthy to use in your production "
+"environment. To make this project sustainable, we need your help. Here "
+"are several options:"
+msgstr ""
+
+#: ../../community/sustainable.rst:10
+msgid "Community Contribute"
+msgstr ""
+
+#: ../../community/sustainable.rst:12
+msgid ""
+"To make Authlib sustainable, we need your contribution. There are many "
+"ways for you, some of them even don't require code writing:"
+msgstr ""
+
+#: ../../community/sustainable.rst:15
+msgid "File a bug report when you found one."
+msgstr ""
+
+#: ../../community/sustainable.rst:16
+msgid "Solve issues already there."
+msgstr ""
+
+#: ../../community/sustainable.rst:17
+msgid "Write a blog post on Authlib."
+msgstr ""
+
+#: ../../community/sustainable.rst:18
+msgid "Give a star on GitHub and spread Authlib to other people."
+msgstr ""
+
+#: ../../community/sustainable.rst:21
+msgid "Sponsor the Project"
+msgstr ""
+
+#: ../../community/sustainable.rst:23
+msgid ""
+"Authlib is accepting sponsorships via Patreon_. You are welcome to become"
+" a supporter, a backer or a company sponsor."
+msgstr ""
+
+#: ../../community/sustainable.rst:29
+msgid "Commercial License"
+msgstr ""
+
+#: ../../community/sustainable.rst:31
+msgid ""
+"Authlib is licensed under BSD, if this license doesn't fit your company, "
+"consider to purchase a commercial license."
+msgstr ""
+
+#: ../../community/sustainable.rst:34
+msgid "Find more information on https://authlib.org/support#commercial-license"
+msgstr ""
+
+#: ../../community/sustainable.rst:38
+msgid "Commercial Support"
+msgstr ""
+
+#: ../../community/sustainable.rst:40
+msgid ""
+"I do provide commercial support on Authlib. If you need personal help or "
+"consulting on your project, please send an email with a brief of what you"
+" need to <me@lepture.com>, I'll decide whether I can take the job."
+msgstr ""
+
+#: ../../community/sustainable.rst:44
+msgid ""
+"Note that work must be Authlib related. Find more information on "
+"https://authlib.org/support#consulting-and-supports"
+msgstr ""
+

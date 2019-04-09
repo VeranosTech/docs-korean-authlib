@@ -1,0 +1,52 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../flask/1/resource-server.rst:2
+msgid "Resource Servers"
+msgstr ""
+
+#: ../../flask/1/resource-server.rst:4
+msgid ""
+"Protect users resources, so that only the authorized clients with the "
+"authorized access token can access the given scope resources."
+msgstr ""
+
+#: ../../flask/1/resource-server.rst:7
+msgid ""
+"A resource server can be a different server other than the authorization "
+"server. Here is the way to protect your users' resources::"
+msgstr ""
+
+#: ../../flask/1/resource-server.rst:43
+msgid ""
+"The ``current_credential`` is a proxy to the Token model you have defined"
+" above. Since there is a ``user`` relationship on the Token model, we can"
+" access this ``user`` with ``current_credential.user``."
+msgstr ""
+
+#: ../../flask/1/resource-server.rst:49
+msgid "MethodView & Flask-Restful"
+msgstr ""
+
+#: ../../flask/1/resource-server.rst:51
+msgid ""
+"You can also use the ``require_oauth`` decorator in "
+"``flask.views.MethodView`` and ``flask_restful.Resource``::"
+msgstr ""
+

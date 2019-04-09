@@ -1,0 +1,77 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:52+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../index.rst:7
+msgid "Authlib: Python Authentication"
+msgstr ""
+
+#: ../../index.rst:9
+msgid "Release v\\ |version|. (:ref:`Installation <install>`)"
+msgstr ""
+
+#: ../../index.rst:11
+msgid ""
+"The ultimate Python library in building OAuth and OpenID Connect servers."
+" It is designed from low level specifications implementations to high "
+"level frameworks integrations, to meet the needs of everyone."
+msgstr ""
+
+#: ../../index.rst:15
+msgid "Authlib is compatible with Python2.7+ and Python3.5+."
+msgstr ""
+
+#: ../../index.rst:18
+msgid "Overview"
+msgstr ""
+
+#: ../../index.rst:20
+msgid "A simple :ref:`flask_client` which connects to the GitHub OAuth2 API::"
+msgstr ""
+
+#: ../../index.rst:41
+msgid ""
+"OAuth server (provider) on the other hand is a little complex, find a "
+"real :ref:`flask_oauth2_server` via `Example of OAuth 2.0 server "
+"<https://github.com/authlib/example-oauth2-server>`_."
+msgstr ""
+
+#: ../../index.rst:46
+msgid "User Guide"
+msgstr ""
+
+#: ../../index.rst:48
+msgid ""
+"This part of the documentation begins with some background information "
+"about Authlib, and installation of Authlib."
+msgstr ""
+
+#: ../../index.rst:65
+msgid "Get Updates"
+msgstr ""
+
+#: ../../index.rst:67
+msgid "Stay tuned with Authlib, here is a history of Authlib changes."
+msgstr ""
+
+#: ../../index.rst:74
+msgid ""
+"Consider to follow `Authlib on Twitter <https://twitter.com/authlib>`_, "
+"and subscribe `Authlib Blog <https://blog.authlib.org/>`_."
+msgstr ""
+

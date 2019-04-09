@@ -1,0 +1,135 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../django/1/authorization-server.rst:2
+msgid "Authorization Server"
+msgstr ""
+
+#: ../../django/1/authorization-server.rst:4
+msgid ""
+"The Authorization Server provides several endpoints for temporary "
+"credentials, authorization, and issuing token credentials. When the "
+"resource owner (user) grants the authorization, this server will issue a "
+"token credential to the client."
+msgstr ""
+
+#: ../../django/1/authorization-server.rst:9
+msgid ""
+"Currently, Authlib Django implementation is using cache a lot, which "
+"means you don't have to handle temporary credentials, timestamp and nonce"
+" yourself, they are all built-in."
+msgstr ""
+
+#: ../../django/1/authorization-server.rst:13
+msgid ""
+"To create an authorization server, only **Client** and **Token** models "
+"are required::"
+msgstr ""
+
+#: ../../django/1/authorization-server.rst:23
+msgid "Resource Owner"
+msgstr ""
+
+#: ../../django/1/authorization-server.rst:25
+msgid ""
+"Resource Owner is the user who is using your service. A resource owner "
+"can log in your website with username/email and password, or other "
+"methods. In Django, we can use the built in contrib user::"
+msgstr ""
+
+#: ../../django/1/authorization-server.rst:32
+msgid "Client"
+msgstr ""
+
+#: ../../django/1/authorization-server.rst:34
+msgid ""
+"A client is an application making protected resource requests on behalf "
+"of the resource owner and with its authorization. It contains at least "
+"three information:"
+msgstr ""
+
+#: ../../django/1/authorization-server.rst:38
+msgid "Client Identifier, usually called **client_id**"
+msgstr ""
+
+#: ../../django/1/authorization-server.rst:39
+msgid "Client Password, usually called **client_secret**"
+msgstr ""
+
+#: ../../django/1/authorization-server.rst:40
+msgid "Client RSA Public Key (if RSA-SHA1 signature method supported)"
+msgstr ""
+
+#: ../../django/1/authorization-server.rst:42
+msgid ""
+"Authlib has no implementation for client model in Django. You need to "
+"implement it yourself::"
+msgstr ""
+
+#: ../../django/1/authorization-server.rst:64
+msgid ""
+"A client is registered by a user (developer) on your website. Get a deep "
+"inside with :class:`~authlib.oauth1.rfc5849.ClientMixin` API reference."
+msgstr ""
+
+#: ../../django/1/authorization-server.rst:68
+msgid "Token"
+msgstr ""
+
+#: ../../django/1/authorization-server.rst:70
+msgid ""
+"A token credential is used to access resource owners' resources. Unlike "
+"OAuth 2, the token credential will not expire in OAuth 1. This token "
+"credentials are supposed to be saved into a persist database rather than "
+"a cache."
+msgstr ""
+
+#: ../../django/1/authorization-server.rst:74
+msgid "Here is an example of how it looks in Django::"
+msgstr ""
+
+#: ../../django/1/authorization-server.rst:93
+msgid "Server Implementation"
+msgstr ""
+
+#: ../../django/1/authorization-server.rst:95
+msgid ""
+"It is ready to create the endpoints for authorization and issuing tokens."
+" Let's start with the temporary credentials endpoint, which is used for "
+"clients to fetch a temporary credential::"
+msgstr ""
+
+#: ../../django/1/authorization-server.rst:105
+msgid ""
+"The endpoint for resource owner authorization. OAuth 1 Client will "
+"redirect user to this authorization page, so that resource owner can "
+"grant or deny this request::"
+msgstr ""
+
+#: ../../django/1/authorization-server.rst:134
+msgid ""
+"Then the final token endpoint. OAuth 1 Client will use the given "
+"temporary credential and the ``oauth_verifier`` authorized by resource "
+"owner to exchange the token credential::"
+msgstr ""
+
+#: ../../django/1/authorization-server.rst:144
+msgid "At last, you need to register these views into url patterns."
+msgstr ""
+

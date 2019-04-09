@@ -1,0 +1,85 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../community/support.rst:2
+msgid "Support"
+msgstr ""
+
+#: ../../community/support.rst:4
+msgid "If you have questions or issues about Authlib, there are several options:"
+msgstr ""
+
+#: ../../community/support.rst:9
+msgid "StackOverflow"
+msgstr ""
+
+#: ../../community/support.rst:11
+msgid ""
+"If your question does not contain sensitive information, and it is a help"
+" request instead of bug reports, please ask a question on StackOverflow "
+"and use the tag **authlib**."
+msgstr ""
+
+#: ../../community/support.rst:16
+msgid "Twitter"
+msgstr ""
+
+#: ../../community/support.rst:18
+msgid ""
+"If your StackOverflow question is not answered for a long time, please "
+"ping me at Twitter `@authlib <https://twitter.com/authlib>`_."
+msgstr ""
+
+#: ../../community/support.rst:22
+msgid "GitHub Issues"
+msgstr ""
+
+#: ../../community/support.rst:24
+msgid ""
+"GitHub issues is used for but reporting and feature requests. Please "
+"don't ask questions on GitHub issues."
+msgstr ""
+
+#: ../../community/support.rst:28
+msgid "Feature Requests"
+msgstr ""
+
+#: ../../community/support.rst:30
+msgid ""
+"If you have feature requests, please comment on `Features Checklist`_. If"
+" they are accepted, they will be listed in the post."
+msgstr ""
+
+#: ../../community/support.rst:37
+msgid "Commercial Support"
+msgstr ""
+
+#: ../../community/support.rst:39
+msgid ""
+"I do provide commercial support on Authlib. If you need personal help or "
+"consulting on your project, please send an email with a brief of what you"
+" need to <me@lepture.com>, I'll decide whether I can take the job."
+msgstr ""
+
+#: ../../community/support.rst:43
+msgid ""
+"Note that work must be Authlib related. Find more information on "
+"https://authlib.org/support#consulting-and-supports"
+msgstr ""
+

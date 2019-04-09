@@ -1,0 +1,194 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../client/django.rst:4
+msgid "Django OAuth Client"
+msgstr ""
+
+#: ../../client/django.rst:6
+msgid "The built-in Django integrations for OAuth 1.0 and OAuth 2.0 clients."
+msgstr ""
+
+#: ../../client/django.rst:12
+msgid "Looking for OAuth providers?"
+msgstr ""
+
+#: ../../client/django.rst:14
+msgid ":ref:`django_oauth1_server`"
+msgstr ""
+
+#: ../../client/django.rst:15
+msgid "OAuth 2 provider is not ready"
+msgstr ""
+
+#: ../../client/django.rst:17
+msgid ""
+"The Django client shares a similar API with Flask client. But there are "
+"differences, since Django has no request context, you need to pass "
+"``request`` argument yourself."
+msgstr ""
+
+#: ../../client/django.rst:21
+msgid "Create a registry with :class:`OAuth` object::"
+msgstr ""
+
+#: ../../client/django.rst:28
+msgid "Configuration"
+msgstr ""
+
+#: ../../client/django.rst:30
+msgid ""
+"To register a remote application on OAuth registry, using the "
+":meth:`~OAuth.register` method::"
+msgstr ""
+
+#: ../../client/django.rst:47
+msgid ""
+"The first parameter in ``register`` method is the **name** of the remote "
+"application. You can access the remote application with::"
+msgstr ""
+
+#: ../../client/django.rst:52
+msgid ""
+"The second parameter in ``register`` method is configuration. Every key "
+"value pair can be omit. They can be configured from your Django "
+"settings::"
+msgstr ""
+
+#: ../../client/django.rst:71
+msgid "client_kwargs"
+msgstr ""
+
+#: ../../client/django.rst:73
+msgid ""
+"The ``client_kwargs`` is a dict configuration to pass extra parameters to"
+" ``OAuth1Session`` or ``OAuth2Session``."
+msgstr ""
+
+#: ../../client/django.rst:76
+msgid "For OAuth 1.0, you can pass extra parameters like::"
+msgstr ""
+
+#: ../../client/django.rst:84
+msgid "For OAuth 2.0, you can pass extra parameters like::"
+msgstr ""
+
+#: ../../client/django.rst:92
+msgid ""
+"There are several ``token_endpoint_auth_method``, get a deep inside the "
+":ref:`client_auth_methods`."
+msgstr ""
+
+#: ../../client/django.rst:96
+msgid "Sessions Middleware"
+msgstr ""
+
+#: ../../client/django.rst:98
+msgid ""
+"In OAuth 1, Django client will save the request token in sessions. In "
+"this case, you need to configure Session Middleware in Django::"
+msgstr ""
+
+#: ../../client/django.rst:105
+msgid ""
+"Follow the official Django documentation to set a proper session. Either "
+"a database backend or a cache backend would work well."
+msgstr ""
+
+#: ../../client/django.rst:110
+msgid ""
+"Be aware, using secure cookie as session backend will expose your request"
+" token."
+msgstr ""
+
+#: ../../client/django.rst:115
+msgid "Database Design"
+msgstr ""
+
+#: ../../client/django.rst:117
+msgid ""
+"Authlib Django client has no built-in database model. You need to design "
+"the Token model by yourself. This is designed by intention."
+msgstr ""
+
+#: ../../client/django.rst:120
+msgid "Here are some hints on how to design your schema::"
+msgstr ""
+
+#: ../../client/django.rst:153
+msgid "Implement the Server"
+msgstr ""
+
+#: ../../client/django.rst:155
+msgid "There are two views to be completed, no matter it is OAuth 1 or OAuth 2::"
+msgstr ""
+
+#: ../../client/django.rst:176
+msgid ""
+"When using the oauth client to make HTTP requests, developers will always"
+" need to get the ``token`` and pass the ``token`` into the requests. Here"
+" is an improved way to handle this issue with ``fetch_token`` feature::"
+msgstr ""
+
+#: ../../client/django.rst:204
+msgid ""
+"Developers can also pass the ``fetch_token`` to ``OAuth`` registry so "
+"that they don't have to pass a ``fetch_token`` for each remote app. In "
+"this case, the ``fetch_token`` will accept two parameters::"
+msgstr ""
+
+#: ../../client/django.rst:222
+msgid ""
+"Now, developers don't have to pass a ``token`` in the HTTP requests, "
+"instead, they can pass the ``request``::"
+msgstr ""
+
+#: ../../client/django.rst:231
+msgid "Code Challenge"
+msgstr ""
+
+#: ../../client/django.rst:233
+msgid ""
+"Adding ``code_challenge`` provided by :ref:`specs/rfc7636` is simple. You"
+" register your remote app with a ``code_challenge_method``::"
+msgstr ""
+
+#: ../../client/django.rst:247
+msgid "Note, the only supportted ``code_challenge_method`` is ``S256``."
+msgstr ""
+
+#: ../../client/django.rst:250
+msgid "Compliance Fix"
+msgstr ""
+
+#: ../../client/django.rst:252
+msgid ""
+"The :class:`RemoteApp` is a subclass of "
+":class:`~authlib.client.OAuthClient`, they share the same logic for "
+"compliance fix. Construct a method to fix requests session::"
+msgstr ""
+
+#: ../../client/django.rst:265
+msgid "When :meth:`OAuth.register` a remote app, pass it in the parameters::"
+msgstr ""
+
+#: ../../client/django.rst:276
+msgid "Find all the available compliance hooks at :ref:`compliance_fix_oauth2`."
+msgstr ""
+

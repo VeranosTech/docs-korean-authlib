@@ -1,0 +1,1629 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:52+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../flask/1/api.rst:2
+msgid "API References of Flask OAuth 1.0 Server"
+msgstr ""
+
+#: ../../flask/1/api.rst:4
+msgid ""
+"This part of the documentation covers the interface of Flask OAuth 1.0 "
+"Server."
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer:1 of
+msgid ""
+"Flask implementation of :class:`authlib.rfc5849.AuthorizationServer`. "
+"Initialize it with Flask app instance, client model class and cache::"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer
+#: authlib.flask.oauth1.AuthorizationServer.create_authorization_response
+#: authlib.flask.oauth1.AuthorizationServer.create_authorization_verifier
+#: authlib.flask.oauth1.AuthorizationServer.create_temporary_credential
+#: authlib.flask.oauth1.AuthorizationServer.create_temporary_credentials_response
+#: authlib.flask.oauth1.AuthorizationServer.create_token_credential
+#: authlib.flask.oauth1.AuthorizationServer.create_token_response
+#: authlib.flask.oauth1.AuthorizationServer.delete_temporary_credential
+#: authlib.flask.oauth1.AuthorizationServer.exists_nonce
+#: authlib.flask.oauth1.AuthorizationServer.get_client_by_id
+#: authlib.flask.oauth1.AuthorizationServer.get_temporary_credential
+#: authlib.flask.oauth1.ResourceProtector.exists_nonce
+#: authlib.flask.oauth1.ResourceProtector.get_client_by_id
+#: authlib.flask.oauth1.ResourceProtector.get_token_credential
+#: authlib.flask.oauth1.cache.create_exists_nonce_func
+#: authlib.flask.oauth1.cache.register_nonce_hooks
+#: authlib.flask.oauth1.cache.register_temporary_credential_hooks
+#: authlib.flask.oauth1.sqla.create_exists_nonce_func
+#: authlib.flask.oauth1.sqla.create_query_client_func
+#: authlib.flask.oauth1.sqla.create_query_token_func
+#: authlib.flask.oauth1.sqla.register_nonce_hooks
+#: authlib.flask.oauth1.sqla.register_temporary_credential_hooks
+#: authlib.flask.oauth1.sqla.register_token_credential_hooks
+#: authlib.flask.oauth2.AuthorizationServer.create_authorization_response
+#: authlib.flask.oauth2.AuthorizationServer.create_endpoint_response
+#: authlib.flask.oauth2.AuthorizationServer.create_token_response
+#: authlib.flask.oauth2.AuthorizationServer.register_endpoint
+#: authlib.flask.oauth2.AuthorizationServer.register_grant
+#: authlib.flask.oauth2.ResourceProtector.acquire_token
+#: authlib.flask.oauth2.ResourceProtector.raise_error_response
+#: authlib.flask.oauth2.cache.register_cache_authorization_code
+#: authlib.flask.oauth2.sqla.create_bearer_token_validator
+#: authlib.flask.oauth2.sqla.create_query_client_func
+#: authlib.flask.oauth2.sqla.create_query_token_func
+#: authlib.flask.oauth2.sqla.create_revocation_endpoint
+#: authlib.flask.oauth2.sqla.create_save_token_func of
+msgid "Parameters"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer:9 of
+msgid "A Flask app instance"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer:10 of
+msgid ""
+"A function to get client by client_id. The client model class MUST "
+"implement the methods described by "
+":class:`~authlib.oauth1.rfc5849.ClientMixin`."
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer:13 of
+msgid "A function to generate token"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_authorization_response:1 of
+msgid ""
+"Validate authorization request and create authorization response. Assume "
+"the endpoint for authorization request is "
+"``https://photos.example.net/authorize``, the client redirects Jane's "
+"user-agent to the server's Resource Owner Authorization endpoint to "
+"obtain Jane's approval for accessing her private photos::"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_authorization_response:9 of
+msgid ""
+"The server requests Jane to sign in using her username and password and "
+"if successful, asks her to approve granting 'printer.example.com' access "
+"to her private photos.  Jane approves the request and her user-agent is "
+"redirected to the callback URI provided by the client in the previous "
+"request (line breaks are for display purposes only)::"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_authorization_response:18
+#: authlib.flask.oauth1.AuthorizationServer.create_temporary_credentials_response:28
+#: authlib.flask.oauth1.AuthorizationServer.create_token_response:31 of
+msgid "OAuth1Request instance."
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_authorization_response:19 of
+msgid "if granted, pass the grant user, otherwise None."
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_authorization_response
+#: authlib.flask.oauth1.AuthorizationServer.create_authorization_verifier
+#: authlib.flask.oauth1.AuthorizationServer.create_temporary_credential
+#: authlib.flask.oauth1.AuthorizationServer.create_temporary_credentials_response
+#: authlib.flask.oauth1.AuthorizationServer.create_token_credential
+#: authlib.flask.oauth1.AuthorizationServer.create_token_response
+#: authlib.flask.oauth1.AuthorizationServer.exists_nonce
+#: authlib.flask.oauth1.AuthorizationServer.get_client_by_id
+#: authlib.flask.oauth1.AuthorizationServer.get_temporary_credential
+#: authlib.flask.oauth1.ResourceProtector.exists_nonce
+#: authlib.flask.oauth1.ResourceProtector.get_client_by_id
+#: authlib.flask.oauth1.ResourceProtector.get_token_credential
+#: authlib.flask.oauth2.AuthorizationServer.create_authorization_response
+#: authlib.flask.oauth2.AuthorizationServer.create_endpoint_response
+#: authlib.flask.oauth2.ResourceProtector.acquire_token of
+msgid "Returns"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_authorization_response:20
+#: authlib.flask.oauth1.AuthorizationServer.create_temporary_credentials_response:29
+#: authlib.flask.oauth1.AuthorizationServer.create_token_response:32 of
+msgid "(status_code, body, headers)"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_authorization_verifier:1 of
+msgid ""
+"Create and bind ``oauth_verifier`` to temporary credential. It could be "
+"re-implemented in this way::"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_authorization_verifier:18
+#: authlib.flask.oauth1.AuthorizationServer.create_temporary_credential:18
+#: authlib.flask.oauth1.AuthorizationServer.create_token_credential:19
+#: authlib.flask.oauth1.AuthorizationServer.delete_temporary_credential:8
+#: authlib.flask.oauth1.AuthorizationServer.exists_nonce:5
+#: authlib.flask.oauth1.AuthorizationServer.get_temporary_credential:11
+#: authlib.flask.oauth1.ResourceProtector.exists_nonce:5
+#: authlib.flask.oauth1.ResourceProtector.get_token_credential:4 of
+msgid "OAuth1Request instance"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_authorization_verifier:19 of
+msgid "A string of ``oauth_verifier``"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_temporary_credential:1 of
+msgid ""
+"Generate and save a temporary credential into database or cache. A "
+"temporary credential is used for exchanging token credential. This method"
+" should be re-implemented::"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_temporary_credential:19
+#: authlib.flask.oauth1.AuthorizationServer.get_temporary_credential:12 of
+msgid "TemporaryCredential instance"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_temporary_credentials_response:1
+#: of
+msgid ""
+"Validate temporary credentials token request and create response for "
+"temporary credentials token. Assume the endpoint of temporary credentials"
+" request is ``https://photos.example.net/initiate``:"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_temporary_credentials_response:17
+#: of
+msgid ""
+"The server validates the request and replies with a set of temporary "
+"credentials in the body of the HTTP response:"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_token_credential:1 of
+msgid ""
+"Create and save token credential into database. This method would be re-"
+"implemented like this::"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_token_credential:20 of
+msgid "TokenCredential instance"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_token_response:1 of
+msgid ""
+"Validate token request and create token response. Assuming the endpoint "
+"of token request is ``https://photos.example.net/token``, the callback "
+"request informs the client that Jane completed the authorization process."
+"  The client then requests a set of token credentials using its temporary"
+" credentials (over a secure Transport Layer Security (TLS) channel):"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_token_response:21 of
+msgid ""
+"The server validates the request and replies with a set of token "
+"credentials in the body of the HTTP response:"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.delete_temporary_credential:1 of
+msgid ""
+"Delete temporary credential from database or cache. For instance, if "
+"temporary credential is saved in cache::"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.exists_nonce:1
+#: authlib.flask.oauth1.ResourceProtector.exists_nonce:1 of
+msgid ""
+"The nonce value MUST be unique across all requests with the same "
+"timestamp, client credentials, and token combinations."
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.exists_nonce:4
+#: authlib.flask.oauth1.ResourceProtector.exists_nonce:4 of
+msgid "A string value of ``oauth_nonce``"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.exists_nonce:6
+#: authlib.flask.oauth1.ResourceProtector.exists_nonce:6 of
+msgid "Boolean"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.get_client_by_id:1
+#: authlib.flask.oauth1.ResourceProtector.get_client_by_id:1 of
+msgid "Get client instance with the given ``client_id``."
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.get_client_by_id:3
+#: authlib.flask.oauth1.ResourceProtector.get_client_by_id:3 of
+msgid "A string of client_id"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.get_client_by_id:4
+#: authlib.flask.oauth1.ResourceProtector.get_client_by_id:4 of
+msgid "Client instance"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.get_temporary_credential:1 of
+msgid ""
+"Get the temporary credential from database or cache. A temporary "
+"credential should share the same methods as described in models of "
+"``TemporaryCredentialMixin``::"
+msgstr ""
+
+#: authlib.flask.oauth1.ResourceProtector:1 of
+msgid ""
+"A protecting method for resource servers. Initialize a resource protector"
+" with the query_token method::"
+msgstr ""
+
+#: authlib.flask.oauth1.ResourceProtector.get_token_credential:1 of
+msgid ""
+"Fetch the token credential from data store like a database, framework "
+"should implement this function."
+msgstr ""
+
+#: authlib.flask.oauth1.ResourceProtector.get_token_credential:5 of
+msgid "Token model instance"
+msgstr ""
+
+#: ../../flask/1/api.rst:18
+msgid ""
+"Routes protected by :class:`ResourceProtector` can access current "
+"credential with this variable."
+msgstr ""
+
+#: ../../flask/1/api.rst:22 ../../flask/2/api.rst:38
+msgid "Cache Helper Functions"
+msgstr ""
+
+#: authlib.flask.oauth1.cache.create_exists_nonce_func:1
+#: authlib.flask.oauth1.sqla.create_exists_nonce_func:1 of
+msgid ""
+"Create an ``exists_nonce`` function that can be used in hooks and "
+"resource protector."
+msgstr ""
+
+#: authlib.flask.oauth1.cache.create_exists_nonce_func:4
+#: authlib.flask.oauth1.cache.register_nonce_hooks:4
+#: authlib.flask.oauth1.cache.register_temporary_credential_hooks:4 of
+msgid "Cache instance"
+msgstr ""
+
+#: authlib.flask.oauth1.cache.create_exists_nonce_func:5
+#: authlib.flask.oauth1.cache.register_nonce_hooks:5
+#: authlib.flask.oauth1.cache.register_temporary_credential_hooks:5 of
+msgid "key prefix for temporary credential"
+msgstr ""
+
+#: authlib.flask.oauth1.cache.create_exists_nonce_func:6
+#: authlib.flask.oauth1.cache.register_nonce_hooks:6 of
+msgid "Expire time for nonce"
+msgstr ""
+
+#: authlib.flask.oauth1.cache.register_nonce_hooks:1
+#: authlib.flask.oauth1.sqla.register_nonce_hooks:1 of
+msgid "Register nonce related hooks to authorization server."
+msgstr ""
+
+#: authlib.flask.oauth1.cache.register_nonce_hooks:3
+#: authlib.flask.oauth1.cache.register_temporary_credential_hooks:3
+#: authlib.flask.oauth1.sqla.register_nonce_hooks:3
+#: authlib.flask.oauth1.sqla.register_temporary_credential_hooks:3
+#: authlib.flask.oauth1.sqla.register_token_credential_hooks:3 of
+msgid "AuthorizationServer instance"
+msgstr ""
+
+#: authlib.flask.oauth1.cache.register_temporary_credential_hooks:1
+#: authlib.flask.oauth1.sqla.register_temporary_credential_hooks:1 of
+msgid "Register temporary credential related hooks to authorization server."
+msgstr ""
+
+#: ../../flask/1/api.rst:33
+msgid "SQLAlchemy Help Functions"
+msgstr ""
+
+#: authlib.flask.oauth1.sqla.create_query_client_func:1 of
+msgid ""
+"Create an ``query_client`` function that can be used in authorization "
+"server and resource protector."
+msgstr ""
+
+#: authlib.flask.oauth1.sqla.create_exists_nonce_func:4
+#: authlib.flask.oauth1.sqla.create_query_client_func:4
+#: authlib.flask.oauth1.sqla.create_query_token_func:4
+#: authlib.flask.oauth1.sqla.register_nonce_hooks:4
+#: authlib.flask.oauth1.sqla.register_temporary_credential_hooks:4
+#: authlib.flask.oauth1.sqla.register_token_credential_hooks:4
+#: authlib.flask.oauth2.sqla.create_bearer_token_validator:4
+#: authlib.flask.oauth2.sqla.create_query_client_func:4
+#: authlib.flask.oauth2.sqla.create_query_token_func:4
+#: authlib.flask.oauth2.sqla.create_revocation_endpoint:4
+#: authlib.flask.oauth2.sqla.create_save_token_func:4 of
+msgid "SQLAlchemy session"
+msgstr ""
+
+#: authlib.flask.oauth1.sqla.create_query_client_func:5 of
+msgid "Client class"
+msgstr ""
+
+#: authlib.flask.oauth1.sqla.create_query_token_func:1 of
+msgid "Create an ``query_token`` function that can be used in resource protector."
+msgstr ""
+
+#: authlib.flask.oauth1.sqla.create_query_token_func:5
+#: authlib.flask.oauth1.sqla.register_token_credential_hooks:5 of
+msgid "TokenCredential class"
+msgstr ""
+
+#: authlib.flask.oauth1.sqla.create_exists_nonce_func:5
+#: authlib.flask.oauth1.sqla.register_nonce_hooks:5 of
+msgid "TimestampNonce class"
+msgstr ""
+
+#: authlib.flask.oauth1.sqla.register_temporary_credential_hooks:5 of
+msgid "TemporaryCredential class"
+msgstr ""
+
+#: authlib.flask.oauth1.sqla.register_token_credential_hooks:1 of
+msgid "Register token credential related hooks to authorization server."
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:2
+#: ../../flask/2/authorization-server.rst:2
+msgid "Authorization Server"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:4
+msgid ""
+"The Authorization Server provides several endpoints for temporary "
+"credentials, authorization, and issuing token credentials. When the "
+"resource owner (user) grants the authorization, this server will issue a "
+"token credential to the client."
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:10
+#: ../../flask/2/authorization-server.rst:12
+msgid "Resource Owner"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:12
+#: ../../flask/2/authorization-server.rst:14
+msgid ""
+"Resource Owner is the user who is using your service. A resource owner "
+"can log in your website with username/email and password, or other "
+"methods."
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:15
+msgid "A resource owner MUST implement ``get_user_id()`` method::"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:24
+#: ../../flask/2/authorization-server.rst:28
+msgid "Client"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:26
+#: ../../flask/2/authorization-server.rst:30
+msgid ""
+"A client is an application making protected resource requests on behalf "
+"of the resource owner and with its authorization. It contains at least "
+"three information:"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:30
+#: ../../flask/2/authorization-server.rst:34
+msgid "Client Identifier, usually called **client_id**"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:31
+#: ../../flask/2/authorization-server.rst:35
+msgid "Client Password, usually called **client_secret**"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:32
+msgid "Client RSA Public Key (if RSA-SHA1 signature method supported)"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:34
+#: ../../flask/2/authorization-server.rst:38
+msgid ""
+"Authlib has provided a mixin for SQLAlchemy, define the client with this "
+"mixin::"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:45
+msgid ""
+"A client is registered by a user (developer) on your website. Get a deep "
+"inside with :class:`~authlib.oauth1.rfc5849.ClientMixin` API reference."
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:49
+msgid "Temporary Credentials"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:51
+msgid ""
+"A temporary credential is used to exchange a token credential. It is also"
+" known as \"request token and secret\". Since it is temporary, it is "
+"better to save them into cache instead of database. A cache instance "
+"should has these methods:"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:56
+msgid "``.get(key)``"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:57
+msgid "``.set(key, value, expires=None)``"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:58
+msgid "``.delete(key)``"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:60
+msgid ""
+"A cache can be a memcache, redis or something else. If cache is not "
+"available, there is also a SQLAlchemy mixin::"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:72
+msgid ""
+"To make a Temporary Credentials model yourself, get more information with"
+" :class:`~authlib.oauth1.rfc5849.ClientMixin` API reference."
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:76
+msgid "Token Credentials"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:78
+msgid ""
+"A token credential is used to access resource owners' resources. Unlike "
+"OAuth 2, the token credential will not expire in OAuth 1. This token "
+"credentials are supposed to be saved into a persist database rather than "
+"a cache."
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:82
+msgid "Here is a SQLAlchemy mixin for easy integration::"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:96
+msgid ""
+"If SQLAlchemy is not what you want, read the API reference of "
+":class:`~authlib.oauth1.rfc5849.TokenCredentialMixin` and implement the "
+"missing methods."
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:101
+msgid "Timestamp and Nonce"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:103
+msgid ""
+"The nonce value MUST be unique across all requests with the same "
+"timestamp, client credentials, and token combinations. Authlib Flask "
+"integration has a built-in validation with cache."
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:107
+msgid "If cache is not available, there is also a SQLAlchemy mixin::"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:116
+msgid "Define A Server"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:118
+msgid ""
+"Authlib provides a ready to use "
+":class:`~authlib.flask.oauth1.AuthorizationServer` which has built-in "
+"tools to handle requests and responses::"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:127
+#: ../../flask/2/authorization-server.rst:123
+msgid "It can also be initialized lazily with init_app::"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:132
+msgid ""
+"It is strongly suggested that you use a cache. In this way, you don't "
+"have to re-implement a lot of the missing methods."
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:135
+msgid ""
+"There are other configurations. It works well without any changes. Here "
+"is a list of them:"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:139
+msgid "OAUTH1_TOKEN_GENERATOR"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:139
+msgid ""
+"A string of module path for importing a function to generate "
+"``oauth_token``"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:141
+msgid "OAUTH1_TOKEN_SECRET_GENERATOR"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:141
+msgid ""
+"A string of module path for importing a function to generate "
+"``oauth_token_secret``."
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:143
+msgid "OAUTH1_TOKEN_LENGTH"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:143
+msgid ""
+"If ``OAUTH1_TOKEN_GENERATOR`` is not configured, a random function will "
+"generate the given length of ``oauth_token``. Default value is ``42``."
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:147
+msgid "OAUTH1_TOKEN_SECRET_LENGTH"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:147
+msgid ""
+"A random function will generate the given length of "
+"``oauth_token_secret``. Default value is ``48``."
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:152
+msgid ""
+"These configurations are used to create the ``token_generator`` function."
+" But you can pass the ``token_generator`` when initializing the "
+"AuthorizationServer::"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:168
+msgid "Server Hooks"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:170
+msgid ""
+"There are missing hooks that should be ``register_hook`` to "
+"AuthorizationServer. There are helper functions for registering hooks. If"
+" cache is available, you can take the advantage with::"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:184
+msgid "If cache is not available, here are the helpers for SQLAlchemy::"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:198
+msgid "Server Implementation"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:200
+msgid ""
+"It is ready to create the endpoints for authorization and issuing tokens."
+" Let's start with the temporary credentials endpoint, which is used for "
+"clients to fetch a temporary credential::"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:208
+msgid ""
+"The endpoint for resource owner authorization. OAuth 1 Client will "
+"redirect user to this authorization page, so that resource owner can "
+"grant or deny this request::"
+msgstr ""
+
+#: ../../flask/1/authorization-server.rst:233
+msgid ""
+"Then the final token endpoint. OAuth 1 Client will use the given "
+"temporary credential and the ``oauth_verifier`` authorized by resource "
+"owner to exchange the token credential::"
+msgstr ""
+
+#: ../../flask/1/customize.rst:2
+msgid "Customize Signature Methods"
+msgstr ""
+
+#: ../../flask/1/customize.rst:4
+msgid ""
+"The ``AuthorizationServer`` and ``ResourceProtector`` only support "
+"**HMAC-SHA1** signature method by default. There are three signature "
+"methods built-in, which can be enabled with the configuration::"
+msgstr ""
+
+#: ../../flask/1/customize.rst:10
+msgid ""
+"It is also possible to extend the signature methods. For example, you "
+"want to create a **HMAC-SHA256** signature method::"
+msgstr ""
+
+#: ../../flask/1/customize.rst:34
+msgid "Then add this method into **SUPPORTED_SIGNATURE_METHODS**::"
+msgstr ""
+
+#: ../../flask/1/customize.rst:38
+msgid ""
+"With this configuration, your server will support **HMAC-SHA256** "
+"signature method only. If you want to support more methods, add them to "
+"the list."
+msgstr ""
+
+#: ../../flask/1/index.rst:4
+msgid "Flask OAuth 1.0 Server"
+msgstr ""
+
+#: ../../flask/1/index.rst:6
+msgid ""
+"How to create an OAuth 1.0 server in Flask with Authlib. And understand "
+"how OAuth 1.0 works."
+msgstr ""
+
+#: ../../flask/1/index.rst:10
+msgid ""
+"Implement OAuth 1.0 provider in Flask. An OAuth 1 provider contains two "
+"servers:"
+msgstr ""
+
+#: ../../flask/1/index.rst:12
+msgid "Authorization Server: to issue access tokens"
+msgstr ""
+
+#: ../../flask/1/index.rst:13
+msgid "Resources Server: to serve your users' resources"
+msgstr ""
+
+#: ../../flask/1/index.rst:15
+msgid ""
+"At the very beginning, we need to have some basic understanding of "
+":ref:`the OAuth 1.0 <understand_oauth1>`."
+msgstr ""
+
+#: ../../flask/1/index.rst:20 ../../flask/2/index.rst:26
+msgid ""
+"If you are developing on your localhost, remember to set the environment "
+"variable::"
+msgstr ""
+
+#: ../../flask/1/index.rst:25
+msgid "Here are the details in documentation:"
+msgstr ""
+
+#: ../../flask/1/resource-server.rst:2
+msgid "Resource Servers"
+msgstr ""
+
+#: ../../flask/1/resource-server.rst:4 ../../flask/2/resource-server.rst:6
+msgid ""
+"Protect users resources, so that only the authorized clients with the "
+"authorized access token can access the given scope resources."
+msgstr ""
+
+#: ../../flask/1/resource-server.rst:7 ../../flask/2/resource-server.rst:9
+msgid ""
+"A resource server can be a different server other than the authorization "
+"server. Here is the way to protect your users' resources::"
+msgstr ""
+
+#: ../../flask/1/resource-server.rst:43
+msgid ""
+"The ``current_credential`` is a proxy to the Token model you have defined"
+" above. Since there is a ``user`` relationship on the Token model, we can"
+" access this ``user`` with ``current_credential.user``."
+msgstr ""
+
+#: ../../flask/1/resource-server.rst:49 ../../flask/2/resource-server.rst:113
+msgid "MethodView & Flask-Restful"
+msgstr ""
+
+#: ../../flask/1/resource-server.rst:51 ../../flask/2/resource-server.rst:115
+msgid ""
+"You can also use the ``require_oauth`` decorator in "
+"``flask.views.MethodView`` and ``flask_restful.Resource``::"
+msgstr ""
+
+#: ../../flask/2/api.rst:2
+msgid "API References of Flask OAuth 2.0 Server"
+msgstr ""
+
+#: ../../flask/2/api.rst:4
+msgid ""
+"This part of the documentation covers the interface of Flask OAuth 2.0 "
+"Server."
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer:1 of
+msgid ""
+"Flask implementation of :class:`authlib.rfc6749.AuthorizationServer`. "
+"Initialize it with ``query_client``, ``save_token`` methods and Flask app"
+" instance::"
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.create_authorization_response:1 of
+msgid "Validate authorization request and create authorization response."
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.create_authorization_response:3
+#: authlib.flask.oauth2.AuthorizationServer.create_endpoint_response:4 of
+msgid "OAuth2Request instance."
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.create_authorization_response:4 of
+msgid "if granted, it is resource owner. If denied, it is None."
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.create_authorization_response:6
+#: authlib.flask.oauth2.AuthorizationServer.create_endpoint_response:5 of
+msgid "Response"
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.create_bearer_token_generator:1 of
+msgid ""
+"Create a generator function for generating ``token`` value. This method "
+"will create a Bearer Token generator with "
+":class:`authlib.oauth2.rfc6750.BearerToken`. By default, it will not "
+"generate ``refresh_token``, which can be turn on by configuration "
+"``OAUTH2_REFRESH_TOKEN_GENERATOR=True``."
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.create_endpoint_response:1 of
+msgid "Validate endpoint request and create endpoint response."
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.create_endpoint_response:3 of
+msgid "Endpoint name"
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.create_token_expires_in_generator:1
+#: of
+msgid ""
+"Create a generator function for generating ``expires_in`` value. "
+"Developers can re-implement this method with a subclass if other means "
+"required. The default expires_in value is defined by ``grant_type``, "
+"different ``grant_type`` has different value. It can be configured with::"
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.create_token_response:1 of
+msgid "Validate token request and create token response."
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.create_token_response:3 of
+msgid "OAuth2Request instance"
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.register_endpoint:1 of
+msgid "Add token endpoint to authorization server. e.g. RevocationEndpoint::"
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.register_endpoint:6 of
+msgid "A token endpoint class"
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.register_grant:1 of
+msgid ""
+"Register a grant class into the endpoint registry. Developers can "
+"implement the grants in ``authlib.oauth2.rfc6749.grants`` and register "
+"with this method::"
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.register_grant:11 of
+msgid "a grant class."
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.register_grant:12 of
+msgid "extensions for the grant class."
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.validate_consent_request:1 of
+msgid ""
+"Validate current HTTP request for authorization page. This page is "
+"designed for resource owner to grant or deny the authorization::"
+msgstr ""
+
+#: authlib.flask.oauth2.ResourceProtector:1 of
+msgid ""
+"A protecting method for resource servers. Creating a ``require_oauth`` "
+"decorator easily with ResourceProtector::"
+msgstr ""
+
+#: authlib.flask.oauth2.ResourceProtector.raise_error_response:1 of
+msgid ""
+"Raise HTTPException for OAuth2Error. Developers can re-implement this "
+"method to customize the error response."
+msgstr ""
+
+#: authlib.flask.oauth2.ResourceProtector.raise_error_response:4 of
+msgid "OAuth2Error"
+msgstr ""
+
+#: authlib.flask.oauth2.ResourceProtector.raise_error_response of
+msgid "raise"
+msgstr ""
+
+#: authlib.flask.oauth2.ResourceProtector.raise_error_response:5 of
+msgid "HTTPException"
+msgstr ""
+
+#: authlib.flask.oauth2.ResourceProtector.acquire_token:1 of
+msgid "A method to acquire current valid token with the given scope."
+msgstr ""
+
+#: authlib.flask.oauth2.ResourceProtector.acquire_token:3 of
+msgid "string or list of scope values"
+msgstr ""
+
+#: authlib.flask.oauth2.ResourceProtector.acquire_token:4 of
+msgid "value of \"AND\" or \"OR\""
+msgstr ""
+
+#: authlib.flask.oauth2.ResourceProtector.acquire_token:5 of
+msgid "token object"
+msgstr ""
+
+#: authlib.flask.oauth2.ResourceProtector.acquire:1 of
+msgid ""
+"The with statement of ``require_oauth``. Instead of using a decorator, "
+"you can use a with statement instead::"
+msgstr ""
+
+#: ../../flask/2/api.rst:26
+msgid ""
+"Routes protected by :class:`ResourceProtector` can access current token "
+"with this variable::"
+msgstr ""
+
+#: authlib.flask.oauth2.cache.register_cache_authorization_code:1 of
+msgid "Use cache for authorization code grant endpoint."
+msgstr ""
+
+#: authlib.flask.oauth2.cache.register_cache_authorization_code:3 of
+msgid "Cache instance."
+msgstr ""
+
+#: authlib.flask.oauth2.cache.register_cache_authorization_code:4 of
+msgid "AuthorizationServer instance."
+msgstr ""
+
+#: authlib.flask.oauth2.cache.register_cache_authorization_code:5 of
+msgid "A function to authenticate user."
+msgstr ""
+
+#: ../../flask/2/api.rst:46
+msgid "SQLAlchemy Helper Functions"
+msgstr ""
+
+#: authlib.flask.oauth2.sqla.create_query_client_func:1 of
+msgid ""
+"Create an ``query_client`` function that can be used in authorization "
+"server."
+msgstr ""
+
+#: authlib.flask.oauth2.sqla.create_query_client_func:5 of
+msgid "Client model class"
+msgstr ""
+
+#: authlib.flask.oauth2.sqla.create_save_token_func:1 of
+msgid ""
+"Create an ``save_token`` function that can be used in authorization "
+"server."
+msgstr ""
+
+#: authlib.flask.oauth2.sqla.create_bearer_token_validator:5
+#: authlib.flask.oauth2.sqla.create_query_token_func:5
+#: authlib.flask.oauth2.sqla.create_revocation_endpoint:5
+#: authlib.flask.oauth2.sqla.create_save_token_func:5 of
+msgid "Token model class"
+msgstr ""
+
+#: authlib.flask.oauth2.sqla.create_query_token_func:1 of
+msgid ""
+"Create an ``query_token`` function for revocation, introspection token "
+"endpoints."
+msgstr ""
+
+#: authlib.flask.oauth2.sqla.create_revocation_endpoint:1 of
+msgid ""
+"Create a revocation endpoint class with SQLAlchemy session and token "
+"model."
+msgstr ""
+
+#: authlib.flask.oauth2.sqla.create_bearer_token_validator:1 of
+msgid ""
+"Create an bearer token validator class with SQLAlchemy session and token "
+"model."
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:4
+msgid ""
+"The Authorization Server provides several endpoints for authorization, "
+"issuing tokens, refreshing tokens and revoking tokens. When the resource "
+"owner (user) grants the authorization, this server will issue an access "
+"token to the client."
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:8
+msgid ""
+"Before creating the authorization server, we need to understand several "
+"concepts:"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:17
+msgid ""
+"A resource owner SHOULD implement ``get_user_id()`` method, lets take "
+"SQLAlchemy models for example::"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:36
+msgid "Client Token Endpoint Authentication Method"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:49
+msgid ""
+"A client is registered by a user (developer) on your website. If you "
+"decide to implement all the missing methods by yourself, get a deep "
+"inside with :class:`~authlib.oauth2.rfc6749.ClientMixin` API reference."
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:54
+msgid "Token"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:58
+msgid ""
+"Only Bearer Token is supported by now. MAC Token is still under drafts, "
+"it will be available when it goes into RFC."
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:61
+msgid ""
+"Tokens are used to access the users' resources. A token is issued with a "
+"valid duration, limited scopes and etc. It contains at least:"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:64
+msgid "**access_token**: a token to authorize the http requests."
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:65
+msgid "**refresh_token**: (optional) a token to exchange a new access token"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:66
+msgid "**client_id**: this token is issued to which client"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:67
+msgid "**expires_at**: when will this token expired"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:68
+msgid "**scope**: a limited scope of resources that this token can access"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:70
+msgid "With the SQLAlchemy mixin provided by Authlib::"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:81
+msgid ""
+"A token is associated with a resource owner. There is no certain name for"
+" it, here we call it ``user``, but it can be anything else."
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:85
+msgid "Server"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:87
+msgid ""
+"Authlib provides a ready to use "
+":class:`~authlib.flask.oauth2.AuthorizationServer` which has built-in "
+"tools to handle requests and responses::"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:128
+msgid ""
+"It works well without configuration. However, it can be configured with "
+"these settings:"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:132
+msgid "OAUTH2_TOKEN_EXPIRES_IN"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:132
+msgid "A dict to define ``expires_in`` for each grant"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:133
+msgid "OAUTH2_ACCESS_TOKEN_GENERATOR"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:133
+msgid ""
+"A function or string of module path for importing a function to generate "
+"``access_token``"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:135
+msgid "OAUTH2_REFRESH_TOKEN_GENERATOR"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:135
+msgid ""
+"A function or string of module path for importing a function to generate "
+"``refresh_token``. It can also be ``True/False``"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:138
+msgid "OAUTH2_ERROR_URIS"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:138
+msgid "A list of tuple for (``error``, ``error_uri``)"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:143
+msgid "Here is an example of ``OAUTH2_TOKEN_EXPIRES_IN``::"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:152
+msgid "Here is an example of ``OAUTH2_ACCESS_TOKEN_GENERATOR``::"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:157
+msgid "``OAUTH2_REFRESH_TOKEN_GENERATOR`` accepts the same parameters."
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:159
+msgid ""
+"Now define an endpoint for authorization. This endpoint is used by "
+"``authorization_code`` and ``implicit`` grants::"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:184
+msgid ""
+"This is a simple demo, the real case should be more complex. There is a "
+"demo in `authlib/playground`_, get a real taste with Authlib Playground."
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:187
+msgid "The token endpoint is much easier::"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:193
+msgid ""
+"However, the routes will not work properly. We need to register supported"
+" grants for them."
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:199
+msgid "Register Error URIs"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:201
+msgid ""
+"To create a better developer experience for debugging, it is suggested "
+"that you creating some documentation for errors. Here is a list of built-"
+"in :ref:`specs/rfc6949-errors`."
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:205
+msgid ""
+"You can design a documentation page with a description of each error. For"
+" instance, there is a web page for ``invalid_client``::"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:210
+msgid ""
+"In this case, you can register the error URI with ``OAUTH2_ERROR_URIS`` "
+"configuration::"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:218
+msgid ""
+"If there is no ``OAUTH2_ERROR_URIS``, the error response will not contain"
+" any ``error_uri`` data."
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:222
+msgid "I18N on Errors"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:224
+msgid ""
+"It is also possible to add i18n support to the ``error_description``. The"
+" feature has been implemented in version 0.8, but there are still work to"
+" do."
+msgstr ""
+
+#: ../../flask/2/endpoints.rst:2
+msgid "Token Endpoints"
+msgstr ""
+
+#: ../../flask/2/endpoints.rst:4
+msgid ""
+"Flask OAuth 2.0 authorization server has a method to register other token"
+" endpoints: ``authorization_server.register_endpoint``. Find the "
+"available endpoints:"
+msgstr ""
+
+#: ../../flask/2/endpoints.rst:8
+msgid ":ref:`register_revocation_endpoint`"
+msgstr ""
+
+#: ../../flask/2/endpoints.rst:9
+msgid ":ref:`register_introspection_endpoint`"
+msgstr ""
+
+#: ../../flask/2/grants.rst:2
+msgid "Register Grants"
+msgstr ""
+
+#: ../../flask/2/grants.rst:6
+msgid ""
+"There are four grant types defined by RFC6749, you can also create your "
+"own extended grant. Register the supported grant types to the "
+"authorization server."
+msgstr ""
+
+#: ../../flask/2/grants.rst:12
+msgid "Authorization Code Grant"
+msgstr ""
+
+#: ../../flask/2/grants.rst:14
+msgid ""
+"Authorization Code Grant is a very common grant type, it is supported by "
+"almost every OAuth 2 providers. It uses an authorization code to exchange"
+" access token. In this case, we need a place to store the authorization "
+"code. It can be kept in a database or a cache like redis. Here is a "
+"SQLAlchemy mixin for **AuthorizationCode**::"
+msgstr ""
+
+#: ../../flask/2/grants.rst:29
+msgid "Implement this grant by subclass :class:`AuthorizationCodeGrant`::"
+msgstr ""
+
+#: ../../flask/2/grants.rst:65
+msgid "AuthorizationCodeGrant is the most complex grant."
+msgstr ""
+
+#: ../../flask/2/grants.rst:67
+msgid "Default allowed :ref:`client_auth_methods` are:"
+msgstr ""
+
+#: ../../flask/2/grants.rst:69
+msgid "client_secret_basic"
+msgstr ""
+
+#: ../../flask/2/grants.rst:70
+msgid "client_secret_post"
+msgstr ""
+
+#: ../../flask/2/grants.rst:71
+msgid "none"
+msgstr ""
+
+#: ../../flask/2/grants.rst:73
+msgid ""
+"You can change it in the subclass, e.g. remove the ``none`` "
+"authentication method::"
+msgstr ""
+
+#: ../../flask/2/grants.rst:79
+msgid "Implicit Grant"
+msgstr ""
+
+#: ../../flask/2/grants.rst:81
+msgid ""
+"The implicit grant type is usually used in a browser, when resource owner"
+" granted the access, access token is issued in the redirect URI, there is"
+" no missing implementation, which means it can be easily registered "
+"with::"
+msgstr ""
+
+#: ../../flask/2/grants.rst:91
+msgid ""
+"Implicit Grant is used by **public** client which has no "
+"**client_secret**. Only allowed :ref:`client_auth_methods`: ``none``."
+msgstr ""
+
+#: ../../flask/2/grants.rst:95
+msgid "Resource Owner Password Credentials Grant"
+msgstr ""
+
+#: ../../flask/2/grants.rst:97
+msgid ""
+"Resource owner uses their username and password to exchange an access "
+"token, this grant type should be used only when the client is "
+"trustworthy, implement it with a subclass of "
+":class:`ResourceOwnerPasswordCredentialsGrant`::"
+msgstr ""
+
+#: ../../flask/2/grants.rst:113 ../../flask/2/grants.rst:133
+#: ../../flask/2/grants.rst:163
+msgid ""
+"Default allowed :ref:`client_auth_methods`: ``client_secret_basic``. You "
+"can add more in the subclass::"
+msgstr ""
+
+#: ../../flask/2/grants.rst:122
+msgid "Client Credentials Grant"
+msgstr ""
+
+#: ../../flask/2/grants.rst:124
+msgid ""
+"Client credentials grant type can access public resources and MAYBE the "
+"client's creator's resources, depending on how you issue tokens to this "
+"grant type. It can be easily registered with::"
+msgstr ""
+
+#: ../../flask/2/grants.rst:142
+msgid "Refresh Token Grant"
+msgstr ""
+
+#: ../../flask/2/grants.rst:144
+msgid ""
+"Many OAuth 2 providers haven't implemented refresh token endpoint. "
+"Authlib provides it as a grant type, implement it with a subclass of "
+":class:`RefreshTokenGrant`::"
+msgstr ""
+
+#: ../../flask/2/grants.rst:174
+msgid "Custom Grant Types"
+msgstr ""
+
+#: ../../flask/2/grants.rst:176
+msgid ""
+"It is also possible to create your own grant types. In Authlib, a "
+"**Grant** supports two endpoints:"
+msgstr ""
+
+#: ../../flask/2/grants.rst:179
+msgid "Authorization Endpoint: which can handle requests with ``response_type``."
+msgstr ""
+
+#: ../../flask/2/grants.rst:180
+msgid "Token Endpoint: which is the endpoint to issue tokens."
+msgstr ""
+
+#: ../../flask/2/grants.rst:182
+msgid "Creating a custom grant type with **BaseGrant**::"
+msgstr ""
+
+#: ../../flask/2/grants.rst:204
+msgid ""
+"For a better understanding, you can read the source code of the built-in "
+"grant types. And there are extended grant types defined by other specs:"
+msgstr ""
+
+#: ../../flask/2/grants.rst:207
+msgid ":ref:`jwt_grant_type`"
+msgstr ""
+
+#: ../../flask/2/grants.rst:213
+msgid "Grant Extensions"
+msgstr ""
+
+#: ../../flask/2/grants.rst:217
+msgid ""
+"Grant can accept extensions. Developers can pass extensions when "
+"registering grant::"
+msgstr ""
+
+#: ../../flask/2/grants.rst:222
+msgid "For instance, there is ``CodeChallenge`` extension in Authlib::"
+msgstr ""
+
+#: ../../flask/2/grants.rst:226
+msgid "Learn more about ``CodeChallenge`` at :ref:`specs/rfc7636`."
+msgstr ""
+
+#: ../../flask/2/index.rst:4
+msgid "Flask OAuth 2.0 Server"
+msgstr ""
+
+#: ../../flask/2/index.rst:6
+msgid ""
+"How to create an OAuth 2.0 server in Flask with Authlib. And understand "
+"how OAuth 2.0 works. Authlib has all built-in grant types for you."
+msgstr ""
+
+#: ../../flask/2/index.rst:11
+msgid ""
+"This section is not a step by step guide on how to create an OAuth 2.0 "
+"server in Flask. Instead, we will learn how the Flask implementation "
+"works, and some technical details in an OAuth 2.0 provider."
+msgstr ""
+
+#: ../../flask/2/index.rst:15
+msgid ""
+"If you need a quick example, here are the official tutorial guide and "
+"examples on GitHub:"
+msgstr ""
+
+#: ../../flask/2/index.rst:18
+msgid ""
+"`Example of OAuth 2.0 server <https://github.com/authlib/example-"
+"oauth2-server>`_"
+msgstr ""
+
+#: ../../flask/2/index.rst:19
+msgid "Example of OpenID Connect server (not ready)"
+msgstr ""
+
+#: ../../flask/2/index.rst:21
+msgid ""
+"At the very beginning, we need to have some basic understanding of "
+":ref:`the OAuth 2.0 <understand_oauth2>`."
+msgstr ""
+
+#: ../../flask/2/index.rst:31
+msgid "Looking for OAuth 2 client? Check out :ref:`flask_client`."
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:4
+msgid "Flask OpenID Connect 1.0"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:6
+msgid ""
+"How to create an OpenID Connect server in Flask with Authlib. And "
+"understand how OpenID Connect works."
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:10
+msgid ""
+"OpenID Connect 1.0 is supported from version 0.6. The integrations are "
+"built with :ref:`flask_oauth2_custom_grant_types`. Since OpenID Connect "
+"is built on OAuth 2.0 frameworks, you need to read "
+":ref:`flask_oauth2_server` at first."
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:17
+msgid "Configuration"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:19
+msgid "OpenID Connect 1.0 requires JWT. It can be enabled by setting::"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:23
+msgid "When JWT is enabled, these configurations are available:"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:26 ../../flask/2/openid-connect.rst:34
+msgid "OAUTH2_JWT_ALG"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:26
+msgid "Algorithm for JWT"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:27
+msgid "OAUTH2_JWT_KEY"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:27
+msgid "Private key (in text) for JWT"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:28
+msgid "OAUTH2_JWT_KEY_PATH"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:28
+msgid "Private key path for JWT"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:29 ../../flask/2/openid-connect.rst:86
+msgid "OAUTH2_JWT_ISS"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:29
+msgid "Issuer value for JWT"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:30
+msgid "OAUTH2_JWT_EXP"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:30
+msgid "JWT expires time, default is 3600"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:36
+msgid ""
+"The algorithm to sign a JWT. This is the ``alg`` value defined in header "
+"part of a JWS:"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:43
+msgid "The available algorithms are defined in :ref:`specs/rfc7518`, which are:"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:45
+msgid "HS256: HMAC using SHA-256"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:46
+msgid "HS384: HMAC using SHA-384"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:47
+msgid "HS512: HMAC using SHA-512"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:48
+msgid "RS256: RSASSA-PKCS1-v1_5 using SHA-256"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:49
+msgid "RS384: RSASSA-PKCS1-v1_5 using SHA-384"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:50
+msgid "RS512: RSASSA-PKCS1-v1_5 using SHA-512"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:51
+msgid "ES256: ECDSA using P-256 and SHA-256"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:52
+msgid "ES384: ECDSA using P-384 and SHA-384"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:53
+msgid "ES512: ECDSA using P-521 and SHA-512"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:54
+msgid "PS256: RSASSA-PSS using SHA-256 and MGF1 with SHA-256"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:55
+msgid "PS384: RSASSA-PSS using SHA-384 and MGF1 with SHA-384"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:56
+msgid "PS512: RSASSA-PSS using SHA-512 and MGF1 with SHA-512"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:58
+msgid ""
+"The HMAC using SHA algorithms are not suggested since you need to share "
+"secrets between server and client. Most OpenID Connect services are using"
+" ``RS256``."
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:63
+msgid "OAUTH2_JWT_KEY / OAUTH2_JWT_KEY_PATH"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:65
+msgid ""
+"A private key is required to generate JWT. The value can be configured "
+"with either ``OAUTH2_JWT_KEY`` or ``OAUTH2_JWT_KEY_PATH``. The key that "
+"you are going to use dependents on the ``alg`` you are using. For "
+"instance, the alg is ``RS256``, you need to use a RSA private key. It can"
+" be set with::"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:78
+msgid ""
+"If you are using JWK set format, that would be better. Authlib will "
+"randomly choose a key among them to sign the JWT. To make it easier for "
+"maintenance, ``OAUTH2_JWT_KEY_PATH`` is a good choice::"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:88
+msgid ""
+"The ``iss`` value in JWT payload. The value can be your website name or "
+"URL. For example, Google is using::"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:96
+msgid "Code Flow"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:98
+msgid ""
+"OpenID Connect Code flow looks like the standard Authorization Code flow,"
+" and the implementation for :class:`OpenIDCodeGrant` is actually a "
+"subclass of :ref:`flask_oauth2_code_grant`. And the implementation is the"
+" same::"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:139
+msgid ""
+"The difference between OpenID Code flow and the standard code flow is "
+"that OpenID Connect request has a scope of \"openid\":"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:152
+msgid ""
+":class:`OpenIDCodeGrant` can handle the standard code flow too. You "
+"**MUST NOT** use them together."
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:157
+msgid ""
+"If the server can handle OpenID requests, use :class:`OpenIDCodeGrant`. "
+"DON'T ``register_grant(AuthorizationCodeGrant)``."
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:163
+msgid "Implicit Flow"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:165
+msgid ""
+"Implicit flow is simple, there is no missing methods should be "
+"implemented, we can simply import it and register it::"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:174
+msgid "Hybrid Flow"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:176
+msgid ""
+"Hybrid flow is a mix of the code flow and implicit flow. The missing "
+"methods are the same with code flow::"
+msgstr ""
+
+#: ../../flask/2/resource-server.rst:4
+msgid "Resource Server"
+msgstr ""
+
+#: ../../flask/2/resource-server.rst:43
+msgid "If the resource is not protected by a scope, use ``None``::"
+msgstr ""
+
+#: ../../flask/2/resource-server.rst:59
+msgid ""
+"The ``current_token`` is a proxy to the Token model you have defined "
+"above. Since there is a ``user`` relationship on the Token model, we can "
+"access this ``user`` with ``current_token.user``."
+msgstr ""
+
+#: ../../flask/2/resource-server.rst:63
+msgid "If decorator is not your favorite, there is a ``with`` statement for you::"
+msgstr ""
+
+#: ../../flask/2/resource-server.rst:74
+msgid "Multiple Scopes"
+msgstr ""
+
+#: ../../flask/2/resource-server.rst:76
+msgid ""
+"You can apply multiple scopes to one endpoint in **AND** and **OR** "
+"modes. The default is **AND** mode."
+msgstr ""
+
+#: ../../flask/2/resource-server.rst:87
+msgid "It requires the token containing both ``profile`` and ``email`` scope."
+msgstr ""
+
+#: ../../flask/2/resource-server.rst:97
+msgid "It requires the token containing either ``profile`` or ``email`` scope."
+msgstr ""
+
+#: ../../flask/2/resource-server.rst:99
+msgid "It is also possible to pass a function as the scope operator. e.g.::"
+msgstr ""
+

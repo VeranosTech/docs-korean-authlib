@@ -1,0 +1,224 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../client/oauth1.rst:2
+msgid "OAuth 1 Client"
+msgstr ""
+
+#: ../../client/oauth1.rst:4
+msgid ""
+"An OAuth 1 protocol implementation for requests.Session and "
+"aiohttp.ClientSession, powered by Authlib."
+msgstr ""
+
+#: ../../client/oauth1.rst:12
+msgid "OAuth1Session for requests"
+msgstr ""
+
+#: ../../client/oauth1.rst:14
+msgid ""
+"The :class:`OAuth1Session` in Authlib is a subclass of "
+"``requests.Session``. It shares the same API with ``requests.Session`` "
+"and extends it with OAuth 1 protocol. This section is a guide on how to "
+"obtain an access token in OAuth 1 flow."
+msgstr ""
+
+#: ../../client/oauth1.rst:20
+msgid ""
+"If you are using Flask or Django, you may have interests in "
+":ref:`flask_client` and :ref:`django_client`."
+msgstr ""
+
+#: ../../client/oauth1.rst:23
+msgid ""
+"If you are not familiar with OAuth 1.0, it is better to "
+":ref:`understand_oauth1` now."
+msgstr ""
+
+#: ../../client/oauth1.rst:26
+msgid ""
+"There are three steps in OAuth 1 to obtain an access token. Initialize "
+"the session for reuse::"
+msgstr ""
+
+#: ../../client/oauth1.rst:37 ../../client/oauth1.rst:205
+msgid "Fetch Temporary Credential"
+msgstr ""
+
+#: ../../client/oauth1.rst:39 ../../client/oauth1.rst:207
+msgid ""
+"The first step is to fetch temporary credential, which will be used to "
+"generate authorization URL::"
+msgstr ""
+
+#: ../../client/oauth1.rst:47 ../../client/oauth1.rst:215
+msgid "Save this temporary credential for later use (if required)."
+msgstr ""
+
+#: ../../client/oauth1.rst:49
+msgid ""
+"You can assign a ``redirect_uri`` before fetching the request token, if "
+"you want to redirect back to another URL other than the one you "
+"registered::"
+msgstr ""
+
+#: ../../client/oauth1.rst:56 ../../client/oauth1.rst:218
+msgid "Redirect to Authorization Endpoint"
+msgstr ""
+
+#: ../../client/oauth1.rst:58 ../../client/oauth1.rst:220
+msgid "The second step is to generate the authorization URL::"
+msgstr ""
+
+#: ../../client/oauth1.rst:64 ../../client/oauth1.rst:227
+msgid ""
+"Actually, the second parameter ``request_token`` can be omitted, since "
+"session is re-used::"
+msgstr ""
+
+#: ../../client/oauth1.rst:69
+msgid ""
+"Now visit the authorization url that "
+":meth:`OAuth1Session.create_authorization_url` generated, and grant the "
+"authorization."
+msgstr ""
+
+#: ../../client/oauth1.rst:75 ../../client/oauth1.rst:235
+msgid "Fetch Access Token"
+msgstr ""
+
+#: ../../client/oauth1.rst:77 ../../client/oauth1.rst:237
+msgid ""
+"When the authorization is granted, you will be redirected back to your "
+"registered callback URI. For instance::"
+msgstr ""
+
+#: ../../client/oauth1.rst:82 ../../client/oauth1.rst:242
+msgid ""
+"If you assigned ``redirect_uri`` in :ref:`fetch_oauth1_access_token`, the"
+" authorize response would be something like::"
+msgstr ""
+
+#: ../../client/oauth1.rst:87
+msgid "Now fetch the access token with this response::"
+msgstr ""
+
+#: ../../client/oauth1.rst:103
+msgid "Save this token to access protected resources."
+msgstr ""
+
+#: ../../client/oauth1.rst:105
+msgid ""
+"The above flow is not always what we will use in a real project. When we "
+"are redirected to authorization endpoint, our session is over. In this "
+"case, when the authorization server send us back to our server, we need "
+"to create another session::"
+msgstr ""
+
+#: ../../client/oauth1.rst:124 ../../client/oauth1.rst:271
+msgid "Access Protected Resources"
+msgstr ""
+
+#: ../../client/oauth1.rst:126
+msgid ""
+"Now you can access the protected resources. If you re-use the session, "
+"you don't need to do anything::"
+msgstr ""
+
+#: ../../client/oauth1.rst:135
+msgid ""
+"The above is not the real flow, just like what we did in "
+":ref:`fetch_oauth1_access_token`, we need to create another session "
+"ourselves::"
+msgstr ""
+
+#: ../../client/oauth1.rst:148
+msgid ""
+"Please note, there are duplicated steps in the documentation, read "
+"carefully and ignore the duplicated explains."
+msgstr ""
+
+#: ../../client/oauth1.rst:152
+msgid "Using OAuth1Auth"
+msgstr ""
+
+#: ../../client/oauth1.rst:154
+msgid ""
+"It is also possible to access protected resources with ``OAuth1Auth`` "
+"object. Create an instance of OAuth1Auth with an access token::"
+msgstr ""
+
+#: ../../client/oauth1.rst:165
+msgid "Pass this ``auth`` to ``requests` to access protected resources::"
+msgstr ""
+
+#: ../../client/oauth1.rst:174
+msgid "AsyncOAuth1Client for aiohttp"
+msgstr ""
+
+#: ../../client/oauth1.rst:176
+msgid "This is an experimental feature."
+msgstr ""
+
+#: ../../client/oauth1.rst:179
+msgid ""
+"The ``AsyncOAuth1Client`` is located in ``authlib.client.aiohttp``. "
+"Authlib doesn't embed ``aiohttp`` as a dependency, you need to install it"
+" yourself."
+msgstr ""
+
+#: ../../client/oauth1.rst:182
+msgid ""
+"Here is an example on how you can initialize an instance of "
+"``AsyncOAuth1Client`` for ``aiohttp``::"
+msgstr ""
+
+#: ../../client/oauth1.rst:201
+msgid ""
+"The API is similar with ``OAuth1Session`` above. Using the ``client`` for"
+" the three steps authorization:"
+msgstr ""
+
+#: ../../client/oauth1.rst:247
+msgid ""
+"In the production flow, you may need to create a new instance of "
+"``AsyncOAuth1Client``, it is the same as above. You need to use the "
+"previous request token to exchange an access token::"
+msgstr ""
+
+#: ../../client/oauth1.rst:267
+msgid "You can save the ``token`` to access protected resources later."
+msgstr ""
+
+#: ../../client/oauth1.rst:273
+msgid ""
+"Now you can access the protected resources. Usually, you will need to "
+"create an instance of ``AsyncOAuth1Client``::"
+msgstr ""
+
+#: ../../client/oauth1.rst:286
+msgid ""
+"Notice, it is also possible to create the client instance with access "
+"token at the initialization::"
+msgstr ""
+
+#: ../../client/oauth1.rst:296
+msgid "This is still an experimental feature in Authlib. Use it with caution."
+msgstr ""
+

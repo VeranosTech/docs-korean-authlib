@@ -1,0 +1,153 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../client/mixed.rst:4
+msgid "OAuthClient"
+msgstr ""
+
+#: ../../client/mixed.rst:6
+msgid ""
+"A mixed OAuth 1 and OAuth 2 client, one to control everything. The "
+"foundation for Flask and Django integrations."
+msgstr ""
+
+#: ../../client/mixed.rst:11
+msgid ""
+"This ``OAuthClient`` is designed for developing framework integrations. "
+"You are not supposed to use it directly, check out :ref:`flask_client` "
+"and :ref:`django_client` instead."
+msgstr ""
+
+#: ../../client/mixed.rst:17
+msgid ""
+"A mixed OAuth 1 and OAuth 2 client, one to control them both. With "
+":class:`OAuthClient`, we make the authorization much similar. It is the "
+"base class for framework integrations."
+msgstr ""
+
+#: ../../client/mixed.rst:21
+msgid ""
+":class:`OAuthClient` will automatically detect whether it is OAuth 1 or "
+"OAuth 2 via its parameters. OAuth 1 has ``request_token_url``, while "
+"OAuth 2 doesn't."
+msgstr ""
+
+#: ../../client/mixed.rst:25
+msgid ""
+"To use **OAuthClient** for requesting user resources, you need to "
+"subclass it, and implement a :meth:`OAuthClient.get_token` method::"
+msgstr ""
+
+#: ../../client/mixed.rst:33
+msgid "OAuth 1 Flow"
+msgstr ""
+
+#: ../../client/mixed.rst:35
+msgid "Configure an OAuth 1 client with :class:`OAuthClient`::"
+msgstr ""
+
+#: ../../client/mixed.rst:46
+msgid ""
+"There are other options that you could pass to the class. Please read the"
+" API documentation."
+msgstr ""
+
+#: ../../client/mixed.rst:50 ../../client/mixed.rst:95
+msgid "Redirect to Authorization Endpoint"
+msgstr ""
+
+#: ../../client/mixed.rst:52
+msgid ""
+"There is a request token exchange in OAuth 1, in this case, we need to "
+"save the request token before heading over to authorization endpoint::"
+msgstr ""
+
+#: ../../client/mixed.rst:62
+msgid ""
+"Now we will get a redirect url to the authorization endpoint. The return "
+"value is a tuple of ``(url, state)``, in OAuth 1, ``state`` will always "
+"be ``None``."
+msgstr ""
+
+#: ../../client/mixed.rst:66 ../../client/mixed.rst:109
+msgid "Get Access Token"
+msgstr ""
+
+#: ../../client/mixed.rst:68
+msgid "If permission is granted, we can fetch the access token now::"
+msgstr ""
+
+#: ../../client/mixed.rst:80
+msgid "OAuth 2 Flow"
+msgstr ""
+
+#: ../../client/mixed.rst:82
+msgid "The flow of OAuth 2 is similar with OAuth 1, and much simpler::"
+msgstr ""
+
+#: ../../client/mixed.rst:97
+msgid ""
+"Unlike OAuth 1, there is no request token. The process to authorization "
+"server is very simple::"
+msgstr ""
+
+#: ../../client/mixed.rst:105
+msgid ""
+"Note that, in OAuth 2, there will be a ``state`` always, you need to save"
+" it for later use."
+msgstr ""
+
+#: ../../client/mixed.rst:111
+msgid ""
+"It's the same as OAuth 1. If permission is granted, we can fetch the "
+"access token now::"
+msgstr ""
+
+#: ../../client/mixed.rst:123
+msgid "Compliance Fix"
+msgstr ""
+
+#: ../../client/mixed.rst:125
+msgid ""
+"Since many OAuth 2 providers are not following standard strictly, we need"
+" to fix them. It has been introduced in :ref:`compliance_fix_oauth2`."
+msgstr ""
+
+#: ../../client/mixed.rst:128
+msgid ""
+"For OAuthClient, we can register our hooks one by one, with "
+":meth:`OAuth2Session.register_compliance_hook`::"
+msgstr ""
+
+#: ../../client/mixed.rst:133
+msgid ""
+"However, there is a shortcut attribute for it. You need to construct a "
+"method which takes ``session`` as the parameter::"
+msgstr ""
+
+#: ../../client/mixed.rst:152
+msgid ""
+"Later, when you initialized **OAuthClient**, pass it to the client "
+"parameters::"
+msgstr ""
+
+#: ../../client/mixed.rst:162
+msgid "It will automatically patch the requests session for OAuth 2."
+msgstr ""
+

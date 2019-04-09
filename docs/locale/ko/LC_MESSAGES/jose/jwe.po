@@ -1,0 +1,138 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../jose/jwe.rst:4
+msgid "JSON Web Encryption (JWE)"
+msgstr ""
+
+#: ../../jose/jwe.rst:8
+msgid ""
+"JSON Web Encryption (JWE) represents encrypted content using JSON-based "
+"data structures."
+msgstr ""
+
+#: ../../jose/jwe.rst:11
+msgid "There are two types of JWE Serializations:"
+msgstr ""
+
+#: ../../jose/jwe.rst:13
+msgid "JWE Compact Serialization"
+msgstr ""
+
+#: ../../jose/jwe.rst:14
+msgid "JWE JSON Serialization"
+msgstr ""
+
+#: ../../jose/jwe.rst:16
+msgid ""
+"Authlib has only implemented the **Compact Serialization**. This feature "
+"is not mature yet, use at your own risk."
+msgstr ""
+
+#: ../../jose/jwe.rst:19
+msgid ""
+"The JWE Compact Serialization represents encrypted content as a compact, "
+"URL-safe string. This string is:"
+msgstr ""
+
+#: ../../jose/jwe.rst:22
+msgid ""
+"BASE64URL(UTF8(JWE Protected Header)) || '.' || BASE64URL(JWE Encrypted "
+"Key) || '.' || BASE64URL(JWE Initialization Vector) || '.' || "
+"BASE64URL(JWE Ciphertext) || '.' || BASE64URL(JWE Authentication Tag)"
+msgstr ""
+
+#: ../../jose/jwe.rst:28
+msgid "An example (with line breaks for display purposes only)::"
+msgstr ""
+
+#: ../../jose/jwe.rst:46
+msgid ""
+"A JWE requires JWA to work properly. The algorithms for JWE are provided "
+"in :ref:`specs/rfc7518`."
+msgstr ""
+
+#: ../../jose/jwe.rst:50
+msgid "Compact Serialize and Deserialize"
+msgstr ""
+
+#: ../../jose/jwe.rst:52
+msgid ""
+"Generate a JWE compact serialization would be easy with "
+":meth:`JWE.serialize_compact`, build a JWE instance with JWA::"
+msgstr ""
+
+#: ../../jose/jwe.rst:66
+msgid ""
+"There are two required algorithms in protected header: ``alg`` and "
+"``enc``."
+msgstr ""
+
+#: ../../jose/jwe.rst:68
+msgid "The available ``alg`` list:"
+msgstr ""
+
+#: ../../jose/jwe.rst:70
+msgid "RSA1_5, RSA-OAEP, RSA-OAEP-256"
+msgstr ""
+
+#: ../../jose/jwe.rst:71
+msgid "A128KW, A192KW, A256KW"
+msgstr ""
+
+#: ../../jose/jwe.rst:72
+msgid "A128GCMKW, A192GCMKW, A256GCMKW"
+msgstr ""
+
+#: ../../jose/jwe.rst:74
+msgid "The available ``enc`` list:"
+msgstr ""
+
+#: ../../jose/jwe.rst:76
+msgid "A128CBC-HS256, A192CBC-HS384, A256CBC-HS512"
+msgstr ""
+
+#: ../../jose/jwe.rst:77
+msgid "A128GCM, A192GCM, A256GCM"
+msgstr ""
+
+#: ../../jose/jwe.rst:79
+msgid "More ``alg`` and ``enc`` will be added in the future."
+msgstr ""
+
+#: ../../jose/jwe.rst:81
+msgid "It is also available to compress the payload with ``zip`` header::"
+msgstr ""
+
+#: ../../jose/jwe.rst:86
+msgid ""
+"To deserialize a JWE Compact Serialization, use "
+":meth:`JWE.deserialize_compact`::"
+msgstr ""
+
+#: ../../jose/jwe.rst:96
+msgid ""
+"The result of the ``deserialize_compact`` is a dict, which contains "
+"``header`` and ``payload``."
+msgstr ""
+
+#: ../../jose/jwe.rst:99
+msgid "Using **JWK** for keys? Find how to use JWK with :ref:`jwk_guide`."
+msgstr ""
+

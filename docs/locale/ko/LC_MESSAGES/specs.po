@@ -1,0 +1,3355 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:52+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../specs/index.rst:2
+msgid "Specifications"
+msgstr ""
+
+#: ../../specs/index.rst:4
+msgid ""
+"Guide on specifications. You don't have to read this section if you are "
+"just using Authlib. But it would be good for you to understand how "
+"Authlib works."
+msgstr ""
+
+#: ../../specs/oidc.rst:4
+msgid "OpenID Connect 1.0"
+msgstr ""
+
+#: ../../specs/oidc.rst:6
+msgid ""
+"General implementation of OpenID Connect 1.0 in Python. Learn how to "
+"create a OpenID Connect provider in Python."
+msgstr ""
+
+#: ../../specs/oidc.rst:10
+msgid ""
+"This part of the documentation covers the specification of OpenID "
+"Connect. Learn how to use it in :ref:`flask_odic_server`."
+msgstr ""
+
+#: ../../specs/oidc.rst:14
+msgid "OpenID Grants"
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDCodeGrant:1
+#: authlib.oidc.core.grants.OpenIDHybridGrant:1 of
+msgid ""
+"Bases: "
+":class:`authlib.oauth2.rfc6749.grants.authorization_code.AuthorizationCodeGrant`"
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDImplicitGrant:1 of
+msgid "Bases: :class:`authlib.oauth2.rfc6749.grants.implicit.ImplicitGrant`"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.create_authorization_response:1
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:1
+#: of
+msgid ""
+"If the resource owner grants the access request, the authorization server"
+" issues an access token and delivers it to the client by adding the "
+"following parameters to the fragment component of the redirection URI "
+"using the \"application/x-www-form-urlencoded\" format. Per `Section "
+"4.2.2`_."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.create_authorization_response:8
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:8
+#: of
+msgid "access_token"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.create_authorization_response:8
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:8
+#: of
+msgid "REQUIRED.  The access token issued by the authorization server."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.create_authorization_response:12
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:12
+#: of
+msgid "token_type"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.create_authorization_response:11
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:11
+#: of
+msgid ""
+"REQUIRED.  The type of the token issued as described in Section 7.1.  "
+"Value is case insensitive."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.create_authorization_response:19
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:19
+#: of
+msgid "expires_in"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.create_authorization_response:15
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:15
+#: of
+msgid ""
+"RECOMMENDED.  The lifetime in seconds of the access token.  For example, "
+"the value \"3600\" denotes that the access token will expire in one hour "
+"from the time the response was generated. If omitted, the authorization "
+"server SHOULD provide the expiration time via other means or document the"
+" default value."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_authorization_request:17
+#: authlib.oauth2.rfc6749.grants.ClientCredentialsGrant.validate_token_request:11
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.create_authorization_response:24
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.validate_authorization_request:17
+#: authlib.oauth2.rfc6749.grants.RefreshTokenGrant.validate_token_request:19
+#: authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant.validate_token_request:17
+#: authlib.oauth2.rfc7523.JWTBearerGrant.validate_token_request:13
+#: authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request:17
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:24
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.validate_authorization_request:17
+#: of
+msgid "scope"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.create_authorization_response:22
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:22
+#: of
+msgid ""
+"OPTIONAL, if identical to the scope requested by the client; otherwise, "
+"REQUIRED.  The scope of the access token as described by Section 3.3."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.create_authorization_response:21
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_authorization_request:24
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.create_authorization_response:29
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.validate_authorization_request:24
+#: authlib.oidc.core.grants.OpenIDHybridGrant.create_authorization_response:21
+#: authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request:24
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:29
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.validate_authorization_request:24
+#: of
+msgid "state"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.create_authorization_response:19
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.create_authorization_response:27
+#: authlib.oidc.core.grants.OpenIDHybridGrant.create_authorization_response:19
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:27
+#: of
+msgid ""
+"REQUIRED if the \"state\" parameter was present in the client "
+"authorization request.  The exact value received from the client."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.create_authorization_response:31
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:31
+#: of
+msgid "The authorization server MUST NOT issue a refresh token."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.create_authorization_response:33
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:33
+#: of
+msgid ""
+"For example, the authorization server redirects the user-agent by sending"
+" the following HTTP response:"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.create_authorization_response:42
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:42
+#: of
+msgid ""
+"Developers should note that some user-agents do not support the inclusion"
+" of a fragment component in the HTTP \"Location\" response header field."
+"  Such clients will require using other methods for redirecting the "
+"client than a 3xx redirection response -- for example, returning an HTML "
+"page that includes a 'continue' button with an action linked to the "
+"redirection URI."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize
+#: authlib.jose.rfc7515.JWS.deserialize_compact
+#: authlib.jose.rfc7515.JWS.deserialize_json authlib.jose.rfc7515.JWS.serialize
+#: authlib.jose.rfc7515.JWS.serialize_compact
+#: authlib.jose.rfc7515.JWS.serialize_json
+#: authlib.jose.rfc7515.JWSAlgorithm.sign
+#: authlib.jose.rfc7515.JWSAlgorithm.verify authlib.jose.rfc7515.JWSHeader
+#: authlib.jose.rfc7516.JWE.deserialize_compact
+#: authlib.jose.rfc7516.JWE.serialize_compact
+#: authlib.jose.rfc7516.JWEEncAlgorithm.decrypt
+#: authlib.jose.rfc7516.JWEEncAlgorithm.encrypt authlib.jose.rfc7517.JWK.dumps
+#: authlib.jose.rfc7517.JWK.loads authlib.jose.rfc7519.JWT.decode
+#: authlib.jose.rfc7519.JWT.encode authlib.jose.rfc7519.JWTClaims
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_authorization_response
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_authorization_verifier
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_temporary_credential
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_temporary_credentials_response
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_token_credential
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_token_response
+#: authlib.oauth1.rfc5849.AuthorizationServer.delete_temporary_credential
+#: authlib.oauth1.rfc5849.AuthorizationServer.exists_nonce
+#: authlib.oauth1.rfc5849.AuthorizationServer.get_client_by_id
+#: authlib.oauth1.rfc5849.AuthorizationServer.get_temporary_credential
+#: authlib.oauth1.rfc5849.AuthorizationServer.register_signature_method
+#: authlib.oauth1.rfc5849.AuthorizationServer.validate_oauth_signature
+#: authlib.oauth1.rfc5849.AuthorizationServer.validate_timestamp_and_nonce
+#: authlib.oauth1.rfc5849.ResourceProtector.exists_nonce
+#: authlib.oauth1.rfc5849.ResourceProtector.get_client_by_id
+#: authlib.oauth1.rfc5849.ResourceProtector.get_token_credential
+#: authlib.oauth1.rfc5849.ResourceProtector.register_signature_method
+#: authlib.oauth1.rfc5849.ResourceProtector.validate_oauth_signature
+#: authlib.oauth1.rfc5849.ResourceProtector.validate_timestamp_and_nonce
+#: authlib.oauth2.rfc6749.AuthorizationServer
+#: authlib.oauth2.rfc6749.AuthorizationServer.create_authorization_response
+#: authlib.oauth2.rfc6749.AuthorizationServer.create_endpoint_response
+#: authlib.oauth2.rfc6749.AuthorizationServer.create_oauth2_request
+#: authlib.oauth2.rfc6749.AuthorizationServer.create_token_response
+#: authlib.oauth2.rfc6749.AuthorizationServer.get_authorization_grant
+#: authlib.oauth2.rfc6749.AuthorizationServer.get_token_grant
+#: authlib.oauth2.rfc6749.AuthorizationServer.register_client_auth_method
+#: authlib.oauth2.rfc6749.AuthorizationServer.register_endpoint
+#: authlib.oauth2.rfc6749.AuthorizationServer.register_grant
+#: authlib.oauth2.rfc6749.ClientMixin.check_client_secret
+#: authlib.oauth2.rfc6749.ClientMixin.check_client_type
+#: authlib.oauth2.rfc6749.ClientMixin.check_grant_type
+#: authlib.oauth2.rfc6749.ClientMixin.check_redirect_uri
+#: authlib.oauth2.rfc6749.ClientMixin.check_requested_scopes
+#: authlib.oauth2.rfc6749.ClientMixin.check_response_type
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.authenticate_user
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.create_authorization_code
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.create_authorization_response
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.delete_authorization_code
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.parse_authorization_code
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.create_authorization_response
+#: authlib.oauth2.rfc6749.grants.RefreshTokenGrant.authenticate_refresh_token
+#: authlib.oauth2.rfc6749.grants.RefreshTokenGrant.authenticate_user
+#: authlib.oauth2.rfc6750.BearerToken
+#: authlib.oauth2.rfc6750.BearerTokenValidator.authenticate_token
+#: authlib.oauth2.rfc6750.BearerTokenValidator.request_invalid
+#: authlib.oauth2.rfc6750.BearerTokenValidator.token_revoked
+#: authlib.oauth2.rfc7523.JWTBearerClientAssertion.process_assertion_claims
+#: authlib.oauth2.rfc7523.JWTBearerGrant.authenticate_client
+#: authlib.oauth2.rfc7523.JWTBearerGrant.authenticate_user
+#: authlib.oauth2.rfc7523.JWTBearerGrant.process_assertion_claims
+#: authlib.oauth2.rfc7523.JWTBearerGrant.resolve_public_key
+#: authlib.oauth2.rfc7523.register_session_client_auth_method
+#: authlib.oauth2.rfc7636.CodeChallenge.get_authorization_code_challenge
+#: authlib.oauth2.rfc7636.CodeChallenge.get_authorization_code_challenge_method
+#: authlib.oidc.core.grants.OpenIDHybridGrant.create_authorization_response
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response
+#: of
+msgid "Parameters"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.create_authorization_response:34
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.create_authorization_response:51
+#: authlib.oidc.core.grants.OpenIDHybridGrant.create_authorization_response:34
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:51
+#: of
+msgid ""
+"if resource owner granted the request, pass this resource owner, "
+"otherwise pass None."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize
+#: authlib.jose.rfc7515.JWS.deserialize_compact
+#: authlib.jose.rfc7515.JWS.deserialize_json authlib.jose.rfc7515.JWS.serialize
+#: authlib.jose.rfc7515.JWS.serialize_compact
+#: authlib.jose.rfc7515.JWS.serialize_json
+#: authlib.jose.rfc7515.JWSAlgorithm.sign
+#: authlib.jose.rfc7515.JWSAlgorithm.verify
+#: authlib.jose.rfc7516.JWE.deserialize_compact
+#: authlib.jose.rfc7516.JWE.serialize_compact
+#: authlib.jose.rfc7516.JWEEncAlgorithm.decrypt
+#: authlib.jose.rfc7516.JWEEncAlgorithm.encrypt authlib.jose.rfc7517.JWK.dumps
+#: authlib.jose.rfc7517.JWK.loads authlib.jose.rfc7519.JWT.decode
+#: authlib.jose.rfc7519.JWT.encode
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_authorization_response
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_authorization_verifier
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_temporary_credential
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_temporary_credentials_response
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_token_credential
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_token_response
+#: authlib.oauth1.rfc5849.AuthorizationServer.exists_nonce
+#: authlib.oauth1.rfc5849.AuthorizationServer.get_client_by_id
+#: authlib.oauth1.rfc5849.AuthorizationServer.get_temporary_credential
+#: authlib.oauth1.rfc5849.ClientMixin.get_default_redirect_uri
+#: authlib.oauth1.rfc5849.ResourceProtector.exists_nonce
+#: authlib.oauth1.rfc5849.ResourceProtector.get_client_by_id
+#: authlib.oauth1.rfc5849.ResourceProtector.get_token_credential
+#: authlib.oauth1.rfc5849.TemporaryCredentialMixin.check_verifier
+#: authlib.oauth1.rfc5849.TemporaryCredentialMixin.get_oauth_token
+#: authlib.oauth1.rfc5849.TemporaryCredentialMixin.get_oauth_token_secret
+#: authlib.oauth1.rfc5849.TemporaryCredentialMixin.get_redirect_uri
+#: authlib.oauth1.rfc5849.TokenCredentialMixin.get_oauth_token
+#: authlib.oauth1.rfc5849.TokenCredentialMixin.get_oauth_token_secret
+#: authlib.oauth2.rfc6749.AuthorizationServer.create_authorization_response
+#: authlib.oauth2.rfc6749.AuthorizationServer.create_endpoint_response
+#: authlib.oauth2.rfc6749.AuthorizationServer.create_oauth2_request
+#: authlib.oauth2.rfc6749.AuthorizationServer.get_authorization_grant
+#: authlib.oauth2.rfc6749.AuthorizationServer.get_token_grant
+#: authlib.oauth2.rfc6749.ClientMixin.check_client_secret
+#: authlib.oauth2.rfc6749.ClientMixin.check_client_type
+#: authlib.oauth2.rfc6749.ClientMixin.check_grant_type
+#: authlib.oauth2.rfc6749.ClientMixin.check_redirect_uri
+#: authlib.oauth2.rfc6749.ClientMixin.check_requested_scopes
+#: authlib.oauth2.rfc6749.ClientMixin.check_response_type
+#: authlib.oauth2.rfc6749.ClientMixin.get_client_id
+#: authlib.oauth2.rfc6749.ClientMixin.get_default_redirect_uri
+#: authlib.oauth2.rfc6749.ClientMixin.has_client_secret
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.authenticate_user
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.create_authorization_code
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.create_authorization_response
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.create_token_response
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.parse_authorization_code
+#: authlib.oauth2.rfc6749.grants.ClientCredentialsGrant.create_token_response
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.create_authorization_response
+#: authlib.oauth2.rfc6749.grants.RefreshTokenGrant.authenticate_refresh_token
+#: authlib.oauth2.rfc6749.grants.RefreshTokenGrant.authenticate_user
+#: authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant.create_token_response
+#: authlib.oauth2.rfc6750.BearerToken
+#: authlib.oauth2.rfc6750.BearerTokenValidator.authenticate_token
+#: authlib.oauth2.rfc6750.BearerTokenValidator.request_invalid
+#: authlib.oauth2.rfc6750.BearerTokenValidator.token_revoked
+#: authlib.oauth2.rfc7009.RevocationEndpoint.create_endpoint_response
+#: authlib.oauth2.rfc7523.JWTBearerClientAssertion.process_assertion_claims
+#: authlib.oauth2.rfc7523.JWTBearerGrant.authenticate_client
+#: authlib.oauth2.rfc7523.JWTBearerGrant.authenticate_user
+#: authlib.oauth2.rfc7523.JWTBearerGrant.process_assertion_claims
+#: authlib.oauth2.rfc7523.JWTBearerGrant.resolve_public_key
+#: authlib.oauth2.rfc7662.IntrospectionEndpoint.create_endpoint_response
+#: authlib.oidc.core.grants.OpenIDHybridGrant.create_authorization_response
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response
+#: of
+msgid "Returns"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_authorization_response:20
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_temporary_credentials_response:29
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_token_response:32
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.create_authorization_response:36
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.create_token_response:24
+#: authlib.oauth2.rfc6749.grants.ClientCredentialsGrant.create_token_response:23
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.create_authorization_response:53
+#: authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant.create_token_response:24
+#: authlib.oauth2.rfc7009.RevocationEndpoint.create_endpoint_response:12
+#: authlib.oauth2.rfc7662.IntrospectionEndpoint.create_endpoint_response:3
+#: authlib.oidc.core.grants.OpenIDHybridGrant.create_authorization_response:36
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:53
+#: of
+msgid "(status_code, body, headers)"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.validate_authorization_request:1
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.validate_authorization_request:1
+#: of
+msgid ""
+"The client constructs the request URI by adding the following parameters "
+"to the query component of the authorization endpoint URI using the "
+"\"application/x-www-form-urlencoded\" format. Per `Section 4.2.1`_."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_authorization_request:7
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.validate_authorization_request:7
+#: authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request:7
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.validate_authorization_request:7
+#: of
+msgid "response_type"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.validate_authorization_request:7
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.validate_authorization_request:7
+#: of
+msgid "REQUIRED.  Value MUST be set to \"token\"."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_authorization_request:10
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_token_request:19
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.validate_authorization_request:10
+#: authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request:10
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.validate_authorization_request:10
+#: of
+msgid "client_id"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_authorization_request:10
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.validate_authorization_request:10
+#: authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request:10
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.validate_authorization_request:10
+#: of
+msgid "REQUIRED.  The client identifier as described in Section 2.2."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_authorization_request:13
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_token_request:15
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.validate_authorization_request:13
+#: authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request:13
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.validate_authorization_request:13
+#: of
+msgid "redirect_uri"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_authorization_request:13
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.validate_authorization_request:13
+#: authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request:13
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.validate_authorization_request:13
+#: of
+msgid "OPTIONAL.  As described in Section 3.1.2."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_authorization_request:16
+#: authlib.oauth2.rfc6749.grants.ClientCredentialsGrant.validate_token_request:10
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.validate_authorization_request:16
+#: authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant.validate_token_request:16
+#: authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request:16
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.validate_authorization_request:16
+#: of
+msgid "OPTIONAL.  The scope of the access request as described by Section 3.3."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_authorization_request:20
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.validate_authorization_request:20
+#: authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request:20
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.validate_authorization_request:20
+#: of
+msgid ""
+"RECOMMENDED.  An opaque value used by the client to maintain state "
+"between the request and callback.  The authorization server includes this"
+" value when redirecting the user-agent back to the client.  The parameter"
+" SHOULD be used for preventing cross-site request forgery as described in"
+" Section 10.12."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_authorization_request:26
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.validate_authorization_request:26
+#: authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request:26
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.validate_authorization_request:26
+#: of
+msgid ""
+"The client directs the resource owner to the constructed URI using an "
+"HTTP redirection response, or by other means available to it via the "
+"user-agent."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.validate_authorization_request:30
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.validate_authorization_request:30
+#: of
+msgid ""
+"For example, the client directs the user-agent to make the following HTTP"
+" request using TLS:"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.create_authorization_response:1
+#: authlib.oidc.core.grants.OpenIDHybridGrant.create_authorization_response:1
+#: of
+msgid ""
+"If the resource owner grants the access request, the authorization server"
+" issues an authorization code and delivers it to the client by adding the"
+" following parameters to the query component of the redirection URI using"
+" the \"application/x-www-form-urlencoded\" format. Per `Section 4.1.2`_."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.create_authorization_response:16
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_token_request:10
+#: authlib.oidc.core.grants.OpenIDHybridGrant.create_authorization_response:16
+#: of
+msgid "code"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.create_authorization_response:8
+#: authlib.oidc.core.grants.OpenIDHybridGrant.create_authorization_response:8
+#: of
+msgid ""
+"REQUIRED.  The authorization code generated by the authorization server. "
+"The authorization code MUST expire shortly after it is issued to mitigate"
+" the risk of leaks. A maximum authorization code lifetime of 10 minutes "
+"is RECOMMENDED. The client MUST NOT use the authorization code more than "
+"once. If an authorization code is used more than once, the authorization "
+"server MUST deny the request and SHOULD revoke (when possible) all tokens"
+" previously issued based on that authorization code.  The authorization "
+"code is bound to the client identifier and redirection URI."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.create_authorization_response:23
+#: authlib.oidc.core.grants.OpenIDHybridGrant.create_authorization_response:23
+#: of
+msgid ""
+"For example, the authorization server redirects the user-agent by sending"
+" the following HTTP response."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_authorization_request:1
+#: authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request:1
+#: of
+msgid ""
+"The client constructs the request URI by adding the following parameters "
+"to the query component of the authorization endpoint URI using the "
+"\"application/x-www-form-urlencoded\" format. Per `Section 4.1.1`_."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_authorization_request:7
+#: authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request:7
+#: of
+msgid "REQUIRED.  Value MUST be set to \"code\"."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_authorization_request:30
+#: authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request:30
+#: of
+msgid ""
+"For example, the client directs the user-agent to make the following HTTP"
+" request using TLS (with extra line breaks for display purposes only):"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_authorization_request:40
+#: authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request:40
+#: of
+msgid ""
+"The authorization server validates the request to ensure that all "
+"required parameters are present and valid.  If the request is valid, the "
+"authorization server authenticates the resource owner and obtains an "
+"authorization decision (by asking the resource owner or by establishing "
+"approval via other means)."
+msgstr ""
+
+#: ../../specs/oidc.rst:31
+msgid "OpenID Claims"
+msgstr ""
+
+#: authlib.oidc.core.IDToken:1 of
+msgid "Bases: :class:`authlib.jose.rfc7519.claims.JWTClaims`"
+msgstr ""
+
+#: authlib.jose.rfc7519.JWTClaims.validate:1
+#: authlib.oidc.core.HybridIDToken.validate:1
+#: authlib.oidc.core.IDToken.validate:1 of
+msgid "Validate everything in claims payload."
+msgstr ""
+
+#: authlib.oidc.core.IDToken.validate_acr:1 of
+msgid ""
+"OPTIONAL. Authentication Context Class Reference. String specifying an "
+"Authentication Context Class Reference value that identifies the "
+"Authentication Context Class that the authentication performed satisfied."
+" The value \"0\" indicates the End-User authentication did not meet the "
+"requirements of `ISO/IEC 29115`_ level 1. Authentication using a long-"
+"lived browser cookie, for instance, is one example where the use of "
+"\"level 0\" is appropriate. Authentications with level 0 SHOULD NOT be "
+"used to authorize access to any resource of any monetary value. An "
+"absolute URI or an `RFC 6711`_ registered name SHOULD be used as the acr "
+"value; registered names MUST NOT be used with a different meaning than "
+"that which is registered. Parties using this claim will need to agree "
+"upon the meanings of the values used, which may be context-specific. The "
+"acr value is a case sensitive string."
+msgstr ""
+
+#: authlib.oidc.core.IDToken.validate_amr:1 of
+msgid ""
+"OPTIONAL. Authentication Methods References. JSON array of strings that "
+"are identifiers for authentication methods used in the authentication. "
+"For instance, values might indicate that both password and OTP "
+"authentication methods were used. The definition of particular values to "
+"be used in the amr Claim is beyond the scope of this specification. "
+"Parties using this claim will need to agree upon the meanings of the "
+"values used, which may be context-specific. The amr value is an array of "
+"case sensitive strings."
+msgstr ""
+
+#: authlib.oidc.core.IDToken.validate_at_hash:1 of
+msgid ""
+"OPTIONAL. Access Token hash value. Its value is the base64url encoding of"
+" the left-most half of the hash of the octets of the ASCII representation"
+" of the access_token value, where the hash algorithm used is the hash "
+"algorithm used in the alg Header Parameter of the ID Token's JOSE Header."
+" For instance, if the alg is RS256, hash the access_token value with "
+"SHA-256, then take the left-most 128 bits and base64url encode them. The "
+"at_hash value is a case sensitive string."
+msgstr ""
+
+#: authlib.oidc.core.IDToken.validate_auth_time:1 of
+msgid ""
+"Time when the End-User authentication occurred. Its value is a JSON "
+"number representing the number of seconds from 1970-01-01T0:0:0Z as "
+"measured in UTC until the date/time. When a max_age request is made or "
+"when auth_time is requested as an Essential Claim, then this Claim is "
+"REQUIRED; otherwise, its inclusion is OPTIONAL."
+msgstr ""
+
+#: authlib.oidc.core.IDToken.validate_azp:1 of
+msgid ""
+"OPTIONAL. Authorized party - the party to which the ID Token was issued. "
+"If present, it MUST contain the OAuth 2.0 Client ID of this party. This "
+"Claim is only needed when the ID Token has a single audience value and "
+"that audience is different than the authorized party. It MAY be included "
+"even when the authorized party is the same as the sole audience. The azp "
+"value is a case sensitive string containing a StringOrURI value."
+msgstr ""
+
+#: authlib.oidc.core.IDToken.validate_nonce:1 of
+msgid ""
+"String value used to associate a Client session with an ID Token, and to "
+"mitigate replay attacks. The value is passed through unmodified from the "
+"Authentication Request to the ID Token. If present in the ID Token, "
+"Clients MUST verify that the nonce Claim Value is equal to the value of "
+"the nonce parameter sent in the Authentication Request. If present in the"
+" Authentication Request, Authorization Servers MUST include a nonce Claim"
+" in the ID Token with the Claim Value being the nonce value sent in the "
+"Authentication Request. Authorization Servers SHOULD perform no other "
+"processing on nonce values used. The nonce value is a case sensitive "
+"string."
+msgstr ""
+
+#: authlib.oidc.core.CodeIDToken:1 authlib.oidc.core.ImplicitIDToken:1 of
+msgid "Bases: :class:`authlib.oidc.core.claims.IDToken`"
+msgstr ""
+
+#: authlib.oidc.core.ImplicitIDToken.validate_at_hash:1 of
+msgid ""
+"If the ID Token is issued from the Authorization Endpoint with an "
+"access_token value, which is the case for the response_type value "
+"id_token token, this is REQUIRED; it MAY NOT be used when no Access Token"
+" is issued, which is the case for the response_type value id_token."
+msgstr ""
+
+#: authlib.oidc.core.HybridIDToken:1 of
+msgid "Bases: :class:`authlib.oidc.core.claims.ImplicitIDToken`"
+msgstr ""
+
+#: authlib.oidc.core.HybridIDToken.validate_c_hash:1 of
+msgid ""
+"Code hash value. Its value is the base64url encoding of the left-most "
+"half of the hash of the octets of the ASCII representation of the code "
+"value, where the hash algorithm used is the hash algorithm used in the "
+"alg Header Parameter of the ID Token's JOSE Header. For instance, if the "
+"alg is HS512, hash the code value with SHA-512, then take the left-most "
+"256 bits and base64url encode them. The c_hash value is a case sensitive "
+"string. If the ID Token is issued from the Authorization Endpoint with a "
+"code, which is the case for the response_type values code id_token and "
+"code id_token token, this is REQUIRED; otherwise, its inclusion is "
+"OPTIONAL."
+msgstr ""
+
+#: ../../specs/rfc5849.rst:4
+msgid "RFC5849: The OAuth 1.0 Protocol"
+msgstr ""
+
+#: ../../specs/rfc5849.rst:6
+msgid ""
+"API references of RFC5849 in Python implementation. Learn how to create "
+"an OAuth 1.0 provider in Python."
+msgstr ""
+
+#: ../../specs/rfc5849.rst:10
+msgid ""
+"This section contains the generic implementation of RFC5849_. Learn how "
+"to create an OAuth 1.0 provider in these frameworks:"
+msgstr ""
+
+#: ../../specs/rfc5849.rst:13
+msgid "Flask: :ref:`flask_oauth1_server`."
+msgstr ""
+
+#: ../../specs/rfc5849.rst:14
+msgid "Django: not ready yet."
+msgstr ""
+
+#: ../../specs/rfc5849.rst:22 ../../specs/rfc6749.rst:27
+msgid "Servers"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_authorization_response:1
+#: of
+msgid ""
+"Validate authorization request and create authorization response. Assume "
+"the endpoint for authorization request is "
+"``https://photos.example.net/authorize``, the client redirects Jane's "
+"user-agent to the server's Resource Owner Authorization endpoint to "
+"obtain Jane's approval for accessing her private photos::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_authorization_response:9
+#: of
+msgid ""
+"The server requests Jane to sign in using her username and password and "
+"if successful, asks her to approve granting 'printer.example.com' access "
+"to her private photos.  Jane approves the request and her user-agent is "
+"redirected to the callback URI provided by the client in the previous "
+"request (line breaks are for display purposes only)::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_authorization_response:18
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_temporary_credentials_response:28
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_token_response:31 of
+msgid "OAuth1Request instance."
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_authorization_response:19
+#: of
+msgid "if granted, pass the grant user, otherwise None."
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_authorization_verifier:1
+#: of
+msgid ""
+"Create and bind ``oauth_verifier`` to temporary credential. It could be "
+"re-implemented in this way::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_authorization_verifier:18
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_temporary_credential:18
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_token_credential:19
+#: authlib.oauth1.rfc5849.AuthorizationServer.delete_temporary_credential:8
+#: authlib.oauth1.rfc5849.AuthorizationServer.exists_nonce:5
+#: authlib.oauth1.rfc5849.AuthorizationServer.get_temporary_credential:11
+#: authlib.oauth1.rfc5849.AuthorizationServer.validate_oauth_signature:3
+#: authlib.oauth1.rfc5849.AuthorizationServer.validate_timestamp_and_nonce:3
+#: authlib.oauth1.rfc5849.ResourceProtector.exists_nonce:5
+#: authlib.oauth1.rfc5849.ResourceProtector.get_token_credential:4
+#: authlib.oauth1.rfc5849.ResourceProtector.validate_oauth_signature:3
+#: authlib.oauth1.rfc5849.ResourceProtector.validate_timestamp_and_nonce:3 of
+msgid "OAuth1Request instance"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_authorization_verifier:19
+#: of
+msgid "A string of ``oauth_verifier``"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_temporary_credential:1 of
+msgid ""
+"Generate and save a temporary credential into database or cache. A "
+"temporary credential is used for exchanging token credential. This method"
+" should be re-implemented::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_temporary_credential:19
+#: authlib.oauth1.rfc5849.AuthorizationServer.get_temporary_credential:12 of
+msgid "TemporaryCredential instance"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_temporary_credentials_response:1
+#: of
+msgid ""
+"Validate temporary credentials token request and create response for "
+"temporary credentials token. Assume the endpoint of temporary credentials"
+" request is ``https://photos.example.net/initiate``:"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_temporary_credentials_response:17
+#: of
+msgid ""
+"The server validates the request and replies with a set of temporary "
+"credentials in the body of the HTTP response:"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_token_credential:1 of
+msgid ""
+"Create and save token credential into database. This method would be re-"
+"implemented like this::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_token_credential:20 of
+msgid "TokenCredential instance"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_token_response:1 of
+msgid ""
+"Validate token request and create token response. Assuming the endpoint "
+"of token request is ``https://photos.example.net/token``, the callback "
+"request informs the client that Jane completed the authorization process."
+"  The client then requests a set of token credentials using its temporary"
+" credentials (over a secure Transport Layer Security (TLS) channel):"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_token_response:21 of
+msgid ""
+"The server validates the request and replies with a set of token "
+"credentials in the body of the HTTP response:"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.delete_temporary_credential:1 of
+msgid ""
+"Delete temporary credential from database or cache. For instance, if "
+"temporary credential is saved in cache::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.exists_nonce:1
+#: authlib.oauth1.rfc5849.ResourceProtector.exists_nonce:1 of
+msgid ""
+"The nonce value MUST be unique across all requests with the same "
+"timestamp, client credentials, and token combinations."
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.exists_nonce:4
+#: authlib.oauth1.rfc5849.ResourceProtector.exists_nonce:4 of
+msgid "A string value of ``oauth_nonce``"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.exists_nonce:6
+#: authlib.oauth1.rfc5849.ResourceProtector.exists_nonce:6
+#: authlib.oauth1.rfc5849.TemporaryCredentialMixin.check_verifier:8
+#: authlib.oauth2.rfc6750.BearerTokenValidator.request_invalid:12
+#: authlib.oauth2.rfc6750.BearerTokenValidator.token_revoked:8 of
+msgid "Boolean"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.get_client_by_id:1
+#: authlib.oauth1.rfc5849.ResourceProtector.get_client_by_id:1 of
+msgid "Get client instance with the given ``client_id``."
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.get_client_by_id:3
+#: authlib.oauth1.rfc5849.ResourceProtector.get_client_by_id:3 of
+msgid "A string of client_id"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.get_client_by_id:4
+#: authlib.oauth1.rfc5849.ResourceProtector.get_client_by_id:4
+#: authlib.oauth2.rfc7523.JWTBearerGrant.authenticate_client:8 of
+msgid "Client instance"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.get_temporary_credential:1 of
+msgid ""
+"Get the temporary credential from database or cache. A temporary "
+"credential should share the same methods as described in models of "
+"``TemporaryCredentialMixin``::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.register_signature_method:1
+#: authlib.oauth1.rfc5849.ResourceProtector.register_signature_method:1 of
+msgid "Extend signature method verification."
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.register_signature_method:3
+#: authlib.oauth1.rfc5849.ResourceProtector.register_signature_method:3 of
+msgid "A string to represent signature method."
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.register_signature_method:4
+#: authlib.oauth1.rfc5849.ResourceProtector.register_signature_method:4 of
+msgid "A function to verify signature."
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.register_signature_method:6
+#: authlib.oauth1.rfc5849.ResourceProtector.register_signature_method:6 of
+msgid "The ``verify`` method accept ``OAuth1Request`` as parameter::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.validate_authorization_request:1
+#: of
+msgid "Validate the request for resource owner authorization."
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.validate_oauth_signature:1
+#: authlib.oauth1.rfc5849.ResourceProtector.validate_oauth_signature:1 of
+msgid "Validate ``oauth_signature`` from HTTP request."
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.validate_temporary_credentials_request:1
+#: of
+msgid "Validate HTTP request for temporary credentials."
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.validate_timestamp_and_nonce:1
+#: authlib.oauth1.rfc5849.ResourceProtector.validate_timestamp_and_nonce:1 of
+msgid "Validate ``oauth_timestamp`` and ``oauth_nonce`` in HTTP request."
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.validate_token_request:1 of
+msgid "Validate request for issuing token."
+msgstr ""
+
+#: authlib.oauth1.rfc5849.ResourceProtector.get_token_credential:1 of
+msgid ""
+"Fetch the token credential from data store like a database, framework "
+"should implement this function."
+msgstr ""
+
+#: authlib.oauth1.rfc5849.ResourceProtector.get_token_credential:5 of
+msgid "Token model instance"
+msgstr ""
+
+#: ../../specs/rfc5849.rst:34
+msgid "Models Mixin"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.ClientMixin.get_client_secret:1 of
+msgid ""
+"A method to return the client_secret of this client. For instance, the "
+"database table has a column called ``client_secret``::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.ClientMixin.get_default_redirect_uri:1
+#: authlib.oauth2.rfc6749.ClientMixin.get_default_redirect_uri:1 of
+msgid ""
+"A method to get client default redirect_uri. For instance, the database "
+"table for client has a column called ``default_redirect_uri``::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.ClientMixin.get_default_redirect_uri:7
+#: authlib.oauth1.rfc5849.TemporaryCredentialMixin.get_redirect_uri:8
+#: authlib.oauth2.rfc6749.ClientMixin.get_default_redirect_uri:7 of
+msgid "A URL string"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.ClientMixin.get_rsa_public_key:1 of
+msgid ""
+"A method to get the RSA public key for RSA-SHA1 signature method. For "
+"instance, the value is saved on column ``rsa_public_key``::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.TemporaryCredentialMixin.check_verifier:1 of
+msgid ""
+"A method to check if the given verifier matches this temporary "
+"credential. For instance that this temporary credential has recorded the "
+"value in database as column ``oauth_verifier``::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.TemporaryCredentialMixin.get_client_id:1 of
+msgid ""
+"A method to get the client_id associated with this credential. For "
+"instance, the table in the database has a column ``client_id``::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.TemporaryCredentialMixin.get_oauth_token:1
+#: authlib.oauth1.rfc5849.TokenCredentialMixin.get_oauth_token:1 of
+msgid ""
+"A method to get the value of ``oauth_token``. For instance, the database "
+"table has a column called ``oauth_token``::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.TemporaryCredentialMixin.get_oauth_token:7
+#: authlib.oauth1.rfc5849.TemporaryCredentialMixin.get_oauth_token_secret:7
+#: authlib.oauth1.rfc5849.TokenCredentialMixin.get_oauth_token:7
+#: authlib.oauth1.rfc5849.TokenCredentialMixin.get_oauth_token_secret:7 of
+msgid "A string"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.TemporaryCredentialMixin.get_oauth_token_secret:1
+#: authlib.oauth1.rfc5849.TokenCredentialMixin.get_oauth_token_secret:1 of
+msgid ""
+"A method to get the value of ``oauth_token_secret``. For instance, the "
+"database table has a column called ``oauth_token_secret``::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.TemporaryCredentialMixin.get_redirect_uri:1 of
+msgid ""
+"A method to get temporary credential's ``oauth_callback``. For instance, "
+"the database table for temporary credential has a column called "
+"``oauth_callback``::"
+msgstr ""
+
+#: ../../specs/rfc6749.rst:4
+msgid "RFC6749: The OAuth 2.0 Authorization Framework"
+msgstr ""
+
+#: ../../specs/rfc6749.rst:6
+msgid ""
+"API references of RFC6749 in Python implementation. Learn how to create "
+"an OAuth 2.0 provider in Python."
+msgstr ""
+
+#: ../../specs/rfc6749.rst:10
+msgid ""
+"This section contains the generic implementation of RFC6749_. You should "
+":ref:`understand_oauth2` at first. Here are some tips:"
+msgstr ""
+
+#: ../../specs/rfc6749.rst:13
+msgid "Have a better :ref:`understand_oauth2`"
+msgstr ""
+
+#: ../../specs/rfc6749.rst:14
+msgid "How to use :ref:`oauth_2_session` for Requests"
+msgstr ""
+
+#: ../../specs/rfc6749.rst:15
+msgid "How to implement :ref:`flask_client`"
+msgstr ""
+
+#: ../../specs/rfc6749.rst:16
+msgid "How to implement :ref:`flask_oauth2_server`"
+msgstr ""
+
+#: ../../specs/rfc6749.rst:21
+msgid "API References"
+msgstr ""
+
+#: ../../specs/rfc6749.rst:23
+msgid ""
+"Here are the API references for developers. For framework level "
+"interfaces, check:"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer:1 of
+msgid ""
+"Authorization server that handles Authorization Endpoint and Token "
+"Endpoint."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer:4 of
+msgid ""
+"A function to get client by client_id. The client model class MUST "
+"implement the methods described by "
+":class:`~authlib.oauth2.rfc6749.ClientMixin`."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer:7 of
+msgid "A method to generate tokens."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer.create_authorization_response:1
+#: of
+msgid "Validate authorization request and create authorization response."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer.create_authorization_response:3
+#: authlib.oauth2.rfc6749.AuthorizationServer.create_endpoint_response:4
+#: authlib.oauth2.rfc6749.AuthorizationServer.get_authorization_grant:3
+#: authlib.oauth2.rfc6749.AuthorizationServer.get_token_grant:3
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.create_authorization_code:20
+#: of
+msgid "OAuth2Request instance."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer.create_authorization_response:4
+#: of
+msgid "if granted, it is resource owner. If denied, it is None."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer.create_authorization_response:6
+#: authlib.oauth2.rfc6749.AuthorizationServer.create_endpoint_response:5 of
+msgid "Response"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer.create_endpoint_response:1 of
+msgid "Validate endpoint request and create endpoint response."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer.create_endpoint_response:3 of
+msgid "Endpoint name"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer.create_oauth2_request:1 of
+msgid ""
+"This method MUST be implemented in framework integrations. It is used to "
+"create an OAuth2Request instance."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer.create_oauth2_request:4 of
+msgid "the \"request\" instance in framework"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer.create_oauth2_request:5
+#: authlib.oauth2.rfc6749.AuthorizationServer.create_token_response:3 of
+msgid "OAuth2Request instance"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer.create_token_response:1 of
+msgid "Validate token request and create token response."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer.get_authorization_grant:1 of
+msgid "Find the authorization grant for current request."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer.get_authorization_grant:4
+#: authlib.oauth2.rfc6749.AuthorizationServer.get_token_grant:4 of
+msgid "grant instance"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer.get_token_grant:1 of
+msgid "Find the token grant for current request."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer.get_translations:1 of
+msgid ""
+"Return a translations instance used for i18n error messages. Framework "
+"SHOULD implement this function."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer.handle_response:1 of
+msgid "Return HTTP response. Framework MUST implement this function."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer.register_client_auth_method:1 of
+msgid "Add more client auth method. The default methods are:"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer.register_client_auth_method:3 of
+msgid "none: The client is a public client and does not have a client secret"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer.register_client_auth_method:4 of
+msgid "client_secret_post: The client uses the HTTP POST parameters"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer.register_client_auth_method:5 of
+msgid "client_secret_basic: The client uses HTTP Basic"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer.register_client_auth_method:7 of
+msgid "Name of the Auth method"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer.register_client_auth_method:8 of
+msgid "Function to authenticate the client"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer.register_client_auth_method:10 of
+msgid ""
+"The auth method accept two parameters: ``query_client`` and ``request``, "
+"an example for this method::"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer.register_endpoint:1 of
+msgid "Add token endpoint to authorization server. e.g. RevocationEndpoint::"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer.register_endpoint:6 of
+msgid "A token endpoint class"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer.register_grant:1 of
+msgid ""
+"Register a grant class into the endpoint registry. Developers can "
+"implement the grants in ``authlib.oauth2.rfc6749.grants`` and register "
+"with this method::"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer.register_grant:11 of
+msgid "a grant class."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AuthorizationServer.register_grant:12 of
+msgid "extensions for the grant class."
+msgstr ""
+
+#: ../../specs/rfc6749.rst:38
+msgid "Client Model"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin:1 of
+msgid ""
+"Implementation of OAuth 2 Client described in `Section 2`_ with some "
+"methods to help validation. A client has at least these information:"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin:4 of
+msgid "client_id: A string represents client identifier."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin:5 of
+msgid "client_secret: A string represents client password."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin:7 of
+msgid "token_endpoint_auth_method: A way to authenticate client at token"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin:7 of
+msgid "endpoint."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_client_secret:1 of
+msgid ""
+"Check client_secret matching with the client. For instance, in the client"
+" table, the column is called ``client_secret``::"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_client_secret:7 of
+msgid "A string of client secret"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_client_secret:8
+#: authlib.oauth2.rfc6749.ClientMixin.check_client_type:19
+#: authlib.oauth2.rfc6749.ClientMixin.check_grant_type:15
+#: authlib.oauth2.rfc6749.ClientMixin.check_redirect_uri:9
+#: authlib.oauth2.rfc6749.ClientMixin.check_requested_scopes:8
+#: authlib.oauth2.rfc6749.ClientMixin.check_response_type:9
+#: authlib.oauth2.rfc6749.ClientMixin.has_client_secret:7 of
+msgid "bool"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_client_type:1 of
+msgid ""
+"Validate if the client is the given ``client_type``. The available "
+"choices are:"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_client_type:8 of
+msgid "public:"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_client_type:5 of
+msgid ""
+"Clients incapable of maintaining the confidentiality of their credentials"
+" (e.g., clients executing on the device used by the resource owner, such "
+"as an installed native application or a web browser-based application), "
+"and incapable of secure client authentication via any other means."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_client_type:14 of
+msgid "confidential:"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_client_type:11 of
+msgid ""
+"Clients capable of maintaining the confidentiality of their credentials "
+"(e.g., client implemented on a secure server with restricted access to "
+"the client credentials), or capable of secure client authentication using"
+" other means."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_client_type:16 of
+msgid "Developers can overwrite this method to implement a new logic."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_client_type:18 of
+msgid "string of \"public\" or \"confidential\""
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_grant_type:1 of
+msgid ""
+"Validate if the client can handle the given grant_type. There are four "
+"grant types defined by RFC6749:"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_grant_type:4 of
+msgid "authorization_code"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_grant_type:5 of
+msgid "implicit"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_grant_type:6 of
+msgid "client_credentials"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_grant_type:7
+#: authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant.validate_token_request:13
+#: of
+msgid "password"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_grant_type:9 of
+msgid "For instance, there is a ``allowed_grant_types`` column in your client::"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_grant_type:14 of
+msgid "the requested grant_type string."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_redirect_uri:1 of
+msgid ""
+"Validate redirect_uri parameter in Authorization Endpoints. For instance,"
+" in the client table, there is an ``allowed_redirect_uris`` column::"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_redirect_uri:8 of
+msgid "A URL string for redirecting."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_requested_scopes:1 of
+msgid ""
+"Validate if the request scopes are supported by this client. It can "
+"always be ``True``. For instance, there is a ``scope`` column::"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_requested_scopes:7 of
+msgid "the requested scopes set."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_response_type:1 of
+msgid ""
+"Validate if the client can handle the given response_type. There are two "
+"response types defined by RFC6749: code and token. For instance, there is"
+" a ``allowed_response_types`` column in your client::"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_response_type:8 of
+msgid "the requested response_type string."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_token_endpoint_auth_method:1 of
+msgid ""
+"Check client ``token_endpoint_auth_method`` defined via `RFC7591`_. "
+"Values defined by this specification are:"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_token_endpoint_auth_method:5 of
+msgid "\"none\": The client is a public client as defined in OAuth 2.0,"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_token_endpoint_auth_method:5 of
+msgid "and does not have a client secret."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_token_endpoint_auth_method:8 of
+msgid "\"client_secret_post\": The client uses the HTTP POST parameters"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_token_endpoint_auth_method:8 of
+msgid "as defined in OAuth 2.0"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_token_endpoint_auth_method:11 of
+msgid "\"client_secret_basic\": The client uses HTTP Basic as defined in"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.check_token_endpoint_auth_method:11 of
+msgid "OAuth 2.0"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.get_client_id:1 of
+msgid ""
+"A method to return client_id of the client. For instance, the value in "
+"database is saved in a column called ``client_id``::"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.get_client_id:7 of
+msgid "string"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.ClientMixin.has_client_secret:1 of
+msgid ""
+"A method returns that if the client has ``client_secret`` value. If the "
+"value is in ``client_secret`` column::"
+msgstr ""
+
+#: ../../specs/rfc6749.rst:46
+msgid "Errors"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.OAuth2Error.get_body:1 of
+msgid "Get a list of body."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.InsecureTransportError.check:1 of
+msgid "Check and raise InsecureTransportError with the given URI."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.InvalidRequestError:1 of
+msgid ""
+"The request is missing a required parameter, includes an unsupported "
+"parameter value (other than grant type), repeats a parameter, includes "
+"multiple credentials, utilizes more than one mechanism for authenticating"
+" the client, or is otherwise malformed."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.InvalidClientError:12
+#: authlib.oauth2.rfc6749.InvalidGrantError:7
+#: authlib.oauth2.rfc6749.InvalidRequestError:7
+#: authlib.oauth2.rfc6749.InvalidScopeError:4
+#: authlib.oauth2.rfc6749.UnauthorizedClientError:4
+#: authlib.oauth2.rfc6749.UnsupportedGrantTypeError:4 of
+msgid "https://tools.ietf.org/html/rfc6749#section-5.2"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.InvalidClientError:1 of
+msgid ""
+"Client authentication failed (e.g., unknown client, no client "
+"authentication included, or unsupported authentication method).  The "
+"authorization server MAY return an HTTP 401 (Unauthorized) status code to"
+" indicate which HTTP authentication schemes are supported.  If the client"
+" attempted to authenticate via the \"Authorization\" request header "
+"field, the authorization server MUST respond with an HTTP 401 "
+"(Unauthorized) status code and include the \"WWW-Authenticate\" response "
+"header field matching the authentication scheme used by the client."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.InvalidGrantError:1 of
+msgid ""
+"The provided authorization grant (e.g., authorization code, resource "
+"owner credentials) or refresh token is invalid, expired, revoked, does "
+"not match the redirection URI used in the authorization request, or was "
+"issued to another client."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.UnauthorizedClientError:1 of
+msgid ""
+"The authenticated client is not authorized to use this authorization "
+"grant type."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.UnsupportedGrantTypeError:1 of
+msgid "The authorization grant type is not supported by the authorization server."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.InvalidScopeError:1 of
+msgid ""
+"The requested scope is invalid, unknown, malformed, or exceeds the scope "
+"granted by the resource owner."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AccessDeniedError:1 of
+msgid "The resource owner or authorization server denied the request."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.AccessDeniedError:3 of
+msgid ""
+"Used in authorization endpoint for \"code\" and \"implicit\". Defined in "
+"`Section 4.1.2.1`_."
+msgstr ""
+
+#: ../../specs/rfc6749.rst:69
+msgid "Grant Types"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant:1 of
+msgid ""
+"The authorization code grant type is used to obtain both access tokens "
+"and refresh tokens and is optimized for confidential clients. Since this "
+"is a redirection-based flow, the client must be capable of interacting "
+"with the resource owner's user-agent (typically a web browser) and "
+"capable of receiving incoming requests (via redirection) from the "
+"authorization server::"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.AUTHORIZATION_ENDPOINT:1
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.AUTHORIZATION_ENDPOINT:1 of
+msgid "authorization_code grant type has authorization endpoint"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.TOKEN_ENDPOINT:1
+#: authlib.oauth2.rfc6749.grants.ClientCredentialsGrant.TOKEN_ENDPOINT:1
+#: authlib.oauth2.rfc6749.grants.RefreshTokenGrant.TOKEN_ENDPOINT:1
+#: authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant.TOKEN_ENDPOINT:1
+#: of
+msgid "authorization_code grant type has token endpoint"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.TOKEN_ENDPOINT_AUTH_METHODS:1
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant.TOKEN_ENDPOINT_AUTH_METHODS:1 of
+msgid "Allowed client auth methods for token endpoint"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_token_request:1
+#: of
+msgid ""
+"The client makes a request to the token endpoint by sending the following"
+" parameters using the \"application/x-www-form-urlencoded\" format per "
+"`Section 4.1.3`_:"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_token_request:6
+#: authlib.oauth2.rfc6749.grants.ClientCredentialsGrant.validate_token_request:7
+#: authlib.oauth2.rfc6749.grants.RefreshTokenGrant.validate_token_request:8
+#: authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant.validate_token_request:7
+#: authlib.oauth2.rfc7523.JWTBearerGrant.validate_token_request:7 of
+msgid "grant_type"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_token_request:6
+#: of
+msgid "REQUIRED.  Value MUST be set to \"authorization_code\"."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_token_request:9
+#: of
+msgid "REQUIRED.  The authorization code received from the authorization server."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_token_request:13
+#: of
+msgid ""
+"REQUIRED, if the \"redirect_uri\" parameter was included in the "
+"authorization request as described in Section 4.1.1, and their values "
+"MUST be identical."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_token_request:18
+#: of
+msgid ""
+"REQUIRED, if the client is not authenticating with the authorization "
+"server as described in Section 3.2.1."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_token_request:21
+#: authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant.validate_token_request:19
+#: of
+msgid ""
+"If the client type is confidential or the client was issued client "
+"credentials (or assigned other authentication requirements), the client "
+"MUST authenticate with the authorization server as described in Section "
+"3.2.1."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.validate_token_request:26
+#: of
+msgid "For example, the client makes the following HTTP request using TLS:"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.create_token_response:1
+#: of
+msgid ""
+"If the access token request is valid and authorized, the authorization "
+"server issues an access token and optional refresh token as described in "
+"Section 5.1.  If the request client authentication failed or is invalid, "
+"the authorization server returns an error response as described in "
+"Section 5.2. Per `Section 4.1.4`_."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.create_token_response:7
+#: authlib.oauth2.rfc6749.grants.ClientCredentialsGrant.create_token_response:7
+#: authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant.create_token_response:7
+#: of
+msgid "An example successful response:"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.create_authorization_code:1
+#: of
+msgid ""
+"Save authorization_code for later use. Developers should implement it in "
+"subclass. Here is an example::"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.create_authorization_code:18
+#: of
+msgid "the client that requesting the token."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.create_authorization_code:19
+#: of
+msgid "the resource owner that grant the permission."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.create_authorization_code:21
+#: of
+msgid "code string"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.parse_authorization_code:1
+#: of
+msgid ""
+"Get authorization_code from previously savings. Developers should "
+"implement it in subclass::"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.parse_authorization_code:7
+#: of
+msgid "a string represent the code."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.parse_authorization_code:8
+#: of
+msgid "client related to this code."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.parse_authorization_code:9
+#: of
+msgid "authorization_code object"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.delete_authorization_code:1
+#: of
+msgid ""
+"Delete authorization code from database or cache. Developers should "
+"implement it in subclass, e.g.::"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.delete_authorization_code:7
+#: authlib.oauth2.rfc7636.CodeChallenge.get_authorization_code_challenge:7
+#: authlib.oauth2.rfc7636.CodeChallenge.get_authorization_code_challenge_method:7
+#: of
+msgid "the instance of authorization_code"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.authenticate_user:1 of
+msgid ""
+"Authenticate the user related to this authorization_code. Developers "
+"should implement this method in subclass, e.g.::"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.authenticate_user:7 of
+msgid "AuthorizationCode object"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.AuthorizationCodeGrant.authenticate_user:8
+#: authlib.oauth2.rfc6749.grants.RefreshTokenGrant.authenticate_user:8 of
+msgid "user"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant:1 of
+msgid ""
+"The implicit grant type is used to obtain access tokens (it does not "
+"support the issuance of refresh tokens) and is optimized for public "
+"clients known to operate a particular redirection URI.  These clients are"
+" typically implemented in a browser using a scripting language such as "
+"JavaScript."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant:7 of
+msgid ""
+"Since this is a redirection-based flow, the client must be capable of "
+"interacting with the resource owner's user-agent (typically a web "
+"browser) and capable of receiving incoming requests (via redirection) "
+"from the authorization server."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant:12 of
+msgid ""
+"Unlike the authorization code grant type, in which the client makes "
+"separate requests for authorization and for an access token, the client "
+"receives the access token as the result of the authorization request."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ImplicitGrant:17 of
+msgid ""
+"The implicit grant type does not include client authentication, and "
+"relies on the presence of the resource owner and the registration of the "
+"redirection URI.  Because the access token is encoded into the "
+"redirection URI, it may be exposed to the resource owner and other "
+"applications residing on the same device::"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant:1 of
+msgid ""
+"The resource owner password credentials grant type is suitable in cases "
+"where the resource owner has a trust relationship with the client, such "
+"as the device operating system or a highly privileged"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant:5 of
+msgid ""
+"application.  The authorization server should take special care when "
+"enabling this grant type and only allow it when other flows are not "
+"viable."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant:9 of
+msgid ""
+"This grant type is suitable for clients capable of obtaining the resource"
+" owner's credentials (username and password, typically using an "
+"interactive form).  It is also used to migrate existing clients using "
+"direct authentication schemes such as HTTP Basic or Digest authentication"
+" to OAuth by converting the stored credentials to an access token::"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ClientCredentialsGrant.validate_token_request:1
+#: authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant.validate_token_request:1
+#: of
+msgid ""
+"The client makes a request to the token endpoint by adding the following "
+"parameters using the \"application/x-www-form-urlencoded\" format per "
+"Appendix B with a character encoding of UTF-8 in the HTTP request entity-"
+"body:"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant.validate_token_request:7
+#: of
+msgid "REQUIRED.  Value MUST be set to \"password\"."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant.validate_token_request:10
+#: of
+msgid "username"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant.validate_token_request:10
+#: of
+msgid "REQUIRED.  The resource owner username."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant.validate_token_request:13
+#: of
+msgid "REQUIRED.  The resource owner password."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ClientCredentialsGrant.validate_token_request:16
+#: authlib.oauth2.rfc6749.grants.RefreshTokenGrant.validate_token_request:21
+#: authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant.validate_token_request:24
+#: of
+msgid ""
+"For example, the client makes the following HTTP request using transport-"
+"layer security (with extra line breaks for display purposes only):"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant.create_token_response:1
+#: of
+msgid ""
+"If the access token request is valid and authorized, the authorization "
+"server issues an access token and optional refresh token as described in "
+"Section 5.1.  If the request failed client authentication or is invalid, "
+"the authorization server returns an error response as described in "
+"Section 5.2."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ResourceOwnerPasswordCredentialsGrant.authenticate_user:1
+#: of
+msgid ""
+"validate the resource owner password credentials using its existing "
+"password validation algorithm::"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ClientCredentialsGrant:1 of
+msgid ""
+"The client can request an access token using only its client credentials "
+"(or other supported means of authentication) when the client is "
+"requesting access to the protected resources under its control, or those "
+"of another resource owner that have been previously arranged with the "
+"authorization server."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ClientCredentialsGrant:7 of
+msgid ""
+"The client credentials grant type MUST only be used by confidential "
+"clients::"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ClientCredentialsGrant:18 of
+msgid "https://tools.ietf.org/html/rfc6749#section-4.4"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ClientCredentialsGrant.validate_token_request:7
+#: of
+msgid "REQUIRED.  Value MUST be set to \"client_credentials\"."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ClientCredentialsGrant.validate_token_request:13
+#: of
+msgid ""
+"The client MUST authenticate with the authorization server as described "
+"in Section 3.2.1."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ClientCredentialsGrant.validate_token_request:29
+#: of
+msgid "The authorization server MUST authenticate the client."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.ClientCredentialsGrant.create_token_response:1
+#: of
+msgid ""
+"If the access token request is valid and authorized, the authorization "
+"server issues an access token as described in Section 5.1.  A refresh "
+"token SHOULD NOT be included.  If the request failed client "
+"authentication or is invalid, the authorization server returns an error "
+"response as described in Section 5.2."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.RefreshTokenGrant:1 of
+msgid ""
+"A special grant endpoint for refresh_token grant_type. Refreshing an "
+"Access Token per `Section 6`_."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.RefreshTokenGrant.validate_token_request:1 of
+msgid ""
+"If the authorization server issued a refresh token to the client, the "
+"client makes a refresh request to the token endpoint by adding the "
+"following parameters using the \"application/x-www-form-urlencoded\" "
+"format per Appendix B with a character encoding of UTF-8 in the HTTP "
+"request entity-body, per Section 6:"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.RefreshTokenGrant.validate_token_request:8 of
+msgid "REQUIRED.  Value MUST be set to \"refresh_token\"."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.RefreshTokenGrant.validate_token_request:11 of
+msgid "refresh_token"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.RefreshTokenGrant.validate_token_request:11 of
+msgid "REQUIRED.  The refresh token issued to the client."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.RefreshTokenGrant.validate_token_request:14 of
+msgid ""
+"OPTIONAL.  The scope of the access request as described by Section 3.3.  "
+"The requested scope MUST NOT include any scope not originally granted by "
+"the resource owner, and if omitted is treated as equal to the scope "
+"originally granted by the resource owner."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.RefreshTokenGrant.create_token_response:1 of
+msgid ""
+"If valid and authorized, the authorization server issues an access token "
+"as described in Section 5.1.  If the request failed verification or is "
+"invalid, the authorization server returns an error response as described "
+"in Section 5.2."
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.RefreshTokenGrant.authenticate_refresh_token:1
+#: of
+msgid ""
+"Get token information with refresh_token string. Developers should "
+"implement this method in subclass::"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.RefreshTokenGrant.authenticate_refresh_token:9
+#: of
+msgid "The refresh token issued to the client"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.RefreshTokenGrant.authenticate_refresh_token:10
+#: authlib.oauth2.rfc6750.BearerTokenValidator.authenticate_token:8
+#: authlib.oauth2.rfc7009.RevocationEndpoint.validate_endpoint_request:6
+#: authlib.oauth2.rfc7662.IntrospectionEndpoint.validate_endpoint_request:13 of
+msgid "token"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.RefreshTokenGrant.authenticate_user:1 of
+msgid ""
+"Authenticate the user related to this credential. Developers should "
+"implement this method in subclass::"
+msgstr ""
+
+#: authlib.oauth2.rfc6749.grants.RefreshTokenGrant.authenticate_user:7 of
+msgid "Token object"
+msgstr ""
+
+#: ../../specs/rfc6750.rst:4
+msgid "RFC6750: The OAuth 2.0 Authorization Framework: Bearer Token Usage"
+msgstr ""
+
+#: ../../specs/rfc6750.rst:6
+msgid ""
+"API references of RFC6750 in Python implementation. Guide on how to use "
+"Bearer Token and its validator."
+msgstr ""
+
+#: ../../specs/rfc6750.rst:10
+msgid "This section contains the generic implementation of RFC6750_."
+msgstr ""
+
+#: ../../specs/rfc6750.rst:15
+msgid "Guide on Bearer Token"
+msgstr ""
+
+#: ../../specs/rfc6750.rst:17
+msgid ""
+"Bearer token is used in OAuth 2.0 framework to protect resources. You "
+"need to implement the missing methods of :class:`BearerTokenValidator` "
+"before using it. Learn how to use it in "
+":ref:`flask_oauth2_resource_protector`."
+msgstr ""
+
+#: ../../specs/rfc6750.rst:22 ../../specs/rfc7009.rst:63
+#: ../../specs/rfc7515.rst:17 ../../specs/rfc7516.rst:19
+#: ../../specs/rfc7517.rst:18 ../../specs/rfc7519.rst:19
+#: ../../specs/rfc7523.rst:168 ../../specs/rfc7636.rst:96
+#: ../../specs/rfc7662.rst:64
+msgid "API Reference"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerTokenValidator.authenticate_token:1 of
+msgid ""
+"A method to query token from database with the given token string. "
+"Developers MUST re-implement this method. For instance::"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerTokenValidator.authenticate_token:7 of
+msgid "A string to represent the access_token."
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerTokenValidator.request_invalid:1 of
+msgid ""
+"Check if the HTTP request is valid or not.  Developers MUST re-implement "
+"this method.  For instance, your server requires a \"X-Device-Version\" "
+"in the header::"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerTokenValidator.request_invalid:8 of
+msgid ""
+"Usually, you don't have to detect if the request is valid or not, you can"
+" just return a ``False``."
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerTokenValidator.request_invalid:11 of
+msgid "instance of TokenRequest"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerTokenValidator.token_revoked:1 of
+msgid ""
+"Check if this token is revoked. Developers MUST re-implement this method."
+" If there is a column called ``revoked`` on the token table::"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerTokenValidator.token_revoked:7 of
+msgid "token instance"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken:1 of
+msgid ""
+"Bearer Token generator which can create the payload for token response by"
+" OAuth 2 server. A typical token response would be:"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken:18 of
+msgid "a function to generate access_token."
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken:19 of
+msgid ""
+"a function to generate refresh_token, if not provided, refresh_token will"
+" not be added into token response."
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken:21 of
+msgid ""
+"The expires_generator can be an int value or a function. If it is int, "
+"all token expires_in will be this value. If it is function, it can  "
+"generate expires_in depending on client and grant_type::      def "
+"expires_generator(client, grant_type):         if "
+"is_official_client(client):             return 3600 * 1000         if "
+"grant_type == 'implicit':             return 3600         return 3600 * "
+"10"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken:21 of
+msgid ""
+"The expires_generator can be an int value or a function. If it is int, "
+"all token expires_in will be this value. If it is function, it can  "
+"generate expires_in depending on client and grant_type::"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken:32 of
+msgid "Callable"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken:34 of
+msgid "When BearerToken is initialized, it will be callable::"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken:40 of
+msgid "The callable function that BearerToken created accepts these parameters:"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken:42 of
+msgid "the client that making the request."
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken:43 of
+msgid "current requested grant_type."
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken:44 of
+msgid "if provided, use this value as expires_in."
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken:45 of
+msgid "current requested scope."
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken:46 of
+msgid "should refresh_token be included."
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken:47 of
+msgid "Token dict"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken.DEFAULT_EXPIRES_IN:1 of
+msgid "default expires_in value"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken.GRANT_TYPES_EXPIRES_IN:1 of
+msgid "default expires_in value differentiate by grant_type"
+msgstr ""
+
+#: ../../specs/rfc7009.rst:4
+msgid "RFC7009: OAuth 2.0 Token Revocation"
+msgstr ""
+
+#: ../../specs/rfc7009.rst:6
+msgid ""
+"API references on RFC7009 OAuth 2.0 Token Revocation Authlib "
+"implementation."
+msgstr ""
+
+#: ../../specs/rfc7009.rst:9
+msgid "This section contains the generic implementation of RFC7009_."
+msgstr ""
+
+#: ../../specs/rfc7009.rst:18
+msgid "Register Revocation Endpoint"
+msgstr ""
+
+#: ../../specs/rfc7009.rst:20
+msgid ""
+"The revocation endpoint can be easily registered to "
+":ref:`flask_oauth2_server`. But there are missing methods to be "
+"implemented::"
+msgstr ""
+
+#: ../../specs/rfc7009.rst:46
+msgid "There is also a shortcut method to create revocation endpoint::"
+msgstr ""
+
+#: ../../specs/rfc7009.rst:55
+msgid "After the registration, you can create a response with::"
+msgstr ""
+
+#: authlib.oauth2.rfc7009.RevocationEndpoint:1 of
+msgid "Implementation of revocation endpoint which is described in `RFC7009`_."
+msgstr ""
+
+#: authlib.oauth2.rfc7009.RevocationEndpoint.ENDPOINT_NAME:1
+#: authlib.oauth2.rfc7662.IntrospectionEndpoint.ENDPOINT_NAME:1 of
+msgid "Endpoint name to be registered"
+msgstr ""
+
+#: authlib.oauth2.rfc7009.RevocationEndpoint.validate_endpoint_request:1 of
+msgid ""
+"The client constructs the request by including the following parameters "
+"using the \"application/x-www-form-urlencoded\" format in the HTTP "
+"request entity-body:"
+msgstr ""
+
+#: authlib.oauth2.rfc7009.RevocationEndpoint.validate_endpoint_request:6 of
+msgid "REQUIRED.  The token that the client wants to get revoked."
+msgstr ""
+
+#: authlib.oauth2.rfc7009.RevocationEndpoint.validate_endpoint_request:9
+#: authlib.oauth2.rfc7662.IntrospectionEndpoint.validate_endpoint_request:16 of
+msgid "token_type_hint"
+msgstr ""
+
+#: authlib.oauth2.rfc7009.RevocationEndpoint.validate_endpoint_request:9 of
+msgid "OPTIONAL.  A hint about the type of the token submitted for revocation."
+msgstr ""
+
+#: authlib.oauth2.rfc7009.RevocationEndpoint.create_endpoint_response:1 of
+msgid ""
+"Validate revocation request and create the response for revocation. For "
+"example, a client may request the revocation of a refresh token with the "
+"following request::"
+msgstr ""
+
+#: authlib.oauth2.rfc7009.RevocationEndpoint.query_token:1
+#: authlib.oauth2.rfc7662.IntrospectionEndpoint.query_token:1 of
+msgid ""
+"Get the token from database/storage by the given token string. Developers"
+" should implement this method::"
+msgstr ""
+
+#: authlib.oauth2.rfc7009.RevocationEndpoint.revoke_token:1 of
+msgid ""
+"Mark token as revoked. Since token MUST be unique, it would be dangerous "
+"to delete it. Consider this situation:"
+msgstr ""
+
+#: authlib.oauth2.rfc7009.RevocationEndpoint.revoke_token:4 of
+msgid "Jane obtained a token XYZ"
+msgstr ""
+
+#: authlib.oauth2.rfc7009.RevocationEndpoint.revoke_token:5 of
+msgid "Jane revoked (deleted) token XYZ"
+msgstr ""
+
+#: authlib.oauth2.rfc7009.RevocationEndpoint.revoke_token:6 of
+msgid "Bob generated a new token XYZ"
+msgstr ""
+
+#: authlib.oauth2.rfc7009.RevocationEndpoint.revoke_token:7 of
+msgid "Jane can use XYZ to access Bob's resource"
+msgstr ""
+
+#: authlib.oauth2.rfc7009.RevocationEndpoint.revoke_token:9 of
+msgid "It would be secure to mark a token as revoked::"
+msgstr ""
+
+#: authlib.oauth2.rfc7009.RevocationEndpoint.authenticate_endpoint_client:1
+#: authlib.oauth2.rfc7662.IntrospectionEndpoint.authenticate_endpoint_client:1
+#: of
+msgid "Authentication client for endpoint with ``CLIENT_AUTH_METHODS``."
+msgstr ""
+
+#: ../../specs/rfc7515.rst:4
+msgid "RFC7515: JSON Web Signature"
+msgstr ""
+
+#: ../../specs/rfc7515.rst:6
+msgid "API references on RFC7515 JSON Web Signature (JWS) Authlib implementation."
+msgstr ""
+
+#: ../../specs/rfc7515.rst:9
+msgid ""
+"This section contains the generic implementation of RFC7515_. Find how to"
+" use it in :ref:`JWS Guide <jws_guide>`."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.REGISTERED_HEADER_PARAMETER_NAMES:1
+#: authlib.jose.rfc7516.JWE.REGISTERED_HEADER_PARAMETER_NAMES:1 of
+msgid "Registered Header Parameter Names defined by Section 4.1"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.serialize_compact:1 of
+msgid ""
+"Generate a JWS Compact Serialization. The JWS Compact Serialization "
+"represents digitally signed or MACed content as a compact, URL-safe "
+"string, per `Section 7.1`_."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.serialize_compact:11
+#: authlib.jose.rfc7516.JWE.serialize_compact:15 of
+msgid "A dict of protected header"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.serialize_compact:12 of
+msgid "A bytes/string of payload"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.serialize:9
+#: authlib.jose.rfc7515.JWS.serialize_compact:13
+#: authlib.jose.rfc7515.JWS.serialize_json:7
+#: authlib.jose.rfc7516.JWE.serialize_compact:17 of
+msgid "Private key used to generate signature"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.serialize_compact:14
+#: authlib.jose.rfc7516.JWE.serialize_compact:18 of
+msgid "byte"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize_compact:1 of
+msgid ""
+"Exact JWS Compact Serialization, and validate with the given key. If key "
+"is not provided, the returned dict will contain the signature, and "
+"signing input values. Via `Section 7.1`_."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize_compact:5
+#: authlib.jose.rfc7516.JWE.deserialize_compact:3 of
+msgid "text of JWS Compact Serialization"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize:5
+#: authlib.jose.rfc7515.JWS.deserialize_compact:6
+#: authlib.jose.rfc7515.JWS.deserialize_json:6
+#: authlib.jose.rfc7516.JWE.deserialize_compact:4
+#: authlib.jose.rfc7519.JWT.decode:6 of
+msgid "key used to verify the signature"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize:6
+#: authlib.jose.rfc7515.JWS.deserialize_compact:7
+#: authlib.jose.rfc7515.JWS.deserialize_json:7 of
+msgid "a function to decode payload data"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize_compact:8
+#: authlib.jose.rfc7515.JWS.deserialize_json:8
+#: authlib.jose.rfc7515.JWS.serialize_json:8 of
+msgid "JWSObject"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize
+#: authlib.jose.rfc7515.JWS.deserialize_compact
+#: authlib.jose.rfc7515.JWS.deserialize_json authlib.jose.rfc7519.JWT.decode
+#: authlib.oauth2.rfc7523.JWTBearerClientAssertion.process_assertion_claims
+#: authlib.oauth2.rfc7523.JWTBearerGrant.process_assertion_claims of
+msgid "raise"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize:8
+#: authlib.jose.rfc7515.JWS.deserialize_compact:9
+#: authlib.jose.rfc7515.JWS.deserialize_json:9
+#: authlib.jose.rfc7519.JWT.decode:11 of
+msgid "BadSignatureError"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.serialize_json:1 of
+msgid ""
+"Generate a JWS JSON Serialization. The JWS JSON Serialization represents "
+"digitally signed or MACed content as a JSON object, per `Section 7.2`_."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.serialize:7
+#: authlib.jose.rfc7515.JWS.serialize_json:5 of
+msgid "A dict/list of header"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.serialize:8
+#: authlib.jose.rfc7515.JWS.serialize_json:6
+#: authlib.jose.rfc7516.JWE.serialize_compact:16 of
+msgid "A string/dict of payload"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.serialize_json:10 of
+msgid "Example ``header_obj`` of JWS JSON Serialization::"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.serialize_json:17 of
+msgid ""
+"Pass a dict to generate flattened JSON Serialization, pass a list of "
+"header dict to generate standard JSON Serialization."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize_json:1 of
+msgid ""
+"Exact JWS JSON Serialization, and validate with the given key. If key is "
+"not provided, it will return a dict without signature verification. "
+"Header will still be validated. Via `Section 7.2`_."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize_json:5 of
+msgid "text of JWS JSON Serialization"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.serialize:1 of
+msgid ""
+"Generate a JWS Serialization. It will automatically generate a Compact or"
+" JSON Serialization depending on the given header. If a header is in a "
+"JSON header format, it will call :meth:`serialize_json`, otherwise it "
+"will call :meth:`serialize_compact`."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.serialize:10 of
+msgid "byte/dict"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize:1 of
+msgid ""
+"Deserialize JWS Serialization, both compact and JSON format. It will "
+"automatically deserialize depending on the given JWS."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize:4 of
+msgid "text of JWS Compact/JSON Serialization"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize:7
+#: authlib.jose.rfc7516.JWE.deserialize_compact:6 of
+msgid "dict"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWS.deserialize:10 of
+msgid ""
+"If key is not provided, it will still deserialize the serialization "
+"without verification."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSHeader:1 of
+msgid ""
+"Header object for JWS. It combine the protected header and unprotected "
+"header together. JWSHeader itself is a dict of the combined dict. e.g."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSHeader:12 of
+msgid "dict of protected header"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSHeader:13 of
+msgid "dict of unprotected header"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSObject:1 of
+msgid "A dict instance to represent a JWS object."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSAlgorithm:1 of
+msgid ""
+"Interface for JWS algorithm. JWA specification (RFC7518) SHOULD implement"
+" the algorithms for JWS with this base implementation."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSAlgorithm.prepare_private_key:1 of
+msgid "Prepare key for sign signature."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSAlgorithm.prepare_public_key:1 of
+msgid "Prepare key for verify signature."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSAlgorithm.sign:1 of
+msgid "Sign the text msg with a private/sign key."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSAlgorithm.sign:3
+#: authlib.jose.rfc7515.JWSAlgorithm.verify:3 of
+msgid "message bytes to be signed"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSAlgorithm.sign:4 of
+msgid "private key to sign the message"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSAlgorithm.sign:5 of
+msgid "bytes"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSAlgorithm.verify:1 of
+msgid "Verify the signature of text msg with a public/verify key."
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSAlgorithm.verify:4 of
+msgid "public key to verify the signature"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSAlgorithm.verify:5 of
+msgid "result signature to be compared"
+msgstr ""
+
+#: authlib.jose.rfc7515.JWSAlgorithm.verify:6 of
+msgid "boolean"
+msgstr ""
+
+#: ../../specs/rfc7516.rst:4
+msgid "RFC7516: JSON Web Encryption"
+msgstr ""
+
+#: ../../specs/rfc7516.rst:6
+msgid ""
+"API references on RFC7516 JSON Web Encryption (JWE) Python "
+"implementation. Guide on JWE serialization and deserialization."
+msgstr ""
+
+#: ../../specs/rfc7516.rst:10
+msgid ""
+"This section contains the generic implementation of RFC7516_. Find how to"
+" use it in :ref:`JWE Guide <jwe_guide>`."
+msgstr ""
+
+#: authlib.jose.rfc7516.JWE.register_algorithm:1 of
+msgid "Register an algorithm for ``alg`` or ``enc`` or ``zip`` of JWE."
+msgstr ""
+
+#: authlib.jose.rfc7516.JWE.serialize_compact:1 of
+msgid ""
+"Generate a JWE Compact Serialization. The JWE Compact Serialization "
+"represents encrypted content as a compact, URL-safe string.  This string "
+"is:"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWE.serialize_compact:5 of
+msgid ""
+"BASE64URL(UTF8(JWE Protected Header)) || '.' || BASE64URL(JWE Encrypted "
+"Key) || '.' || BASE64URL(JWE Initialization Vector) || '.' || "
+"BASE64URL(JWE Ciphertext) || '.' || BASE64URL(JWE Authentication Tag)"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWE.serialize_compact:11 of
+msgid ""
+"Only one recipient is supported by the JWE Compact Serialization and it "
+"provides no syntax to represent JWE Shared Unprotected Header, JWE Per-"
+"Recipient Unprotected Header, or JWE AAD values."
+msgstr ""
+
+#: authlib.jose.rfc7516.JWE.deserialize_compact:1 of
+msgid "Exact JWS Compact Serialization, and validate with the given key."
+msgstr ""
+
+#: authlib.jose.rfc7516.JWE.deserialize_compact:5 of
+msgid "a function to decode plaintext data"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWEAlgorithm:1 of
+msgid ""
+"Interface for JWE algorithm. JWA specification (RFC7518) SHOULD implement"
+" the algorithms for JWE with this base implementation."
+msgstr ""
+
+#: authlib.jose.rfc7516.JWEEncAlgorithm.encrypt:1 of
+msgid "Encrypt the given \"msg\" text."
+msgstr ""
+
+#: authlib.jose.rfc7516.JWEEncAlgorithm.encrypt:3 of
+msgid "text to be encrypt in bytes"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWEEncAlgorithm.decrypt:4
+#: authlib.jose.rfc7516.JWEEncAlgorithm.encrypt:4 of
+msgid "additional authenticated data in bytes"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWEEncAlgorithm.decrypt:5
+#: authlib.jose.rfc7516.JWEEncAlgorithm.encrypt:5 of
+msgid "initialization vector in bytes"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWEEncAlgorithm.decrypt:7
+#: authlib.jose.rfc7516.JWEEncAlgorithm.encrypt:6 of
+msgid "encrypted key in bytes"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWEEncAlgorithm.encrypt:7 of
+msgid "(ciphertext, iv, tag)"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWEEncAlgorithm.decrypt:1 of
+msgid "Decrypt the given cipher text."
+msgstr ""
+
+#: authlib.jose.rfc7516.JWEEncAlgorithm.decrypt:3 of
+msgid "ciphertext in bytes"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWEEncAlgorithm.decrypt:6 of
+msgid "authentication tag in bytes"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWEEncAlgorithm.decrypt:8 of
+msgid "message"
+msgstr ""
+
+#: ../../specs/rfc7517.rst:4
+msgid "RFC7517: JSON Web Key"
+msgstr ""
+
+#: ../../specs/rfc7517.rst:6
+msgid "API references on RFC7517 JSON Web Key (JWK) Authlib implementation."
+msgstr ""
+
+#: ../../specs/rfc7517.rst:9
+msgid ""
+"This section contains the generic implementation of RFC7517_. Find how to"
+" use it in :ref:`JWK Guide <jwk_guide>`."
+msgstr ""
+
+#: authlib.jose.rfc7517.JWK.loads:1 of
+msgid "Loads JSON Web Key object into a public/private key."
+msgstr ""
+
+#: authlib.jose.rfc7517.JWK.loads:3 of
+msgid "A JWK (or JWK set) format dict"
+msgstr ""
+
+#: authlib.jose.rfc7517.JWK.loads:4 of
+msgid "kid of a JWK set"
+msgstr ""
+
+#: authlib.jose.rfc7517.JWK.loads:5 of
+msgid "key"
+msgstr ""
+
+#: authlib.jose.rfc7517.JWK.dumps:1 of
+msgid "Generate JWK format for the given public/private key."
+msgstr ""
+
+#: authlib.jose.rfc7517.JWK.dumps:3 of
+msgid "A public/private key"
+msgstr ""
+
+#: authlib.jose.rfc7517.JWK.dumps:4 of
+msgid "key type of the key"
+msgstr ""
+
+#: authlib.jose.rfc7517.JWK.dumps:5 of
+msgid "Other parameters"
+msgstr ""
+
+#: authlib.jose.rfc7517.JWK.dumps:6 of
+msgid "JWK dict"
+msgstr ""
+
+#: authlib.jose.rfc7517.JWKAlgorithm.name:1 of
+msgid ""
+"Interface for JWK algorithm. JWA specification (RFC7518) SHOULD implement"
+" the algorithms for JWK with this base implementation."
+msgstr ""
+
+#: authlib.jose.rfc7517.JWKAlgorithm.prepare_key:1 of
+msgid "Prepare key before dumping it into JWK."
+msgstr ""
+
+#: authlib.jose.rfc7517.JWKAlgorithm.loads:1 of
+msgid "Load JWK dict object into a public/private key."
+msgstr ""
+
+#: authlib.jose.rfc7517.JWKAlgorithm.dumps:1 of
+msgid "Dump a public/private key into JWK dict object."
+msgstr ""
+
+#: ../../specs/rfc7518.rst:4
+msgid "RFC7518: JSON Web Algorithms"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:6
+msgid ""
+"API references on RFC7518 JSON Web Algorithms (JWA) Authlib "
+"implementation."
+msgstr ""
+
+#: ../../specs/rfc7518.rst:9
+msgid "This section contains the generic implementation of RFC7518_."
+msgstr ""
+
+#: ../../specs/rfc7518.rst:15
+msgid "Algorithms for JWS"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:17
+msgid ""
+"The interface for JWS Algorithms are all inherit from "
+":class:`authlib.jose.rfc7515.JWSAlgorithm`."
+msgstr ""
+
+#: ../../specs/rfc7518.rst:20
+msgid "Find how to use them in :ref:`jws_guide`."
+msgstr ""
+
+#: ../../specs/rfc7518.rst:23
+msgid "HMAC with SHA-2 Functions"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:25
+msgid "This section is defined by RFC7518 `Section 3.2`_."
+msgstr ""
+
+#: ../../specs/rfc7518.rst:29
+msgid "HS256: HMAC using SHA-256"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:30
+msgid "HS384: HMAC using SHA-384"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:31
+msgid "HS512: HMAC using SHA-512"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:34
+msgid "Digital Signature with RSASSA-PKCS1-v1_5"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:36
+msgid ""
+"Algorithms in this section requires extra crypto backends. This section "
+"is defined by RFC7518 `Section 3.3`_."
+msgstr ""
+
+#: ../../specs/rfc7518.rst:41
+msgid "RS256: RSASSA-PKCS1-v1_5 using SHA-256"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:42
+msgid "RS384: RSASSA-PKCS1-v1_5 using SHA-384"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:43
+msgid "RS512: RSASSA-PKCS1-v1_5 using SHA-384"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:46
+msgid "Digital Signature with ECDSA"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:48
+msgid ""
+"Algorithms in this section requires extra crypto backends. This section "
+"is defined by RFC7518 `Section 3.4`_."
+msgstr ""
+
+#: ../../specs/rfc7518.rst:53
+msgid "ES256: ECDSA using P-256 and SHA-256"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:54
+msgid "ES384: ECDSA using P-384 and SHA-384"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:55
+msgid "ES384: ECDSA using P-521 and SHA-521"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:58
+msgid "Digital Signature with RSASSA-PSS"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:60
+msgid ""
+"Algorithms in this section requires extra crypto backends. This section "
+"is defined by RFC7518 `Section 3.5`_."
+msgstr ""
+
+#: ../../specs/rfc7518.rst:65
+msgid "PS256: RSASSA-PSS using SHA-256 and MGF1 with SHA-256"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:66
+msgid "PS384: RSASSA-PSS using SHA-384 and MGF1 with SHA-384"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:67
+msgid "PS512: RSASSA-PSS using SHA-512 and MGF1 with SHA-512"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:70
+msgid "Algorithms for JWE"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:72
+msgid ""
+"This section contains algorithms for JWE ``alg`` and ``enc`` header. For "
+"``alg`` the interface are all inherited from "
+":class:`authlib.jose.rfc7516.JWEAlgorithm`. For ``enc``, the interface "
+"are inherited from :class:`authlib.jose.rfc7516.JWEEncAlgorithm`."
+msgstr ""
+
+#: ../../specs/rfc7518.rst:77
+msgid "Current available algorithms for ``alg``:"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:79
+msgid "RSA1_5: RSAES-PKCS1-v1_5"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:80
+msgid "RSA-OAEP: RSAES OAEP using default parameters"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:81
+msgid "RSA-OAEP-256: RSAES OAEP using SHA-256 and MGF1 with SHA-256"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:82
+msgid "A128KW: AES Key Wrap with default initial value using 128-bit key"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:83
+msgid "A192KW: AES Key Wrap with default initial value using 192-bit key"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:84
+msgid "A256KW: AES Key Wrap with default initial value using 256-bit key"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:85
+msgid "A128GCMKW: Key wrapping with AES GCM using 128-bit key"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:86
+msgid "A192GCMKW: Key wrapping with AES GCM using 192-bit key"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:87
+msgid "A256GCMKW: Key wrapping with AES GCM using 256-bit key"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:89
+msgid "Current available algorithms for ``enc``:"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:91
+msgid "A128CBC-HS256"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:92
+msgid "A192CBC-HS384"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:93
+msgid "A256CBC-HS512"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:94
+msgid "A128GCM"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:95
+msgid "A192GCM"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:96
+msgid "A256GCM"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:98
+msgid "Current available algorithms for ``zip``:"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:100
+msgid "DEF"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:103
+msgid "Algorithms for JWK"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:105
+msgid ""
+"This section defines the parameters for keys using the algorithms via "
+"RFC7518 `Section 6`_. The interface for JWK Algorithms are all inherited "
+"from :class:`authlib.jose.rfc7517.JWKAlgorithm`. The available values of "
+"``kty``:"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:109
+msgid "EC: Elliptic Curve (requires extra crypto backends)"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:110
+msgid "RSA: RSA (requires extra crypto backends)"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:111
+msgid "oct"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:113
+msgid "Find how to use them in :ref:`jwk_guide`."
+msgstr ""
+
+#: ../../specs/rfc7519.rst:4
+msgid "RFC7519: JSON Web Token"
+msgstr ""
+
+#: ../../specs/rfc7519.rst:6
+msgid ""
+"API references on RFC7519 JSON Web Token (JWT) Python implementation, "
+"guide on JWT encoding and decoding, guide on JWT payload claims "
+"validation."
+msgstr ""
+
+#: ../../specs/rfc7519.rst:11
+msgid ""
+"This section contains the generic Python implementation of RFC7519_. Find"
+" how to use it in :ref:`JWT Guide <jwt_guide>`."
+msgstr ""
+
+#: authlib.jose.rfc7519.JWT.check_sensitive_data:1 of
+msgid "Check if payload contains sensitive information."
+msgstr ""
+
+#: authlib.jose.rfc7519.JWT.encode:1 of
+msgid "Encode a JWT with the given header, payload and key."
+msgstr ""
+
+#: authlib.jose.rfc7519.JWT.encode:3 of
+msgid "A dict of JWS header"
+msgstr ""
+
+#: authlib.jose.rfc7519.JWT.encode:4 of
+msgid "A dict to be encoded"
+msgstr ""
+
+#: authlib.jose.rfc7519.JWT.encode:5 of
+msgid "key used to sign the signature"
+msgstr ""
+
+#: authlib.jose.rfc7519.JWT.encode:6 of
+msgid "check if sensitive data in payload"
+msgstr ""
+
+#: authlib.jose.rfc7519.JWT.encode:7 of
+msgid "JWT"
+msgstr ""
+
+#: authlib.jose.rfc7519.JWT.decode:1 of
+msgid ""
+"Decode the JWS with the given key. This is similar with :meth:`verify`, "
+"except that it will raise BadSignatureError when signature doesn't match."
+msgstr ""
+
+#: authlib.jose.rfc7519.JWT.decode:5 of
+msgid "text of JWT"
+msgstr ""
+
+#: authlib.jose.rfc7519.JWT.decode:7 of
+msgid "class to be used for JWT claims"
+msgstr ""
+
+#: authlib.jose.rfc7519.JWT.decode:8 of
+msgid "`options` parameters for claims_cls"
+msgstr ""
+
+#: authlib.jose.rfc7519.JWT.decode:9 of
+msgid "`params` parameters for claims_cls"
+msgstr ""
+
+#: authlib.jose.rfc7519.JWT.decode:10 of
+msgid "claims_cls instance"
+msgstr ""
+
+#: authlib.jose.rfc7519.JWTClaims:1 of
+msgid "Payload claims for JWT, which contains a validate interface."
+msgstr ""
+
+#: authlib.jose.rfc7519.JWTClaims:3 of
+msgid "the payload dict of JWT"
+msgstr ""
+
+#: authlib.jose.rfc7519.JWTClaims:4 of
+msgid "the header dict of JWT"
+msgstr ""
+
+#: authlib.jose.rfc7519.JWTClaims:5 of
+msgid "validate options"
+msgstr ""
+
+#: authlib.jose.rfc7519.JWTClaims:6 of
+msgid "other params"
+msgstr ""
+
+#: authlib.jose.rfc7519.JWTClaims:8 of
+msgid ""
+"An example on ``options`` parameter, the format is inspired by `OpenID "
+"Connect Claims`_::"
+msgstr ""
+
+#: authlib.jose.rfc7519.JWTClaims.validate_iss:1 of
+msgid ""
+"The \"iss\" (issuer) claim identifies the principal that issued the JWT."
+"  The processing of this claim is generally application specific. The "
+"\"iss\" value is a case-sensitive string containing a StringOrURI value."
+"  Use of this claim is OPTIONAL."
+msgstr ""
+
+#: authlib.jose.rfc7519.JWTClaims.validate_sub:1 of
+msgid ""
+"The \"sub\" (subject) claim identifies the principal that is the subject "
+"of the JWT.  The claims in a JWT are normally statements about the "
+"subject.  The subject value MUST either be scoped to be locally unique in"
+" the context of the issuer or be globally unique. The processing of this "
+"claim is generally application specific.  The \"sub\" value is a case-"
+"sensitive string containing a StringOrURI value.  Use of this claim is "
+"OPTIONAL."
+msgstr ""
+
+#: authlib.jose.rfc7519.JWTClaims.validate_aud:1 of
+msgid ""
+"The \"aud\" (audience) claim identifies the recipients that the JWT is "
+"intended for.  Each principal intended to process the JWT MUST identify "
+"itself with a value in the audience claim.  If the principal processing "
+"the claim does not identify itself with a value in the \"aud\" claim when"
+" this claim is present, then the JWT MUST be rejected.  In the general "
+"case, the \"aud\" value is an array of case- sensitive strings, each "
+"containing a StringOrURI value.  In the special case when the JWT has one"
+" audience, the \"aud\" value MAY be a single case-sensitive string "
+"containing a StringOrURI value.  The interpretation of audience values is"
+" generally application specific. Use of this claim is OPTIONAL."
+msgstr ""
+
+#: authlib.jose.rfc7519.JWTClaims.validate_exp:1 of
+msgid ""
+"The \"exp\" (expiration time) claim identifies the expiration time on or "
+"after which the JWT MUST NOT be accepted for processing.  The processing "
+"of the \"exp\" claim requires that the current date/time MUST be before "
+"the expiration date/time listed in the \"exp\" claim. Implementers MAY "
+"provide for some small leeway, usually no more than a few minutes, to "
+"account for clock skew.  Its value MUST be a number containing a "
+"NumericDate value.  Use of this claim is OPTIONAL."
+msgstr ""
+
+#: authlib.jose.rfc7519.JWTClaims.validate_nbf:1 of
+msgid ""
+"The \"nbf\" (not before) claim identifies the time before which the JWT "
+"MUST NOT be accepted for processing.  The processing of the \"nbf\" claim"
+" requires that the current date/time MUST be after or equal to the not-"
+"before date/time listed in the \"nbf\" claim.  Implementers MAY provide "
+"for some small leeway, usually no more than a few minutes, to account for"
+" clock skew.  Its value MUST be a number containing a NumericDate value."
+"  Use of this claim is OPTIONAL."
+msgstr ""
+
+#: authlib.jose.rfc7519.JWTClaims.validate_iat:1 of
+msgid ""
+"The \"iat\" (issued at) claim identifies the time at which the JWT was "
+"issued.  This claim can be used to determine the age of the JWT.  Its "
+"value MUST be a number containing a NumericDate value.  Use of this claim"
+" is OPTIONAL."
+msgstr ""
+
+#: authlib.jose.rfc7519.JWTClaims.validate_jti:1 of
+msgid ""
+"The \"jti\" (JWT ID) claim provides a unique identifier for the JWT. The "
+"identifier value MUST be assigned in a manner that ensures that there is "
+"a negligible probability that the same value will be accidentally "
+"assigned to a different data object; if the application uses multiple "
+"issuers, collisions MUST be prevented among values produced by different "
+"issuers as well.  The \"jti\" claim can be used to prevent the JWT from "
+"being replayed.  The \"jti\" value is a case- sensitive string.  Use of "
+"this claim is OPTIONAL."
+msgstr ""
+
+#: ../../specs/rfc7523.rst:4
+msgid ""
+"RFC7523: JWT Profile for OAuth 2.0 Client Authentication and "
+"Authorization Grants"
+msgstr ""
+
+#: ../../specs/rfc7523.rst:6
+msgid ""
+"API references on RFC7523 JWT Bearer Grant of Python implementation, "
+"guide on how to create a server that support JWT profile for OAuth 2.0 "
+"client authentication and authorization grants."
+msgstr ""
+
+#: ../../specs/rfc7523.rst:12
+msgid "This section contains the generic Python implementation of RFC7523_."
+msgstr ""
+
+#: ../../specs/rfc7523.rst:22
+msgid "Using JWTs as Authorization Grants"
+msgstr ""
+
+#: ../../specs/rfc7523.rst:24
+msgid ""
+"JWT Profile for OAuth 2.0 Authorization Grants works in the same way with"
+" :ref:`RFC6749 <specs/rfc6749>` built-in grants. Which means it can be "
+"registered with "
+":meth:`~authlib.oauth2.rfc6749.AuthorizationServer.register_grant`."
+msgstr ""
+
+#: ../../specs/rfc7523.rst:28
+msgid ""
+"The base class is :class:`JWTBearerGrant`, you need to implement the "
+"missing methods in order to use it. Here is an example::"
+msgstr ""
+
+#: ../../specs/rfc7523.rst:53
+msgid ""
+"When creating a client, authorization server will generate several key "
+"pairs. The server itself can only keep the public keys, which will be "
+"used to decode assertion value."
+msgstr ""
+
+#: ../../specs/rfc7523.rst:57
+msgid ""
+"For **client implementation**, check out "
+":class:`~authlib.client.AssertionSession`."
+msgstr ""
+
+#: ../../specs/rfc7523.rst:62
+msgid "Using JWTs for Client Authentication"
+msgstr ""
+
+#: ../../specs/rfc7523.rst:64
+msgid ""
+"In :ref:`specs/rfc6749`, Authlib provided three built-in client "
+"authentication methods, which are ``none``, ``client_secret_post`` and "
+"``client_secret_basic``. With the power of Assertion Framework, we can "
+"add more client authentication methods. In this section, Authlib provides"
+" two more options: ``client_secret_jwt`` and ``private_key_jwt``. RFC7523"
+" itself doesn't define any names, these two names are defined by OpenID "
+"Connect in ClientAuthentication_."
+msgstr ""
+
+#: ../../specs/rfc7523.rst:71
+msgid ""
+"The :class:`~authlib.oauth2.rfc6749.AuthorizationServer` has provided a "
+"method "
+":meth:`~authlib.oauth2.rfc6749.AuthorizationServer.register_client_auth_method`"
+" to add more client authentication methods."
+msgstr ""
+
+#: ../../specs/rfc7523.rst:75
+msgid ""
+"In Authlib, ``client_secret_jwt`` and ``private_key_jwt`` share the same "
+"API, using :class:`JWTBearerClientAssertion` to create a new client "
+"authentication::"
+msgstr ""
+
+#: ../../specs/rfc7523.rst:101
+msgid ""
+"The value ``https://example.com/oauth/token`` is your authorization "
+"servers's token endpoint, which is used as ``aud`` value in JWT."
+msgstr ""
+
+#: ../../specs/rfc7523.rst:104
+msgid ""
+"Now we have added this client auth method to authorization server, but no"
+" grant types support this authentication method, you need to add it to "
+"the supported grant types too, e.g. we want to support this in "
+"authorization code grant::"
+msgstr ""
+
+#: ../../specs/rfc7523.rst:118
+msgid ""
+"You may noticed that the value of ``CLIENT_AUTH_METHOD`` is "
+"``client_assertion_jwt``. It is not ``client_secret_jwt`` or "
+"``private_key_jwt``, because they have the same logic. In the above "
+"implementation::"
+msgstr ""
+
+#: ../../specs/rfc7523.rst:126
+msgid ""
+"If this ``alg`` is a MAC SHA like ``HS256``, it is called "
+"``client_secret_jwt``, because the key used to sign a JWT is the client's"
+" ``client_secret`` value. If this ``alg`` is ``RS256`` or something else,"
+" it is called ``private_key_jwt``, because client will use its private "
+"key to sign the JWT. You can set a limitation in the implementation of "
+"``resolve_client_public_key`` to accept only ``HS256`` alg, in this case,"
+" you can also alter ``CLIENT_AUTH_METHOD = 'client_secret_jwt'``."
+msgstr ""
+
+#: ../../specs/rfc7523.rst:138
+msgid "Using JWTs Client Assertion in OAuth2Session"
+msgstr ""
+
+#: ../../specs/rfc7523.rst:140
+msgid ""
+"Authlib RFC7523 has provided you a helper function to register client "
+"assertion authentication method easily to ``OAuth2Session``. Take "
+"``client_secret_jwt`` as an example::"
+msgstr ""
+
+#: ../../specs/rfc7523.rst:155
+msgid "How about ``private_key_jwt``? It is the same as ``client_secret_jwt``::"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerClientAssertion.create_claims_options:1
+#: authlib.oauth2.rfc7523.JWTBearerGrant.create_claims_options:1 of
+msgid ""
+"Create a claims_options for verify JWT payload claims. Developers MAY "
+"overwrite this method to create a more strict options."
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerClientAssertion.process_assertion_claims:1
+#: authlib.oauth2.rfc7523.JWTBearerGrant.process_assertion_claims:1 of
+msgid "Extract JWT payload claims from request \"assertion\", per `Section 3.1`_."
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerClientAssertion.process_assertion_claims:4
+#: authlib.oauth2.rfc7523.JWTBearerGrant.process_assertion_claims:4 of
+msgid "assertion string value in the request"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerClientAssertion.process_assertion_claims:6
+#: authlib.oauth2.rfc7523.JWTBearerGrant.process_assertion_claims:5 of
+msgid "JWTClaims"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.process_assertion_claims:6 of
+msgid "InvalidGrantError"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.validate_token_request:1 of
+msgid ""
+"The client makes a request to the token endpoint by sending the following"
+" parameters using the \"application/x-www-form-urlencoded\" format per "
+"`Section 2.1`_:"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.validate_token_request:6 of
+msgid ""
+"REQUIRED.  Value MUST be set to \"urn:ietf:params:oauth:grant-type:jwt-"
+"bearer\"."
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.validate_token_request:10 of
+msgid "assertion"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.validate_token_request:10 of
+msgid "REQUIRED.  Value MUST contain a single JWT."
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.validate_token_request:13 of
+msgid "OPTIONAL."
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.validate_token_request:15 of
+msgid ""
+"The following example demonstrates an access token request with a JWT as "
+"an authorization grant:"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.create_token_response:1 of
+msgid "If valid and authorized, the authorization server issues an access token."
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.authenticate_user:1 of
+msgid ""
+"Authenticate user with the given assertion claims. Developers MUST "
+"implement it in subclass, e.g.::"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.authenticate_client:7
+#: authlib.oauth2.rfc7523.JWTBearerGrant.authenticate_user:7 of
+msgid "assertion payload claims"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.authenticate_user:8 of
+msgid "User instance"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.authenticate_client:1 of
+msgid ""
+"Authenticate client with the given assertion claims. Developers MUST "
+"implement it in subclass, e.g.::"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.resolve_public_key:1 of
+msgid ""
+"Find public key to verify assertion signature. Developers MUST implement "
+"it in subclass, e.g.::"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.resolve_public_key:8 of
+msgid "JWT headers dict"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.resolve_public_key:9 of
+msgid "JWT payload dict"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.resolve_public_key:10 of
+msgid "A public key"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerClientAssertion:1 of
+msgid ""
+"Implementation of Using JWTs for Client Authentication, which is defined "
+"by RFC7523."
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerClientAssertion.CLIENT_ASSERTION_TYPE:1 of
+msgid "Value of ``client_assertion_type`` of JWTs"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerClientAssertion.CLIENT_AUTH_METHOD:1 of
+msgid "Name of the client authentication method"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerClientAssertion.process_assertion_claims:5
+#: of
+msgid "function to resolve the sign key"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerClientAssertion.process_assertion_claims:7
+#: of
+msgid "InvalidClientError"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerClientAssertion.validate_jti:1 of
+msgid ""
+"Validate if the given ``jti`` value is used before. Developers MUST "
+"implement this method::"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerClientAssertion.resolve_client_public_key:1
+#: of
+msgid ""
+"Resolve the client public key for verifying the JWT signature. A client "
+"may have many public keys, in this case, we can retrieve it via ``kid`` "
+"value in headers. Developers MUST implement this method::"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.register_session_client_auth_method:1 of
+msgid ""
+"Register \"client_secret_jwt\" or \"private_key_jwt\" token endpoint auth"
+" method to OAuth2Session."
+msgstr ""
+
+#: authlib.oauth2.rfc7523.register_session_client_auth_method:4 of
+msgid "OAuth2Session instance."
+msgstr ""
+
+#: authlib.oauth2.rfc7523.register_session_client_auth_method:5 of
+msgid "Optional token endpoint url."
+msgstr ""
+
+#: ../../specs/rfc7636.rst:4
+msgid "RFC7636: Proof Key for Code Exchange by OAuth Public Clients"
+msgstr ""
+
+#: ../../specs/rfc7636.rst:6
+msgid ""
+"API references on RFC76736 Proof Key for Code Exchange by OAuth Public "
+"Clients implementation, guide on how to add it to OAuth 2.0 authorization"
+" server."
+msgstr ""
+
+#: ../../specs/rfc7636.rst:11
+msgid ""
+"This RFC7636_ is used to improve the security of Authorization Code flow "
+"for public clients by sending extra \"code_challenge\" and "
+"\"code_verifier\" to the authorization server."
+msgstr ""
+
+#: ../../specs/rfc7636.rst:21
+msgid "Using RFC7636 in Authorization Code Grant"
+msgstr ""
+
+#: ../../specs/rfc7636.rst:25
+msgid ""
+"In order to apply proof key for code exchange, you need to register the "
+":class:`CodeChallenge` extension to ``AuthorizationCodeGrant``. But "
+"before that, we need to re-design our AuthorizationCode database. If you "
+"are using Flask, check the section :ref:`flask_oauth2_code_grant`."
+msgstr ""
+
+#: ../../specs/rfc7636.rst:30
+msgid "The new database SHOULD contain two more columns:"
+msgstr ""
+
+#: ../../specs/rfc7636.rst:32
+msgid "code_challenge: A VARCHAR"
+msgstr ""
+
+#: ../../specs/rfc7636.rst:33
+msgid "code_challenge_method: A VARCHAR"
+msgstr ""
+
+#: ../../specs/rfc7636.rst:35
+msgid ""
+"And the ``AuthorizationCodeGrant`` should record the ``code_challenge`` "
+"and ``code_challenge_method`` into database in "
+"``create_authorization_code`` method::"
+msgstr ""
+
+#: ../../specs/rfc7636.rst:61
+msgid "Now you can register your ``AuthorizationCodeGrant`` with the extension::"
+msgstr ""
+
+#: ../../specs/rfc7636.rst:66
+msgid ""
+"If ``required=True``, code challenge is required for authorization code "
+"flow. If ``required=False``, it is optional, it will only valid the code "
+"challenge when clients send these parameters."
+msgstr ""
+
+#: ../../specs/rfc7636.rst:71
+msgid "Using ``code_challenge`` in Client"
+msgstr ""
+
+#: ../../specs/rfc7636.rst:73
+msgid "Read the **Code Challenge** section in the framework integrations:"
+msgstr ""
+
+#: ../../specs/rfc7636.rst:75
+msgid ":ref:`flask_client`."
+msgstr ""
+
+#: ../../specs/rfc7636.rst:76
+msgid ":ref:`django_client`."
+msgstr ""
+
+#: ../../specs/rfc7636.rst:78
+msgid ""
+"It is also possible to add ``code_challenge`` in ``OAuth2Session``, "
+"consider that we already have a ``session``::"
+msgstr ""
+
+#: ../../specs/rfc7636.rst:89
+msgid ""
+"The authorization flow is the same as in :ref:`oauth_2_session`, what you"
+" need to do is:"
+msgstr ""
+
+#: ../../specs/rfc7636.rst:92
+msgid ""
+"adding ``code_challenge`` and ``code_challenge_method`` in "
+":meth:`~authlib.client.OAuth2Session.authorization_url`."
+msgstr ""
+
+#: ../../specs/rfc7636.rst:93
+msgid ""
+"adding ``code_verifier`` in "
+":meth:`~authlib.client.OAuth2Session.fetch_access_token`."
+msgstr ""
+
+#: authlib.oauth2.rfc7636.CodeChallenge:1 of
+msgid ""
+"CodeChallenge extension to Authorization Code Grant. It is used to "
+"improve the security of Authorization Code flow for public clients by "
+"sending extra \"code_challenge\" and \"code_verifier\" to the "
+"authorization server."
+msgstr ""
+
+#: authlib.oauth2.rfc7636.CodeChallenge:6 of
+msgid ""
+"The AuthorizationCodeGrant SHOULD save the code_challenge and "
+"code_challenge_method into database when create_authorization_code. Then "
+"register this extension via::"
+msgstr ""
+
+#: authlib.oauth2.rfc7636.CodeChallenge.DEFAULT_CODE_CHALLENGE_METHOD:1 of
+msgid "defaults to \"plain\" if not present in the request"
+msgstr ""
+
+#: authlib.oauth2.rfc7636.CodeChallenge.SUPPORTED_CODE_CHALLENGE_METHOD:1 of
+msgid "supported ``code_challenge_method``"
+msgstr ""
+
+#: authlib.oauth2.rfc7636.CodeChallenge.get_authorization_code_challenge:1 of
+msgid ""
+"Get \"code_challenge\" associated with this authorization code. "
+"Developers CAN re-implement it in subclass, the default logic::"
+msgstr ""
+
+#: authlib.oauth2.rfc7636.CodeChallenge.get_authorization_code_challenge_method:1
+#: of
+msgid ""
+"Get \"code_challenge_method\" associated with this authorization code. "
+"Developers CAN re-implement it in subclass, the default logic::"
+msgstr ""
+
+#: ../../specs/rfc7662.rst:4
+msgid "RFC7662: OAuth 2.0 Token Introspection"
+msgstr ""
+
+#: ../../specs/rfc7662.rst:6
+msgid "API references on RFC7009 Authlib implementation."
+msgstr ""
+
+#: ../../specs/rfc7662.rst:9
+msgid "This section contains the generic implementation of RFC7662_."
+msgstr ""
+
+#: ../../specs/rfc7662.rst:18
+msgid "Register Introspection Endpoint"
+msgstr ""
+
+#: ../../specs/rfc7662.rst:20
+msgid ""
+"With the help of ``register_endpoint`` offered by "
+":ref:`flask_oauth2_server`, we can easily add introspection endpoint to "
+"the authorization server. But first, we need to implement the missing "
+"methods::"
+msgstr ""
+
+#: ../../specs/rfc7662.rst:56
+msgid "After the registration, we can create a response with::"
+msgstr ""
+
+#: authlib.oauth2.rfc7662.IntrospectionEndpoint:1 of
+msgid "Implementation of introspection endpoint which is described in `RFC7662`_."
+msgstr ""
+
+#: authlib.oauth2.rfc7662.IntrospectionEndpoint.validate_endpoint_request:1 of
+msgid ""
+"The protected resource calls the introspection endpoint using an HTTP "
+"``POST`` request with parameters sent as \"application/x-www-form-"
+"urlencoded\" data. The protected resource sends a parameter representing "
+"the token along with optional parameters representing additional context "
+"that is known by the protected resource to aid the authorization server "
+"in its response."
+msgstr ""
+
+#: authlib.oauth2.rfc7662.IntrospectionEndpoint.validate_endpoint_request:9 of
+msgid ""
+"**REQUIRED**  The string value of the token. For access tokens, this is "
+"the ``access_token`` value returned from the token endpoint defined in "
+"OAuth 2.0. For refresh tokens, this is the ``refresh_token`` value "
+"returned from the token endpoint as defined in OAuth 2.0."
+msgstr ""
+
+#: authlib.oauth2.rfc7662.IntrospectionEndpoint.validate_endpoint_request:16 of
+msgid ""
+"**OPTIONAL**  A hint about the type of the token submitted for "
+"introspection."
+msgstr ""
+
+#: authlib.oauth2.rfc7662.IntrospectionEndpoint.create_endpoint_response:1 of
+msgid "Validate introspection request and create the response."
+msgstr ""
+
+#: authlib.oauth2.rfc7662.IntrospectionEndpoint.introspect_token:1 of
+msgid ""
+"Read given token and return its introspection metadata as a dictionary "
+"following `Section 2.2`_::"
+msgstr ""
+

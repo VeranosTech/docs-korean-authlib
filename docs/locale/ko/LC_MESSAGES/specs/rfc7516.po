@@ -1,0 +1,167 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../specs/rfc7516.rst:4
+msgid "RFC7516: JSON Web Encryption"
+msgstr ""
+
+#: ../../specs/rfc7516.rst:6
+msgid ""
+"API references on RFC7516 JSON Web Encryption (JWE) Python "
+"implementation. Guide on JWE serialization and deserialization."
+msgstr ""
+
+#: ../../specs/rfc7516.rst:10
+msgid ""
+"This section contains the generic implementation of RFC7516_. Find how to"
+" use it in :ref:`JWE Guide <jwe_guide>`."
+msgstr ""
+
+#: ../../specs/rfc7516.rst:19
+msgid "API Reference"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWE.REGISTERED_HEADER_PARAMETER_NAMES:1 of
+msgid "Registered Header Parameter Names defined by Section 4.1"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWE.register_algorithm:1 of
+msgid "Register an algorithm for ``alg`` or ``enc`` or ``zip`` of JWE."
+msgstr ""
+
+#: authlib.jose.rfc7516.JWE.serialize_compact:1 of
+msgid ""
+"Generate a JWE Compact Serialization. The JWE Compact Serialization "
+"represents encrypted content as a compact, URL-safe string.  This string "
+"is:"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWE.serialize_compact:5 of
+msgid ""
+"BASE64URL(UTF8(JWE Protected Header)) || '.' || BASE64URL(JWE Encrypted "
+"Key) || '.' || BASE64URL(JWE Initialization Vector) || '.' || "
+"BASE64URL(JWE Ciphertext) || '.' || BASE64URL(JWE Authentication Tag)"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWE.serialize_compact:11 of
+msgid ""
+"Only one recipient is supported by the JWE Compact Serialization and it "
+"provides no syntax to represent JWE Shared Unprotected Header, JWE Per-"
+"Recipient Unprotected Header, or JWE AAD values."
+msgstr ""
+
+#: authlib.jose.rfc7516.JWE.deserialize_compact
+#: authlib.jose.rfc7516.JWE.serialize_compact
+#: authlib.jose.rfc7516.JWEEncAlgorithm.decrypt
+#: authlib.jose.rfc7516.JWEEncAlgorithm.encrypt of
+msgid "Parameters"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWE.serialize_compact:15 of
+msgid "A dict of protected header"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWE.serialize_compact:16 of
+msgid "A string/dict of payload"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWE.serialize_compact:17 of
+msgid "Private key used to generate signature"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWE.deserialize_compact
+#: authlib.jose.rfc7516.JWE.serialize_compact
+#: authlib.jose.rfc7516.JWEEncAlgorithm.decrypt
+#: authlib.jose.rfc7516.JWEEncAlgorithm.encrypt of
+msgid "Returns"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWE.serialize_compact:18 of
+msgid "byte"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWE.deserialize_compact:1 of
+msgid "Exact JWS Compact Serialization, and validate with the given key."
+msgstr ""
+
+#: authlib.jose.rfc7516.JWE.deserialize_compact:3 of
+msgid "text of JWS Compact Serialization"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWE.deserialize_compact:4 of
+msgid "key used to verify the signature"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWE.deserialize_compact:5 of
+msgid "a function to decode plaintext data"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWE.deserialize_compact:6 of
+msgid "dict"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWEAlgorithm:1 of
+msgid ""
+"Interface for JWE algorithm. JWA specification (RFC7518) SHOULD implement"
+" the algorithms for JWE with this base implementation."
+msgstr ""
+
+#: authlib.jose.rfc7516.JWEEncAlgorithm.encrypt:1 of
+msgid "Encrypt the given \"msg\" text."
+msgstr ""
+
+#: authlib.jose.rfc7516.JWEEncAlgorithm.encrypt:3 of
+msgid "text to be encrypt in bytes"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWEEncAlgorithm.decrypt:4
+#: authlib.jose.rfc7516.JWEEncAlgorithm.encrypt:4 of
+msgid "additional authenticated data in bytes"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWEEncAlgorithm.decrypt:5
+#: authlib.jose.rfc7516.JWEEncAlgorithm.encrypt:5 of
+msgid "initialization vector in bytes"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWEEncAlgorithm.decrypt:7
+#: authlib.jose.rfc7516.JWEEncAlgorithm.encrypt:6 of
+msgid "encrypted key in bytes"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWEEncAlgorithm.encrypt:7 of
+msgid "(ciphertext, iv, tag)"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWEEncAlgorithm.decrypt:1 of
+msgid "Decrypt the given cipher text."
+msgstr ""
+
+#: authlib.jose.rfc7516.JWEEncAlgorithm.decrypt:3 of
+msgid "ciphertext in bytes"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWEEncAlgorithm.decrypt:6 of
+msgid "authentication tag in bytes"
+msgstr ""
+
+#: authlib.jose.rfc7516.JWEEncAlgorithm.decrypt:8 of
+msgid "message"
+msgstr ""
+

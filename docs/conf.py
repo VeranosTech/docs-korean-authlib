@@ -125,3 +125,7 @@ texinfo_documents = [
 def setup(app):
     sphinx_typlog_theme.add_badge_roles(app)
     sphinx_typlog_theme.add_github_roles(app, 'lepture/authlib')
+
+
+locale_dirs = ["locale/"]
+gettext_compact = False

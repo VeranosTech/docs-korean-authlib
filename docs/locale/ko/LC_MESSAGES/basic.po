@@ -1,0 +1,657 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:52+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../basic/index.rst:2
+msgid "Get Started"
+msgstr ""
+
+#: ../../basic/index.rst:4
+msgid ""
+"This part of the documentation begins with some background information "
+"about Authlib, and installation of Authlib."
+msgstr ""
+
+#: ../../basic/install.rst:4
+msgid "Installation of Authlib"
+msgstr ""
+
+#: ../../basic/install.rst:6
+msgid "How to install Authlib with pip, source code, etc."
+msgstr ""
+
+#: ../../basic/install.rst:9
+msgid ""
+"This part of the documentation covers the installation of Authlib, just "
+"like any other software package needs to be installed first."
+msgstr ""
+
+#: ../../basic/install.rst:14
+msgid "$ pip install Authlib"
+msgstr ""
+
+#: ../../basic/install.rst:17
+msgid "Installing Authlib is simple with `pip <http://www.pip-installer.org/>`_::"
+msgstr ""
+
+#: ../../basic/install.rst:21
+msgid "It will also install the dependencies:"
+msgstr ""
+
+#: ../../basic/install.rst:23
+msgid "requests"
+msgstr ""
+
+#: ../../basic/install.rst:24
+msgid "cryptography"
+msgstr ""
+
+#: ../../basic/install.rst:27
+msgid ""
+"You may enter problems when installing cryptography, check its official "
+"document at https://cryptography.io/en/latest/installation/"
+msgstr ""
+
+#: ../../basic/install.rst:31
+msgid "Get the Source Code"
+msgstr ""
+
+#: ../../basic/install.rst:33
+msgid ""
+"Authlib is actively developed on GitHub, where the code is `always "
+"available <https://github.com/lepture/authlib>`_."
+msgstr ""
+
+#: ../../basic/install.rst:36
+msgid "You can either clone the public repository::"
+msgstr ""
+
+#: ../../basic/install.rst:40
+msgid ""
+"Download the `tarball "
+"<https://github.com/lepture/authlib/tarball/master>`_::"
+msgstr ""
+
+#: ../../basic/install.rst:44
+msgid ""
+"Or, download the `zipball "
+"<https://github.com/lepture/authlib/zipball/master>`_::"
+msgstr ""
+
+#: ../../basic/install.rst:49
+msgid ""
+"Once you have a copy of the source, you can embed it in your Python "
+"package, or install it into your site-packages easily::"
+msgstr ""
+
+#: ../../basic/intro.rst:4
+msgid "Introduction"
+msgstr ""
+
+#: ../../basic/intro.rst:6
+msgid ""
+"A general introduction to Authlib, a project that powers from low-level "
+"specification implementation to high-level framework integrations."
+msgstr ""
+
+#: ../../basic/intro.rst:11
+msgid ""
+"Authlib is the ultimate Python library in building OAuth and OpenID "
+"Connect clients and servers. It offers generic implementations of RFCs, "
+"including OAuth 1.0, OAuth 2.0, JWT and many more. It becomes a "
+":ref:`monolithic` project that powers from low-level specification "
+"implementation to high-level framework integrations."
+msgstr ""
+
+#: ../../basic/intro.rst:17
+msgid "I'm intended to make it profitable so that it can be :ref:`sustainable`."
+msgstr ""
+
+#: ../../basic/intro.rst:22
+msgid "Monolithic"
+msgstr ""
+
+#: ../../basic/intro.rst:24
+msgid ""
+"Authlib is a monolithic library. While being monolithic, it keeps "
+"everything synchronized, from spec implementation to framework "
+"integrations, from client requests to service providers."
+msgstr ""
+
+#: ../../basic/intro.rst:28
+msgid ""
+"The benefits are obvious; it won't break things. When specifications "
+"changed, implementation will change too. Let the developers of Authlib "
+"take the pain, users of Authlib should not suffer from it."
+msgstr ""
+
+#: ../../basic/intro.rst:32
+msgid ""
+"You don't have to worry about monolithic, it doesn't cost your memory. If"
+" you don't import a module, it won't be loaded. We don't madly import "
+"everything into the root **__init__.py**."
+msgstr ""
+
+#: ../../basic/intro.rst:37
+msgid "Flexible"
+msgstr ""
+
+#: ../../basic/intro.rst:39
+msgid ""
+"Authlib is designed as flexible as possible. Since it is built from low-"
+"level specification implementation to high-level framework integrations, "
+"if a high level can't meet your needs, you can always create one for your"
+" purpose based on the low-level implementation."
+msgstr ""
+
+#: ../../basic/intro.rst:44
+msgid ""
+"Most of the cases, you don't need to do so. Flexible has been taken into "
+"account from the start of the project. Take OAuth 2.0 server as an "
+"example, instead of a pre-configured server, Authlib takes advantage of "
+"``register``."
+msgstr ""
+
+#: ../../basic/intro.rst:54
+msgid ""
+"If you find anything not that flexible, you can ask help on StackOverflow"
+" or open an issue on GitHub."
+msgstr ""
+
+#: ../../basic/intro.rst:58
+msgid "Specification"
+msgstr ""
+
+#: ../../basic/intro.rst:60
+msgid ""
+"Authlib is a spec-compliant library which follows the latest "
+"specifications. We keep the generic tool functions in a ``specs`` module."
+" When there is a auth-related specification, we add it into ``specs``."
+msgstr ""
+
+#: ../../basic/intro.rst:64
+msgid "Currently, these specs are in the warehouse:"
+msgstr ""
+
+#: ../../basic/intro.rst:66
+msgid ":badge:`done` :ref:`specs/rfc5849`"
+msgstr ""
+
+#: ../../basic/intro.rst:67
+msgid ":badge:`done` :ref:`specs/rfc6749`"
+msgstr ""
+
+#: ../../basic/intro.rst:68
+msgid ":badge:`done` :ref:`specs/rfc6750`"
+msgstr ""
+
+#: ../../basic/intro.rst:69
+msgid ":badge:`done` :ref:`specs/rfc7009`"
+msgstr ""
+
+#: ../../basic/intro.rst:70
+msgid ":badge:`done` :ref:`specs/rfc7515`"
+msgstr ""
+
+#: ../../basic/intro.rst:71
+msgid ":badge-blue:`beta` :ref:`specs/rfc7516`"
+msgstr ""
+
+#: ../../basic/intro.rst:72
+msgid ":badge:`done` :ref:`specs/rfc7517`"
+msgstr ""
+
+#: ../../basic/intro.rst:73
+msgid ":badge:`done` :ref:`specs/rfc7518`"
+msgstr ""
+
+#: ../../basic/intro.rst:74
+msgid ":badge:`done` :ref:`specs/rfc7519`"
+msgstr ""
+
+#: ../../basic/intro.rst:75
+msgid ":badge:`done` :ref:`specs/rfc7523`"
+msgstr ""
+
+#: ../../basic/intro.rst:76
+msgid ":badge-blue:`beta` :ref:`specs/rfc7636`"
+msgstr ""
+
+#: ../../basic/intro.rst:77
+msgid ":badge:`done` :ref:`specs/rfc7662`"
+msgstr ""
+
+#: ../../basic/intro.rst:78
+msgid ":badge:`done` :ref:`specs/oidc`"
+msgstr ""
+
+#: ../../basic/intro.rst:81
+msgid "Credits"
+msgstr ""
+
+#: ../../basic/intro.rst:83
+msgid "This project is inspired by:"
+msgstr ""
+
+#: ../../basic/intro.rst:85
+msgid "OAuthLib"
+msgstr ""
+
+#: ../../basic/intro.rst:86
+msgid "Flask-OAuthlib"
+msgstr ""
+
+#: ../../basic/intro.rst:87
+msgid "requests-oauthlib"
+msgstr ""
+
+#: ../../basic/intro.rst:88
+msgid "pyjwt"
+msgstr ""
+
+#: ../../basic/oauth1.rst:1
+msgid ""
+"Understand the concepts in OAuth 1.0, the authorization flow, roles, "
+"signatures and etc."
+msgstr ""
+
+#: ../../basic/oauth1.rst:1
+msgid ""
+"https://user-"
+"images.githubusercontent.com/290496/48671968-2c316080-eb73-11e8-9e6a-"
+"9e895cd67262.png"
+msgstr ""
+
+#: ../../basic/oauth1.rst:9
+msgid "Understand OAuth 1.0"
+msgstr ""
+
+#: ../../basic/oauth1.rst:11
+msgid ""
+"OAuth provides a method for clients to access server resources on behalf "
+"of a resource owner (such as a different client or an end- user).  It "
+"also provides a process for end-users to authorize third- party access to"
+" their server resources without sharing their credentials (typically, a "
+"username and password pair), using user- agent redirections."
+msgstr ""
+
+#: ../../basic/oauth1.rst:18
+msgid ""
+"This section will help developers understand the concepts in OAuth 1.0, "
+"but not in deep. Here is an overview of a typical OAuth 1.0 flow:"
+msgstr ""
+
+#: ../../basic/oauth1.rst:24
+msgid ""
+"It takes more steps to obtain an access token than :ref:`OAuth 2.0 "
+"<understand_oauth2>`."
+msgstr ""
+
+#: ../../basic/oauth1.rst:27
+msgid "Roles in OAuth 1.0"
+msgstr ""
+
+#: ../../basic/oauth1.rst:29
+msgid ""
+"There are usually three roles in an OAuth 1.0 flow. Let's take Twitter as"
+" an example, you are building a mobile app to send tweets:"
+msgstr ""
+
+#: ../../basic/oauth1.rst:32
+msgid ""
+"**Client**: a client is a third-party application. In this case, it is "
+"your application."
+msgstr ""
+
+#: ../../basic/oauth1.rst:34
+msgid ""
+"**Resource Owner**: the users on Twitter are the resource owners, since "
+"they own their tweets (resources)."
+msgstr ""
+
+#: ../../basic/oauth1.rst:36
+msgid ""
+"**Server**: authorization and resource server. In this case, it is "
+"twitter."
+msgstr ""
+
+#: ../../basic/oauth1.rst:39
+msgid "Credentials"
+msgstr ""
+
+#: ../../basic/oauth1.rst:41
+msgid ""
+"During the OAuth 1.0 process, there are several credentials passed from "
+"server to client, and vice versa."
+msgstr ""
+
+#: ../../basic/oauth1.rst:43
+msgid "client credentials"
+msgstr ""
+
+#: ../../basic/oauth1.rst:44
+msgid "temporary credentials"
+msgstr ""
+
+#: ../../basic/oauth1.rst:45
+msgid "token credentials"
+msgstr ""
+
+#: ../../basic/oauth1.rst:48
+msgid "OAuth 1.0 Flow"
+msgstr ""
+
+#: ../../basic/oauth1.rst:50
+msgid ""
+"Let's take your mobile Twitter app as an example. When a user wants to "
+"send a tweet through your application, he/she needs to authenticate at "
+"first. When the app is opened, and the login button is clicked:"
+msgstr ""
+
+#: ../../basic/oauth1.rst:54
+msgid ""
+"**Client** uses its **client credentials** to make a request to server, "
+"asking the server for a temporary credential."
+msgstr ""
+
+#: ../../basic/oauth1.rst:56
+msgid ""
+"**Server** responds with a **temporary credential** if it verified your "
+"client credential."
+msgstr ""
+
+#: ../../basic/oauth1.rst:58
+msgid ""
+"**Client** saves temporary credential for later use, then open a view for"
+" **resource owner** to grant the access."
+msgstr ""
+
+#: ../../basic/oauth1.rst:60
+msgid "When access is granted, **Server** responds with a **verifier** to client."
+msgstr ""
+
+#: ../../basic/oauth1.rst:61
+msgid ""
+"**Client** uses this **verifier and temporary credential** to make a "
+"request to the server asking for **token credentials**."
+msgstr ""
+
+#: ../../basic/oauth1.rst:63
+msgid "**Server** responds with access token if it verified everything."
+msgstr ""
+
+#: ../../basic/oauth1.rst:65
+msgid "And then **Client** can send tweets with the **token credentials**."
+msgstr ""
+
+#: ../../basic/oauth1.rst:68
+msgid "Signature"
+msgstr ""
+
+#: ../../basic/oauth1.rst:70
+msgid ""
+"In OAuth 1.0, every request **client** sending to **server** requires a "
+"signature. The signature is calculated from:"
+msgstr ""
+
+#: ../../basic/oauth1.rst:73
+msgid "credentials (client, temporary, token)"
+msgstr ""
+
+#: ../../basic/oauth1.rst:74
+msgid "timestamp & nonce"
+msgstr ""
+
+#: ../../basic/oauth1.rst:75
+msgid "other HTTP information"
+msgstr ""
+
+#: ../../basic/oauth2.rst:1
+msgid ""
+"Understand the concepts in OAuth 2.0, the authorization flow, grant "
+"types, roles, authentication methods and etc."
+msgstr ""
+
+#: ../../basic/oauth2.rst:1
+msgid ""
+"https://user-"
+"images.githubusercontent.com/290496/48670041-e5803e00-eb53-11e8-91a9-3776276d6bf6.png"
+msgstr ""
+
+#: ../../basic/oauth2.rst:9
+msgid "Understand OAuth 2.0"
+msgstr ""
+
+#: ../../basic/oauth2.rst:11
+msgid ""
+"The OAuth 2.0 authorization framework enables a third-party application "
+"to obtain limited access to an HTTP service, either on behalf of a "
+"resource owner by orchestrating an approval interaction between the "
+"resource owner and the HTTP service, or by allowing the third-party "
+"application to obtain access on its own behalf."
+msgstr ""
+
+#: ../../basic/oauth2.rst:17
+msgid ""
+"This section will help developers understand the concepts in OAuth 2.0, "
+"but not in deep of OAuth 2.0. Here is an overview of a very simple OAuth "
+"2.0 flow:"
+msgstr ""
+
+#: ../../basic/oauth2.rst:25
+msgid "OAuth 2.0 Roles"
+msgstr ""
+
+#: ../../basic/oauth2.rst:27
+msgid ""
+"There are usually four roles in an OAuth 2.0 flow. Let's take GitHub as "
+"an example, you are building an application to analyze one's code on "
+"GitHub:"
+msgstr ""
+
+#: ../../basic/oauth2.rst:30
+msgid ""
+"**Client**: a client is a third-party application, in this case, it is "
+"your application."
+msgstr ""
+
+#: ../../basic/oauth2.rst:33
+msgid ""
+"**Resource Owner**: the users and orgs on GitHub are the resource owners,"
+" since they own their source code (resources)."
+msgstr ""
+
+#: ../../basic/oauth2.rst:36
+msgid ""
+"**Resource Server**: The API servers of GitHub. Your **client** will make"
+" requests to the resource server to fetch source code. The server serves "
+"resources."
+msgstr ""
+
+#: ../../basic/oauth2.rst:39
+msgid ""
+"**Authorization Server**: The server for **client** to obtain an access "
+"token."
+msgstr ""
+
+#: ../../basic/oauth2.rst:42
+msgid "OAuth 2.0 Flow"
+msgstr ""
+
+#: ../../basic/oauth2.rst:44
+msgid ""
+"The above image is a simplified version of an OAuth 2.0 authorization. "
+"Let's take GitHub as an example. A user wants to use your application to "
+"analyze his/her source code on GitHub."
+msgstr ""
+
+#: ../../basic/oauth2.rst:48
+msgid "It usually takes these steps:"
+msgstr ""
+
+#: ../../basic/oauth2.rst:50
+msgid "Your application (**client**) prompts the user to log in."
+msgstr ""
+
+#: ../../basic/oauth2.rst:51
+msgid ""
+"The user clicks the *login* button, your application will redirect to "
+"GitHub's authorize page (**Authorization Server**)."
+msgstr ""
+
+#: ../../basic/oauth2.rst:53
+msgid ""
+"The user (he/she is a GitHub user, which means he/she is a **Resource "
+"Owner**) clicks the *allow* button to tell GitHub that he/she granted the"
+" access."
+msgstr ""
+
+#: ../../basic/oauth2.rst:55
+msgid ""
+"The **Authorization Server** issues an **access token** to your "
+"application. (This step can contain several sub-steps)"
+msgstr ""
+
+#: ../../basic/oauth2.rst:57
+msgid ""
+"Your application uses the **access token** to fetch source code from "
+"GitHub's **Resource Server**, analyze the source code and return the "
+"result to your application user."
+msgstr ""
+
+#: ../../basic/oauth2.rst:61
+msgid ""
+"But there are more details inside the flow. The most important thing in "
+"OAuth 2.0 is the authorization. A client obtains an access token from the"
+" authorization server with the grant of the resource owner."
+msgstr ""
+
+#: ../../basic/oauth2.rst:66
+msgid "Grant Types"
+msgstr ""
+
+#: ../../basic/oauth2.rst:70
+msgid ""
+"Authorization server MAY supports several **grant types** during the "
+"**authorization**, step 1 and 2. A grant type defines a way of how the "
+"authorization server will verify the request and issue the token."
+msgstr ""
+
+#: ../../basic/oauth2.rst:74
+msgid "There are lots of built-in grant types in Authlib, including:"
+msgstr ""
+
+#: ../../basic/oauth2.rst:76
+msgid ":class:`AuthorizationCodeGrant`"
+msgstr ""
+
+#: ../../basic/oauth2.rst:77
+msgid ":class:`ImplicitGrant`"
+msgstr ""
+
+#: ../../basic/oauth2.rst:78
+msgid ":class:`ResourceOwnerPasswordCredentialsGrant`"
+msgstr ""
+
+#: ../../basic/oauth2.rst:79
+msgid ":class:`ClientCredentialsGrant`"
+msgstr ""
+
+#: ../../basic/oauth2.rst:80
+msgid ":class:`RefreshTokenGrant`"
+msgstr ""
+
+#: ../../basic/oauth2.rst:81
+msgid ":class:`JWTBearerGrant`"
+msgstr ""
+
+#: ../../basic/oauth2.rst:83
+msgid ""
+"Take ``authorization_code`` as an example, in step 2, when the resource "
+"owner granted the access, **Authorization Server** will return a ``code``"
+" to the client. The client can use this ``code`` to exchange an access "
+"token:"
+msgstr ""
+
+#: ../../basic/oauth2.rst:100
+msgid "Client Authentication Methods"
+msgstr ""
+
+#: ../../basic/oauth2.rst:102
+msgid ""
+"In the above code, there is an ``Authorization`` header; it contains the "
+"information of the client. A client MUST provide its client information "
+"to obtain an access token. There are several ways to provide this data, "
+"for instance:"
+msgstr ""
+
+#: ../../basic/oauth2.rst:106
+msgid ""
+"``none``: The client is a public client which means it has no "
+"client_secret"
+msgstr ""
+
+#: ../../basic/oauth2.rst:118
+msgid "``client_secret_post``: The client uses the HTTP POST parameters"
+msgstr ""
+
+#: ../../basic/oauth2.rst:130
+msgid "``client_secret_basic``: The client uses HTTP Basic Authorization"
+msgstr ""
+
+#: ../../basic/oauth2.rst:142
+msgid ""
+"There are more client authentication methods defined by OAuth 2.0 "
+"extensions, including ``client_secret_jwt``, ``private_key_jwt``. They "
+"can be found in section :ref:`jwt_client_authentication`."
+msgstr ""
+
+#: ../../basic/oauth2.rst:147
+msgid "Token Scopes"
+msgstr ""
+
+#: ../../basic/oauth2.rst:149
+msgid ""
+"Scope is a very important concept in OAuth 2.0. An access token is "
+"usually issued with limited scopes."
+msgstr ""
+
+#: ../../basic/oauth2.rst:152
+msgid ""
+"For instance, your \"source code analyzer\" application MAY only have "
+"access to the public repositories of a GiHub user."
+msgstr ""
+
+#: ../../basic/oauth2.rst:156
+msgid "Endpoints"
+msgstr ""
+
+#: ../../basic/oauth2.rst:158
+msgid ""
+"The above example only shows one endpoint, which is **token endpoint**. "
+"There are more endpoints in OAuth 2.0. For example:"
+msgstr ""
+
+#: ../../basic/oauth2.rst:161
+msgid ":ref:`Token Revocation Endpoint <specs/rfc7009>`"
+msgstr ""
+
+#: ../../basic/oauth2.rst:162
+msgid ":ref:`Token Introspection Endpoint <specs/rfc7662>`"
+msgstr ""
+

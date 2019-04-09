@@ -1,0 +1,249 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../specs/rfc7518.rst:4
+msgid "RFC7518: JSON Web Algorithms"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:6
+msgid ""
+"API references on RFC7518 JSON Web Algorithms (JWA) Authlib "
+"implementation."
+msgstr ""
+
+#: ../../specs/rfc7518.rst:9
+msgid "This section contains the generic implementation of RFC7518_."
+msgstr ""
+
+#: ../../specs/rfc7518.rst:15
+msgid "Algorithms for JWS"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:17
+msgid ""
+"The interface for JWS Algorithms are all inherit from "
+":class:`authlib.jose.rfc7515.JWSAlgorithm`."
+msgstr ""
+
+#: ../../specs/rfc7518.rst:20
+msgid "Find how to use them in :ref:`jws_guide`."
+msgstr ""
+
+#: ../../specs/rfc7518.rst:23
+msgid "HMAC with SHA-2 Functions"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:25
+msgid "This section is defined by RFC7518 `Section 3.2`_."
+msgstr ""
+
+#: ../../specs/rfc7518.rst:29
+msgid "HS256: HMAC using SHA-256"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:30
+msgid "HS384: HMAC using SHA-384"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:31
+msgid "HS512: HMAC using SHA-512"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:34
+msgid "Digital Signature with RSASSA-PKCS1-v1_5"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:36
+msgid ""
+"Algorithms in this section requires extra crypto backends. This section "
+"is defined by RFC7518 `Section 3.3`_."
+msgstr ""
+
+#: ../../specs/rfc7518.rst:41
+msgid "RS256: RSASSA-PKCS1-v1_5 using SHA-256"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:42
+msgid "RS384: RSASSA-PKCS1-v1_5 using SHA-384"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:43
+msgid "RS512: RSASSA-PKCS1-v1_5 using SHA-384"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:46
+msgid "Digital Signature with ECDSA"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:48
+msgid ""
+"Algorithms in this section requires extra crypto backends. This section "
+"is defined by RFC7518 `Section 3.4`_."
+msgstr ""
+
+#: ../../specs/rfc7518.rst:53
+msgid "ES256: ECDSA using P-256 and SHA-256"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:54
+msgid "ES384: ECDSA using P-384 and SHA-384"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:55
+msgid "ES384: ECDSA using P-521 and SHA-521"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:58
+msgid "Digital Signature with RSASSA-PSS"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:60
+msgid ""
+"Algorithms in this section requires extra crypto backends. This section "
+"is defined by RFC7518 `Section 3.5`_."
+msgstr ""
+
+#: ../../specs/rfc7518.rst:65
+msgid "PS256: RSASSA-PSS using SHA-256 and MGF1 with SHA-256"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:66
+msgid "PS384: RSASSA-PSS using SHA-384 and MGF1 with SHA-384"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:67
+msgid "PS512: RSASSA-PSS using SHA-512 and MGF1 with SHA-512"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:70
+msgid "Algorithms for JWE"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:72
+msgid ""
+"This section contains algorithms for JWE ``alg`` and ``enc`` header. For "
+"``alg`` the interface are all inherited from "
+":class:`authlib.jose.rfc7516.JWEAlgorithm`. For ``enc``, the interface "
+"are inherited from :class:`authlib.jose.rfc7516.JWEEncAlgorithm`."
+msgstr ""
+
+#: ../../specs/rfc7518.rst:77
+msgid "Current available algorithms for ``alg``:"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:79
+msgid "RSA1_5: RSAES-PKCS1-v1_5"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:80
+msgid "RSA-OAEP: RSAES OAEP using default parameters"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:81
+msgid "RSA-OAEP-256: RSAES OAEP using SHA-256 and MGF1 with SHA-256"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:82
+msgid "A128KW: AES Key Wrap with default initial value using 128-bit key"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:83
+msgid "A192KW: AES Key Wrap with default initial value using 192-bit key"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:84
+msgid "A256KW: AES Key Wrap with default initial value using 256-bit key"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:85
+msgid "A128GCMKW: Key wrapping with AES GCM using 128-bit key"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:86
+msgid "A192GCMKW: Key wrapping with AES GCM using 192-bit key"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:87
+msgid "A256GCMKW: Key wrapping with AES GCM using 256-bit key"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:89
+msgid "Current available algorithms for ``enc``:"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:91
+msgid "A128CBC-HS256"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:92
+msgid "A192CBC-HS384"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:93
+msgid "A256CBC-HS512"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:94
+msgid "A128GCM"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:95
+msgid "A192GCM"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:96
+msgid "A256GCM"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:98
+msgid "Current available algorithms for ``zip``:"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:100
+msgid "DEF"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:103
+msgid "Algorithms for JWK"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:105
+msgid ""
+"This section defines the parameters for keys using the algorithms via "
+"RFC7518 `Section 6`_. The interface for JWK Algorithms are all inherited "
+"from :class:`authlib.jose.rfc7517.JWKAlgorithm`. The available values of "
+"``kty``:"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:109
+msgid "EC: Elliptic Curve (requires extra crypto backends)"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:110
+msgid "RSA: RSA (requires extra crypto backends)"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:111
+msgid "oct"
+msgstr ""
+
+#: ../../specs/rfc7518.rst:113
+msgid "Find how to use them in :ref:`jwk_guide`."
+msgstr ""
+

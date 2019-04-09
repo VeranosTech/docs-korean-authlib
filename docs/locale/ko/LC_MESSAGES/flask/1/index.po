@@ -1,0 +1,59 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../flask/1/index.rst:4
+msgid "Flask OAuth 1.0 Server"
+msgstr ""
+
+#: ../../flask/1/index.rst:6
+msgid ""
+"How to create an OAuth 1.0 server in Flask with Authlib. And understand "
+"how OAuth 1.0 works."
+msgstr ""
+
+#: ../../flask/1/index.rst:10
+msgid ""
+"Implement OAuth 1.0 provider in Flask. An OAuth 1 provider contains two "
+"servers:"
+msgstr ""
+
+#: ../../flask/1/index.rst:12
+msgid "Authorization Server: to issue access tokens"
+msgstr ""
+
+#: ../../flask/1/index.rst:13
+msgid "Resources Server: to serve your users' resources"
+msgstr ""
+
+#: ../../flask/1/index.rst:15
+msgid ""
+"At the very beginning, we need to have some basic understanding of "
+":ref:`the OAuth 1.0 <understand_oauth1>`."
+msgstr ""
+
+#: ../../flask/1/index.rst:20
+msgid ""
+"If you are developing on your localhost, remember to set the environment "
+"variable::"
+msgstr ""
+
+#: ../../flask/1/index.rst:25
+msgid "Here are the details in documentation:"
+msgstr ""
+

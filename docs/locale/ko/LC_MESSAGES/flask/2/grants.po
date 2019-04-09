@@ -1,0 +1,182 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../flask/2/grants.rst:2
+msgid "Register Grants"
+msgstr ""
+
+#: ../../flask/2/grants.rst:6
+msgid ""
+"There are four grant types defined by RFC6749, you can also create your "
+"own extended grant. Register the supported grant types to the "
+"authorization server."
+msgstr ""
+
+#: ../../flask/2/grants.rst:12
+msgid "Authorization Code Grant"
+msgstr ""
+
+#: ../../flask/2/grants.rst:14
+msgid ""
+"Authorization Code Grant is a very common grant type, it is supported by "
+"almost every OAuth 2 providers. It uses an authorization code to exchange"
+" access token. In this case, we need a place to store the authorization "
+"code. It can be kept in a database or a cache like redis. Here is a "
+"SQLAlchemy mixin for **AuthorizationCode**::"
+msgstr ""
+
+#: ../../flask/2/grants.rst:29
+msgid "Implement this grant by subclass :class:`AuthorizationCodeGrant`::"
+msgstr ""
+
+#: ../../flask/2/grants.rst:65
+msgid "AuthorizationCodeGrant is the most complex grant."
+msgstr ""
+
+#: ../../flask/2/grants.rst:67
+msgid "Default allowed :ref:`client_auth_methods` are:"
+msgstr ""
+
+#: ../../flask/2/grants.rst:69
+msgid "client_secret_basic"
+msgstr ""
+
+#: ../../flask/2/grants.rst:70
+msgid "client_secret_post"
+msgstr ""
+
+#: ../../flask/2/grants.rst:71
+msgid "none"
+msgstr ""
+
+#: ../../flask/2/grants.rst:73
+msgid ""
+"You can change it in the subclass, e.g. remove the ``none`` "
+"authentication method::"
+msgstr ""
+
+#: ../../flask/2/grants.rst:79
+msgid "Implicit Grant"
+msgstr ""
+
+#: ../../flask/2/grants.rst:81
+msgid ""
+"The implicit grant type is usually used in a browser, when resource owner"
+" granted the access, access token is issued in the redirect URI, there is"
+" no missing implementation, which means it can be easily registered "
+"with::"
+msgstr ""
+
+#: ../../flask/2/grants.rst:91
+msgid ""
+"Implicit Grant is used by **public** client which has no "
+"**client_secret**. Only allowed :ref:`client_auth_methods`: ``none``."
+msgstr ""
+
+#: ../../flask/2/grants.rst:95
+msgid "Resource Owner Password Credentials Grant"
+msgstr ""
+
+#: ../../flask/2/grants.rst:97
+msgid ""
+"Resource owner uses their username and password to exchange an access "
+"token, this grant type should be used only when the client is "
+"trustworthy, implement it with a subclass of "
+":class:`ResourceOwnerPasswordCredentialsGrant`::"
+msgstr ""
+
+#: ../../flask/2/grants.rst:113 ../../flask/2/grants.rst:133
+#: ../../flask/2/grants.rst:163
+msgid ""
+"Default allowed :ref:`client_auth_methods`: ``client_secret_basic``. You "
+"can add more in the subclass::"
+msgstr ""
+
+#: ../../flask/2/grants.rst:122
+msgid "Client Credentials Grant"
+msgstr ""
+
+#: ../../flask/2/grants.rst:124
+msgid ""
+"Client credentials grant type can access public resources and MAYBE the "
+"client's creator's resources, depending on how you issue tokens to this "
+"grant type. It can be easily registered with::"
+msgstr ""
+
+#: ../../flask/2/grants.rst:142
+msgid "Refresh Token Grant"
+msgstr ""
+
+#: ../../flask/2/grants.rst:144
+msgid ""
+"Many OAuth 2 providers haven't implemented refresh token endpoint. "
+"Authlib provides it as a grant type, implement it with a subclass of "
+":class:`RefreshTokenGrant`::"
+msgstr ""
+
+#: ../../flask/2/grants.rst:174
+msgid "Custom Grant Types"
+msgstr ""
+
+#: ../../flask/2/grants.rst:176
+msgid ""
+"It is also possible to create your own grant types. In Authlib, a "
+"**Grant** supports two endpoints:"
+msgstr ""
+
+#: ../../flask/2/grants.rst:179
+msgid "Authorization Endpoint: which can handle requests with ``response_type``."
+msgstr ""
+
+#: ../../flask/2/grants.rst:180
+msgid "Token Endpoint: which is the endpoint to issue tokens."
+msgstr ""
+
+#: ../../flask/2/grants.rst:182
+msgid "Creating a custom grant type with **BaseGrant**::"
+msgstr ""
+
+#: ../../flask/2/grants.rst:204
+msgid ""
+"For a better understanding, you can read the source code of the built-in "
+"grant types. And there are extended grant types defined by other specs:"
+msgstr ""
+
+#: ../../flask/2/grants.rst:207
+msgid ":ref:`jwt_grant_type`"
+msgstr ""
+
+#: ../../flask/2/grants.rst:213
+msgid "Grant Extensions"
+msgstr ""
+
+#: ../../flask/2/grants.rst:217
+msgid ""
+"Grant can accept extensions. Developers can pass extensions when "
+"registering grant::"
+msgstr ""
+
+#: ../../flask/2/grants.rst:222
+msgid "For instance, there is ``CodeChallenge`` extension in Authlib::"
+msgstr ""
+
+#: ../../flask/2/grants.rst:226
+msgid "Learn more about ``CodeChallenge`` at :ref:`specs/rfc7636`."
+msgstr ""
+

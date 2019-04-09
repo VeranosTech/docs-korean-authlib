@@ -1,0 +1,639 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:52+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../changelog.rst:2
+msgid "Changelog"
+msgstr ""
+
+#: ../../changelog.rst:4
+msgid "The full list of changes between each Authlib release."
+msgstr ""
+
+#: ../../changelog.rst:7
+msgid "Here you can see the full list of changes between each Authlib release."
+msgstr ""
+
+#: ../../changelog.rst:10
+msgid "Version 0.11: Kaori"
+msgstr ""
+
+#: ../../changelog.rst:12
+msgid "**Released on Apr 6, 2019.**"
+msgstr ""
+
+#: ../../changelog.rst:14
+msgid ""
+"**BIG NEWS**: Authlib has changed its open source license **from AGPL to "
+"BSD**."
+msgstr ""
+
+#: ../../changelog.rst:16
+msgid ""
+"**Important Changes**: Authlib specs module has been split into jose, "
+"oauth1, oauth2, and oidc. Find how to solve the deprecate issues via "
+"https://git.io/fjvpt"
+msgstr ""
+
+#: ../../changelog.rst:19 ../../changelog.rst:51
+msgid "RFC implementations and updates in this release:"
+msgstr ""
+
+#: ../../changelog.rst:21
+msgid "RFC7518: Added A128GCMKW, A192GCMKW, A256GCMKW algorithms for JWE."
+msgstr ""
+
+#: ../../changelog.rst:22
+msgid "RFC5849: Removed draft-eaton-oauth-bodyhash-00 spec for OAuth 1.0."
+msgstr ""
+
+#: ../../changelog.rst:24
+msgid "Small changes and bug fixes in this release:"
+msgstr ""
+
+#: ../../changelog.rst:26
+msgid ""
+"Fixed missing scope on password and client_credentials grant types of "
+"``OAuth2Session`` via :gh:`issue#96`."
+msgstr ""
+
+#: ../../changelog.rst:28
+msgid "Fixed Flask OAuth client cache detection via :gh:`issue#98`."
+msgstr ""
+
+#: ../../changelog.rst:29
+msgid ""
+"Enabled ssl certificates for ``OAuth2Session`` via :gh:`PR#100`, thanks "
+"to pingz."
+msgstr ""
+
+#: ../../changelog.rst:31
+msgid ""
+"Fixed error response for invalid/expired refresh token via "
+":gh:`issue#112`."
+msgstr ""
+
+#: ../../changelog.rst:32
+msgid "Fixed error handle for invalid redirect uri via :gh:`issue#113`."
+msgstr ""
+
+#: ../../changelog.rst:33
+msgid "Fixed error response redirect to fragment via :gh:`issue#114`."
+msgstr ""
+
+#: ../../changelog.rst:34
+msgid "Fixed non-compliant responses from RFC7009 via :gh:`issue#119`."
+msgstr ""
+
+#: ../../changelog.rst:36
+msgid ""
+"**Experiment Features**: There is an experiment ``aiohttp`` client for "
+"OAuth1 and OAuth2 in ``authlib.client.aiohttp``."
+msgstr ""
+
+#: ../../changelog.rst:40
+msgid "Version 0.10: Kluke"
+msgstr ""
+
+#: ../../changelog.rst:42
+msgid "**Released on Oct 12, 2018.**"
+msgstr ""
+
+#: ../../changelog.rst:44
+msgid ""
+"The most important change in this version is grant extension system. When"
+" registering a grant, developers can pass extensions to the grant::"
+msgstr ""
+
+#: ../../changelog.rst:49
+msgid "Find Flask :ref:`flask_oauth2_grant_extensions` implementation."
+msgstr ""
+
+#: ../../changelog.rst:53
+msgid "RFC8414: OAuth 2.0 Authorization Server Metadata"
+msgstr ""
+
+#: ../../changelog.rst:54
+msgid "RFC7636: make CodeChallenge a grant extension :ref:`specs/rfc7636`"
+msgstr ""
+
+#: ../../changelog.rst:55
+msgid "OIDC: make OpenIDCode a grant extension"
+msgstr ""
+
+#: ../../changelog.rst:57
+msgid "Besides that, there are other improvements:"
+msgstr ""
+
+#: ../../changelog.rst:59
+msgid "Export ``save_authorize_state`` method on Flask and Django client"
+msgstr ""
+
+#: ../../changelog.rst:60
+msgid "Add ``fetch_token`` to Django OAuth client"
+msgstr ""
+
+#: ../../changelog.rst:61
+msgid ""
+"Add scope operator for ``@require_oauth`` "
+":ref:`flask_oauth2_multiple_scopes`"
+msgstr ""
+
+#: ../../changelog.rst:62
+msgid "Fix two OAuth clients in the same Flask route :gh:`PR#85`"
+msgstr ""
+
+#: ../../changelog.rst:64
+msgid ""
+"**Deprecate Changes**: find how to solve the deprecate issues via "
+"https://git.io/fAmW1"
+msgstr ""
+
+#: ../../changelog.rst:67
+msgid "Version 0.9: Ponyo"
+msgstr ""
+
+#: ../../changelog.rst:69
+msgid "**Released on Aug 12, 2018. Fun Dive.**"
+msgstr ""
+
+#: ../../changelog.rst:71
+msgid ""
+"There is no big break changes in this version. The very great improvement"
+" is adding JWE support. But the JWA parts of JWE are not finished yet, "
+"use with caution."
+msgstr ""
+
+#: ../../changelog.rst:75
+msgid "RFC implementations in this release:"
+msgstr ""
+
+#: ../../changelog.rst:77
+msgid "RFC7636: client and server implementation of :ref:`specs/rfc7636`."
+msgstr ""
+
+#: ../../changelog.rst:78
+msgid "RFC7523: easy integration of :ref:`jwt_oauth2session`."
+msgstr ""
+
+#: ../../changelog.rst:79
+msgid "RFC7516: JWE compact serialization and deserialization."
+msgstr ""
+
+#: ../../changelog.rst:80
+msgid "RFC7519: JWT with JWE encode and decode."
+msgstr ""
+
+#: ../../changelog.rst:82
+msgid "**Other Changes**:"
+msgstr ""
+
+#: ../../changelog.rst:84
+msgid "Fixed the lazy initialization of Flask OAuth 2.0 provider."
+msgstr ""
+
+#: ../../changelog.rst:85
+msgid "Deprecated ``authlib.client.apps`` from v0.7 has been dropped."
+msgstr ""
+
+#: ../../changelog.rst:89
+msgid "Version 0.8: Arutoria"
+msgstr ""
+
+#: ../../changelog.rst:91
+msgid "**Released on Jun 17, 2018. Try Django.**"
+msgstr ""
+
+#: ../../changelog.rst:93
+msgid ""
+"Authlib has tried to introduce Django OAuth server implementation in this"
+" version. It turns out that it is not that easy. In this version, only "
+"Django OAuth 1.0 server is provided."
+msgstr ""
+
+#: ../../changelog.rst:97
+msgid ""
+"As always, there are also RFC features added in this release, here is "
+"what's in version 0.8:"
+msgstr ""
+
+#: ../../changelog.rst:100
+msgid "RFC7523: Add JWTs for Client Authentication of :ref:`specs/rfc7523`."
+msgstr ""
+
+#: ../../changelog.rst:101
+msgid "OIDC: Add ``response_mode=form_post`` support for OpenID Connect."
+msgstr ""
+
+#: ../../changelog.rst:103
+msgid "**Improvement** in this release:"
+msgstr ""
+
+#: ../../changelog.rst:105
+msgid ""
+"A new redesigned error system. All errors are subclasses of a "
+"``AuthlibBaseError``."
+msgstr ""
+
+#: ../../changelog.rst:106
+msgid "I18N support for error descriptions."
+msgstr ""
+
+#: ../../changelog.rst:107
+msgid ""
+"Separate AuthorizationCodeMixin in ``authlib.flask.oauth2.sqla`` via "
+":gh:`issue#57`."
+msgstr ""
+
+#: ../../changelog.rst:108
+msgid "Add context information when generate token via :gh:`issue#58`."
+msgstr ""
+
+#: ../../changelog.rst:109
+msgid "Improve JWT key handles, auto load JWK and JWK set."
+msgstr ""
+
+#: ../../changelog.rst:110
+msgid ""
+"Add ``require_oauth.acquire`` with statement, get example on "
+":ref:`flask_oauth2_server`."
+msgstr ""
+
+#: ../../changelog.rst:112
+msgid ""
+"**Deprecate Changes**: find how to solve the deprecate issues via "
+"https://git.io/vhL75"
+msgstr ""
+
+#: ../../changelog.rst:114
+msgid "Rename config key ``OAUTH2_EXPIRES_IN`` to ``OAUTH2_TOKEN_EXPIRES_IN``."
+msgstr ""
+
+#: ../../changelog.rst:115
+msgid ""
+"Rename Flask OAuth 2.0 ``create_expires_generator`` to "
+"``create_token_expires_in_generator``"
+msgstr ""
+
+#: ../../changelog.rst:119
+msgid "Version 0.7: Honami"
+msgstr ""
+
+#: ../../changelog.rst:121
+msgid "**Released on Apr 28, 2018. Better Beta.**"
+msgstr ""
+
+#: ../../changelog.rst:123
+msgid ""
+"Authlib has changed its license from LGPL to AGPL. This is not a huge "
+"release like v0.6, but it still contains some deprecate changes, the good"
+" news is they are compatible, they won't break your project. Authlib "
+"can't go further without these deprecate changes."
+msgstr ""
+
+#: ../../changelog.rst:128
+msgid ""
+"As always, Authlib is adding specification implementations. Here is "
+"what's in version 0.7:"
+msgstr ""
+
+#: ../../changelog.rst:131
+msgid ""
+"RFC7515_: Refactored :class:`~authlib.rfc7515.JWS`, make it a full "
+"implementation."
+msgstr ""
+
+#: ../../changelog.rst:132
+msgid ""
+"RFC7521_: Add :class:`~authlib.client.AssertionSession`, only works with "
+"RFC7523_."
+msgstr ""
+
+#: ../../changelog.rst:133
+msgid ""
+"RFC7523_: Add :class:`~authlib.oauth2.rfc7523.JWTBearerGrant`, read the "
+"guide in :ref:`specs/rfc7523`."
+msgstr ""
+
+#: ../../changelog.rst:136 ../../changelog.rst:173
+msgid "Besides that, there are more changes:"
+msgstr ""
+
+#: ../../changelog.rst:138
+msgid "Add ``overwrite`` parameter for framework integrations clients."
+msgstr ""
+
+#: ../../changelog.rst:139
+msgid "Add ``response_mode=query`` for OpenID Connect implicit and hybrid flow."
+msgstr ""
+
+#: ../../changelog.rst:140
+msgid "Bug fix and documentation fix via :gh:`issue#42`, :gh:`issue#43`."
+msgstr ""
+
+#: ../../changelog.rst:141
+msgid "Dropping ``authlib.client.apps``. Use Loginpass_ instead."
+msgstr ""
+
+#: ../../changelog.rst:143
+msgid ""
+"**Deprecate Changes**: find how to solve the deprecate issues via "
+"https://git.io/vpCH5"
+msgstr ""
+
+#: ../../changelog.rst:151
+msgid "Version 0.6: Matoi"
+msgstr ""
+
+#: ../../changelog.rst:153
+msgid "**Released on Mar 20, 2018. Going Beta!**"
+msgstr ""
+
+#: ../../changelog.rst:155
+msgid ""
+"From alpha to beta. This is a huge release with lots of deprecating "
+"changes and some breaking changes. And finally, OpenID Connect server is "
+"supported by now, because Authlib has added these specifications:"
+msgstr ""
+
+#: ../../changelog.rst:159
+msgid "RFC7515_: JSON Web Signature (JWS)"
+msgstr ""
+
+#: ../../changelog.rst:160
+msgid "RFC7517_: JSON Web Key (JWK)"
+msgstr ""
+
+#: ../../changelog.rst:161
+msgid "RFC7518_: JSON Web Algorithms (JWA)"
+msgstr ""
+
+#: ../../changelog.rst:162
+msgid "RFC7519_: JSON Web Token (JWT)"
+msgstr ""
+
+#: ../../changelog.rst:164
+msgid ""
+"The specifications are not completed yet, but they are ready to use. The "
+"missing RFC7516 (JWE) is going to be implemented in next version. Open ID"
+" Connect 1.0 is added with:"
+msgstr ""
+
+#: ../../changelog.rst:168
+msgid "Authentication using the :ref:`flask_odic_code`"
+msgstr ""
+
+#: ../../changelog.rst:169
+msgid "Authentication using the :ref:`flask_odic_implicit`"
+msgstr ""
+
+#: ../../changelog.rst:170
+msgid "Authentication using the :ref:`flask_odic_hybrid`"
+msgstr ""
+
+#: ../../changelog.rst:171
+msgid "ID Token Validation"
+msgstr ""
+
+#: ../../changelog.rst:175
+msgid "Implementation of RFC7662: OAuth 2.0 Token Introspection via :gh:`PR#36`."
+msgstr ""
+
+#: ../../changelog.rst:176
+msgid "Use the ``token_endpoint_auth_method`` concept defined in `RFC7591`_."
+msgstr ""
+
+#: ../../changelog.rst:177
+msgid "Signal feature for Flask integration of OAuth 2.0 server."
+msgstr ""
+
+#: ../../changelog.rst:178
+msgid ""
+"Bug fixes for OAuth client parts, thanks for the instruction by Lukas "
+"Schink."
+msgstr ""
+
+#: ../../changelog.rst:180
+msgid "**Breaking Changes**:"
+msgstr ""
+
+#: ../../changelog.rst:182
+msgid ""
+"the columns in ``authlib.flask.oauth2.sqla`` has been changed a lot. If "
+"you are using it, you need to upgrade your database."
+msgstr ""
+
+#: ../../changelog.rst:185
+msgid ""
+"use ``register_token_validator`` on :ref:`ResourceProtector "
+"<flask_oauth2_resource_protector>`."
+msgstr ""
+
+#: ../../changelog.rst:188
+msgid ""
+"``authlib.client.oauth1.OAuth1`` has been renamed to "
+"``authlib.client.oauth1.OAuth1Auth``."
+msgstr ""
+
+#: ../../changelog.rst:191
+msgid ""
+"**Deprecate Changes**: find how to solve the deprecate issues via "
+"https://git.io/vAAUK"
+msgstr ""
+
+#: ../../changelog.rst:201
+msgid "Version 0.5.1"
+msgstr ""
+
+#: ../../changelog.rst:203
+msgid "**Released on Feb 11, 2018.**"
+msgstr ""
+
+#: ../../changelog.rst:205
+msgid "Just a quick bug fix release."
+msgstr ""
+
+#: ../../changelog.rst:207
+msgid "Fixed ``OAuth2Session.request`` with auth."
+msgstr ""
+
+#: ../../changelog.rst:211
+msgid "Version 0.5: Kirie"
+msgstr ""
+
+#: ../../changelog.rst:213
+msgid "**Released on Feb 11, 2018. Breaking Changes!**"
+msgstr ""
+
+#: ../../changelog.rst:215
+msgid ""
+"This version breaks a lot of things. There are many redesigns in order to"
+" get a better stable API. It is still in Alpha stage, with these breaking"
+" changes, I hope Authlib will go into Beta in the next version."
+msgstr ""
+
+#: ../../changelog.rst:219
+msgid ""
+"Added :meth:`~authlib.oauth2.rfc6749.register_error_uri` and its Flask "
+"integration."
+msgstr ""
+
+#: ../../changelog.rst:221
+msgid ":class:`~authlib.client.OAuth2Session` supports more grant types."
+msgstr ""
+
+#: ../../changelog.rst:222
+msgid "Deprecate built-in cache. Read more on :gh:`issue#23`."
+msgstr ""
+
+#: ../../changelog.rst:223
+msgid ""
+"**Redesigned OAuth 1 Flask server**. Read the docs "
+":ref:`flask_oauth1_server`."
+msgstr ""
+
+#: ../../changelog.rst:224
+msgid "Deprecate ``client_model``. Read more on :gh:`issue#27`."
+msgstr ""
+
+#: ../../changelog.rst:225
+msgid ""
+"**Breaking change** on "
+"``AuthorizationCodeGrant.create_authorization_code``, last parameter is "
+"changed to an `OAuth2Request` instance."
+msgstr ""
+
+#: ../../changelog.rst:227
+msgid "Rename ``callback_uri`` to ``redirect_uri`` in client."
+msgstr ""
+
+#: ../../changelog.rst:230
+msgid "Version 0.4.1"
+msgstr ""
+
+#: ../../changelog.rst:232
+msgid "**Released on Feb 2, 2018. A Quick Bugfix**"
+msgstr ""
+
+#: ../../changelog.rst:234
+msgid ""
+"Fixed missing code params when fetching access token. This bug is "
+"introduced when fixing :gh:`issue#16`."
+msgstr ""
+
+#: ../../changelog.rst:238
+msgid "Version 0.4: Tsukino"
+msgstr ""
+
+#: ../../changelog.rst:240
+msgid "**Released on Jan 31, 2018. Enjoy the Super Blue Blood Moon!**"
+msgstr ""
+
+#: ../../changelog.rst:242
+msgid ""
+"This is a feature releasing for OAuth 1 server. Things are not settled "
+"yet, there will still be breaking changes in the future. Some of the "
+"breaking changes are compatible with deprecated messages, a few are not. "
+"I'll keep the deprecated message for 2 versions. Here is the main "
+"features:"
+msgstr ""
+
+#: ../../changelog.rst:247
+msgid ":ref:`RFC5847 <specs/rfc5849>`, OAuth 1 client and server"
+msgstr ""
+
+#: ../../changelog.rst:248
+msgid ""
+":ref:`Flask implementation <flask_oauth1_server>` of OAuth 1 "
+"authorization server and resource protector."
+msgstr ""
+
+#: ../../changelog.rst:250
+msgid "Mixin of SQLAlchemy models for easy integration with OAuth 1."
+msgstr ""
+
+#: ../../changelog.rst:252
+msgid ""
+"In version 0.4, there is also several bug fixes. Thanks for the early "
+"contributors."
+msgstr ""
+
+#: ../../changelog.rst:255
+msgid "Allow Flask OAuth register ``fetch_token`` and ``update_token``."
+msgstr ""
+
+#: ../../changelog.rst:256
+msgid ""
+"Bug fix for OAuthClient when ``refresh_token_params`` is None via "
+":gh:`PR#14`."
+msgstr ""
+
+#: ../../changelog.rst:257
+msgid ""
+"Don't pass everything in request args for Flask OAuth client via "
+":gh:`issue#16`."
+msgstr ""
+
+#: ../../changelog.rst:258
+msgid "Bug fix for ``IDToken.validate_exp`` via :gh:`issue#17`."
+msgstr ""
+
+#: ../../changelog.rst:260
+msgid "Deprecated Changes"
+msgstr ""
+
+#: ../../changelog.rst:262
+msgid "There are parameters naming changes in the client part:"
+msgstr ""
+
+#: ../../changelog.rst:264
+msgid "``client_key`` has been changed to ``client_id``"
+msgstr ""
+
+#: ../../changelog.rst:265
+msgid "``resource_owner_key`` has been changed to ``token``"
+msgstr ""
+
+#: ../../changelog.rst:266
+msgid "``resource_owner_secret`` has been changed to ``token_secret``"
+msgstr ""
+
+#: ../../changelog.rst:268
+msgid "Currently, they are backward compatible. You will be notified by warnings."
+msgstr ""
+
+#: ../../changelog.rst:272
+msgid "Old Versions"
+msgstr ""
+
+#: ../../changelog.rst:274
+msgid "Version 0.3: Released on Dec 24, 2017"
+msgstr ""
+
+#: ../../changelog.rst:275
+msgid "Version 0.2.1: Released on Dec 6, 2017"
+msgstr ""
+
+#: ../../changelog.rst:276
+msgid "Version 0.2: Released on Nov 25, 2017"
+msgstr ""
+
+#: ../../changelog.rst:277
+msgid "Version 0.1: Released on Nov 18, 2017"
+msgstr ""
+

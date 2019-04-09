@@ -1,0 +1,47 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../flask/1/customize.rst:2
+msgid "Customize Signature Methods"
+msgstr ""
+
+#: ../../flask/1/customize.rst:4
+msgid ""
+"The ``AuthorizationServer`` and ``ResourceProtector`` only support "
+"**HMAC-SHA1** signature method by default. There are three signature "
+"methods built-in, which can be enabled with the configuration::"
+msgstr ""
+
+#: ../../flask/1/customize.rst:10
+msgid ""
+"It is also possible to extend the signature methods. For example, you "
+"want to create a **HMAC-SHA256** signature method::"
+msgstr ""
+
+#: ../../flask/1/customize.rst:34
+msgid "Then add this method into **SUPPORTED_SIGNATURE_METHODS**::"
+msgstr ""
+
+#: ../../flask/1/customize.rst:38
+msgid ""
+"With this configuration, your server will support **HMAC-SHA256** "
+"signature method only. If you want to support more methods, add them to "
+"the list."
+msgstr ""
+

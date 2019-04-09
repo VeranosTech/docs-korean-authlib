@@ -1,0 +1,267 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../flask/2/authorization-server.rst:2
+msgid "Authorization Server"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:4
+msgid ""
+"The Authorization Server provides several endpoints for authorization, "
+"issuing tokens, refreshing tokens and revoking tokens. When the resource "
+"owner (user) grants the authorization, this server will issue an access "
+"token to the client."
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:8
+msgid ""
+"Before creating the authorization server, we need to understand several "
+"concepts:"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:12
+msgid "Resource Owner"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:14
+msgid ""
+"Resource Owner is the user who is using your service. A resource owner "
+"can log in your website with username/email and password, or other "
+"methods."
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:17
+msgid ""
+"A resource owner SHOULD implement ``get_user_id()`` method, lets take "
+"SQLAlchemy models for example::"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:28
+msgid "Client"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:30
+msgid ""
+"A client is an application making protected resource requests on behalf "
+"of the resource owner and with its authorization. It contains at least "
+"three information:"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:34
+msgid "Client Identifier, usually called **client_id**"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:35
+msgid "Client Password, usually called **client_secret**"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:36
+msgid "Client Token Endpoint Authentication Method"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:38
+msgid ""
+"Authlib has provided a mixin for SQLAlchemy, define the client with this "
+"mixin::"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:49
+msgid ""
+"A client is registered by a user (developer) on your website. If you "
+"decide to implement all the missing methods by yourself, get a deep "
+"inside with :class:`~authlib.oauth2.rfc6749.ClientMixin` API reference."
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:54
+msgid "Token"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:58
+msgid ""
+"Only Bearer Token is supported by now. MAC Token is still under drafts, "
+"it will be available when it goes into RFC."
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:61
+msgid ""
+"Tokens are used to access the users' resources. A token is issued with a "
+"valid duration, limited scopes and etc. It contains at least:"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:64
+msgid "**access_token**: a token to authorize the http requests."
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:65
+msgid "**refresh_token**: (optional) a token to exchange a new access token"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:66
+msgid "**client_id**: this token is issued to which client"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:67
+msgid "**expires_at**: when will this token expired"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:68
+msgid "**scope**: a limited scope of resources that this token can access"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:70
+msgid "With the SQLAlchemy mixin provided by Authlib::"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:81
+msgid ""
+"A token is associated with a resource owner. There is no certain name for"
+" it, here we call it ``user``, but it can be anything else."
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:85
+msgid "Server"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:87
+msgid ""
+"Authlib provides a ready to use "
+":class:`~authlib.flask.oauth2.AuthorizationServer` which has built-in "
+"tools to handle requests and responses::"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:123
+msgid "It can also be initialized lazily with init_app::"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:128
+msgid ""
+"It works well without configuration. However, it can be configured with "
+"these settings:"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:132
+msgid "OAUTH2_TOKEN_EXPIRES_IN"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:132
+msgid "A dict to define ``expires_in`` for each grant"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:133
+msgid "OAUTH2_ACCESS_TOKEN_GENERATOR"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:133
+msgid ""
+"A function or string of module path for importing a function to generate "
+"``access_token``"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:135
+msgid "OAUTH2_REFRESH_TOKEN_GENERATOR"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:135
+msgid ""
+"A function or string of module path for importing a function to generate "
+"``refresh_token``. It can also be ``True/False``"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:138
+msgid "OAUTH2_ERROR_URIS"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:138
+msgid "A list of tuple for (``error``, ``error_uri``)"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:143
+msgid "Here is an example of ``OAUTH2_TOKEN_EXPIRES_IN``::"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:152
+msgid "Here is an example of ``OAUTH2_ACCESS_TOKEN_GENERATOR``::"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:157
+msgid "``OAUTH2_REFRESH_TOKEN_GENERATOR`` accepts the same parameters."
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:159
+msgid ""
+"Now define an endpoint for authorization. This endpoint is used by "
+"``authorization_code`` and ``implicit`` grants::"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:184
+msgid ""
+"This is a simple demo, the real case should be more complex. There is a "
+"demo in `authlib/playground`_, get a real taste with Authlib Playground."
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:187
+msgid "The token endpoint is much easier::"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:193
+msgid ""
+"However, the routes will not work properly. We need to register supported"
+" grants for them."
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:199
+msgid "Register Error URIs"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:201
+msgid ""
+"To create a better developer experience for debugging, it is suggested "
+"that you creating some documentation for errors. Here is a list of built-"
+"in :ref:`specs/rfc6949-errors`."
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:205
+msgid ""
+"You can design a documentation page with a description of each error. For"
+" instance, there is a web page for ``invalid_client``::"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:210
+msgid ""
+"In this case, you can register the error URI with ``OAUTH2_ERROR_URIS`` "
+"configuration::"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:218
+msgid ""
+"If there is no ``OAUTH2_ERROR_URIS``, the error response will not contain"
+" any ``error_uri`` data."
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:222
+msgid "I18N on Errors"
+msgstr ""
+
+#: ../../flask/2/authorization-server.rst:224
+msgid ""
+"It is also possible to add i18n support to the ``error_description``. The"
+" feature has been implemented in version 0.8, but there are still work to"
+" do."
+msgstr ""
+

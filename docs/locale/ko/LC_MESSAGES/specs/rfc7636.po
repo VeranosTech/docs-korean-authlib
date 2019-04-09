@@ -1,0 +1,171 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../specs/rfc7636.rst:4
+msgid "RFC7636: Proof Key for Code Exchange by OAuth Public Clients"
+msgstr ""
+
+#: ../../specs/rfc7636.rst:6
+msgid ""
+"API references on RFC76736 Proof Key for Code Exchange by OAuth Public "
+"Clients implementation, guide on how to add it to OAuth 2.0 authorization"
+" server."
+msgstr ""
+
+#: ../../specs/rfc7636.rst:11
+msgid ""
+"This RFC7636_ is used to improve the security of Authorization Code flow "
+"for public clients by sending extra \"code_challenge\" and "
+"\"code_verifier\" to the authorization server."
+msgstr ""
+
+#: ../../specs/rfc7636.rst:21
+msgid "Using RFC7636 in Authorization Code Grant"
+msgstr ""
+
+#: ../../specs/rfc7636.rst:25
+msgid ""
+"In order to apply proof key for code exchange, you need to register the "
+":class:`CodeChallenge` extension to ``AuthorizationCodeGrant``. But "
+"before that, we need to re-design our AuthorizationCode database. If you "
+"are using Flask, check the section :ref:`flask_oauth2_code_grant`."
+msgstr ""
+
+#: ../../specs/rfc7636.rst:30
+msgid "The new database SHOULD contain two more columns:"
+msgstr ""
+
+#: ../../specs/rfc7636.rst:32
+msgid "code_challenge: A VARCHAR"
+msgstr ""
+
+#: ../../specs/rfc7636.rst:33
+msgid "code_challenge_method: A VARCHAR"
+msgstr ""
+
+#: ../../specs/rfc7636.rst:35
+msgid ""
+"And the ``AuthorizationCodeGrant`` should record the ``code_challenge`` "
+"and ``code_challenge_method`` into database in "
+"``create_authorization_code`` method::"
+msgstr ""
+
+#: ../../specs/rfc7636.rst:61
+msgid "Now you can register your ``AuthorizationCodeGrant`` with the extension::"
+msgstr ""
+
+#: ../../specs/rfc7636.rst:66
+msgid ""
+"If ``required=True``, code challenge is required for authorization code "
+"flow. If ``required=False``, it is optional, it will only valid the code "
+"challenge when clients send these parameters."
+msgstr ""
+
+#: ../../specs/rfc7636.rst:71
+msgid "Using ``code_challenge`` in Client"
+msgstr ""
+
+#: ../../specs/rfc7636.rst:73
+msgid "Read the **Code Challenge** section in the framework integrations:"
+msgstr ""
+
+#: ../../specs/rfc7636.rst:75
+msgid ":ref:`flask_client`."
+msgstr ""
+
+#: ../../specs/rfc7636.rst:76
+msgid ":ref:`django_client`."
+msgstr ""
+
+#: ../../specs/rfc7636.rst:78
+msgid ""
+"It is also possible to add ``code_challenge`` in ``OAuth2Session``, "
+"consider that we already have a ``session``::"
+msgstr ""
+
+#: ../../specs/rfc7636.rst:89
+msgid ""
+"The authorization flow is the same as in :ref:`oauth_2_session`, what you"
+" need to do is:"
+msgstr ""
+
+#: ../../specs/rfc7636.rst:92
+msgid ""
+"adding ``code_challenge`` and ``code_challenge_method`` in "
+":meth:`~authlib.client.OAuth2Session.authorization_url`."
+msgstr ""
+
+#: ../../specs/rfc7636.rst:93
+msgid ""
+"adding ``code_verifier`` in "
+":meth:`~authlib.client.OAuth2Session.fetch_access_token`."
+msgstr ""
+
+#: ../../specs/rfc7636.rst:96
+msgid "API Reference"
+msgstr ""
+
+#: authlib.oauth2.rfc7636.CodeChallenge:1 of
+msgid ""
+"CodeChallenge extension to Authorization Code Grant. It is used to "
+"improve the security of Authorization Code flow for public clients by "
+"sending extra \"code_challenge\" and \"code_verifier\" to the "
+"authorization server."
+msgstr ""
+
+#: authlib.oauth2.rfc7636.CodeChallenge:6 of
+msgid ""
+"The AuthorizationCodeGrant SHOULD save the code_challenge and "
+"code_challenge_method into database when create_authorization_code. Then "
+"register this extension via::"
+msgstr ""
+
+#: authlib.oauth2.rfc7636.CodeChallenge.DEFAULT_CODE_CHALLENGE_METHOD:1 of
+msgid "defaults to \"plain\" if not present in the request"
+msgstr ""
+
+#: authlib.oauth2.rfc7636.CodeChallenge.SUPPORTED_CODE_CHALLENGE_METHOD:1 of
+msgid "supported ``code_challenge_method``"
+msgstr ""
+
+#: authlib.oauth2.rfc7636.CodeChallenge.get_authorization_code_challenge:1 of
+msgid ""
+"Get \"code_challenge\" associated with this authorization code. "
+"Developers CAN re-implement it in subclass, the default logic::"
+msgstr ""
+
+#: authlib.oauth2.rfc7636.CodeChallenge.get_authorization_code_challenge
+#: authlib.oauth2.rfc7636.CodeChallenge.get_authorization_code_challenge_method
+#: of
+msgid "Parameters"
+msgstr ""
+
+#: authlib.oauth2.rfc7636.CodeChallenge.get_authorization_code_challenge:7
+#: authlib.oauth2.rfc7636.CodeChallenge.get_authorization_code_challenge_method:7
+#: of
+msgid "the instance of authorization_code"
+msgstr ""
+
+#: authlib.oauth2.rfc7636.CodeChallenge.get_authorization_code_challenge_method:1
+#: of
+msgid ""
+"Get \"code_challenge_method\" associated with this authorization code. "
+"Developers CAN re-implement it in subclass, the default logic::"
+msgstr ""
+

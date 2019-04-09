@@ -1,0 +1,432 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../specs/oidc.rst:4
+msgid "OpenID Connect 1.0"
+msgstr ""
+
+#: ../../specs/oidc.rst:6
+msgid ""
+"General implementation of OpenID Connect 1.0 in Python. Learn how to "
+"create a OpenID Connect provider in Python."
+msgstr ""
+
+#: ../../specs/oidc.rst:10
+msgid ""
+"This part of the documentation covers the specification of OpenID "
+"Connect. Learn how to use it in :ref:`flask_odic_server`."
+msgstr ""
+
+#: ../../specs/oidc.rst:14
+msgid "OpenID Grants"
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDCodeGrant:1
+#: authlib.oidc.core.grants.OpenIDHybridGrant:1 of
+msgid ""
+"Bases: "
+":class:`authlib.oauth2.rfc6749.grants.authorization_code.AuthorizationCodeGrant`"
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDImplicitGrant:1 of
+msgid "Bases: :class:`authlib.oauth2.rfc6749.grants.implicit.ImplicitGrant`"
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:1
+#: of
+msgid ""
+"If the resource owner grants the access request, the authorization server"
+" issues an access token and delivers it to the client by adding the "
+"following parameters to the fragment component of the redirection URI "
+"using the \"application/x-www-form-urlencoded\" format. Per `Section "
+"4.2.2`_."
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:8
+#: of
+msgid "access_token"
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:8
+#: of
+msgid "REQUIRED.  The access token issued by the authorization server."
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:12
+#: of
+msgid "token_type"
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:11
+#: of
+msgid ""
+"REQUIRED.  The type of the token issued as described in Section 7.1.  "
+"Value is case insensitive."
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:19
+#: of
+msgid "expires_in"
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:15
+#: of
+msgid ""
+"RECOMMENDED.  The lifetime in seconds of the access token.  For example, "
+"the value \"3600\" denotes that the access token will expire in one hour "
+"from the time the response was generated. If omitted, the authorization "
+"server SHOULD provide the expiration time via other means or document the"
+" default value."
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request:17
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:24
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.validate_authorization_request:17
+#: of
+msgid "scope"
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:22
+#: of
+msgid ""
+"OPTIONAL, if identical to the scope requested by the client; otherwise, "
+"REQUIRED.  The scope of the access token as described by Section 3.3."
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDHybridGrant.create_authorization_response:21
+#: authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request:24
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:29
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.validate_authorization_request:24
+#: of
+msgid "state"
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDHybridGrant.create_authorization_response:19
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:27
+#: of
+msgid ""
+"REQUIRED if the \"state\" parameter was present in the client "
+"authorization request.  The exact value received from the client."
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:31
+#: of
+msgid "The authorization server MUST NOT issue a refresh token."
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:33
+#: of
+msgid ""
+"For example, the authorization server redirects the user-agent by sending"
+" the following HTTP response:"
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:42
+#: of
+msgid ""
+"Developers should note that some user-agents do not support the inclusion"
+" of a fragment component in the HTTP \"Location\" response header field."
+"  Such clients will require using other methods for redirecting the "
+"client than a 3xx redirection response -- for example, returning an HTML "
+"page that includes a 'continue' button with an action linked to the "
+"redirection URI."
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDHybridGrant.create_authorization_response
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response
+#: of
+msgid "Parameters"
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDHybridGrant.create_authorization_response:34
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:51
+#: of
+msgid ""
+"if resource owner granted the request, pass this resource owner, "
+"otherwise pass None."
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDHybridGrant.create_authorization_response
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response
+#: of
+msgid "Returns"
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDHybridGrant.create_authorization_response:36
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.create_authorization_response:53
+#: of
+msgid "(status_code, body, headers)"
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.validate_authorization_request:1
+#: of
+msgid ""
+"The client constructs the request URI by adding the following parameters "
+"to the query component of the authorization endpoint URI using the "
+"\"application/x-www-form-urlencoded\" format. Per `Section 4.2.1`_."
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request:7
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.validate_authorization_request:7
+#: of
+msgid "response_type"
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.validate_authorization_request:7
+#: of
+msgid "REQUIRED.  Value MUST be set to \"token\"."
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request:10
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.validate_authorization_request:10
+#: of
+msgid "client_id"
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request:10
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.validate_authorization_request:10
+#: of
+msgid "REQUIRED.  The client identifier as described in Section 2.2."
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request:13
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.validate_authorization_request:13
+#: of
+msgid "redirect_uri"
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request:13
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.validate_authorization_request:13
+#: of
+msgid "OPTIONAL.  As described in Section 3.1.2."
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request:16
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.validate_authorization_request:16
+#: of
+msgid "OPTIONAL.  The scope of the access request as described by Section 3.3."
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request:20
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.validate_authorization_request:20
+#: of
+msgid ""
+"RECOMMENDED.  An opaque value used by the client to maintain state "
+"between the request and callback.  The authorization server includes this"
+" value when redirecting the user-agent back to the client.  The parameter"
+" SHOULD be used for preventing cross-site request forgery as described in"
+" Section 10.12."
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request:26
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.validate_authorization_request:26
+#: of
+msgid ""
+"The client directs the resource owner to the constructed URI using an "
+"HTTP redirection response, or by other means available to it via the "
+"user-agent."
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDImplicitGrant.validate_authorization_request:30
+#: of
+msgid ""
+"For example, the client directs the user-agent to make the following HTTP"
+" request using TLS:"
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDHybridGrant.create_authorization_response:1
+#: of
+msgid ""
+"If the resource owner grants the access request, the authorization server"
+" issues an authorization code and delivers it to the client by adding the"
+" following parameters to the query component of the redirection URI using"
+" the \"application/x-www-form-urlencoded\" format. Per `Section 4.1.2`_."
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDHybridGrant.create_authorization_response:16
+#: of
+msgid "code"
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDHybridGrant.create_authorization_response:8
+#: of
+msgid ""
+"REQUIRED.  The authorization code generated by the authorization server. "
+"The authorization code MUST expire shortly after it is issued to mitigate"
+" the risk of leaks. A maximum authorization code lifetime of 10 minutes "
+"is RECOMMENDED. The client MUST NOT use the authorization code more than "
+"once. If an authorization code is used more than once, the authorization "
+"server MUST deny the request and SHOULD revoke (when possible) all tokens"
+" previously issued based on that authorization code.  The authorization "
+"code is bound to the client identifier and redirection URI."
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDHybridGrant.create_authorization_response:23
+#: of
+msgid ""
+"For example, the authorization server redirects the user-agent by sending"
+" the following HTTP response."
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request:1
+#: of
+msgid ""
+"The client constructs the request URI by adding the following parameters "
+"to the query component of the authorization endpoint URI using the "
+"\"application/x-www-form-urlencoded\" format. Per `Section 4.1.1`_."
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request:7
+#: of
+msgid "REQUIRED.  Value MUST be set to \"code\"."
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request:30
+#: of
+msgid ""
+"For example, the client directs the user-agent to make the following HTTP"
+" request using TLS (with extra line breaks for display purposes only):"
+msgstr ""
+
+#: authlib.oidc.core.grants.OpenIDHybridGrant.validate_authorization_request:40
+#: of
+msgid ""
+"The authorization server validates the request to ensure that all "
+"required parameters are present and valid.  If the request is valid, the "
+"authorization server authenticates the resource owner and obtains an "
+"authorization decision (by asking the resource owner or by establishing "
+"approval via other means)."
+msgstr ""
+
+#: ../../specs/oidc.rst:31
+msgid "OpenID Claims"
+msgstr ""
+
+#: authlib.oidc.core.IDToken:1 of
+msgid "Bases: :class:`authlib.jose.rfc7519.claims.JWTClaims`"
+msgstr ""
+
+#: authlib.oidc.core.HybridIDToken.validate:1
+#: authlib.oidc.core.IDToken.validate:1 of
+msgid "Validate everything in claims payload."
+msgstr ""
+
+#: authlib.oidc.core.IDToken.validate_acr:1 of
+msgid ""
+"OPTIONAL. Authentication Context Class Reference. String specifying an "
+"Authentication Context Class Reference value that identifies the "
+"Authentication Context Class that the authentication performed satisfied."
+" The value \"0\" indicates the End-User authentication did not meet the "
+"requirements of `ISO/IEC 29115`_ level 1. Authentication using a long-"
+"lived browser cookie, for instance, is one example where the use of "
+"\"level 0\" is appropriate. Authentications with level 0 SHOULD NOT be "
+"used to authorize access to any resource of any monetary value. An "
+"absolute URI or an `RFC 6711`_ registered name SHOULD be used as the acr "
+"value; registered names MUST NOT be used with a different meaning than "
+"that which is registered. Parties using this claim will need to agree "
+"upon the meanings of the values used, which may be context-specific. The "
+"acr value is a case sensitive string."
+msgstr ""
+
+#: authlib.oidc.core.IDToken.validate_amr:1 of
+msgid ""
+"OPTIONAL. Authentication Methods References. JSON array of strings that "
+"are identifiers for authentication methods used in the authentication. "
+"For instance, values might indicate that both password and OTP "
+"authentication methods were used. The definition of particular values to "
+"be used in the amr Claim is beyond the scope of this specification. "
+"Parties using this claim will need to agree upon the meanings of the "
+"values used, which may be context-specific. The amr value is an array of "
+"case sensitive strings."
+msgstr ""
+
+#: authlib.oidc.core.IDToken.validate_at_hash:1 of
+msgid ""
+"OPTIONAL. Access Token hash value. Its value is the base64url encoding of"
+" the left-most half of the hash of the octets of the ASCII representation"
+" of the access_token value, where the hash algorithm used is the hash "
+"algorithm used in the alg Header Parameter of the ID Token's JOSE Header."
+" For instance, if the alg is RS256, hash the access_token value with "
+"SHA-256, then take the left-most 128 bits and base64url encode them. The "
+"at_hash value is a case sensitive string."
+msgstr ""
+
+#: authlib.oidc.core.IDToken.validate_auth_time:1 of
+msgid ""
+"Time when the End-User authentication occurred. Its value is a JSON "
+"number representing the number of seconds from 1970-01-01T0:0:0Z as "
+"measured in UTC until the date/time. When a max_age request is made or "
+"when auth_time is requested as an Essential Claim, then this Claim is "
+"REQUIRED; otherwise, its inclusion is OPTIONAL."
+msgstr ""
+
+#: authlib.oidc.core.IDToken.validate_azp:1 of
+msgid ""
+"OPTIONAL. Authorized party - the party to which the ID Token was issued. "
+"If present, it MUST contain the OAuth 2.0 Client ID of this party. This "
+"Claim is only needed when the ID Token has a single audience value and "
+"that audience is different than the authorized party. It MAY be included "
+"even when the authorized party is the same as the sole audience. The azp "
+"value is a case sensitive string containing a StringOrURI value."
+msgstr ""
+
+#: authlib.oidc.core.IDToken.validate_nonce:1 of
+msgid ""
+"String value used to associate a Client session with an ID Token, and to "
+"mitigate replay attacks. The value is passed through unmodified from the "
+"Authentication Request to the ID Token. If present in the ID Token, "
+"Clients MUST verify that the nonce Claim Value is equal to the value of "
+"the nonce parameter sent in the Authentication Request. If present in the"
+" Authentication Request, Authorization Servers MUST include a nonce Claim"
+" in the ID Token with the Claim Value being the nonce value sent in the "
+"Authentication Request. Authorization Servers SHOULD perform no other "
+"processing on nonce values used. The nonce value is a case sensitive "
+"string."
+msgstr ""
+
+#: authlib.oidc.core.CodeIDToken:1 authlib.oidc.core.ImplicitIDToken:1 of
+msgid "Bases: :class:`authlib.oidc.core.claims.IDToken`"
+msgstr ""
+
+#: authlib.oidc.core.ImplicitIDToken.validate_at_hash:1 of
+msgid ""
+"If the ID Token is issued from the Authorization Endpoint with an "
+"access_token value, which is the case for the response_type value "
+"id_token token, this is REQUIRED; it MAY NOT be used when no Access Token"
+" is issued, which is the case for the response_type value id_token."
+msgstr ""
+
+#: authlib.oidc.core.HybridIDToken:1 of
+msgid "Bases: :class:`authlib.oidc.core.claims.ImplicitIDToken`"
+msgstr ""
+
+#: authlib.oidc.core.HybridIDToken.validate_c_hash:1 of
+msgid ""
+"Code hash value. Its value is the base64url encoding of the left-most "
+"half of the hash of the octets of the ASCII representation of the code "
+"value, where the hash algorithm used is the hash algorithm used in the "
+"alg Header Parameter of the ID Token's JOSE Header. For instance, if the "
+"alg is HS512, hash the code value with SHA-512, then take the left-most "
+"256 bits and base64url encode them. The c_hash value is a case sensitive "
+"string. If the ID Token is issued from the Authorization Endpoint with a "
+"code, which is the case for the response_type values code id_token and "
+"code id_token token, this is REQUIRED; otherwise, its inclusion is "
+"OPTIONAL."
+msgstr ""
+

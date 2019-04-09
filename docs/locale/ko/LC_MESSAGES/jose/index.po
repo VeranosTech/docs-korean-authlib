@@ -1,0 +1,57 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../jose/index.rst:2
+msgid "JOSE Guide"
+msgstr ""
+
+#: ../../jose/index.rst:4
+msgid ""
+"This part of the documentation contains information on the JOSE "
+"implementation. It includes:"
+msgstr ""
+
+#: ../../jose/index.rst:7
+msgid "JSON Web Signature (JWS)"
+msgstr ""
+
+#: ../../jose/index.rst:8
+msgid "JSON Web Encryption (JWE)"
+msgstr ""
+
+#: ../../jose/index.rst:9
+msgid "JSON Web Key (JWK)"
+msgstr ""
+
+#: ../../jose/index.rst:10
+msgid "JSON Web Algorithm (JWA)"
+msgstr ""
+
+#: ../../jose/index.rst:11
+msgid "JSON Web Token (JWT)"
+msgstr ""
+
+#: ../../jose/index.rst:13
+msgid "A simple example on how to use JWT with Authlib::"
+msgstr ""
+
+#: ../../jose/index.rst:24
+msgid "Follow the documentation below to find out more in detail."
+msgstr ""
+

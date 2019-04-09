@@ -1,0 +1,189 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../jose/jws.rst:4
+msgid "JSON Web Signature (JWS)"
+msgstr ""
+
+#: ../../jose/jws.rst:8
+msgid ""
+"JSON Web Signature (JWS) represents content secured with digital "
+"signatures or Message Authentication Codes (MACs) using JSON-based data "
+"structures."
+msgstr ""
+
+#: ../../jose/jws.rst:12
+msgid "There are two types of JWS Serializations:"
+msgstr ""
+
+#: ../../jose/jws.rst:14
+msgid "JWS Compact Serialization"
+msgstr ""
+
+#: ../../jose/jws.rst:15
+msgid "JWS JSON Serialization"
+msgstr ""
+
+#: ../../jose/jws.rst:17
+msgid ""
+"The JWS Compact Serialization represents digitally signed or MACed "
+"content as a compact, URL-safe string. An example (with line breaks for "
+"display purposes only)::"
+msgstr ""
+
+#: ../../jose/jws.rst:28
+msgid "There are two types of JWS JSON Serialization syntax:"
+msgstr ""
+
+#: ../../jose/jws.rst:30
+msgid "General JWS JSON Serialization Syntax"
+msgstr ""
+
+#: ../../jose/jws.rst:31
+msgid "Flattened JWS JSON Serialization Syntax"
+msgstr ""
+
+#: ../../jose/jws.rst:33
+msgid ""
+"An example on General JWS JSON Serialization Syntax (with line breaks "
+"within values for display purposes only)::"
+msgstr ""
+
+#: ../../jose/jws.rst:57
+msgid ""
+"An example on Flattened JWS JSON Serialization Syntax (with line breaks "
+"within values for display purposes only)::"
+msgstr ""
+
+#: ../../jose/jws.rst:72
+msgid ""
+"A JWS requires JWA to work properly. The algorithms for JWS are provided "
+"in :ref:`specs/rfc7518`."
+msgstr ""
+
+#: ../../jose/jws.rst:76
+msgid "Compact Serialize and Deserialize"
+msgstr ""
+
+#: ../../jose/jws.rst:78
+msgid ""
+"Generate a JWS compact serialization would be easy with "
+":meth:`JWS.serialize_compact`, build a JWS instance with JWA::"
+msgstr ""
+
+#: ../../jose/jws.rst:91
+msgid ""
+"There are other ``alg`` that you could use. Here is a full list of "
+"available algorithms:"
+msgstr ""
+
+#: ../../jose/jws.rst:94
+msgid "HS256, HS384, HS512"
+msgstr ""
+
+#: ../../jose/jws.rst:95
+msgid "RS256, RS384, RS512"
+msgstr ""
+
+#: ../../jose/jws.rst:96
+msgid "ES256, ES384, ES512"
+msgstr ""
+
+#: ../../jose/jws.rst:97
+msgid "PS256, PS384, PS512"
+msgstr ""
+
+#: ../../jose/jws.rst:99
+msgid "For example, a JWS with RS256 requires a private PEM key to sign the JWS::"
+msgstr ""
+
+#: ../../jose/jws.rst:108
+msgid ""
+"To deserialize a JWS Compact Serialization, use "
+":meth:`JWS.deserialize_compact`::"
+msgstr ""
+
+#: ../../jose/jws.rst:118
+msgid ""
+"A ``key`` can be dynamically loaded, if you don't know which key to be "
+"used::"
+msgstr ""
+
+#: ../../jose/jws.rst:126
+msgid ""
+"The result of the ``deserialize_compact`` is a dict, which contains "
+"``header`` and ``payload``. The value of the ``header`` is a "
+":class:`JWSHeader`."
+msgstr ""
+
+#: ../../jose/jws.rst:129 ../../jose/jws.rst:176
+msgid "Using **JWK** for keys? Find how to use JWK with :ref:`jwk_guide`."
+msgstr ""
+
+#: ../../jose/jws.rst:132
+msgid "JSON Serialize and Deserialize"
+msgstr ""
+
+#: ../../jose/jws.rst:134
+msgid ""
+":meth:`JWS.serialize_json` is used to generate a JWS JSON Serialization, "
+":meth:`JWS.deserialize_json` is used to extract a JWS JSON Serialization."
+" The usage is the same as \"Compact Serialize and Deserialize\", the only"
+" difference is the \"header\"::"
+msgstr ""
+
+#: ../../jose/jws.rst:149
+msgid ""
+"For general JSON Serialization, there may be many signatures, each "
+"signature can use its own key, in this case the dynamical key would be "
+"useful::"
+msgstr ""
+
+#: ../../jose/jws.rst:169
+msgid ""
+"Actually, there is a :meth:`JWS.serialize` and :meth:`JWS.deserialize`, "
+"which can automatically serialize and deserialize Compact and JSON "
+"Serializations."
+msgstr ""
+
+#: ../../jose/jws.rst:173
+msgid ""
+"The result of the ``deserialize_json`` is a dict, which contains "
+"``header`` and ``payload``. The value of the ``header`` is a "
+":class:`JWSHeader`."
+msgstr ""
+
+#: ../../jose/jws.rst:179
+msgid "Header Parameter Names"
+msgstr ""
+
+#: ../../jose/jws.rst:181
+msgid ""
+":class:`JWS` has a validation on header parameter names. It will first "
+"check if the parameter name is in \"Registered Header Parameter Names\" "
+"defined by RFC7515 `Section 4.1`_. Then it will check if the parameter "
+"name is in your defined private headers."
+msgstr ""
+
+#: ../../jose/jws.rst:186
+msgid ""
+"In this case, if there are header parameter names out of the registered "
+"header parameter names scope, you can pass the names::"
+msgstr ""
+

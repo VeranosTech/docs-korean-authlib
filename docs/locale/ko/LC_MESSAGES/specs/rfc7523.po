@@ -1,0 +1,335 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../specs/rfc7523.rst:4
+msgid ""
+"RFC7523: JWT Profile for OAuth 2.0 Client Authentication and "
+"Authorization Grants"
+msgstr ""
+
+#: ../../specs/rfc7523.rst:6
+msgid ""
+"API references on RFC7523 JWT Bearer Grant of Python implementation, "
+"guide on how to create a server that support JWT profile for OAuth 2.0 "
+"client authentication and authorization grants."
+msgstr ""
+
+#: ../../specs/rfc7523.rst:12
+msgid "This section contains the generic Python implementation of RFC7523_."
+msgstr ""
+
+#: ../../specs/rfc7523.rst:22
+msgid "Using JWTs as Authorization Grants"
+msgstr ""
+
+#: ../../specs/rfc7523.rst:24
+msgid ""
+"JWT Profile for OAuth 2.0 Authorization Grants works in the same way with"
+" :ref:`RFC6749 <specs/rfc6749>` built-in grants. Which means it can be "
+"registered with "
+":meth:`~authlib.oauth2.rfc6749.AuthorizationServer.register_grant`."
+msgstr ""
+
+#: ../../specs/rfc7523.rst:28
+msgid ""
+"The base class is :class:`JWTBearerGrant`, you need to implement the "
+"missing methods in order to use it. Here is an example::"
+msgstr ""
+
+#: ../../specs/rfc7523.rst:53
+msgid ""
+"When creating a client, authorization server will generate several key "
+"pairs. The server itself can only keep the public keys, which will be "
+"used to decode assertion value."
+msgstr ""
+
+#: ../../specs/rfc7523.rst:57
+msgid ""
+"For **client implementation**, check out "
+":class:`~authlib.client.AssertionSession`."
+msgstr ""
+
+#: ../../specs/rfc7523.rst:62
+msgid "Using JWTs for Client Authentication"
+msgstr ""
+
+#: ../../specs/rfc7523.rst:64
+msgid ""
+"In :ref:`specs/rfc6749`, Authlib provided three built-in client "
+"authentication methods, which are ``none``, ``client_secret_post`` and "
+"``client_secret_basic``. With the power of Assertion Framework, we can "
+"add more client authentication methods. In this section, Authlib provides"
+" two more options: ``client_secret_jwt`` and ``private_key_jwt``. RFC7523"
+" itself doesn't define any names, these two names are defined by OpenID "
+"Connect in ClientAuthentication_."
+msgstr ""
+
+#: ../../specs/rfc7523.rst:71
+msgid ""
+"The :class:`~authlib.oauth2.rfc6749.AuthorizationServer` has provided a "
+"method "
+":meth:`~authlib.oauth2.rfc6749.AuthorizationServer.register_client_auth_method`"
+" to add more client authentication methods."
+msgstr ""
+
+#: ../../specs/rfc7523.rst:75
+msgid ""
+"In Authlib, ``client_secret_jwt`` and ``private_key_jwt`` share the same "
+"API, using :class:`JWTBearerClientAssertion` to create a new client "
+"authentication::"
+msgstr ""
+
+#: ../../specs/rfc7523.rst:101
+msgid ""
+"The value ``https://example.com/oauth/token`` is your authorization "
+"servers's token endpoint, which is used as ``aud`` value in JWT."
+msgstr ""
+
+#: ../../specs/rfc7523.rst:104
+msgid ""
+"Now we have added this client auth method to authorization server, but no"
+" grant types support this authentication method, you need to add it to "
+"the supported grant types too, e.g. we want to support this in "
+"authorization code grant::"
+msgstr ""
+
+#: ../../specs/rfc7523.rst:118
+msgid ""
+"You may noticed that the value of ``CLIENT_AUTH_METHOD`` is "
+"``client_assertion_jwt``. It is not ``client_secret_jwt`` or "
+"``private_key_jwt``, because they have the same logic. In the above "
+"implementation::"
+msgstr ""
+
+#: ../../specs/rfc7523.rst:126
+msgid ""
+"If this ``alg`` is a MAC SHA like ``HS256``, it is called "
+"``client_secret_jwt``, because the key used to sign a JWT is the client's"
+" ``client_secret`` value. If this ``alg`` is ``RS256`` or something else,"
+" it is called ``private_key_jwt``, because client will use its private "
+"key to sign the JWT. You can set a limitation in the implementation of "
+"``resolve_client_public_key`` to accept only ``HS256`` alg, in this case,"
+" you can also alter ``CLIENT_AUTH_METHOD = 'client_secret_jwt'``."
+msgstr ""
+
+#: ../../specs/rfc7523.rst:138
+msgid "Using JWTs Client Assertion in OAuth2Session"
+msgstr ""
+
+#: ../../specs/rfc7523.rst:140
+msgid ""
+"Authlib RFC7523 has provided you a helper function to register client "
+"assertion authentication method easily to ``OAuth2Session``. Take "
+"``client_secret_jwt`` as an example::"
+msgstr ""
+
+#: ../../specs/rfc7523.rst:155
+msgid "How about ``private_key_jwt``? It is the same as ``client_secret_jwt``::"
+msgstr ""
+
+#: ../../specs/rfc7523.rst:168
+msgid "API Reference"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerClientAssertion.create_claims_options:1
+#: authlib.oauth2.rfc7523.JWTBearerGrant.create_claims_options:1 of
+msgid ""
+"Create a claims_options for verify JWT payload claims. Developers MAY "
+"overwrite this method to create a more strict options."
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerClientAssertion.process_assertion_claims:1
+#: authlib.oauth2.rfc7523.JWTBearerGrant.process_assertion_claims:1 of
+msgid "Extract JWT payload claims from request \"assertion\", per `Section 3.1`_."
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerClientAssertion.process_assertion_claims
+#: authlib.oauth2.rfc7523.JWTBearerGrant.authenticate_client
+#: authlib.oauth2.rfc7523.JWTBearerGrant.authenticate_user
+#: authlib.oauth2.rfc7523.JWTBearerGrant.process_assertion_claims
+#: authlib.oauth2.rfc7523.JWTBearerGrant.resolve_public_key
+#: authlib.oauth2.rfc7523.register_session_client_auth_method of
+msgid "Parameters"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerClientAssertion.process_assertion_claims:4
+#: authlib.oauth2.rfc7523.JWTBearerGrant.process_assertion_claims:4 of
+msgid "assertion string value in the request"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerClientAssertion.process_assertion_claims
+#: authlib.oauth2.rfc7523.JWTBearerGrant.authenticate_client
+#: authlib.oauth2.rfc7523.JWTBearerGrant.authenticate_user
+#: authlib.oauth2.rfc7523.JWTBearerGrant.process_assertion_claims
+#: authlib.oauth2.rfc7523.JWTBearerGrant.resolve_public_key of
+msgid "Returns"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerClientAssertion.process_assertion_claims:6
+#: authlib.oauth2.rfc7523.JWTBearerGrant.process_assertion_claims:5 of
+msgid "JWTClaims"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerClientAssertion.process_assertion_claims
+#: authlib.oauth2.rfc7523.JWTBearerGrant.process_assertion_claims of
+msgid "raise"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.process_assertion_claims:6 of
+msgid "InvalidGrantError"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.validate_token_request:1 of
+msgid ""
+"The client makes a request to the token endpoint by sending the following"
+" parameters using the \"application/x-www-form-urlencoded\" format per "
+"`Section 2.1`_:"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.validate_token_request:7 of
+msgid "grant_type"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.validate_token_request:6 of
+msgid ""
+"REQUIRED.  Value MUST be set to \"urn:ietf:params:oauth:grant-type:jwt-"
+"bearer\"."
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.validate_token_request:10 of
+msgid "assertion"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.validate_token_request:10 of
+msgid "REQUIRED.  Value MUST contain a single JWT."
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.validate_token_request:13 of
+msgid "scope"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.validate_token_request:13 of
+msgid "OPTIONAL."
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.validate_token_request:15 of
+msgid ""
+"The following example demonstrates an access token request with a JWT as "
+"an authorization grant:"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.create_token_response:1 of
+msgid "If valid and authorized, the authorization server issues an access token."
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.authenticate_user:1 of
+msgid ""
+"Authenticate user with the given assertion claims. Developers MUST "
+"implement it in subclass, e.g.::"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.authenticate_client:7
+#: authlib.oauth2.rfc7523.JWTBearerGrant.authenticate_user:7 of
+msgid "assertion payload claims"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.authenticate_user:8 of
+msgid "User instance"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.authenticate_client:1 of
+msgid ""
+"Authenticate client with the given assertion claims. Developers MUST "
+"implement it in subclass, e.g.::"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.authenticate_client:8 of
+msgid "Client instance"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.resolve_public_key:1 of
+msgid ""
+"Find public key to verify assertion signature. Developers MUST implement "
+"it in subclass, e.g.::"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.resolve_public_key:8 of
+msgid "JWT headers dict"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.resolve_public_key:9 of
+msgid "JWT payload dict"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerGrant.resolve_public_key:10 of
+msgid "A public key"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerClientAssertion:1 of
+msgid ""
+"Implementation of Using JWTs for Client Authentication, which is defined "
+"by RFC7523."
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerClientAssertion.CLIENT_ASSERTION_TYPE:1 of
+msgid "Value of ``client_assertion_type`` of JWTs"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerClientAssertion.CLIENT_AUTH_METHOD:1 of
+msgid "Name of the client authentication method"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerClientAssertion.process_assertion_claims:5
+#: of
+msgid "function to resolve the sign key"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerClientAssertion.process_assertion_claims:7
+#: of
+msgid "InvalidClientError"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerClientAssertion.validate_jti:1 of
+msgid ""
+"Validate if the given ``jti`` value is used before. Developers MUST "
+"implement this method::"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.JWTBearerClientAssertion.resolve_client_public_key:1
+#: of
+msgid ""
+"Resolve the client public key for verifying the JWT signature. A client "
+"may have many public keys, in this case, we can retrieve it via ``kid`` "
+"value in headers. Developers MUST implement this method::"
+msgstr ""
+
+#: authlib.oauth2.rfc7523.register_session_client_auth_method:1 of
+msgid ""
+"Register \"client_secret_jwt\" or \"private_key_jwt\" token endpoint auth"
+" method to OAuth2Session."
+msgstr ""
+
+#: authlib.oauth2.rfc7523.register_session_client_auth_method:4 of
+msgid "OAuth2Session instance."
+msgstr ""
+
+#: authlib.oauth2.rfc7523.register_session_client_auth_method:5 of
+msgid "Optional token endpoint url."
+msgstr ""
+

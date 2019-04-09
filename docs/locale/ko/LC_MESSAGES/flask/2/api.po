@@ -1,0 +1,264 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../flask/2/api.rst:2
+msgid "API References of Flask OAuth 2.0 Server"
+msgstr ""
+
+#: ../../flask/2/api.rst:4
+msgid ""
+"This part of the documentation covers the interface of Flask OAuth 2.0 "
+"Server."
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer:1 of
+msgid ""
+"Flask implementation of :class:`authlib.rfc6749.AuthorizationServer`. "
+"Initialize it with ``query_client``, ``save_token`` methods and Flask app"
+" instance::"
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.create_authorization_response:1 of
+msgid "Validate authorization request and create authorization response."
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.create_authorization_response
+#: authlib.flask.oauth2.AuthorizationServer.create_endpoint_response
+#: authlib.flask.oauth2.AuthorizationServer.create_token_response
+#: authlib.flask.oauth2.AuthorizationServer.register_endpoint
+#: authlib.flask.oauth2.AuthorizationServer.register_grant
+#: authlib.flask.oauth2.ResourceProtector.acquire_token
+#: authlib.flask.oauth2.ResourceProtector.raise_error_response
+#: authlib.flask.oauth2.cache.register_cache_authorization_code
+#: authlib.flask.oauth2.sqla.create_bearer_token_validator
+#: authlib.flask.oauth2.sqla.create_query_client_func
+#: authlib.flask.oauth2.sqla.create_query_token_func
+#: authlib.flask.oauth2.sqla.create_revocation_endpoint
+#: authlib.flask.oauth2.sqla.create_save_token_func of
+msgid "Parameters"
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.create_authorization_response:3
+#: authlib.flask.oauth2.AuthorizationServer.create_endpoint_response:4 of
+msgid "OAuth2Request instance."
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.create_authorization_response:4 of
+msgid "if granted, it is resource owner. If denied, it is None."
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.create_authorization_response
+#: authlib.flask.oauth2.AuthorizationServer.create_endpoint_response
+#: authlib.flask.oauth2.ResourceProtector.acquire_token of
+msgid "Returns"
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.create_authorization_response:6
+#: authlib.flask.oauth2.AuthorizationServer.create_endpoint_response:5 of
+msgid "Response"
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.create_bearer_token_generator:1 of
+msgid ""
+"Create a generator function for generating ``token`` value. This method "
+"will create a Bearer Token generator with "
+":class:`authlib.oauth2.rfc6750.BearerToken`. By default, it will not "
+"generate ``refresh_token``, which can be turn on by configuration "
+"``OAUTH2_REFRESH_TOKEN_GENERATOR=True``."
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.create_endpoint_response:1 of
+msgid "Validate endpoint request and create endpoint response."
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.create_endpoint_response:3 of
+msgid "Endpoint name"
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.create_token_expires_in_generator:1
+#: of
+msgid ""
+"Create a generator function for generating ``expires_in`` value. "
+"Developers can re-implement this method with a subclass if other means "
+"required. The default expires_in value is defined by ``grant_type``, "
+"different ``grant_type`` has different value. It can be configured with::"
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.create_token_response:1 of
+msgid "Validate token request and create token response."
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.create_token_response:3 of
+msgid "OAuth2Request instance"
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.register_endpoint:1 of
+msgid "Add token endpoint to authorization server. e.g. RevocationEndpoint::"
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.register_endpoint:6 of
+msgid "A token endpoint class"
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.register_grant:1 of
+msgid ""
+"Register a grant class into the endpoint registry. Developers can "
+"implement the grants in ``authlib.oauth2.rfc6749.grants`` and register "
+"with this method::"
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.register_grant:11 of
+msgid "a grant class."
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.register_grant:12 of
+msgid "extensions for the grant class."
+msgstr ""
+
+#: authlib.flask.oauth2.AuthorizationServer.validate_consent_request:1 of
+msgid ""
+"Validate current HTTP request for authorization page. This page is "
+"designed for resource owner to grant or deny the authorization::"
+msgstr ""
+
+#: authlib.flask.oauth2.ResourceProtector:1 of
+msgid ""
+"A protecting method for resource servers. Creating a ``require_oauth`` "
+"decorator easily with ResourceProtector::"
+msgstr ""
+
+#: authlib.flask.oauth2.ResourceProtector.raise_error_response:1 of
+msgid ""
+"Raise HTTPException for OAuth2Error. Developers can re-implement this "
+"method to customize the error response."
+msgstr ""
+
+#: authlib.flask.oauth2.ResourceProtector.raise_error_response:4 of
+msgid "OAuth2Error"
+msgstr ""
+
+#: authlib.flask.oauth2.ResourceProtector.raise_error_response of
+msgid "raise"
+msgstr ""
+
+#: authlib.flask.oauth2.ResourceProtector.raise_error_response:5 of
+msgid "HTTPException"
+msgstr ""
+
+#: authlib.flask.oauth2.ResourceProtector.acquire_token:1 of
+msgid "A method to acquire current valid token with the given scope."
+msgstr ""
+
+#: authlib.flask.oauth2.ResourceProtector.acquire_token:3 of
+msgid "string or list of scope values"
+msgstr ""
+
+#: authlib.flask.oauth2.ResourceProtector.acquire_token:4 of
+msgid "value of \"AND\" or \"OR\""
+msgstr ""
+
+#: authlib.flask.oauth2.ResourceProtector.acquire_token:5 of
+msgid "token object"
+msgstr ""
+
+#: authlib.flask.oauth2.ResourceProtector.acquire:1 of
+msgid ""
+"The with statement of ``require_oauth``. Instead of using a decorator, "
+"you can use a with statement instead::"
+msgstr ""
+
+#: ../../flask/2/api.rst:26
+msgid ""
+"Routes protected by :class:`ResourceProtector` can access current token "
+"with this variable::"
+msgstr ""
+
+#: ../../flask/2/api.rst:38
+msgid "Cache Helper Functions"
+msgstr ""
+
+#: authlib.flask.oauth2.cache.register_cache_authorization_code:1 of
+msgid "Use cache for authorization code grant endpoint."
+msgstr ""
+
+#: authlib.flask.oauth2.cache.register_cache_authorization_code:3 of
+msgid "Cache instance."
+msgstr ""
+
+#: authlib.flask.oauth2.cache.register_cache_authorization_code:4 of
+msgid "AuthorizationServer instance."
+msgstr ""
+
+#: authlib.flask.oauth2.cache.register_cache_authorization_code:5 of
+msgid "A function to authenticate user."
+msgstr ""
+
+#: ../../flask/2/api.rst:46
+msgid "SQLAlchemy Helper Functions"
+msgstr ""
+
+#: authlib.flask.oauth2.sqla.create_query_client_func:1 of
+msgid ""
+"Create an ``query_client`` function that can be used in authorization "
+"server."
+msgstr ""
+
+#: authlib.flask.oauth2.sqla.create_bearer_token_validator:4
+#: authlib.flask.oauth2.sqla.create_query_client_func:4
+#: authlib.flask.oauth2.sqla.create_query_token_func:4
+#: authlib.flask.oauth2.sqla.create_revocation_endpoint:4
+#: authlib.flask.oauth2.sqla.create_save_token_func:4 of
+msgid "SQLAlchemy session"
+msgstr ""
+
+#: authlib.flask.oauth2.sqla.create_query_client_func:5 of
+msgid "Client model class"
+msgstr ""
+
+#: authlib.flask.oauth2.sqla.create_save_token_func:1 of
+msgid ""
+"Create an ``save_token`` function that can be used in authorization "
+"server."
+msgstr ""
+
+#: authlib.flask.oauth2.sqla.create_bearer_token_validator:5
+#: authlib.flask.oauth2.sqla.create_query_token_func:5
+#: authlib.flask.oauth2.sqla.create_revocation_endpoint:5
+#: authlib.flask.oauth2.sqla.create_save_token_func:5 of
+msgid "Token model class"
+msgstr ""
+
+#: authlib.flask.oauth2.sqla.create_query_token_func:1 of
+msgid ""
+"Create an ``query_token`` function for revocation, introspection token "
+"endpoints."
+msgstr ""
+
+#: authlib.flask.oauth2.sqla.create_revocation_endpoint:1 of
+msgid ""
+"Create a revocation endpoint class with SQLAlchemy session and token "
+"model."
+msgstr ""
+
+#: authlib.flask.oauth2.sqla.create_bearer_token_validator:1 of
+msgid ""
+"Create an bearer token validator class with SQLAlchemy session and token "
+"model."
+msgstr ""
+

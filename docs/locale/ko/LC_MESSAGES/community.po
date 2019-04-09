@@ -1,0 +1,519 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:52+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../community/authors.rst:2
+msgid "Authors"
+msgstr ""
+
+#: ../../community/authors.rst:4
+msgid ""
+"Authlib is written and maintained by `Hsiaoming Yang "
+"<https://lepture.com>`_."
+msgstr ""
+
+#: ../../community/authors.rst:8
+msgid "Contributors"
+msgstr ""
+
+#: ../../community/authors.rst:10
+msgid "Here is a list of the main contributors."
+msgstr ""
+
+#: ../../community/awesome.rst:2
+msgid "Awesome Articles and Projects"
+msgstr ""
+
+#: ../../community/awesome.rst:3
+msgid ""
+"This awesome list contains awesome articles and talks on Authlib, and "
+"awesome projects built with Authlib."
+msgstr ""
+
+#: ../../community/awesome.rst:6
+msgid ""
+"If you have an awesome article on Authlib, please submit a pull request. "
+"Note, some links may be removed in the future, we keep ONLY the awesome "
+"ones."
+msgstr ""
+
+#: ../../community/awesome.rst:11
+msgid "Projects"
+msgstr ""
+
+#: ../../community/awesome.rst:13
+msgid "Open source projects that are using Authlib to create an OAuth server."
+msgstr ""
+
+#: ../../community/awesome.rst:16
+msgid "Example OAuth 2.0 Server"
+msgstr ""
+
+#: ../../community/awesome.rst:18
+msgid "An official example on how to create an OAuth 2.0 server with Authlib."
+msgstr ""
+
+#: ../../community/awesome.rst:20
+msgid "On GitHub: https://github.com/authlib/example-oauth2-server"
+msgstr ""
+
+#: ../../community/awesome.rst:23
+msgid "uData"
+msgstr ""
+
+#: ../../community/awesome.rst:25
+msgid "Customizable and skinnable social platform dedicated to (open)data."
+msgstr ""
+
+#: ../../community/awesome.rst:27
+msgid "Documentation: https://udata.readthedocs.io/"
+msgstr ""
+
+#: ../../community/awesome.rst:28
+msgid "On GitHub: https://github.com/opendatateam/udata"
+msgstr ""
+
+#: ../../community/awesome.rst:32
+msgid "Articles"
+msgstr ""
+
+#: ../../community/awesome.rst:34
+msgid ""
+"`Access Google Analytics API <https://blog.authlib.org/2018/access-"
+"google-analytics-api>`_: An example on how to use "
+":class:`~authlib.client.AssertionSession`."
+msgstr ""
+
+#: ../../community/awesome.rst:36
+msgid ""
+"`Using Authlib with gspread <https://blog.authlib.org/2018/authlib-for-"
+"gspread>`_."
+msgstr ""
+
+#: ../../community/contribute.rst:2
+msgid "Contribution"
+msgstr ""
+
+#: ../../community/contribute.rst:4
+msgid ""
+"Thanks for reading this section, you have a good intention. Since you are"
+" interested in contributing to Authlib, there are few things you need to "
+"know:"
+msgstr ""
+
+#: ../../community/contribute.rst:7
+msgid ""
+"**All contributions are welcome**, as long as everyone involved is "
+"treated with respect."
+msgstr ""
+
+#: ../../community/contribute.rst:9
+msgid ""
+"Your contribution may be rejected, but don't despair. It's just that this"
+" certain pull request doesn't fit Authlib. Be brave for a next "
+"contribution."
+msgstr ""
+
+#: ../../community/contribute.rst:11
+msgid ""
+"Some issues will be labeled as **good first issue**, if you're new to "
+"Authlib, you may find these issues are a good start for contribution."
+msgstr ""
+
+#: ../../community/contribute.rst:15
+msgid "Bug Reports"
+msgstr ""
+
+#: ../../community/contribute.rst:17
+msgid ""
+"It's welcome for everyone to submit a bug report. However, before you "
+"submit a report on GitHub issues, please check the old issues both open "
+"and closed, to ensure that you are not submitting a duplicate issue."
+msgstr ""
+
+#: ../../community/contribute.rst:21
+msgid ""
+"Please don't ask for help on GitHub issues. Ask them on "
+":ref:`stackoverflow`."
+msgstr ""
+
+#: ../../community/contribute.rst:24
+msgid "Documentation Contributions"
+msgstr ""
+
+#: ../../community/contribute.rst:26
+msgid ""
+"Documentation improvements are welcome, both on grammar and the "
+"sentences. I'm not a native English speaker, you may find errors in this "
+"documentation, don't hesitated to submit an improvement."
+msgstr ""
+
+#: ../../community/contribute.rst:30
+msgid ""
+"Our documentation is generated with Sphinx. All documentation should be "
+"written in reStructuredText, if you are not familiar reStructuredText, "
+"please read its documentation."
+msgstr ""
+
+#: ../../community/contribute.rst:34
+msgid ""
+"We keep a soft limit of 79 characters wide in text files. Yet, if you "
+"have to exceed this limit, it's OK, but no more than 110 characters."
+msgstr ""
+
+#: ../../community/contribute.rst:38
+msgid "Make a Pull Request"
+msgstr ""
+
+#: ../../community/contribute.rst:40
+msgid ""
+"Thank you. Now that you have a fix for Authlib, please describe it "
+"clearly in your pull request. There are some requirements for a pull "
+"request to be accepted:"
+msgstr ""
+
+#: ../../community/contribute.rst:44
+msgid "Follow PEP8 code style. You can use flake8 to check your code style."
+msgstr ""
+
+#: ../../community/contribute.rst:45
+msgid "Tests for the code changes are required."
+msgstr ""
+
+#: ../../community/contribute.rst:46
+msgid "Please add documentation for it, if it requires."
+msgstr ""
+
+#: ../../community/contribute.rst:49
+msgid ""
+"By making a pull request, you consent that the copyright of your pull "
+"request source code belongs to Authlib's author."
+msgstr ""
+
+#: ../../community/contribute.rst:53
+msgid "Become a Backer"
+msgstr ""
+
+#: ../../community/contribute.rst:55
+msgid ""
+"Finance support is also welcome. A better finance can make Authlib "
+":ref:`sustainable`. Here I offer two options:"
+msgstr ""
+
+#: ../../community/contribute.rst:58
+msgid "**Recurring Pledges**"
+msgstr ""
+
+#: ../../community/contribute.rst:60
+msgid ""
+"Recurring pledges come with exclusive benefits, e.g. having your name "
+"listed in the Authlib GitHub repository, or have your company logo placed"
+" on this website."
+msgstr ""
+
+#: ../../community/contribute.rst:64
+msgid "`Become a backer or sponsor via Patreon <https://patreon.com/lepture>`_"
+msgstr ""
+
+#: ../../community/contribute.rst:66
+msgid "**One Time Donation**"
+msgstr ""
+
+#: ../../community/contribute.rst:68
+msgid "I accept one time donation via Stripe, Alipay and Wechat. Donate via"
+msgstr ""
+
+#: ../../community/contribute.rst:70
+msgid "`Support Hsiaoming Yang <https://lepture.com/donate>`_"
+msgstr ""
+
+#: ../../community/index.rst:2
+msgid "Community"
+msgstr ""
+
+#: ../../community/index.rst:4
+msgid ""
+"This section aims to make Authlib sustainable, on governance, code "
+"commits, issues and finance."
+msgstr ""
+
+#: ../../community/licenses.rst:2
+msgid "Authlib Licenses"
+msgstr ""
+
+#: ../../community/licenses.rst:4
+msgid ""
+"Authlib offers two licenses, one is BSD for open source projects, one is "
+"a commercial license for closed source projects."
+msgstr ""
+
+#: ../../community/licenses.rst:8
+msgid "Open Source License"
+msgstr ""
+
+#: ../../community/licenses.rst:10
+msgid "Copyright (c) 2019, Hsiaoming Yang"
+msgstr ""
+
+#: ../../community/licenses.rst:12
+msgid "All rights reserved."
+msgstr ""
+
+#: ../../community/licenses.rst:14
+msgid ""
+"Redistribution and use in source and binary forms, with or without "
+"modification, are permitted provided that the following conditions are "
+"met:"
+msgstr ""
+
+#: ../../community/licenses.rst:17
+msgid ""
+"Redistributions of source code must retain the above copyright notice, "
+"this list of conditions and the following disclaimer."
+msgstr ""
+
+#: ../../community/licenses.rst:20
+msgid ""
+"Redistributions in binary form must reproduce the above copyright notice,"
+" this list of conditions and the following disclaimer in the "
+"documentation and/or other materials provided with the distribution."
+msgstr ""
+
+#: ../../community/licenses.rst:24
+msgid ""
+"Neither the name of the creator nor the names of its contributors may be "
+"used to endorse or promote products derived from this software without "
+"specific prior written permission."
+msgstr ""
+
+#: ../../community/licenses.rst:28
+msgid ""
+"THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS "
+"IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED "
+"TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A "
+"PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER"
+" OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,"
+" EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, "
+"PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR "
+"PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF "
+"LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING "
+"NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS "
+"SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."
+msgstr ""
+
+#: ../../community/licenses.rst:40 ../../community/sustainable.rst:29
+msgid "Commercial License"
+msgstr ""
+
+#: ../../community/licenses.rst:42
+msgid ""
+"The content of the commercial license can be found in the repository in a"
+" file named **COMMERCIAL-LICENSE**. You can get a commercial license at:"
+msgstr ""
+
+#: ../../community/licenses.rst:45
+msgid "https://authlib.org/plans"
+msgstr ""
+
+#: ../../community/security.rst:2
+msgid "Security Vulnerability"
+msgstr ""
+
+#: ../../community/security.rst:4
+msgid ""
+"If you think you have found a potential security vulnerability in "
+"Authlib, please email <me@lepture.com> directly."
+msgstr ""
+
+#: ../../community/security.rst:7
+msgid "Do not file a public issue."
+msgstr ""
+
+#: ../../community/security.rst:9
+msgid ""
+"Please do not disclose this to anyone else. We will retrieve a CVE "
+"identifier if necessary and give you full credit under whatever name or "
+"alias you provide. We will only request an identifier when we have a fix "
+"and can publish it in a release."
+msgstr ""
+
+#: ../../community/security.rst:15
+msgid "The Process"
+msgstr ""
+
+#: ../../community/security.rst:17
+msgid "Here is the process when we have received a security report:"
+msgstr ""
+
+#: ../../community/security.rst:19
+msgid "we will reply to you in 24 hours"
+msgstr ""
+
+#: ../../community/security.rst:20
+msgid ""
+"we will confirm it in 2 days, if we can't reproduce it, we will send "
+"emails to you for more information"
+msgstr ""
+
+#: ../../community/security.rst:22
+msgid ""
+"we will fix the issue in 1 week after we confirm it. If we can't fix it "
+"for the moment, we will let you know."
+msgstr ""
+
+#: ../../community/security.rst:24
+msgid ""
+"we will push the source code to GitHub when it has been released in PyPI "
+"for 1 week."
+msgstr ""
+
+#: ../../community/security.rst:26
+msgid "if necessary, we will retrieve a CVE after releasing to PyPI."
+msgstr ""
+
+#: ../../community/security.rst:29
+msgid "Previous CVEs"
+msgstr ""
+
+#: ../../community/security.rst:31
+msgid "No CVEs yet"
+msgstr ""
+
+#: ../../community/support.rst:2
+msgid "Support"
+msgstr ""
+
+#: ../../community/support.rst:4
+msgid "If you have questions or issues about Authlib, there are several options:"
+msgstr ""
+
+#: ../../community/support.rst:9
+msgid "StackOverflow"
+msgstr ""
+
+#: ../../community/support.rst:11
+msgid ""
+"If your question does not contain sensitive information, and it is a help"
+" request instead of bug reports, please ask a question on StackOverflow "
+"and use the tag **authlib**."
+msgstr ""
+
+#: ../../community/support.rst:16
+msgid "Twitter"
+msgstr ""
+
+#: ../../community/support.rst:18
+msgid ""
+"If your StackOverflow question is not answered for a long time, please "
+"ping me at Twitter `@authlib <https://twitter.com/authlib>`_."
+msgstr ""
+
+#: ../../community/support.rst:22
+msgid "GitHub Issues"
+msgstr ""
+
+#: ../../community/support.rst:24
+msgid ""
+"GitHub issues is used for but reporting and feature requests. Please "
+"don't ask questions on GitHub issues."
+msgstr ""
+
+#: ../../community/support.rst:28
+msgid "Feature Requests"
+msgstr ""
+
+#: ../../community/support.rst:30
+msgid ""
+"If you have feature requests, please comment on `Features Checklist`_. If"
+" they are accepted, they will be listed in the post."
+msgstr ""
+
+#: ../../community/support.rst:37 ../../community/sustainable.rst:38
+msgid "Commercial Support"
+msgstr ""
+
+#: ../../community/support.rst:39 ../../community/sustainable.rst:40
+msgid ""
+"I do provide commercial support on Authlib. If you need personal help or "
+"consulting on your project, please send an email with a brief of what you"
+" need to <me@lepture.com>, I'll decide whether I can take the job."
+msgstr ""
+
+#: ../../community/support.rst:43 ../../community/sustainable.rst:44
+msgid ""
+"Note that work must be Authlib related. Find more information on "
+"https://authlib.org/support#consulting-and-supports"
+msgstr ""
+
+#: ../../community/sustainable.rst:4
+msgid "Sustainable"
+msgstr ""
+
+#: ../../community/sustainable.rst:6
+msgid ""
+"A sustainable project is trustworthy to use in your production "
+"environment. To make this project sustainable, we need your help. Here "
+"are several options:"
+msgstr ""
+
+#: ../../community/sustainable.rst:10
+msgid "Community Contribute"
+msgstr ""
+
+#: ../../community/sustainable.rst:12
+msgid ""
+"To make Authlib sustainable, we need your contribution. There are many "
+"ways for you, some of them even don't require code writing:"
+msgstr ""
+
+#: ../../community/sustainable.rst:15
+msgid "File a bug report when you found one."
+msgstr ""
+
+#: ../../community/sustainable.rst:16
+msgid "Solve issues already there."
+msgstr ""
+
+#: ../../community/sustainable.rst:17
+msgid "Write a blog post on Authlib."
+msgstr ""
+
+#: ../../community/sustainable.rst:18
+msgid "Give a star on GitHub and spread Authlib to other people."
+msgstr ""
+
+#: ../../community/sustainable.rst:21
+msgid "Sponsor the Project"
+msgstr ""
+
+#: ../../community/sustainable.rst:23
+msgid ""
+"Authlib is accepting sponsorships via Patreon_. You are welcome to become"
+" a supporter, a backer or a company sponsor."
+msgstr ""
+
+#: ../../community/sustainable.rst:31
+msgid ""
+"Authlib is licensed under BSD, if this license doesn't fit your company, "
+"consider to purchase a commercial license."
+msgstr ""
+
+#: ../../community/sustainable.rst:34
+msgid "Find more information on https://authlib.org/support#commercial-license"
+msgstr ""
+

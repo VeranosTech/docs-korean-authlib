@@ -1,0 +1,375 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../specs/rfc5849.rst:4
+msgid "RFC5849: The OAuth 1.0 Protocol"
+msgstr ""
+
+#: ../../specs/rfc5849.rst:6
+msgid ""
+"API references of RFC5849 in Python implementation. Learn how to create "
+"an OAuth 1.0 provider in Python."
+msgstr ""
+
+#: ../../specs/rfc5849.rst:10
+msgid ""
+"This section contains the generic implementation of RFC5849_. Learn how "
+"to create an OAuth 1.0 provider in these frameworks:"
+msgstr ""
+
+#: ../../specs/rfc5849.rst:13
+msgid "Flask: :ref:`flask_oauth1_server`."
+msgstr ""
+
+#: ../../specs/rfc5849.rst:14
+msgid "Django: not ready yet."
+msgstr ""
+
+#: ../../specs/rfc5849.rst:22
+msgid "Servers"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_authorization_response:1
+#: of
+msgid ""
+"Validate authorization request and create authorization response. Assume "
+"the endpoint for authorization request is "
+"``https://photos.example.net/authorize``, the client redirects Jane's "
+"user-agent to the server's Resource Owner Authorization endpoint to "
+"obtain Jane's approval for accessing her private photos::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_authorization_response:9
+#: of
+msgid ""
+"The server requests Jane to sign in using her username and password and "
+"if successful, asks her to approve granting 'printer.example.com' access "
+"to her private photos.  Jane approves the request and her user-agent is "
+"redirected to the callback URI provided by the client in the previous "
+"request (line breaks are for display purposes only)::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_authorization_response
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_authorization_verifier
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_temporary_credential
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_temporary_credentials_response
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_token_credential
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_token_response
+#: authlib.oauth1.rfc5849.AuthorizationServer.delete_temporary_credential
+#: authlib.oauth1.rfc5849.AuthorizationServer.exists_nonce
+#: authlib.oauth1.rfc5849.AuthorizationServer.get_client_by_id
+#: authlib.oauth1.rfc5849.AuthorizationServer.get_temporary_credential
+#: authlib.oauth1.rfc5849.AuthorizationServer.register_signature_method
+#: authlib.oauth1.rfc5849.AuthorizationServer.validate_oauth_signature
+#: authlib.oauth1.rfc5849.AuthorizationServer.validate_timestamp_and_nonce
+#: authlib.oauth1.rfc5849.ResourceProtector.exists_nonce
+#: authlib.oauth1.rfc5849.ResourceProtector.get_client_by_id
+#: authlib.oauth1.rfc5849.ResourceProtector.get_token_credential
+#: authlib.oauth1.rfc5849.ResourceProtector.register_signature_method
+#: authlib.oauth1.rfc5849.ResourceProtector.validate_oauth_signature
+#: authlib.oauth1.rfc5849.ResourceProtector.validate_timestamp_and_nonce of
+msgid "Parameters"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_authorization_response:18
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_temporary_credentials_response:28
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_token_response:31 of
+msgid "OAuth1Request instance."
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_authorization_response:19
+#: of
+msgid "if granted, pass the grant user, otherwise None."
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_authorization_response
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_authorization_verifier
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_temporary_credential
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_temporary_credentials_response
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_token_credential
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_token_response
+#: authlib.oauth1.rfc5849.AuthorizationServer.exists_nonce
+#: authlib.oauth1.rfc5849.AuthorizationServer.get_client_by_id
+#: authlib.oauth1.rfc5849.AuthorizationServer.get_temporary_credential
+#: authlib.oauth1.rfc5849.ClientMixin.get_default_redirect_uri
+#: authlib.oauth1.rfc5849.ResourceProtector.exists_nonce
+#: authlib.oauth1.rfc5849.ResourceProtector.get_client_by_id
+#: authlib.oauth1.rfc5849.ResourceProtector.get_token_credential
+#: authlib.oauth1.rfc5849.TemporaryCredentialMixin.check_verifier
+#: authlib.oauth1.rfc5849.TemporaryCredentialMixin.get_oauth_token
+#: authlib.oauth1.rfc5849.TemporaryCredentialMixin.get_oauth_token_secret
+#: authlib.oauth1.rfc5849.TemporaryCredentialMixin.get_redirect_uri
+#: authlib.oauth1.rfc5849.TokenCredentialMixin.get_oauth_token
+#: authlib.oauth1.rfc5849.TokenCredentialMixin.get_oauth_token_secret of
+msgid "Returns"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_authorization_response:20
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_temporary_credentials_response:29
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_token_response:32 of
+msgid "(status_code, body, headers)"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_authorization_verifier:1
+#: of
+msgid ""
+"Create and bind ``oauth_verifier`` to temporary credential. It could be "
+"re-implemented in this way::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_authorization_verifier:18
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_temporary_credential:18
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_token_credential:19
+#: authlib.oauth1.rfc5849.AuthorizationServer.delete_temporary_credential:8
+#: authlib.oauth1.rfc5849.AuthorizationServer.exists_nonce:5
+#: authlib.oauth1.rfc5849.AuthorizationServer.get_temporary_credential:11
+#: authlib.oauth1.rfc5849.AuthorizationServer.validate_oauth_signature:3
+#: authlib.oauth1.rfc5849.AuthorizationServer.validate_timestamp_and_nonce:3
+#: authlib.oauth1.rfc5849.ResourceProtector.exists_nonce:5
+#: authlib.oauth1.rfc5849.ResourceProtector.get_token_credential:4
+#: authlib.oauth1.rfc5849.ResourceProtector.validate_oauth_signature:3
+#: authlib.oauth1.rfc5849.ResourceProtector.validate_timestamp_and_nonce:3 of
+msgid "OAuth1Request instance"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_authorization_verifier:19
+#: of
+msgid "A string of ``oauth_verifier``"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_temporary_credential:1 of
+msgid ""
+"Generate and save a temporary credential into database or cache. A "
+"temporary credential is used for exchanging token credential. This method"
+" should be re-implemented::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_temporary_credential:19
+#: authlib.oauth1.rfc5849.AuthorizationServer.get_temporary_credential:12 of
+msgid "TemporaryCredential instance"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_temporary_credentials_response:1
+#: of
+msgid ""
+"Validate temporary credentials token request and create response for "
+"temporary credentials token. Assume the endpoint of temporary credentials"
+" request is ``https://photos.example.net/initiate``:"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_temporary_credentials_response:17
+#: of
+msgid ""
+"The server validates the request and replies with a set of temporary "
+"credentials in the body of the HTTP response:"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_token_credential:1 of
+msgid ""
+"Create and save token credential into database. This method would be re-"
+"implemented like this::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_token_credential:20 of
+msgid "TokenCredential instance"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_token_response:1 of
+msgid ""
+"Validate token request and create token response. Assuming the endpoint "
+"of token request is ``https://photos.example.net/token``, the callback "
+"request informs the client that Jane completed the authorization process."
+"  The client then requests a set of token credentials using its temporary"
+" credentials (over a secure Transport Layer Security (TLS) channel):"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.create_token_response:21 of
+msgid ""
+"The server validates the request and replies with a set of token "
+"credentials in the body of the HTTP response:"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.delete_temporary_credential:1 of
+msgid ""
+"Delete temporary credential from database or cache. For instance, if "
+"temporary credential is saved in cache::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.exists_nonce:1
+#: authlib.oauth1.rfc5849.ResourceProtector.exists_nonce:1 of
+msgid ""
+"The nonce value MUST be unique across all requests with the same "
+"timestamp, client credentials, and token combinations."
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.exists_nonce:4
+#: authlib.oauth1.rfc5849.ResourceProtector.exists_nonce:4 of
+msgid "A string value of ``oauth_nonce``"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.exists_nonce:6
+#: authlib.oauth1.rfc5849.ResourceProtector.exists_nonce:6
+#: authlib.oauth1.rfc5849.TemporaryCredentialMixin.check_verifier:8 of
+msgid "Boolean"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.get_client_by_id:1
+#: authlib.oauth1.rfc5849.ResourceProtector.get_client_by_id:1 of
+msgid "Get client instance with the given ``client_id``."
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.get_client_by_id:3
+#: authlib.oauth1.rfc5849.ResourceProtector.get_client_by_id:3 of
+msgid "A string of client_id"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.get_client_by_id:4
+#: authlib.oauth1.rfc5849.ResourceProtector.get_client_by_id:4 of
+msgid "Client instance"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.get_temporary_credential:1 of
+msgid ""
+"Get the temporary credential from database or cache. A temporary "
+"credential should share the same methods as described in models of "
+"``TemporaryCredentialMixin``::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.register_signature_method:1
+#: authlib.oauth1.rfc5849.ResourceProtector.register_signature_method:1 of
+msgid "Extend signature method verification."
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.register_signature_method:3
+#: authlib.oauth1.rfc5849.ResourceProtector.register_signature_method:3 of
+msgid "A string to represent signature method."
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.register_signature_method:4
+#: authlib.oauth1.rfc5849.ResourceProtector.register_signature_method:4 of
+msgid "A function to verify signature."
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.register_signature_method:6
+#: authlib.oauth1.rfc5849.ResourceProtector.register_signature_method:6 of
+msgid "The ``verify`` method accept ``OAuth1Request`` as parameter::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.validate_authorization_request:1
+#: of
+msgid "Validate the request for resource owner authorization."
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.validate_oauth_signature:1
+#: authlib.oauth1.rfc5849.ResourceProtector.validate_oauth_signature:1 of
+msgid "Validate ``oauth_signature`` from HTTP request."
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.validate_temporary_credentials_request:1
+#: of
+msgid "Validate HTTP request for temporary credentials."
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.validate_timestamp_and_nonce:1
+#: authlib.oauth1.rfc5849.ResourceProtector.validate_timestamp_and_nonce:1 of
+msgid "Validate ``oauth_timestamp`` and ``oauth_nonce`` in HTTP request."
+msgstr ""
+
+#: authlib.oauth1.rfc5849.AuthorizationServer.validate_token_request:1 of
+msgid "Validate request for issuing token."
+msgstr ""
+
+#: authlib.oauth1.rfc5849.ResourceProtector.get_token_credential:1 of
+msgid ""
+"Fetch the token credential from data store like a database, framework "
+"should implement this function."
+msgstr ""
+
+#: authlib.oauth1.rfc5849.ResourceProtector.get_token_credential:5 of
+msgid "Token model instance"
+msgstr ""
+
+#: ../../specs/rfc5849.rst:34
+msgid "Models Mixin"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.ClientMixin.get_client_secret:1 of
+msgid ""
+"A method to return the client_secret of this client. For instance, the "
+"database table has a column called ``client_secret``::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.ClientMixin.get_default_redirect_uri:1 of
+msgid ""
+"A method to get client default redirect_uri. For instance, the database "
+"table for client has a column called ``default_redirect_uri``::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.ClientMixin.get_default_redirect_uri:7
+#: authlib.oauth1.rfc5849.TemporaryCredentialMixin.get_redirect_uri:8 of
+msgid "A URL string"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.ClientMixin.get_rsa_public_key:1 of
+msgid ""
+"A method to get the RSA public key for RSA-SHA1 signature method. For "
+"instance, the value is saved on column ``rsa_public_key``::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.TemporaryCredentialMixin.check_verifier:1 of
+msgid ""
+"A method to check if the given verifier matches this temporary "
+"credential. For instance that this temporary credential has recorded the "
+"value in database as column ``oauth_verifier``::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.TemporaryCredentialMixin.get_client_id:1 of
+msgid ""
+"A method to get the client_id associated with this credential. For "
+"instance, the table in the database has a column ``client_id``::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.TemporaryCredentialMixin.get_oauth_token:1
+#: authlib.oauth1.rfc5849.TokenCredentialMixin.get_oauth_token:1 of
+msgid ""
+"A method to get the value of ``oauth_token``. For instance, the database "
+"table has a column called ``oauth_token``::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.TemporaryCredentialMixin.get_oauth_token:7
+#: authlib.oauth1.rfc5849.TemporaryCredentialMixin.get_oauth_token_secret:7
+#: authlib.oauth1.rfc5849.TokenCredentialMixin.get_oauth_token:7
+#: authlib.oauth1.rfc5849.TokenCredentialMixin.get_oauth_token_secret:7 of
+msgid "A string"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.TemporaryCredentialMixin.get_oauth_token_secret:1
+#: authlib.oauth1.rfc5849.TokenCredentialMixin.get_oauth_token_secret:1 of
+msgid ""
+"A method to get the value of ``oauth_token_secret``. For instance, the "
+"database table has a column called ``oauth_token_secret``::"
+msgstr ""
+
+#: authlib.oauth1.rfc5849.TemporaryCredentialMixin.get_redirect_uri:1 of
+msgid ""
+"A method to get temporary credential's ``oauth_callback``. For instance, "
+"the database table for temporary credential has a column called "
+"``oauth_callback``::"
+msgstr ""
+

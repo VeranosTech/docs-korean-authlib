@@ -1,0 +1,356 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../flask/1/api.rst:2
+msgid "API References of Flask OAuth 1.0 Server"
+msgstr ""
+
+#: ../../flask/1/api.rst:4
+msgid ""
+"This part of the documentation covers the interface of Flask OAuth 1.0 "
+"Server."
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer:1 of
+msgid ""
+"Flask implementation of :class:`authlib.rfc5849.AuthorizationServer`. "
+"Initialize it with Flask app instance, client model class and cache::"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer
+#: authlib.flask.oauth1.AuthorizationServer.create_authorization_response
+#: authlib.flask.oauth1.AuthorizationServer.create_authorization_verifier
+#: authlib.flask.oauth1.AuthorizationServer.create_temporary_credential
+#: authlib.flask.oauth1.AuthorizationServer.create_temporary_credentials_response
+#: authlib.flask.oauth1.AuthorizationServer.create_token_credential
+#: authlib.flask.oauth1.AuthorizationServer.create_token_response
+#: authlib.flask.oauth1.AuthorizationServer.delete_temporary_credential
+#: authlib.flask.oauth1.AuthorizationServer.exists_nonce
+#: authlib.flask.oauth1.AuthorizationServer.get_client_by_id
+#: authlib.flask.oauth1.AuthorizationServer.get_temporary_credential
+#: authlib.flask.oauth1.ResourceProtector.exists_nonce
+#: authlib.flask.oauth1.ResourceProtector.get_client_by_id
+#: authlib.flask.oauth1.ResourceProtector.get_token_credential
+#: authlib.flask.oauth1.cache.create_exists_nonce_func
+#: authlib.flask.oauth1.cache.register_nonce_hooks
+#: authlib.flask.oauth1.cache.register_temporary_credential_hooks
+#: authlib.flask.oauth1.sqla.create_exists_nonce_func
+#: authlib.flask.oauth1.sqla.create_query_client_func
+#: authlib.flask.oauth1.sqla.create_query_token_func
+#: authlib.flask.oauth1.sqla.register_nonce_hooks
+#: authlib.flask.oauth1.sqla.register_temporary_credential_hooks
+#: authlib.flask.oauth1.sqla.register_token_credential_hooks of
+msgid "Parameters"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer:9 of
+msgid "A Flask app instance"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer:10 of
+msgid ""
+"A function to get client by client_id. The client model class MUST "
+"implement the methods described by "
+":class:`~authlib.oauth1.rfc5849.ClientMixin`."
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer:13 of
+msgid "A function to generate token"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_authorization_response:1 of
+msgid ""
+"Validate authorization request and create authorization response. Assume "
+"the endpoint for authorization request is "
+"``https://photos.example.net/authorize``, the client redirects Jane's "
+"user-agent to the server's Resource Owner Authorization endpoint to "
+"obtain Jane's approval for accessing her private photos::"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_authorization_response:9 of
+msgid ""
+"The server requests Jane to sign in using her username and password and "
+"if successful, asks her to approve granting 'printer.example.com' access "
+"to her private photos.  Jane approves the request and her user-agent is "
+"redirected to the callback URI provided by the client in the previous "
+"request (line breaks are for display purposes only)::"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_authorization_response:18
+#: authlib.flask.oauth1.AuthorizationServer.create_temporary_credentials_response:28
+#: authlib.flask.oauth1.AuthorizationServer.create_token_response:31 of
+msgid "OAuth1Request instance."
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_authorization_response:19 of
+msgid "if granted, pass the grant user, otherwise None."
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_authorization_response
+#: authlib.flask.oauth1.AuthorizationServer.create_authorization_verifier
+#: authlib.flask.oauth1.AuthorizationServer.create_temporary_credential
+#: authlib.flask.oauth1.AuthorizationServer.create_temporary_credentials_response
+#: authlib.flask.oauth1.AuthorizationServer.create_token_credential
+#: authlib.flask.oauth1.AuthorizationServer.create_token_response
+#: authlib.flask.oauth1.AuthorizationServer.exists_nonce
+#: authlib.flask.oauth1.AuthorizationServer.get_client_by_id
+#: authlib.flask.oauth1.AuthorizationServer.get_temporary_credential
+#: authlib.flask.oauth1.ResourceProtector.exists_nonce
+#: authlib.flask.oauth1.ResourceProtector.get_client_by_id
+#: authlib.flask.oauth1.ResourceProtector.get_token_credential of
+msgid "Returns"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_authorization_response:20
+#: authlib.flask.oauth1.AuthorizationServer.create_temporary_credentials_response:29
+#: authlib.flask.oauth1.AuthorizationServer.create_token_response:32 of
+msgid "(status_code, body, headers)"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_authorization_verifier:1 of
+msgid ""
+"Create and bind ``oauth_verifier`` to temporary credential. It could be "
+"re-implemented in this way::"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_authorization_verifier:18
+#: authlib.flask.oauth1.AuthorizationServer.create_temporary_credential:18
+#: authlib.flask.oauth1.AuthorizationServer.create_token_credential:19
+#: authlib.flask.oauth1.AuthorizationServer.delete_temporary_credential:8
+#: authlib.flask.oauth1.AuthorizationServer.exists_nonce:5
+#: authlib.flask.oauth1.AuthorizationServer.get_temporary_credential:11
+#: authlib.flask.oauth1.ResourceProtector.exists_nonce:5
+#: authlib.flask.oauth1.ResourceProtector.get_token_credential:4 of
+msgid "OAuth1Request instance"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_authorization_verifier:19 of
+msgid "A string of ``oauth_verifier``"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_temporary_credential:1 of
+msgid ""
+"Generate and save a temporary credential into database or cache. A "
+"temporary credential is used for exchanging token credential. This method"
+" should be re-implemented::"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_temporary_credential:19
+#: authlib.flask.oauth1.AuthorizationServer.get_temporary_credential:12 of
+msgid "TemporaryCredential instance"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_temporary_credentials_response:1
+#: of
+msgid ""
+"Validate temporary credentials token request and create response for "
+"temporary credentials token. Assume the endpoint of temporary credentials"
+" request is ``https://photos.example.net/initiate``:"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_temporary_credentials_response:17
+#: of
+msgid ""
+"The server validates the request and replies with a set of temporary "
+"credentials in the body of the HTTP response:"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_token_credential:1 of
+msgid ""
+"Create and save token credential into database. This method would be re-"
+"implemented like this::"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_token_credential:20 of
+msgid "TokenCredential instance"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_token_response:1 of
+msgid ""
+"Validate token request and create token response. Assuming the endpoint "
+"of token request is ``https://photos.example.net/token``, the callback "
+"request informs the client that Jane completed the authorization process."
+"  The client then requests a set of token credentials using its temporary"
+" credentials (over a secure Transport Layer Security (TLS) channel):"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.create_token_response:21 of
+msgid ""
+"The server validates the request and replies with a set of token "
+"credentials in the body of the HTTP response:"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.delete_temporary_credential:1 of
+msgid ""
+"Delete temporary credential from database or cache. For instance, if "
+"temporary credential is saved in cache::"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.exists_nonce:1
+#: authlib.flask.oauth1.ResourceProtector.exists_nonce:1 of
+msgid ""
+"The nonce value MUST be unique across all requests with the same "
+"timestamp, client credentials, and token combinations."
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.exists_nonce:4
+#: authlib.flask.oauth1.ResourceProtector.exists_nonce:4 of
+msgid "A string value of ``oauth_nonce``"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.exists_nonce:6
+#: authlib.flask.oauth1.ResourceProtector.exists_nonce:6 of
+msgid "Boolean"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.get_client_by_id:1
+#: authlib.flask.oauth1.ResourceProtector.get_client_by_id:1 of
+msgid "Get client instance with the given ``client_id``."
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.get_client_by_id:3
+#: authlib.flask.oauth1.ResourceProtector.get_client_by_id:3 of
+msgid "A string of client_id"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.get_client_by_id:4
+#: authlib.flask.oauth1.ResourceProtector.get_client_by_id:4 of
+msgid "Client instance"
+msgstr ""
+
+#: authlib.flask.oauth1.AuthorizationServer.get_temporary_credential:1 of
+msgid ""
+"Get the temporary credential from database or cache. A temporary "
+"credential should share the same methods as described in models of "
+"``TemporaryCredentialMixin``::"
+msgstr ""
+
+#: authlib.flask.oauth1.ResourceProtector:1 of
+msgid ""
+"A protecting method for resource servers. Initialize a resource protector"
+" with the query_token method::"
+msgstr ""
+
+#: authlib.flask.oauth1.ResourceProtector.get_token_credential:1 of
+msgid ""
+"Fetch the token credential from data store like a database, framework "
+"should implement this function."
+msgstr ""
+
+#: authlib.flask.oauth1.ResourceProtector.get_token_credential:5 of
+msgid "Token model instance"
+msgstr ""
+
+#: ../../flask/1/api.rst:18
+msgid ""
+"Routes protected by :class:`ResourceProtector` can access current "
+"credential with this variable."
+msgstr ""
+
+#: ../../flask/1/api.rst:22
+msgid "Cache Helper Functions"
+msgstr ""
+
+#: authlib.flask.oauth1.cache.create_exists_nonce_func:1
+#: authlib.flask.oauth1.sqla.create_exists_nonce_func:1 of
+msgid ""
+"Create an ``exists_nonce`` function that can be used in hooks and "
+"resource protector."
+msgstr ""
+
+#: authlib.flask.oauth1.cache.create_exists_nonce_func:4
+#: authlib.flask.oauth1.cache.register_nonce_hooks:4
+#: authlib.flask.oauth1.cache.register_temporary_credential_hooks:4 of
+msgid "Cache instance"
+msgstr ""
+
+#: authlib.flask.oauth1.cache.create_exists_nonce_func:5
+#: authlib.flask.oauth1.cache.register_nonce_hooks:5
+#: authlib.flask.oauth1.cache.register_temporary_credential_hooks:5 of
+msgid "key prefix for temporary credential"
+msgstr ""
+
+#: authlib.flask.oauth1.cache.create_exists_nonce_func:6
+#: authlib.flask.oauth1.cache.register_nonce_hooks:6 of
+msgid "Expire time for nonce"
+msgstr ""
+
+#: authlib.flask.oauth1.cache.register_nonce_hooks:1
+#: authlib.flask.oauth1.sqla.register_nonce_hooks:1 of
+msgid "Register nonce related hooks to authorization server."
+msgstr ""
+
+#: authlib.flask.oauth1.cache.register_nonce_hooks:3
+#: authlib.flask.oauth1.cache.register_temporary_credential_hooks:3
+#: authlib.flask.oauth1.sqla.register_nonce_hooks:3
+#: authlib.flask.oauth1.sqla.register_temporary_credential_hooks:3
+#: authlib.flask.oauth1.sqla.register_token_credential_hooks:3 of
+msgid "AuthorizationServer instance"
+msgstr ""
+
+#: authlib.flask.oauth1.cache.register_temporary_credential_hooks:1
+#: authlib.flask.oauth1.sqla.register_temporary_credential_hooks:1 of
+msgid "Register temporary credential related hooks to authorization server."
+msgstr ""
+
+#: ../../flask/1/api.rst:33
+msgid "SQLAlchemy Help Functions"
+msgstr ""
+
+#: authlib.flask.oauth1.sqla.create_query_client_func:1 of
+msgid ""
+"Create an ``query_client`` function that can be used in authorization "
+"server and resource protector."
+msgstr ""
+
+#: authlib.flask.oauth1.sqla.create_exists_nonce_func:4
+#: authlib.flask.oauth1.sqla.create_query_client_func:4
+#: authlib.flask.oauth1.sqla.create_query_token_func:4
+#: authlib.flask.oauth1.sqla.register_nonce_hooks:4
+#: authlib.flask.oauth1.sqla.register_temporary_credential_hooks:4
+#: authlib.flask.oauth1.sqla.register_token_credential_hooks:4 of
+msgid "SQLAlchemy session"
+msgstr ""
+
+#: authlib.flask.oauth1.sqla.create_query_client_func:5 of
+msgid "Client class"
+msgstr ""
+
+#: authlib.flask.oauth1.sqla.create_query_token_func:1 of
+msgid "Create an ``query_token`` function that can be used in resource protector."
+msgstr ""
+
+#: authlib.flask.oauth1.sqla.create_query_token_func:5
+#: authlib.flask.oauth1.sqla.register_token_credential_hooks:5 of
+msgid "TokenCredential class"
+msgstr ""
+
+#: authlib.flask.oauth1.sqla.create_exists_nonce_func:5
+#: authlib.flask.oauth1.sqla.register_nonce_hooks:5 of
+msgid "TimestampNonce class"
+msgstr ""
+
+#: authlib.flask.oauth1.sqla.register_temporary_credential_hooks:5 of
+msgid "TemporaryCredential class"
+msgstr ""
+
+#: authlib.flask.oauth1.sqla.register_token_credential_hooks:1 of
+msgid "Register token credential related hooks to authorization server."
+msgstr ""
+

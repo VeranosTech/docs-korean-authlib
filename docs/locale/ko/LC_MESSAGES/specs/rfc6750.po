@@ -1,0 +1,187 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../specs/rfc6750.rst:4
+msgid "RFC6750: The OAuth 2.0 Authorization Framework: Bearer Token Usage"
+msgstr ""
+
+#: ../../specs/rfc6750.rst:6
+msgid ""
+"API references of RFC6750 in Python implementation. Guide on how to use "
+"Bearer Token and its validator."
+msgstr ""
+
+#: ../../specs/rfc6750.rst:10
+msgid "This section contains the generic implementation of RFC6750_."
+msgstr ""
+
+#: ../../specs/rfc6750.rst:15
+msgid "Guide on Bearer Token"
+msgstr ""
+
+#: ../../specs/rfc6750.rst:17
+msgid ""
+"Bearer token is used in OAuth 2.0 framework to protect resources. You "
+"need to implement the missing methods of :class:`BearerTokenValidator` "
+"before using it. Learn how to use it in "
+":ref:`flask_oauth2_resource_protector`."
+msgstr ""
+
+#: ../../specs/rfc6750.rst:22
+msgid "API Reference"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerTokenValidator.authenticate_token:1 of
+msgid ""
+"A method to query token from database with the given token string. "
+"Developers MUST re-implement this method. For instance::"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken
+#: authlib.oauth2.rfc6750.BearerTokenValidator.authenticate_token
+#: authlib.oauth2.rfc6750.BearerTokenValidator.request_invalid
+#: authlib.oauth2.rfc6750.BearerTokenValidator.token_revoked of
+msgid "Parameters"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerTokenValidator.authenticate_token:7 of
+msgid "A string to represent the access_token."
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken
+#: authlib.oauth2.rfc6750.BearerTokenValidator.authenticate_token
+#: authlib.oauth2.rfc6750.BearerTokenValidator.request_invalid
+#: authlib.oauth2.rfc6750.BearerTokenValidator.token_revoked of
+msgid "Returns"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerTokenValidator.authenticate_token:8 of
+msgid "token"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerTokenValidator.request_invalid:1 of
+msgid ""
+"Check if the HTTP request is valid or not.  Developers MUST re-implement "
+"this method.  For instance, your server requires a \"X-Device-Version\" "
+"in the header::"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerTokenValidator.request_invalid:8 of
+msgid ""
+"Usually, you don't have to detect if the request is valid or not, you can"
+" just return a ``False``."
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerTokenValidator.request_invalid:11 of
+msgid "instance of TokenRequest"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerTokenValidator.request_invalid:12
+#: authlib.oauth2.rfc6750.BearerTokenValidator.token_revoked:8 of
+msgid "Boolean"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerTokenValidator.token_revoked:1 of
+msgid ""
+"Check if this token is revoked. Developers MUST re-implement this method."
+" If there is a column called ``revoked`` on the token table::"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerTokenValidator.token_revoked:7 of
+msgid "token instance"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken:1 of
+msgid ""
+"Bearer Token generator which can create the payload for token response by"
+" OAuth 2 server. A typical token response would be:"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken:18 of
+msgid "a function to generate access_token."
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken:19 of
+msgid ""
+"a function to generate refresh_token, if not provided, refresh_token will"
+" not be added into token response."
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken:21 of
+msgid ""
+"The expires_generator can be an int value or a function. If it is int, "
+"all token expires_in will be this value. If it is function, it can  "
+"generate expires_in depending on client and grant_type::      def "
+"expires_generator(client, grant_type):         if "
+"is_official_client(client):             return 3600 * 1000         if "
+"grant_type == 'implicit':             return 3600         return 3600 * "
+"10"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken:21 of
+msgid ""
+"The expires_generator can be an int value or a function. If it is int, "
+"all token expires_in will be this value. If it is function, it can  "
+"generate expires_in depending on client and grant_type::"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken:32 of
+msgid "Callable"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken:34 of
+msgid "When BearerToken is initialized, it will be callable::"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken:40 of
+msgid "The callable function that BearerToken created accepts these parameters:"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken:42 of
+msgid "the client that making the request."
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken:43 of
+msgid "current requested grant_type."
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken:44 of
+msgid "if provided, use this value as expires_in."
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken:45 of
+msgid "current requested scope."
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken:46 of
+msgid "should refresh_token be included."
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken:47 of
+msgid "Token dict"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken.DEFAULT_EXPIRES_IN:1 of
+msgid "default expires_in value"
+msgstr ""
+
+#: authlib.oauth2.rfc6750.BearerToken.GRANT_TYPES_EXPIRES_IN:1 of
+msgid "default expires_in value differentiate by grant_type"
+msgstr ""
+

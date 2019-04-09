@@ -1,0 +1,617 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../client/api.rst:2
+msgid "Client API References"
+msgstr ""
+
+#: ../../client/api.rst:4
+msgid ""
+"API references on Authlib Client and its related Flask/Django "
+"integrations."
+msgstr ""
+
+#: ../../client/api.rst:7
+msgid "This part of the documentation covers the interface of Authlib Client."
+msgstr ""
+
+#: ../../client/api.rst:10
+msgid "Sessions and Client"
+msgstr ""
+
+#: authlib.client.OAuth1Session.create_authorization_url:1 of
+msgid ""
+"Create an authorization URL by appending request_token and optional "
+"kwargs to url."
+msgstr ""
+
+#: authlib.client.OAuth1Session.create_authorization_url:4 of
+msgid ""
+"This is the second step in the OAuth 1 workflow. The user should be "
+"redirected to this authorization URL, grant access to you, and then be "
+"redirected back to you. The redirection back can either be specified "
+"during client registration or by supplying a callback URI per request."
+msgstr ""
+
+#: authlib.client.OAuth1Session.create_authorization_url
+#: authlib.client.OAuth1Session.fetch_access_token
+#: authlib.client.OAuth1Session.fetch_request_token
+#: authlib.client.OAuth1Session.parse_authorization_response
+#: authlib.client.OAuth2Session
+#: authlib.client.OAuth2Session.create_authorization_url
+#: authlib.client.OAuth2Session.fetch_token
+#: authlib.client.OAuth2Session.refresh_token
+#: authlib.client.OAuth2Session.register_client_auth_method
+#: authlib.client.OAuth2Session.revoke_token authlib.client.OAuthClient
+#: authlib.client.OAuthClient.fetch_access_token
+#: authlib.client.OAuthClient.generate_authorize_redirect
+#: authlib.flask.client.OAuth authlib.flask.client.OAuth.register
+#: authlib.flask.client.RemoteApp.authorize_redirect of
+msgid "Parameters"
+msgstr ""
+
+#: authlib.client.OAuth1Session.create_authorization_url:9 of
+msgid "The authorization endpoint URL."
+msgstr ""
+
+#: authlib.client.OAuth1Session.create_authorization_url:10 of
+msgid "The previously obtained request token."
+msgstr ""
+
+#: authlib.client.OAuth1Session.create_authorization_url:11 of
+msgid "Optional parameters to append to the URL."
+msgstr ""
+
+#: authlib.client.OAuth1Session.create_authorization_url
+#: authlib.client.OAuth1Session.fetch_access_token
+#: authlib.client.OAuth1Session.fetch_request_token
+#: authlib.client.OAuth1Session.parse_authorization_response
+#: authlib.client.OAuth2Session.create_authorization_url
+#: authlib.client.OAuth2Session.fetch_token
+#: authlib.client.OAuth2Session.refresh_token
+#: authlib.client.OAuth2Session.revoke_token
+#: authlib.client.OAuthClient.fetch_access_token
+#: authlib.client.OAuthClient.generate_authorize_redirect
+#: authlib.flask.client.RemoteApp.authorize_redirect of
+msgid "Returns"
+msgstr ""
+
+#: authlib.client.OAuth1Session.create_authorization_url:12 of
+msgid "The authorization URL with new parameters embedded."
+msgstr ""
+
+#: authlib.client.OAuth1Session.fetch_access_token:1
+#: authlib.client.OAuth1Session.fetch_request_token:1 of
+msgid "Method for fetching an access token from the token endpoint."
+msgstr ""
+
+#: authlib.client.OAuth1Session.fetch_access_token:3 of
+msgid ""
+"This is the final step in the OAuth 1 workflow. An access token is "
+"obtained using all previously obtained credentials, including the "
+"verifier from the authorization step."
+msgstr ""
+
+#: authlib.client.OAuth1Session.fetch_access_token:7 of
+msgid "Access Token endpoint."
+msgstr ""
+
+#: authlib.client.OAuth1Session.fetch_access_token:8 of
+msgid "A verifier string to prove authorization was granted."
+msgstr ""
+
+#: authlib.client.OAuth1Session.fetch_access_token:9 of
+msgid "Extra parameters to include for fetching access token."
+msgstr ""
+
+#: authlib.client.OAuth1Session.fetch_access_token:10
+#: authlib.client.OAuthClient.fetch_access_token:7 of
+msgid "A token dict."
+msgstr ""
+
+#: authlib.client.OAuth1Session.fetch_request_token:3 of
+msgid ""
+"This is the first step in the OAuth 1 workflow. A request token is "
+"obtained by making a signed post request to url. The token is then parsed"
+" from the application/x-www-form-urlencoded response and ready to be used"
+" to construct an authorization url."
+msgstr ""
+
+#: authlib.client.OAuth1Session.fetch_request_token:8 of
+msgid "Request Token endpoint."
+msgstr ""
+
+#: authlib.client.OAuth1Session.fetch_request_token:9 of
+msgid "A string/list/tuple of realm for Authorization header."
+msgstr ""
+
+#: authlib.client.OAuth1Session.fetch_request_token:10 of
+msgid "Extra parameters to include for fetching token."
+msgstr ""
+
+#: authlib.client.OAuth1Session.fetch_request_token:11 of
+msgid "A Request Token dict."
+msgstr ""
+
+#: authlib.client.OAuth1Session.fetch_request_token:13 of
+msgid "Note, ``realm`` can also be configured when session created::"
+msgstr ""
+
+#: authlib.client.OAuth1Session.parse_authorization_response:1 of
+msgid "Extract parameters from the post authorization redirect response URL."
+msgstr ""
+
+#: authlib.client.OAuth1Session.parse_authorization_response:4 of
+msgid ""
+"The full URL that resulted from the user being redirected back from the "
+"OAuth provider to you, the client."
+msgstr ""
+
+#: authlib.client.OAuth1Session.parse_authorization_response:6 of
+msgid "A dict of parameters extracted from the URL."
+msgstr ""
+
+#: authlib.client.OAuth1Auth:1 of
+msgid "Signs the request using OAuth 1 (RFC5849)"
+msgstr ""
+
+#: authlib.client.OAuth2Session:1 of
+msgid "Construct a new OAuth 2 client requests session."
+msgstr ""
+
+#: authlib.client.OAuth2Session:3 of
+msgid "Client ID, which you get from client registration."
+msgstr ""
+
+#: authlib.client.OAuth2Session:4 of
+msgid "Client Secret, which you get from registration."
+msgstr ""
+
+#: authlib.client.OAuth2Session:5 of
+msgid "Client auth method for token endpoint."
+msgstr ""
+
+#: authlib.client.OAuth2Session:6 of
+msgid "Refresh Token endpoint for auto refresh token."
+msgstr ""
+
+#: authlib.client.OAuth2Session:7 of
+msgid "Extra parameters for refresh token endpoint."
+msgstr ""
+
+#: authlib.client.OAuth2Session:8 of
+msgid "Scope that you needed to access user resources."
+msgstr ""
+
+#: authlib.client.OAuth2Session:9 of
+msgid "Redirect URI you registered as callback."
+msgstr ""
+
+#: authlib.client.OAuth2Session:10 of
+msgid ""
+"A dict of token attributes such as ``access_token``, ``token_type`` and "
+"``expires_at``."
+msgstr ""
+
+#: authlib.client.OAuth2Session:12 of
+msgid ""
+"The place to put token in HTTP request. Available values: \"header\", "
+"\"body\", \"uri\"."
+msgstr ""
+
+#: authlib.client.OAuth2Session:14 of
+msgid ""
+"State string used to prevent CSRF. This will be given when creating the "
+"authorization url and must be supplied when parsing the authorization "
+"response."
+msgstr ""
+
+#: authlib.client.OAuth2Session:17 of
+msgid ""
+"A function for you to update token. It accept a :class:`OAuth2Token` as "
+"parameter."
+msgstr ""
+
+#: authlib.client.OAuth2Session.create_authorization_url:1 of
+msgid "Generate an authorization URL and state."
+msgstr ""
+
+#: authlib.client.OAuth2Session.create_authorization_url:3 of
+msgid "Authorization endpoint url, must be HTTPS."
+msgstr ""
+
+#: authlib.client.OAuth2Session.create_authorization_url:4 of
+msgid ""
+"An optional state string for CSRF protection. If not given it will be "
+"generated for you."
+msgstr ""
+
+#: authlib.client.OAuth2Session.create_authorization_url:6
+#: authlib.client.OAuthClient.generate_authorize_redirect:5
+#: authlib.flask.client.RemoteApp.authorize_redirect:4 of
+msgid "Extra parameters to include."
+msgstr ""
+
+#: authlib.client.OAuth2Session.create_authorization_url:7 of
+msgid "authorization_url, state"
+msgstr ""
+
+#: authlib.client.OAuth2Session.fetch_access_token:1 of
+msgid "Alias for fetch_token."
+msgstr ""
+
+#: authlib.client.OAuth2Session.fetch_token:1 of
+msgid "Generic method for fetching an access token from the token endpoint."
+msgstr ""
+
+#: authlib.client.OAuth2Session.fetch_token:3 of
+msgid ""
+"Access Token endpoint URL, if not configured, ``authorization_response`` "
+"is used to extract token from its fragment (implicit way)."
+msgstr ""
+
+#: authlib.client.OAuth2Session.fetch_token:6 of
+msgid "Authorization code (if any)"
+msgstr ""
+
+#: authlib.client.OAuth2Session.fetch_token:7 of
+msgid ""
+"Authorization response URL, the callback URL of the request back to you. "
+"We can extract authorization code from it."
+msgstr ""
+
+#: authlib.client.OAuth2Session.fetch_token:10
+#: authlib.client.OAuth2Session.refresh_token:5
+#: authlib.client.OAuth2Session.revoke_token:7 of
+msgid ""
+"Optional application/x-www-form-urlencoded body to add the include in the"
+" token request. Prefer kwargs over body."
+msgstr ""
+
+#: authlib.client.OAuth2Session.fetch_token:12
+#: authlib.client.OAuth2Session.refresh_token:7
+#: authlib.client.OAuth2Session.revoke_token:9 of
+msgid "An auth tuple or method as accepted by requests."
+msgstr ""
+
+#: authlib.client.OAuth2Session.fetch_token:13 of
+msgid "Username of the resource owner for password grant."
+msgstr ""
+
+#: authlib.client.OAuth2Session.fetch_token:14 of
+msgid "Password of the resource owner for password grant."
+msgstr ""
+
+#: authlib.client.OAuth2Session.fetch_token:15 of
+msgid ""
+"The HTTP method used to make the request. Defaults to POST, but may also "
+"be GET. Other methods should be added as needed."
+msgstr ""
+
+#: authlib.client.OAuth2Session.fetch_token:18
+#: authlib.client.OAuth2Session.refresh_token:8
+#: authlib.client.OAuth2Session.revoke_token:10 of
+msgid "Dict to default request headers with."
+msgstr ""
+
+#: authlib.client.OAuth2Session.fetch_token:19
+#: authlib.client.OAuth2Session.refresh_token:9
+#: authlib.client.OAuth2Session.revoke_token:11 of
+msgid "A :class:`OAuth2Token` object (a dict too)."
+msgstr ""
+
+#: authlib.client.OAuth2Session.refresh_token:1 of
+msgid "Fetch a new access token using a refresh token."
+msgstr ""
+
+#: authlib.client.OAuth2Session.refresh_token:3 of
+msgid "Refresh Token endpoint, must be HTTPS."
+msgstr ""
+
+#: authlib.client.OAuth2Session.refresh_token:4 of
+msgid "The refresh_token to use."
+msgstr ""
+
+#: authlib.client.OAuth2Session.register_client_auth_method:1 of
+msgid "Extend client authenticate for token endpoint."
+msgstr ""
+
+#: authlib.client.OAuth2Session.register_client_auth_method:3 of
+msgid "a function to sign the request"
+msgstr ""
+
+#: authlib.client.OAuth2Session.register_compliance_hook:1 of
+msgid "Register a hook for request/response tweaking."
+msgstr ""
+
+#: authlib.client.OAuth2Session.register_compliance_hook:3 of
+msgid "Available hooks are:"
+msgstr ""
+
+#: authlib.client.OAuth2Session.register_compliance_hook:5 of
+msgid "access_token_response: invoked before token parsing."
+msgstr ""
+
+#: authlib.client.OAuth2Session.register_compliance_hook:6 of
+msgid "refresh_token_response: invoked before refresh token parsing."
+msgstr ""
+
+#: authlib.client.OAuth2Session.register_compliance_hook:7 of
+msgid "protected_request: invoked before making a request."
+msgstr ""
+
+#: authlib.client.OAuth2Session.register_compliance_hook:8 of
+msgid "revoke_token_request: invoked before revoking a token."
+msgstr ""
+
+#: authlib.client.OAuth2Session.revoke_token:1 of
+msgid "Revoke token method defined via `RFC7009`_."
+msgstr ""
+
+#: authlib.client.OAuth2Session.revoke_token:3 of
+msgid "Revoke Token endpoint, must be HTTPS."
+msgstr ""
+
+#: authlib.client.OAuth2Session.revoke_token:4 of
+msgid "The token to be revoked."
+msgstr ""
+
+#: authlib.client.OAuth2Session.revoke_token:5 of
+msgid ""
+"The type of the token that to be revoked. It can be \"access_token\" or "
+"\"refresh_token\"."
+msgstr ""
+
+#: authlib.client.AssertionSession:1 of
+msgid ""
+"Constructs a new Assertion Framework for OAuth 2.0 Authorization Grants "
+"per RFC7521_."
+msgstr ""
+
+#: authlib.client.AssertionSession.refresh_token:1 of
+msgid ""
+"Using Assertions as Authorization Grants to refresh token as described in"
+" `Section 4.1`_."
+msgstr ""
+
+#: authlib.client.AssertionSession.request:1 of
+msgid "Send request with auto refresh token feature."
+msgstr ""
+
+#: authlib.client.OAuth2Auth:1 of
+msgid "Sign requests for OAuth 2.0, currently only bearer token is supported."
+msgstr ""
+
+#: authlib.client.OAuthClient:1 of
+msgid "A mixed OAuth client for OAuth 1 and OAuth 2."
+msgstr ""
+
+#: authlib.client.OAuthClient:3 of
+msgid "Client key of OAuth 1, or Client ID of OAuth 2"
+msgstr ""
+
+#: authlib.client.OAuthClient:4 of
+msgid "Client secret of OAuth 2, or Client Secret of OAuth 2"
+msgstr ""
+
+#: authlib.client.OAuthClient:5 of
+msgid "Request Token endpoint for OAuth 1"
+msgstr ""
+
+#: authlib.client.OAuthClient:6 of
+msgid "Extra parameters for Request Token endpoint"
+msgstr ""
+
+#: authlib.client.OAuthClient:7 of
+msgid "Access Token endpoint for OAuth 1 and OAuth 2"
+msgstr ""
+
+#: authlib.client.OAuthClient:8 of
+msgid "Extra parameters for Access Token endpoint"
+msgstr ""
+
+#: authlib.client.OAuthClient:9 of
+msgid "Refresh Token endpoint for OAuth 2 (if any)"
+msgstr ""
+
+#: authlib.client.OAuthClient:10 of
+msgid "Extra parameters for Refresh Token endpoint"
+msgstr ""
+
+#: authlib.client.OAuthClient:11 of
+msgid "Endpoint for user authorization of OAuth 1 ro OAuth 2"
+msgstr ""
+
+#: authlib.client.OAuthClient:12 of
+msgid "Extra parameters for Authorization Endpoint"
+msgstr ""
+
+#: authlib.client.OAuthClient:13 of
+msgid "The base API endpoint to make requests simple"
+msgstr ""
+
+#: authlib.client.OAuthClient:14 of
+msgid "Extra keyword arguments for session"
+msgstr ""
+
+#: authlib.client.OAuthClient:15 of
+msgid "Discover server metadata from this URL"
+msgstr ""
+
+#: authlib.client.OAuthClient:16 of
+msgid "Extra keyword arguments"
+msgstr ""
+
+#: authlib.client.OAuthClient:18 of
+msgid ""
+"Create an instance of OAuthClient. If ``request_token_url`` is "
+"configured, it would be an OAuth 1 instance, otherwise it is OAuth 2 "
+"instance::"
+msgstr ""
+
+#: authlib.client.OAuthClient.generate_authorize_redirect:1 of
+msgid "Generate the authorization url and state for HTTP redirect."
+msgstr ""
+
+#: authlib.client.OAuthClient.generate_authorize_redirect:3
+#: authlib.flask.client.RemoteApp.authorize_redirect:3 of
+msgid "Callback or redirect URI for authorization."
+msgstr ""
+
+#: authlib.client.OAuthClient.generate_authorize_redirect:4 of
+msgid "A function to save request token."
+msgstr ""
+
+#: authlib.client.OAuthClient.generate_authorize_redirect:6 of
+msgid "(url, state)"
+msgstr ""
+
+#: authlib.client.OAuthClient.fetch_access_token:1 of
+msgid "Fetch access token in one step."
+msgstr ""
+
+#: authlib.client.OAuthClient.fetch_access_token:3 of
+msgid ""
+"Callback or Redirect URI that is used in previous "
+":meth:`authorize_redirect`."
+msgstr ""
+
+#: authlib.client.OAuthClient.fetch_access_token:5 of
+msgid "A previous request token for OAuth 1."
+msgstr ""
+
+#: authlib.client.OAuthClient.fetch_access_token:6 of
+msgid "Extra parameters to fetch access token."
+msgstr ""
+
+#: authlib.client.OAuthClient.get:1 of
+msgid "Invoke GET http request."
+msgstr ""
+
+#: authlib.client.OAuthClient.delete:3 authlib.client.OAuthClient.get:3
+#: authlib.client.OAuthClient.patch:3 authlib.client.OAuthClient.post:3
+#: authlib.client.OAuthClient.put:3 of
+msgid "If ``api_base_url`` configured, shortcut is available::"
+msgstr ""
+
+#: authlib.client.OAuthClient.post:1 of
+msgid "Invoke POST http request."
+msgstr ""
+
+#: authlib.client.OAuthClient.patch:1 of
+msgid "Invoke PATCH http request."
+msgstr ""
+
+#: authlib.client.OAuthClient.put:1 of
+msgid "Invoke PUT http request."
+msgstr ""
+
+#: authlib.client.OAuthClient.delete:1 of
+msgid "Invoke DELETE http request."
+msgstr ""
+
+#: ../../client/api.rst:47
+msgid "Flask Registry and RemoteApp"
+msgstr ""
+
+#: authlib.flask.client.OAuth:1 of
+msgid "Registry for oauth clients."
+msgstr ""
+
+#: authlib.flask.client.OAuth:3 of
+msgid "the app instance of Flask"
+msgstr ""
+
+#: authlib.flask.client.OAuth:5 of
+msgid "Create an instance with Flask::"
+msgstr ""
+
+#: authlib.flask.client.OAuth:9 of
+msgid "You can also pass the instance of Flask later::"
+msgstr ""
+
+#: authlib.flask.client.OAuth:14 of
+msgid "Flask application instance"
+msgstr ""
+
+#: authlib.flask.client.OAuth:15 of
+msgid "A cache instance that has .get .set and .delete methods"
+msgstr ""
+
+#: authlib.flask.client.OAuth:16 of
+msgid "a shared function to get current user's token"
+msgstr ""
+
+#: authlib.flask.client.OAuth:17 of
+msgid "a share function to update current user's token"
+msgstr ""
+
+#: authlib.flask.client.OAuth.init_app:1 of
+msgid "Init app with Flask instance."
+msgstr ""
+
+#: authlib.flask.client.OAuth.register:1 of
+msgid "Registers a new remote application."
+msgstr ""
+
+#: authlib.flask.client.OAuth.register:3 of
+msgid "Name of the remote application."
+msgstr ""
+
+#: authlib.flask.client.OAuth.register:4 of
+msgid "Overwrite existing config with Flask config."
+msgstr ""
+
+#: authlib.flask.client.OAuth.register:5 of
+msgid "Parameters for :class:`RemoteApp`."
+msgstr ""
+
+#: authlib.flask.client.OAuth.register:7 of
+msgid ""
+"Find parameters from :class:`~authlib.client.OAuthClient`. When a remote "
+"app is registered, it can be accessed with *named* attribute::"
+msgstr ""
+
+#: authlib.flask.client.RemoteApp:1 of
+msgid ""
+"Flask integrated RemoteApp of :class:`~authlib.client.OAuthClient`. It "
+"has built-in hooks for OAuthClient. The only required configuration is "
+"token model."
+msgstr ""
+
+#: authlib.flask.client.RemoteApp.authorize_access_token:1 of
+msgid "Authorize access token."
+msgstr ""
+
+#: authlib.flask.client.RemoteApp.authorize_redirect:1 of
+msgid "Create a HTTP Redirect for Authorization Endpoint."
+msgstr ""
+
+#: authlib.flask.client.RemoteApp.authorize_redirect:5 of
+msgid "A HTTP redirect response."
+msgstr ""
+
+#: authlib.flask.client.RemoteApp.save_authorize_state:1 of
+msgid "Save ``redirect_uri`` and ``state`` into session during authorize step."
+msgstr ""
+
+#: ../../client/api.rst:59
+msgid "Django Registry and RemoteApp"
+msgstr ""
+

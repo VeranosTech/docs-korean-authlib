@@ -1,0 +1,82 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../flask/2/resource-server.rst:4
+msgid "Resource Server"
+msgstr ""
+
+#: ../../flask/2/resource-server.rst:6
+msgid ""
+"Protect users resources, so that only the authorized clients with the "
+"authorized access token can access the given scope resources."
+msgstr ""
+
+#: ../../flask/2/resource-server.rst:9
+msgid ""
+"A resource server can be a different server other than the authorization "
+"server. Here is the way to protect your users' resources::"
+msgstr ""
+
+#: ../../flask/2/resource-server.rst:43
+msgid "If the resource is not protected by a scope, use ``None``::"
+msgstr ""
+
+#: ../../flask/2/resource-server.rst:59
+msgid ""
+"The ``current_token`` is a proxy to the Token model you have defined "
+"above. Since there is a ``user`` relationship on the Token model, we can "
+"access this ``user`` with ``current_token.user``."
+msgstr ""
+
+#: ../../flask/2/resource-server.rst:63
+msgid "If decorator is not your favorite, there is a ``with`` statement for you::"
+msgstr ""
+
+#: ../../flask/2/resource-server.rst:74
+msgid "Multiple Scopes"
+msgstr ""
+
+#: ../../flask/2/resource-server.rst:76
+msgid ""
+"You can apply multiple scopes to one endpoint in **AND** and **OR** "
+"modes. The default is **AND** mode."
+msgstr ""
+
+#: ../../flask/2/resource-server.rst:87
+msgid "It requires the token containing both ``profile`` and ``email`` scope."
+msgstr ""
+
+#: ../../flask/2/resource-server.rst:97
+msgid "It requires the token containing either ``profile`` or ``email`` scope."
+msgstr ""
+
+#: ../../flask/2/resource-server.rst:99
+msgid "It is also possible to pass a function as the scope operator. e.g.::"
+msgstr ""
+
+#: ../../flask/2/resource-server.rst:113
+msgid "MethodView & Flask-Restful"
+msgstr ""
+
+#: ../../flask/2/resource-server.rst:115
+msgid ""
+"You can also use the ``require_oauth`` decorator in "
+"``flask.views.MethodView`` and ``flask_restful.Resource``::"
+msgstr ""
+

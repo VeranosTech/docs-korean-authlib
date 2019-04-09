@@ -1,0 +1,176 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../basic/oauth1.rst:1
+msgid ""
+"Understand the concepts in OAuth 1.0, the authorization flow, roles, "
+"signatures and etc."
+msgstr ""
+
+#: ../../basic/oauth1.rst:1
+msgid ""
+"https://user-"
+"images.githubusercontent.com/290496/48671968-2c316080-eb73-11e8-9e6a-"
+"9e895cd67262.png"
+msgstr ""
+
+#: ../../basic/oauth1.rst:9
+msgid "Understand OAuth 1.0"
+msgstr ""
+
+#: ../../basic/oauth1.rst:11
+msgid ""
+"OAuth provides a method for clients to access server resources on behalf "
+"of a resource owner (such as a different client or an end- user).  It "
+"also provides a process for end-users to authorize third- party access to"
+" their server resources without sharing their credentials (typically, a "
+"username and password pair), using user- agent redirections."
+msgstr ""
+
+#: ../../basic/oauth1.rst:18
+msgid ""
+"This section will help developers understand the concepts in OAuth 1.0, "
+"but not in deep. Here is an overview of a typical OAuth 1.0 flow:"
+msgstr ""
+
+#: ../../basic/oauth1.rst:24
+msgid ""
+"It takes more steps to obtain an access token than :ref:`OAuth 2.0 "
+"<understand_oauth2>`."
+msgstr ""
+
+#: ../../basic/oauth1.rst:27
+msgid "Roles in OAuth 1.0"
+msgstr ""
+
+#: ../../basic/oauth1.rst:29
+msgid ""
+"There are usually three roles in an OAuth 1.0 flow. Let's take Twitter as"
+" an example, you are building a mobile app to send tweets:"
+msgstr ""
+
+#: ../../basic/oauth1.rst:32
+msgid ""
+"**Client**: a client is a third-party application. In this case, it is "
+"your application."
+msgstr ""
+
+#: ../../basic/oauth1.rst:34
+msgid ""
+"**Resource Owner**: the users on Twitter are the resource owners, since "
+"they own their tweets (resources)."
+msgstr ""
+
+#: ../../basic/oauth1.rst:36
+msgid ""
+"**Server**: authorization and resource server. In this case, it is "
+"twitter."
+msgstr ""
+
+#: ../../basic/oauth1.rst:39
+msgid "Credentials"
+msgstr ""
+
+#: ../../basic/oauth1.rst:41
+msgid ""
+"During the OAuth 1.0 process, there are several credentials passed from "
+"server to client, and vice versa."
+msgstr ""
+
+#: ../../basic/oauth1.rst:43
+msgid "client credentials"
+msgstr ""
+
+#: ../../basic/oauth1.rst:44
+msgid "temporary credentials"
+msgstr ""
+
+#: ../../basic/oauth1.rst:45
+msgid "token credentials"
+msgstr ""
+
+#: ../../basic/oauth1.rst:48
+msgid "OAuth 1.0 Flow"
+msgstr ""
+
+#: ../../basic/oauth1.rst:50
+msgid ""
+"Let's take your mobile Twitter app as an example. When a user wants to "
+"send a tweet through your application, he/she needs to authenticate at "
+"first. When the app is opened, and the login button is clicked:"
+msgstr ""
+
+#: ../../basic/oauth1.rst:54
+msgid ""
+"**Client** uses its **client credentials** to make a request to server, "
+"asking the server for a temporary credential."
+msgstr ""
+
+#: ../../basic/oauth1.rst:56
+msgid ""
+"**Server** responds with a **temporary credential** if it verified your "
+"client credential."
+msgstr ""
+
+#: ../../basic/oauth1.rst:58
+msgid ""
+"**Client** saves temporary credential for later use, then open a view for"
+" **resource owner** to grant the access."
+msgstr ""
+
+#: ../../basic/oauth1.rst:60
+msgid "When access is granted, **Server** responds with a **verifier** to client."
+msgstr ""
+
+#: ../../basic/oauth1.rst:61
+msgid ""
+"**Client** uses this **verifier and temporary credential** to make a "
+"request to the server asking for **token credentials**."
+msgstr ""
+
+#: ../../basic/oauth1.rst:63
+msgid "**Server** responds with access token if it verified everything."
+msgstr ""
+
+#: ../../basic/oauth1.rst:65
+msgid "And then **Client** can send tweets with the **token credentials**."
+msgstr ""
+
+#: ../../basic/oauth1.rst:68
+msgid "Signature"
+msgstr ""
+
+#: ../../basic/oauth1.rst:70
+msgid ""
+"In OAuth 1.0, every request **client** sending to **server** requires a "
+"signature. The signature is calculated from:"
+msgstr ""
+
+#: ../../basic/oauth1.rst:73
+msgid "credentials (client, temporary, token)"
+msgstr ""
+
+#: ../../basic/oauth1.rst:74
+msgid "timestamp & nonce"
+msgstr ""
+
+#: ../../basic/oauth1.rst:75
+msgid "other HTTP information"
+msgstr ""
+

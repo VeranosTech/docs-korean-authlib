@@ -1,0 +1,184 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../basic/intro.rst:4
+msgid "Introduction"
+msgstr ""
+
+#: ../../basic/intro.rst:6
+msgid ""
+"A general introduction to Authlib, a project that powers from low-level "
+"specification implementation to high-level framework integrations."
+msgstr ""
+
+#: ../../basic/intro.rst:11
+msgid ""
+"Authlib is the ultimate Python library in building OAuth and OpenID "
+"Connect clients and servers. It offers generic implementations of RFCs, "
+"including OAuth 1.0, OAuth 2.0, JWT and many more. It becomes a "
+":ref:`monolithic` project that powers from low-level specification "
+"implementation to high-level framework integrations."
+msgstr ""
+
+#: ../../basic/intro.rst:17
+msgid "I'm intended to make it profitable so that it can be :ref:`sustainable`."
+msgstr ""
+
+#: ../../basic/intro.rst:22
+msgid "Monolithic"
+msgstr ""
+
+#: ../../basic/intro.rst:24
+msgid ""
+"Authlib is a monolithic library. While being monolithic, it keeps "
+"everything synchronized, from spec implementation to framework "
+"integrations, from client requests to service providers."
+msgstr ""
+
+#: ../../basic/intro.rst:28
+msgid ""
+"The benefits are obvious; it won't break things. When specifications "
+"changed, implementation will change too. Let the developers of Authlib "
+"take the pain, users of Authlib should not suffer from it."
+msgstr ""
+
+#: ../../basic/intro.rst:32
+msgid ""
+"You don't have to worry about monolithic, it doesn't cost your memory. If"
+" you don't import a module, it won't be loaded. We don't madly import "
+"everything into the root **__init__.py**."
+msgstr ""
+
+#: ../../basic/intro.rst:37
+msgid "Flexible"
+msgstr ""
+
+#: ../../basic/intro.rst:39
+msgid ""
+"Authlib is designed as flexible as possible. Since it is built from low-"
+"level specification implementation to high-level framework integrations, "
+"if a high level can't meet your needs, you can always create one for your"
+" purpose based on the low-level implementation."
+msgstr ""
+
+#: ../../basic/intro.rst:44
+msgid ""
+"Most of the cases, you don't need to do so. Flexible has been taken into "
+"account from the start of the project. Take OAuth 2.0 server as an "
+"example, instead of a pre-configured server, Authlib takes advantage of "
+"``register``."
+msgstr ""
+
+#: ../../basic/intro.rst:54
+msgid ""
+"If you find anything not that flexible, you can ask help on StackOverflow"
+" or open an issue on GitHub."
+msgstr ""
+
+#: ../../basic/intro.rst:58
+msgid "Specification"
+msgstr ""
+
+#: ../../basic/intro.rst:60
+msgid ""
+"Authlib is a spec-compliant library which follows the latest "
+"specifications. We keep the generic tool functions in a ``specs`` module."
+" When there is a auth-related specification, we add it into ``specs``."
+msgstr ""
+
+#: ../../basic/intro.rst:64
+msgid "Currently, these specs are in the warehouse:"
+msgstr ""
+
+#: ../../basic/intro.rst:66
+msgid ":badge:`done` :ref:`specs/rfc5849`"
+msgstr ""
+
+#: ../../basic/intro.rst:67
+msgid ":badge:`done` :ref:`specs/rfc6749`"
+msgstr ""
+
+#: ../../basic/intro.rst:68
+msgid ":badge:`done` :ref:`specs/rfc6750`"
+msgstr ""
+
+#: ../../basic/intro.rst:69
+msgid ":badge:`done` :ref:`specs/rfc7009`"
+msgstr ""
+
+#: ../../basic/intro.rst:70
+msgid ":badge:`done` :ref:`specs/rfc7515`"
+msgstr ""
+
+#: ../../basic/intro.rst:71
+msgid ":badge-blue:`beta` :ref:`specs/rfc7516`"
+msgstr ""
+
+#: ../../basic/intro.rst:72
+msgid ":badge:`done` :ref:`specs/rfc7517`"
+msgstr ""
+
+#: ../../basic/intro.rst:73
+msgid ":badge:`done` :ref:`specs/rfc7518`"
+msgstr ""
+
+#: ../../basic/intro.rst:74
+msgid ":badge:`done` :ref:`specs/rfc7519`"
+msgstr ""
+
+#: ../../basic/intro.rst:75
+msgid ":badge:`done` :ref:`specs/rfc7523`"
+msgstr ""
+
+#: ../../basic/intro.rst:76
+msgid ":badge-blue:`beta` :ref:`specs/rfc7636`"
+msgstr ""
+
+#: ../../basic/intro.rst:77
+msgid ":badge:`done` :ref:`specs/rfc7662`"
+msgstr ""
+
+#: ../../basic/intro.rst:78
+msgid ":badge:`done` :ref:`specs/oidc`"
+msgstr ""
+
+#: ../../basic/intro.rst:81
+msgid "Credits"
+msgstr ""
+
+#: ../../basic/intro.rst:83
+msgid "This project is inspired by:"
+msgstr ""
+
+#: ../../basic/intro.rst:85
+msgid "OAuthLib"
+msgstr ""
+
+#: ../../basic/intro.rst:86
+msgid "Flask-OAuthlib"
+msgstr ""
+
+#: ../../basic/intro.rst:87
+msgid "requests-oauthlib"
+msgstr ""
+
+#: ../../basic/intro.rst:88
+msgid "pyjwt"
+msgstr ""
+

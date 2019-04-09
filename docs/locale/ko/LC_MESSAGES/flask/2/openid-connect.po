@@ -1,0 +1,230 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Hsiaoming Ltd
+# This file is distributed under the same license as the Authlib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Authlib 0.12.dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 11:53+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../flask/2/openid-connect.rst:4
+msgid "Flask OpenID Connect 1.0"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:6
+msgid ""
+"How to create an OpenID Connect server in Flask with Authlib. And "
+"understand how OpenID Connect works."
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:10
+msgid ""
+"OpenID Connect 1.0 is supported from version 0.6. The integrations are "
+"built with :ref:`flask_oauth2_custom_grant_types`. Since OpenID Connect "
+"is built on OAuth 2.0 frameworks, you need to read "
+":ref:`flask_oauth2_server` at first."
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:17
+msgid "Configuration"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:19
+msgid "OpenID Connect 1.0 requires JWT. It can be enabled by setting::"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:23
+msgid "When JWT is enabled, these configurations are available:"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:26 ../../flask/2/openid-connect.rst:34
+msgid "OAUTH2_JWT_ALG"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:26
+msgid "Algorithm for JWT"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:27
+msgid "OAUTH2_JWT_KEY"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:27
+msgid "Private key (in text) for JWT"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:28
+msgid "OAUTH2_JWT_KEY_PATH"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:28
+msgid "Private key path for JWT"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:29 ../../flask/2/openid-connect.rst:86
+msgid "OAUTH2_JWT_ISS"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:29
+msgid "Issuer value for JWT"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:30
+msgid "OAUTH2_JWT_EXP"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:30
+msgid "JWT expires time, default is 3600"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:36
+msgid ""
+"The algorithm to sign a JWT. This is the ``alg`` value defined in header "
+"part of a JWS:"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:43
+msgid "The available algorithms are defined in :ref:`specs/rfc7518`, which are:"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:45
+msgid "HS256: HMAC using SHA-256"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:46
+msgid "HS384: HMAC using SHA-384"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:47
+msgid "HS512: HMAC using SHA-512"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:48
+msgid "RS256: RSASSA-PKCS1-v1_5 using SHA-256"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:49
+msgid "RS384: RSASSA-PKCS1-v1_5 using SHA-384"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:50
+msgid "RS512: RSASSA-PKCS1-v1_5 using SHA-512"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:51
+msgid "ES256: ECDSA using P-256 and SHA-256"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:52
+msgid "ES384: ECDSA using P-384 and SHA-384"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:53
+msgid "ES512: ECDSA using P-521 and SHA-512"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:54
+msgid "PS256: RSASSA-PSS using SHA-256 and MGF1 with SHA-256"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:55
+msgid "PS384: RSASSA-PSS using SHA-384 and MGF1 with SHA-384"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:56
+msgid "PS512: RSASSA-PSS using SHA-512 and MGF1 with SHA-512"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:58
+msgid ""
+"The HMAC using SHA algorithms are not suggested since you need to share "
+"secrets between server and client. Most OpenID Connect services are using"
+" ``RS256``."
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:63
+msgid "OAUTH2_JWT_KEY / OAUTH2_JWT_KEY_PATH"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:65
+msgid ""
+"A private key is required to generate JWT. The value can be configured "
+"with either ``OAUTH2_JWT_KEY`` or ``OAUTH2_JWT_KEY_PATH``. The key that "
+"you are going to use dependents on the ``alg`` you are using. For "
+"instance, the alg is ``RS256``, you need to use a RSA private key. It can"
+" be set with::"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:78
+msgid ""
+"If you are using JWK set format, that would be better. Authlib will "
+"randomly choose a key among them to sign the JWT. To make it easier for "
+"maintenance, ``OAUTH2_JWT_KEY_PATH`` is a good choice::"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:88
+msgid ""
+"The ``iss`` value in JWT payload. The value can be your website name or "
+"URL. For example, Google is using::"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:96
+msgid "Code Flow"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:98
+msgid ""
+"OpenID Connect Code flow looks like the standard Authorization Code flow,"
+" and the implementation for :class:`OpenIDCodeGrant` is actually a "
+"subclass of :ref:`flask_oauth2_code_grant`. And the implementation is the"
+" same::"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:139
+msgid ""
+"The difference between OpenID Code flow and the standard code flow is "
+"that OpenID Connect request has a scope of \"openid\":"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:152
+msgid ""
+":class:`OpenIDCodeGrant` can handle the standard code flow too. You "
+"**MUST NOT** use them together."
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:157
+msgid ""
+"If the server can handle OpenID requests, use :class:`OpenIDCodeGrant`. "
+"DON'T ``register_grant(AuthorizationCodeGrant)``."
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:163
+msgid "Implicit Flow"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:165
+msgid ""
+"Implicit flow is simple, there is no missing methods should be "
+"implemented, we can simply import it and register it::"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:174
+msgid "Hybrid Flow"
+msgstr ""
+
+#: ../../flask/2/openid-connect.rst:176
+msgid ""
+"Hybrid flow is a mix of the code flow and implicit flow. The missing "
+"methods are the same with code flow::"
+msgstr ""
+
