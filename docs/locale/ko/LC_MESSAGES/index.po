@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../index.rst:7
 msgid "Authlib: Python Authentication"
-msgstr ""
+msgstr "오스리브(Authlib): 파이썬 인증"
 
 #: ../../index.rst:9
 msgid "Release v\\ |version|. (:ref:`Installation <install>`)"
@@ -31,6 +31,9 @@ msgid ""
 " It is designed from low level specifications implementations to high "
 "level frameworks integrations, to meet the needs of everyone."
 msgstr ""
+"OAuth 및 OpenID 연결 제작을 위한 궁극의 파이썬 파이브러리. "
+"저수준 표준 구현에서부터 모든 이의 필요를 충족하기 위한 고수준 프레임워크 통합까지 "
+"고려하여 설계되었다."
 
 #: ../../index.rst:15
 msgid "Authlib is compatible with Python2.7+ and Python3.5+."
